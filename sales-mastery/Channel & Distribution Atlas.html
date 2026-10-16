@@ -1,0 +1,980 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Channel &amp; Distribution Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a "pipeline" hero (maker → shelf → hands), then a row of colour-coded chapter tabs; every panel = big idea, cards, memory hook, exam tip. Single light world by design. */
+:root{
+  color-scheme: light;
+  --bg:#fbf9ff; --surface:#ffffff; --ink:#1d1b33; --ink-2:#4c4a66; --ink-3:#7d7a96; --line:#e7e3f3;
+  --c1:#ff4d6d; --c1s:#ffe4ea;   /* channels – raspberry */
+  --c2:#ff8a1f; --c2s:#fff0de;   /* physical distribution – tangerine */
+  --c3:#e8b400; --c3s:#fff7d1;   /* wholesalers – mustard */
+  --c4:#16b56c; --c4s:#dcf8ea;   /* retailers – emerald */
+  --c5:#06a7c7; --c5s:#d9f5fb;   /* franchising – lagoon */
+  --c6:#3d6bff; --c6s:#e2e9ff;   /* systems & conflict – cobalt */
+  --c7:#8b4dff; --c7s:#eee5ff;   /* goods/industrial/services – violet */
+  --c8:#e43fd0; --c8s:#fde3f9;   /* MLM – magenta */
+  --c9:#0f9d8f; --c9s:#d6f4f0;   /* SCM – teal */
+  --cq:#1d1b33; --cqs:#ecebf5;   /* quiz – ink */
+  --f-display:"Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:18px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(700px 360px at 6% -4%, var(--c1s), transparent 65%),
+    radial-gradient(640px 360px at 96% 2%, var(--c6s), transparent 65%),
+    radial-gradient(560px 320px at 55% 0%, var(--c3s), transparent 65%);
+  background-repeat:no-repeat}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+:focus-visible{outline:3px solid var(--c6);outline-offset:3px;border-radius:8px}
+
+/* HERO */
+.hero{padding-block:44px 22px;display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:800;letter-spacing:-.02em;margin-top:10px}
+.hero h1 .a{background:linear-gradient(90deg,var(--c1),var(--c2) 55%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .b{background:linear-gradient(90deg,var(--c6),var(--c7) 50%,var(--c8));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{margin-top:16px;font-size:18px;color:var(--ink-2);max-width:56ch}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.stat{font-family:var(--f-mono);font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;background:var(--surface);border:1.5px solid var(--line)}
+.stat b{color:var(--c1)}
+.stat:nth-child(2) b{color:var(--c4)} .stat:nth-child(3) b{color:var(--c6)} .stat:nth-child(4) b{color:var(--c8)}
+
+.pipe{background:var(--surface);border:1.5px solid var(--line);border-radius:24px;padding:22px 20px;box-shadow:0 20px 40px -26px rgba(61,107,255,.45)}
+.pipe-title{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:14px}
+.pipe-row{display:flex;align-items:center;gap:0}
+.node{flex:0 0 auto;width:74px;text-align:center;font-size:12px;font-weight:700;color:var(--ink-2)}
+.node i{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 6px;border-radius:16px;font-style:normal;font-family:var(--f-display);font-size:20px;font-weight:800;color:#fff}
+.link{flex:1 1 auto;height:6px;border-radius:6px;position:relative;overflow:hidden;background:var(--line);margin-top:-22px}
+.link::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--k) 0 10px,transparent 10px 20px);animation:flow 1.2s linear infinite}
+@keyframes flow{to{transform:translateX(20px)}}
+.pipe-back{display:flex;justify-content:space-between;margin-top:14px;font-family:var(--f-mono);font-size:12px;color:var(--ink-3)}
+.pipe-back span:first-child{color:var(--c6);font-weight:700}
+.pipe-back span:last-child{color:var(--c4);font-weight:700}
+.utilities{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.util{border-radius:12px;padding:9px 6px;text-align:center;font-size:12px;font-weight:700}
+.util small{display:block;font-weight:500;color:var(--ink-2);font-size:11px}
+
+/* TABS */
+.tabs-shell{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:thin}
+.tab{flex:0 0 auto;border:2px solid var(--c);background:var(--surface);color:var(--ink);font-family:var(--f-body);font-weight:700;font-size:14px;padding:8px 14px 8px 8px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:transform .15s, box-shadow .15s, background .15s}
+.tab .n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--cs);color:var(--c);font-family:var(--f-mono);font-size:12px}
+.tab:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px var(--c)}
+.tab[aria-selected="true"]{background:var(--c);color:#fff;box-shadow:0 10px 22px -10px var(--c)}
+.tab[aria-selected="true"] .n{background:rgba(255,255,255,.25);color:#fff}
+
+/* PANELS */
+main{padding-block:28px 64px}
+.panel{display:grid;gap:22px}
+.panel[hidden]{display:none!important}
+.p-head{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:linear-gradient(120deg,var(--cs),var(--surface) 70%);border:2px solid var(--cs);border-radius:24px;padding:22px}
+.p-num{width:76px;height:76px;border-radius:22px;background:var(--c);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:34px;box-shadow:0 14px 26px -14px var(--c)}
+.p-head h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.01em}
+.p-head p{color:var(--ink-2);margin-top:6px;max-width:72ch}
+.sec-title{font-family:var(--f-display);font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px}
+.sec-title::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c);transform:rotate(45deg)}
+.def{background:var(--surface);border-radius:var(--r);padding:20px 22px;border:1.5px solid var(--line);font-size:17px}
+.def q{quotes:"“" "”";font-family:var(--f-display);font-weight:500;font-size:19px;color:var(--ink)}
+.def .src{display:block;margin-top:8px;font-family:var(--f-mono);font-size:12px;color:var(--ink-3)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--c)}
+.card h4{font-size:17px;font-weight:700;display:flex;gap:10px;align-items:baseline}
+.card h4 .k{font-family:var(--f-mono);font-size:12px;color:var(--c);background:var(--cs);border-radius:6px;padding:2px 7px;flex:0 0 auto}
+.card p{color:var(--ink-2);font-size:15px;margin-top:6px}
+.card .eg{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--c);background:var(--cs);padding:3px 9px;border-radius:999px}
+ul.tick{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+ul.tick li{position:relative;padding-left:22px;color:var(--ink-2);font-size:15px}
+ul.tick li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:3px;background:var(--c)}
+.hook{border-radius:22px;padding:20px 22px;background:var(--c);color:#fff;display:grid;gap:10px;position:relative;overflow:hidden}
+.hook::after{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+.hook .lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.9}
+.hook .big{font-family:var(--f-display);font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:.01em}
+.hook p{opacity:.95;max-width:75ch}
+.hook .letters{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.hook .letters span{background:rgba(255,255,255,.2);border-radius:10px;padding:5px 10px;font-weight:600;font-size:14px}
+.hook .letters b{font-family:var(--f-display);font-size:18px;margin-right:3px}
+.tip{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:2px dashed var(--c);border-radius:var(--r);padding:16px 18px}
+.tip .t{flex:0 0 auto;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--c);color:#fff;border-radius:8px;padding:5px 8px}
+.tip p{color:var(--ink-2)}
+.story{background:var(--cs);border-radius:var(--r);padding:16px 18px;border-left:0}
+.story h4{font-size:16px;display:flex;gap:8px;align-items:center}
+.story h4::before{content:"Case";font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--c);color:#fff;padding:3px 7px;border-radius:6px}
+.story p{color:var(--ink-2);font-size:15px;margin-top:6px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.tbl-wrap{overflow-x:auto;border-radius:var(--r);border:1.5px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--cs)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+
+/* Channel level explorer */
+.explorer{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:18px}
+.lvl-btns{display:flex;flex-wrap:wrap;gap:8px}
+.lvl-btns button{font:700 14px var(--f-body);border:2px solid var(--c);background:var(--surface);color:var(--c);border-radius:12px;padding:8px 14px;cursor:pointer}
+.lvl-btns button[aria-pressed="true"]{background:var(--c);color:#fff}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.chain .box{padding:10px 14px;border-radius:12px;font-weight:700;font-size:14px;background:var(--cs);color:var(--ink);border:1.5px solid color-mix(in srgb, var(--c) 35%, transparent);animation:pop .35s ease both}
+.chain .box.end{background:var(--c);color:#fff}
+.chain .arr{color:var(--c);font-weight:800;font-family:var(--f-mono)}
+@keyframes pop{from{transform:scale(.85);opacity:.4}to{transform:none;opacity:1}}
+.chain-eg{margin-top:12px;color:var(--ink-2);font-size:15px}
+.chain-eg b{color:var(--ink)}
+
+/* intensity meter */
+.intensity{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.int{border-radius:var(--r);padding:16px;background:var(--surface);border:1.5px solid var(--line)}
+.dots{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--c)}
+.int h4{font-size:17px}
+.int p{font-size:14.5px;color:var(--ink-2)}
+
+/* transport ratings */
+.ratings{display:grid;gap:10px}
+.rate-row{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center}
+.rate-row .f{font-weight:700;font-size:14px}
+.rate-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.rate-bar span{border-radius:10px;padding:7px 4px;text-align:center;font-size:12.5px;font-weight:700}
+.rate-bar span:nth-child(1){background:var(--c);color:#fff}
+.rate-bar span:nth-child(2){background:color-mix(in srgb, var(--c) 70%, #fff);color:#fff}
+.rate-bar span:nth-child(3){background:color-mix(in srgb, var(--c) 45%, #fff)}
+.rate-bar span:nth-child(4){background:color-mix(in srgb, var(--c) 22%, #fff)}
+.rate-bar span:nth-child(5){background:var(--cs);color:var(--ink-2)}
+.scale{display:grid;grid-template-columns:130px 1fr;gap:12px}
+.scale .rate-bar span{background:none!important;color:var(--ink-3)!important;font-family:var(--f-mono);font-size:11px;padding:0}
+
+/* EOQ */
+.eoq{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:18px}
+.eoq form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.eoq label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--ink-2)}
+.eoq input{font:600 16px var(--f-mono);padding:9px 11px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+.eoq input:focus{border-color:var(--c);outline:none}
+.eoq-out{background:var(--cs);border-radius:16px;padding:16px;display:grid;gap:8px;align-content:start}
+.eoq-out .v{font-family:var(--f-display);font-size:42px;font-weight:800;color:var(--c);line-height:1;font-variant-numeric:tabular-nums}
+.eoq-out .row{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:13.5px;font-variant-numeric:tabular-nums;border-top:1px dashed color-mix(in srgb, var(--c) 40%, transparent);padding-top:6px}
+.formula{font-family:var(--f-mono);font-weight:700;font-size:18px;color:var(--ink)}
+
+/* conflict ladder */
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end}
+.rung{border-radius:14px 14px 6px 6px;padding:12px 10px;color:#fff;font-size:13.5px;min-width:0}
+.rung b{display:block;font-family:var(--f-display);font-size:17px}
+.rung:nth-child(1){background:color-mix(in srgb, var(--c) 45%, #fff);min-height:110px;color:var(--ink)}
+.rung:nth-child(2){background:color-mix(in srgb, var(--c) 65%, #fff);min-height:140px}
+.rung:nth-child(3){background:color-mix(in srgb, var(--c) 85%, #fff);min-height:170px}
+.rung:nth-child(4){background:var(--c);min-height:200px}
+.rung:nth-child(5){background:var(--c4);min-height:150px}
+
+/* VMS tree */
+.tree{display:grid;gap:12px}
+.tree .lvl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tree .pill{padding:9px 14px;border-radius:12px;font-weight:700;font-size:14px;background:var(--surface);border:2px solid var(--c);text-align:center}
+.tree .pill.main{background:var(--c);color:#fff}
+.tree .pill small{display:block;font-weight:500;font-size:12px;color:var(--ink-2)}
+.tree .pill.main small{color:rgba(255,255,255,.85)}
+
+/* flip cards */
+.flips{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.flip{perspective:900px;height:170px;cursor:pointer;border:0;background:none;padding:0;font:inherit;text-align:left}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.flip .fc,.flip .bc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:16px;display:grid;align-content:center;gap:6px}
+.flip .fc{background:var(--surface);border:2px solid var(--c)}
+.flip .fc b{font-family:var(--f-display);font-size:20px;color:var(--ink)}
+.flip .fc small{font-family:var(--f-mono);font-size:11px;color:var(--c);letter-spacing:.08em;text-transform:uppercase}
+.flip .bc{background:var(--c);color:#fff;transform:rotateY(180deg);font-size:14.5px;line-height:1.5}
+
+/* MLM pyramid */
+.pyr{display:grid;justify-items:center;gap:6px}
+.pyr div{height:34px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.pyr div:nth-child(1){width:30%;background:var(--c8)}
+.pyr div:nth-child(2){width:50%;background:color-mix(in srgb, var(--c8) 80%, #fff)}
+.pyr div:nth-child(3){width:70%;background:color-mix(in srgb, var(--c8) 60%, #fff)}
+.pyr div:nth-child(4){width:90%;background:color-mix(in srgb, var(--c8) 35%, #fff);color:var(--ink)}
+
+/* SCM flow */
+.psmdr{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.psmdr div{border-radius:16px;padding:14px 10px;text-align:center;background:var(--surface);border:2px solid var(--c)}
+.psmdr b{display:block;font-family:var(--f-display);font-size:26px;color:var(--c);line-height:1}
+.psmdr span{font-weight:700;font-size:14px}
+.psmdr small{display:block;color:var(--ink-2);font-size:12.5px;margin-top:4px}
+
+/* quiz */
+.quiz{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:22px;display:grid;gap:16px}
+.qmeta{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:13px;color:var(--ink-3);font-weight:700}
+.qbar{height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.qbar i{display:block;height:100%;background:linear-gradient(90deg,var(--c1),var(--c3),var(--c4),var(--c6),var(--c8));transition:width .3s}
+.qtext{font-family:var(--f-display);font-size:22px;font-weight:700}
+.opts{display:grid;gap:10px}
+.opt{font:600 15.5px var(--f-body);text-align:left;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--c6)}
+.opt.ok{border-color:var(--c4);background:var(--c4s)}
+.opt.no{border-color:var(--c1);background:var(--c1s)}
+.opt:disabled{cursor:default}
+.why{border-radius:14px;padding:12px 14px;background:var(--c6s);color:var(--ink-2);font-size:15px}
+.qnav{display:flex;gap:10px;justify-content:flex-end}
+.btn{font:700 15px var(--f-body);padding:10px 18px;border-radius:12px;border:0;background:var(--ink);color:#fff;cursor:pointer}
+.btn.alt{background:var(--surface);color:var(--ink);border:2px solid var(--ink)}
+.score{text-align:center;display:grid;gap:10px;justify-items:center;padding:12px}
+.score .v{font-family:var(--f-display);font-size:64px;font-weight:800;line-height:1;background:linear-gradient(90deg,var(--c1),var(--c6),var(--c8));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.foot{text-align:center;color:var(--ink-3);font-size:13px;padding-block:10px 40px}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .eoq{grid-template-columns:1fr}
+  .intensity{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr 1fr}
+  .rung{min-height:auto!important}
+  .psmdr{grid-template-columns:repeat(auto-fit,minmax(100px,1fr))}
+}
+@media (max-width:520px){
+  .p-head{grid-template-columns:1fr}
+  .p-num{width:60px;height:60px;font-size:26px}
+  .node{width:58px;font-size:11px}
+  .node i{width:42px;height:42px;font-size:16px}
+  .utilities{grid-template-columns:1fr 1fr}
+  .rate-row,.scale{grid-template-columns:1fr}
+  .scale .f{display:none}
+  .eoq form{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<header class="wrap hero">
+  <div>
+    <div class="eyebrow">Marketing study atlas · the “Place” in the 4Ps</div>
+    <h1><span class="a">Channel</span> &amp; <span class="b">Distribution</span> Management</h1>
+    <p class="lede">How products travel from the factory gate to a customer’s hands: the middlemen who carry them, the trucks and warehouses that move them, the systems that bind everyone together, and the conflicts that pull them apart.</p>
+    <div class="hero-stats">
+      <span class="stat"><b>9</b> chapters</span>
+      <span class="stat"><b>11</b> channel functions</span>
+      <span class="stat"><b>5</b> PD components</span>
+      <span class="stat"><b>15</b> quiz questions</span>
+    </div>
+  </div>
+  <div class="pipe" aria-label="A two-level marketing channel">
+    <div class="pipe-title">A typical FMCG pipeline (2-level)</div>
+    <div class="pipe-row">
+      <div class="node"><i style="background:var(--c1)">M</i>Maker</div>
+      <div class="link" style="--k:var(--c1)"></div>
+      <div class="node"><i style="background:var(--c3)">W</i>Wholesaler</div>
+      <div class="link" style="--k:var(--c3)"></div>
+      <div class="node"><i style="background:var(--c4)">R</i>Retailer</div>
+      <div class="link" style="--k:var(--c4)"></div>
+      <div class="node"><i style="background:var(--c6)">C</i>Consumer</div>
+    </div>
+    <div class="pipe-back"><span>← information &amp; payment flow back</span><span>goods flow →</span></div>
+    <div class="utilities">
+      <div class="util" style="background:var(--c1s)">Time<small>when needed</small></div>
+      <div class="util" style="background:var(--c2s)">Place<small>where needed</small></div>
+      <div class="util" style="background:var(--c4s)">Form<small>right pack size</small></div>
+      <div class="util" style="background:var(--c7s)">Possession<small>ownership moves</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-shell">
+  <nav class="wrap tabs" role="tablist" aria-label="Chapters" id="tabs">
+    <button class="tab" role="tab" id="t-channels" aria-controls="channels" style="--c:var(--c1);--cs:var(--c1s)"><span class="n">1</span>Marketing Channels</button>
+    <button class="tab" role="tab" id="t-physical" aria-controls="physical" style="--c:var(--c2);--cs:var(--c2s)"><span class="n">2</span>Physical Distribution</button>
+    <button class="tab" role="tab" id="t-wholesalers" aria-controls="wholesalers" style="--c:var(--c3);--cs:var(--c3s)"><span class="n">3</span>Wholesalers</button>
+    <button class="tab" role="tab" id="t-retailers" aria-controls="retailers" style="--c:var(--c4);--cs:var(--c4s)"><span class="n">4</span>Retailers</button>
+    <button class="tab" role="tab" id="t-franchising" aria-controls="franchising" style="--c:var(--c5);--cs:var(--c5s)"><span class="n">5</span>Franchising</button>
+    <button class="tab" role="tab" id="t-systems" aria-controls="systems" style="--c:var(--c6);--cs:var(--c6s)"><span class="n">6</span>Systems &amp; Conflict</button>
+    <button class="tab" role="tab" id="t-goods" aria-controls="goods" style="--c:var(--c7);--cs:var(--c7s)"><span class="n">7</span>Goods vs Services</button>
+    <button class="tab" role="tab" id="t-mlm" aria-controls="mlm" style="--c:var(--c8);--cs:var(--c8s)"><span class="n">8</span>MLM</button>
+    <button class="tab" role="tab" id="t-scm" aria-controls="scm" style="--c:var(--c9);--cs:var(--c9s)"><span class="n">9</span>Supply Chain</button>
+    <button class="tab" role="tab" id="t-quiz" aria-controls="quiz" style="--c:var(--cq);--cs:var(--cqs)"><span class="n">?</span>Quiz &amp; Flashcards</button>
+  </nav>
+</div>
+
+<main class="wrap">
+
+<!-- 1 CHANNELS -->
+<section class="panel" id="channels" role="tabpanel" aria-labelledby="t-channels" style="--c:var(--c1);--cs:var(--c1s)">
+  <div class="p-head"><div class="p-num">1</div><div><h2>Marketing Channels</h2><p>Channels are the pipelines through which goods and services flow from makers to buyers. Channel management is the core of physical distribution, and channel decisions are some of the most critical in marketing.</p></div></div>
+  <div class="def"><q>An organised network of interconnected organisations and agencies involved in the process of making a product or service available to consumers.</q><span class="src">Also called middlemen or intermediaries: independent, profit-seeking businesses that sit between the firm and its customers.</span></div>
+
+  <h3 class="sec-title">Why use middlemen at all?</h3>
+  <p style="color:var(--ink-2)">Direct marketing (no middlemen) keeps control and customer contact. Indirect marketing (1 to n levels) gives reach. People complain that “all they do is raise the price”, yet producers keep using them. Here is why.</p>
+  <div class="grid">
+    <div class="card"><h4><span class="k">÷</span>Fewer transactions</h4><p>3 makers × 3 buyers = 9 deals direct. With one middleman it drops to 6, cutting effort and cost.</p></div>
+    <div class="card"><h4><span class="k">⌖</span>Reach scattered buyers</h4><p>Producers can't deal one-on-one with consumers spread over a wide area.</p></div>
+    <div class="card"><h4><span class="k">₹</span>Money &amp; expertise</h4><p>Many producers lack the funds and know-how for direct marketing; they can reinvest in their core business instead.</p></div>
+    <div class="card"><h4><span class="k">⇄</span>Bridge the gap</h4><p>Matches buyers' quality, quantity and variety needs with what producers offer.</p></div>
+    <div class="card"><h4><span class="k">★</span>Contacts &amp; rapport</h4><p>Experience, infrastructure and local relationships let them sell more profitably, even unpackaged goods.</p></div>
+    <div class="card"><h4><span class="k">⏱</span>Create utilities</h4><p>Time, place, form and possession utilities: the right product, at the right place, time and pack size.</p></div>
+  </div>
+
+  <h3 class="sec-title">The 11 functions of a channel</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">01</span>Facilitation</h4><p>Bring buyers and sellers together and help close the deal.</p></div>
+    <div class="card"><h4><span class="k">02</span>Information</h4><p>Tell customers about the products and services.</p></div>
+    <div class="card"><h4><span class="k">03</span>Promotion</h4><p>Build and promote the producer's brands.</p></div>
+    <div class="card"><h4><span class="k">04</span>Negotiation</h4><p>Agree prices and delivery terms on the maker's behalf.</p></div>
+    <div class="card"><h4><span class="k">05</span>Title transfer</h4><p>Move ownership from seller to buyer.</p></div>
+    <div class="card"><h4><span class="k">06</span>Inventory &amp; risk</h4><p>Hold ready stock and share its cost and risk.</p></div>
+    <div class="card"><h4><span class="k">07</span>Finance</h4><p>Deposits, advance orders and stock-holding ease the maker's money burden.</p></div>
+    <div class="card"><h4><span class="k">08</span>Pre/post-sale service</h4><p>Demos, installation and maintenance the maker can't deliver to every customer.</p></div>
+    <div class="card"><h4><span class="k">09</span>Change agent</h4><p>Explain price changes and new features and build a favourable opinion of them.</p></div>
+    <div class="card"><h4><span class="k">10</span>Warehousing &amp; transport</h4><p>Store goods and move them to markets and end users.</p></div>
+    <div class="card"><h4><span class="k">11</span>Market feedback</h4><p>Report on customers, competitors and trends, and keep sales records.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · group the 11 into 4 Cs</div>
+    <div class="big">Connect · Communicate · Carry · Care</div>
+    <div class="letters">
+      <span><b>Connect</b> facilitation, negotiation, title</span>
+      <span><b>Communicate</b> information, promotion, change agent, feedback</span>
+      <span><b>Carry</b> inventory &amp; risk, finance, warehouse &amp; transport</span>
+      <span><b>Care</b> pre- &amp; post-sale service</span>
+    </div>
+  </div>
+
+  <h3 class="sec-title">Channel levels explorer</h3>
+  <div class="explorer">
+    <div class="lvl-btns" id="lvlBtns">
+      <button type="button" data-l="0" aria-pressed="false">Zero level</button>
+      <button type="button" data-l="1" aria-pressed="true">One level</button>
+      <button type="button" data-l="2" aria-pressed="false">Two level</button>
+      <button type="button" data-l="3" aria-pressed="false">Three+ level</button>
+    </div>
+    <div class="chain" id="chain"></div>
+    <div class="chain-eg" id="chainEg"></div>
+  </div>
+
+  <h3 class="sec-title">Intensity of distribution</h3>
+  <div class="intensity">
+    <div class="int"><h4>Exclusive</h4><div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Outlets sell only one maker's brand: own showrooms or franchisees. Used for automobiles and luxury lifestyle goods.</p></div>
+    <div class="int"><h4>Selective</h4><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Some chosen outlets, which may also stock rivals. Typical for branded garments and apparel.</p></div>
+    <div class="int"><h4>Intensive</h4><div class="dots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><p>As many outlets as possible, for FMCG and convenience goods: Pepsi, soap, milk, bread, biscuits.</p></div>
+  </div>
+
+  <div class="cols">
+    <div class="card"><h4><span class="k">?</span>What decides the channel?</h4>
+      <ul class="tick">
+        <li><b>Product</b>: its nature, perishability, complexity</li>
+        <li><b>Consumer</b>: who buys, and how</li>
+        <li><b>Middlemen</b>: cost, suitability, availability, legal limits, upkeep</li>
+        <li><b>Company</b>: resources, policy, targets, desired coverage</li>
+        <li><b>Market</b>: nature, size, spread, order size and frequency</li>
+        <li><b>Competitors'</b> channels</li>
+      </ul>
+    </div>
+    <div class="card"><h4><span class="k">+</span>Non-conventional channels</h4>
+      <ul class="tick">
+        <li><b>Door-to-door / MLM</b>: milk, Tupperware, cosmetics</li>
+        <li><b>Consumer co-operatives</b>: buy in bulk, no profit no loss</li>
+        <li><b>Vending machines</b>: coin or card operated, impersonal</li>
+        <li><b>Vending kiosks</b>: give information and take orders only</li>
+        <li><b>Catalogue marketing</b>: exclusive and ethnic items</li>
+        <li><b>Company-sponsored selling</b>: employer buys for staff (Diwali gifts)</li>
+        <li><b>Teleshopping</b>: Asian Sky Shop pioneered it in India</li>
+      </ul>
+    </div>
+  </div>
+  <div class="hook" style="background:linear-gradient(120deg,var(--c1),var(--c2))">
+    <div class="lbl">Memory hook · channel choice factors</div>
+    <div class="big">“Please Consider My Company's Market Competition”</div>
+    <p>Product · Consumer · Middlemen · Company · Market · Competitors</p>
+  </div>
+  <div class="tip"><span class="t">Exam tip</span><p>Distribution intensity sits inside <b>company considerations</b> (desired market coverage). Pair each level with an example: Exclusive → cars, Selective → branded shirts, Intensive → biscuits.</p></div>
+</section>
+
+<!-- 2 PHYSICAL DISTRIBUTION -->
+<section class="panel" id="physical" role="tabpanel" aria-labelledby="t-physical" style="--c:var(--c2);--cs:var(--c2s)" hidden>
+  <div class="p-head"><div class="p-num">2</div><div><h2>Physical Distribution</h2><p>A poor distribution system can destroy a good product. More than half of new-product failures have been traced to distribution mistakes rather than technology or market factors.</p></div></div>
+  <div class="def"><q>Planning, implementing and controlling the physical flows of materials and final goods from the place of production to the place of end use to satisfy buyers' needs.</q><span class="src">Philip Kotler · Logistics is wider: it also covers the inbound flow of raw materials (physical supply).</span></div>
+
+  <div class="cols">
+    <div class="card"><h4><span class="k">P</span>Product ↔ PD</h4><p>Complex technical products go direct. FMCG needs many intermediaries and warehouses. Perishables need the shortest channel and cold storage.</p></div>
+    <div class="card"><h4><span class="k">₹</span>Price ↔ PD</h4><p>Air freight and extra channel levels push prices up. The relationship runs both ways, and big savings are possible in distribution.</p></div>
+    <div class="card"><h4><span class="k">📣</span>Promotion ↔ PD</h4><p>Ads must be timed with logistics so stock is on the shelf when demand peaks. Co-operative advertising shares cost with channel members.</p></div>
+  </div>
+  <div class="story"><h4>Kodak vs Polaroid</h4><p>Kodak's aggressive promotion of its new instant camera built strong demand, but retailers didn't get enough stock. Polaroid stepped in and took the sales. Even loyal buyers won't wait forever.</p></div>
+
+  <h3 class="sec-title">Objectives: balancing cost and service</h3>
+  <div class="grid two">
+    <div class="card"><h4><span class="k">Σ</span>Total cost concept</h4><p>Lower the overall cost of distribution by balancing transport, warehouse rent, inventory carrying and order-processing costs together, not one at a time.</p></div>
+    <div class="card"><h4><span class="k">⚖</span>Cost–service trade-off</h4><p>More service means more stock, faster transport and more warehouses, so higher cost. Find the level customers expect and competitors offer. Many customers will pay extra for convenience, such as home-delivered movie tickets.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · 5 customer-service elements</div>
+    <div class="big">T · D · C · C · A: “The Delivery Came Complete &amp; Accurate”</div>
+    <div class="letters">
+      <span><b>T</b>ime: short lead / order-cycle time</span>
+      <span><b>D</b>ependability: consistent lead time, no surprise delays</span>
+      <span><b>C</b>ommunication: before, during and after transit</span>
+      <span><b>C</b>onvenience: 24×7, home delivery, ATMs</span>
+      <span><b>A</b>ccuracy: right items, right lots</span>
+    </div>
+  </div>
+
+  <h3 class="sec-title">The 5 components</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">1</span>Order processing</h4><p>Receive the order, check credit and dues, check stock, invoice, arrange the transporter, dispatch and inform. GE's system did all of this in under 15 seconds.</p></div>
+    <div class="card"><h4><span class="k">2</span>Transportation</h4><p>Choose the route and the mode. It is the biggest share of distribution cost and decides on-time, undamaged delivery.</p></div>
+    <div class="card"><h4><span class="k">3</span>Warehousing</h4><p>Bridges the time gap between production and consumption, which is vital for seasonal farm produce.</p></div>
+    <div class="card"><h4><span class="k">4</span>Material handling</h4><p>Adds no value but every touch risks damage. Conveyors, forklifts, cranes, hoists; robotic and barcode systems in the West.</p></div>
+    <div class="card"><h4><span class="k">5</span>Inventory control</h4><p>What, when and how much to order and stock at the lowest cost. Tools: JIT and EOQ.</p></div>
+  </div>
+  <div class="hook" style="background:linear-gradient(120deg,var(--c2),var(--c1))">
+    <div class="lbl">Memory hook · the 5 components in order</div>
+    <div class="big">“Only Trucks Won't Move Inventory”</div>
+    <p>Order processing → Transportation → Warehousing → Material handling → Inventory control</p>
+  </div>
+
+  <h3 class="sec-title">Transport modes compared</h3>
+  <div class="ratings" aria-label="Transport mode ratings from very high to very low">
+    <div class="scale"><span class="f"></span><div class="rate-bar"><span>Very high</span><span>High</span><span>Moderate</span><span>Low</span><span>Very low</span></div></div>
+    <div class="rate-row"><span class="f">Speed</span><div class="rate-bar"><span>Air</span><span>Road</span><span>Rail</span><span>Pipeline</span><span>Water</span></div></div>
+    <div class="rate-row"><span class="f">Access</span><div class="rate-bar"><span>Road</span><span>Air</span><span>Rail</span><span>Water</span><span>Pipeline</span></div></div>
+    <div class="rate-row"><span class="f">Dependability</span><div class="rate-bar"><span>Road</span><span>Water</span><span>Pipeline</span><span>Rail</span><span>Air</span></div></div>
+    <div class="rate-row"><span class="f">Load flexibility</span><div class="rate-bar"><span>Water</span><span>Rail</span><span>Road</span><span>Air</span><span>Pipeline</span></div></div>
+    <div class="rate-row"><span class="f">Frequency</span><div class="rate-bar"><span>Road</span><span>Air</span><span>Rail</span><span>Water</span><span>Pipeline</span></div></div>
+    <div class="rate-row"><span class="f">Cost</span><div class="rate-bar"><span>Air</span><span>Road</span><span>Rail</span><span>Pipeline</span><span>Water</span></div></div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Mode</th><th>Best for</th><th>Plus</th><th>Minus</th></tr></thead>
+      <tbody>
+        <tr><td>Rail</td><td>Heavy, bulk, long distance</td><td>Cheap, well networked in India, weather-resistant</td><td>Slow, limited reach, paperwork, manual handling damage</td></tr>
+        <tr><td>Road</td><td>Medium–heavy, short–middle distance, semi-perishables</td><td>Most popular, flexible routes, door-to-door, remote reach</td><td>Costly, road blocks and jams, theft and accident risk</td></tr>
+        <tr><td>Air</td><td>Documents, light, high-value, perishables</td><td>Fastest and safest; exports of flowers and medicines</td><td>Highest cost, size limits, limited reach</td></tr>
+        <tr><td>Water</td><td>Heavy, bulky, low-value, non-perishable</td><td>Cheapest</td><td>Very slow, weather-dependent, weak inland and port facilities</td></tr>
+        <tr><td>Pipeline</td><td>Oil, gas, chemicals</td><td>Efficient over long distances</td><td>Heavy initial investment, permissions, leak and pilferage risk</td></tr>
+        <tr><td>Postal / courier</td><td>Documents, books, spares</td><td>Reliable, fast, safe</td><td>Small and light items only</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flips">
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Containerisation · tap</small><b>Piggyback</b></div><div class="bc">Road + Rail. Cheaper than road alone while keeping road's flexibility.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Containerisation · tap</small><b>Fishyback</b></div><div class="bc">Road + Water. A fish swims, so water is involved.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Containerisation · tap</small><b>Trainship</b></div><div class="bc">Rail + Water. The train rolls onto a ship.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Containerisation · tap</small><b>Airtruck</b></div><div class="bc">Road + Air. Trucks feed the airport.</div></div></button>
+  </div>
+  <div class="card"><h4><span class="k">✓</span>Choosing a mode</h4><p>Suitability (size, weight, shelf life) · Affordability · Availability at the destination · Customer's specified transporter · Competitor's choice · plus speed, dependability, frequency and carrier reputation.</p></div>
+
+  <h3 class="sec-title">Warehouses</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">PV</span>Private</h4><p>Owned or leased by the maker. High investment, high control. Big stockists and retail chains.</p></div>
+    <div class="card"><h4><span class="k">PB</span>Public</h4><p>Rent space only when needed, with grading, labelling and invoicing services. Suits small firms and seasonal demand. FCI and onion “kanda chawls” are examples.</p></div>
+    <div class="card"><h4><span class="k">DC</span>Distribution</h4><p>Short stay, highly automated, goods move out fast. Works like a central dispatch department.</p></div>
+    <div class="card"><h4><span class="k">BD</span>Bonded</h4><p>Licensed by customs. Imports wait here until duty is paid; exports wait for shipment.</p></div>
+    <div class="card"><h4><span class="k">MD</span>Mother depot</h4><p>Central big stock feeding many smaller warehouses, cutting holding, obsolescence and transport cost.</p></div>
+  </div>
+  <div class="cols">
+    <div class="card"><h4><span class="k">⌂</span>Location</h4><ul class="tick"><li>Power, water, labour, transport</li><li>Room to expand</li><li>Near highways or rail junctions</li><li>Municipal rules; outskirts can earn duty concessions</li></ul></div>
+    <div class="card"><h4><span class="k">▦</span>Storage methods</h4><ul class="tick"><li>Use space fully; easy to store, pick and identify</li><li>FIFO: issue the oldest stock first</li><li>Like items together; keep items that harm each other apart</li><li>Heavy items low, fast-movers near the exit</li></ul></div>
+  </div>
+
+  <h3 class="sec-title">Inventory: JIT and EOQ</h3>
+  <div class="cols">
+    <div class="card"><h4><span class="k">JIT</span>Just-in-time</h4><p>Originated in Japan; Tata Motors uses it in India. Material arrives just before production, with no idle stock. It needs reliable suppliers, close communication, attention to quality and good transport. The risk is stock-outs and line shutdowns.</p></div>
+    <div class="card"><h4><span class="k">EOQ</span>Economic order quantity</h4><p>The “least cost quantity”, where <b>ordering cost = carrying cost</b> and total cost is lowest. Ordering cost falls with bulk buying; carrying cost (interest, rent, insurance, obsolescence) rises with it.</p></div>
+  </div>
+  <div class="eoq">
+    <form id="eoqForm" onsubmit="return false">
+      <div style="grid-column:1/-1" class="formula">EOQ = √(2AP ÷ CU)</div>
+      <label for="eA">A · Annual demand (units)<input id="eA" type="number" min="1" value="12000"></label>
+      <label for="eP">P · Ordering cost per order (₹)<input id="eP" type="number" min="0" step="any" value="50"></label>
+      <label for="eC">C · Carrying cost (% per year)<input id="eC" type="number" min="0.01" step="any" value="20"></label>
+      <label for="eU">U · Unit price (₹)<input id="eU" type="number" min="0.01" step="any" value="2"></label>
+    </form>
+    <div class="eoq-out" aria-live="polite">
+      <div class="eyebrow">Your EOQ</div>
+      <div class="v" id="eoqV">1,732</div>
+      <div class="row"><span>Orders per year</span><span id="eoqN">6.9</span></div>
+      <div class="row"><span>Ordering cost (AP÷EOQ)</span><span id="eoqO">₹346</span></div>
+      <div class="row"><span>Carrying cost (CU×EOQ÷2)</span><span id="eoqK">₹346</span></div>
+      <div style="font-size:13px;color:var(--ink-2)">Opens on the textbook example (12,000 units, ₹50, 20%, ₹2). Change any number.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 WHOLESALERS -->
+<section class="panel" id="wholesalers" role="tabpanel" aria-labelledby="t-wholesalers" style="--c:var(--c3);--cs:var(--c3s)" hidden>
+  <div class="p-head"><div class="p-num">3</div><div><h2>Wholesalers</h2><p>Also called distributors. They buy in bulk from producers and resell in smaller lots to retailers and business users, rarely to the final consumer. In India, millions of small stores make them indispensable.</p></div></div>
+  <div class="def"><q>A business unit which buys and resells merchandise to retailers and other merchants or to industrial, institutional and commercial users, but does not sell in significant amounts to ultimate consumers.</q><span class="src">American Marketing Association</span></div>
+  <div class="card"><h4><span class="k">ID</span>Characteristics</h4><ul class="tick"><li>Vital link between maker and retailer</li><li>Buys bulk, sells small lots</li><li>Deals in a limited number of products</li><li>Shows samples instead of displays</li><li>Operates in a specific area</li></ul></div>
+
+  <h3 class="sec-title">8 functions</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">A</span>Assemble &amp; break bulk</h4><p>Sugar mills sell by the tonne; you buy 1–10 kg. The wholesaler bridges that gap.</p></div>
+    <div class="card"><h4><span class="k">W</span>Warehousing</h4><p>Holds stock and releases it as local demand needs.</p></div>
+    <div class="card"><h4><span class="k">G</span>Grading &amp; packing</h4><p>Sorts by quality into convenient packs; critical for exports.</p></div>
+    <div class="card"><h4><span class="k">T</span>Transportation</h4><p>Moves goods from warehouse to retailers at bulk economy.</p></div>
+    <div class="card"><h4><span class="k">F</span>Financing</h4><p>Credit to retailers, plus help with accounts and recoveries.</p></div>
+    <div class="card"><h4><span class="k">U</span>Uninterrupted flow</h4><p>Adequate stock avoids stock-outs.</p></div>
+    <div class="card"><h4><span class="k">R</span>Risk bearing</h4><p>Owns the goods and carries trade and financial risk.</p></div>
+    <div class="card"><h4><span class="k">M</span>Market information</h4><p>Knows local trends and competition; helps with research.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · 8 functions</div>
+    <div class="big">“A Wise Grocer Trusts Friends Until Real Money”</div>
+    <p>Assembling · Warehousing · Grading · Transport · Financing · Uninterrupted flow · Risk · Market info</p>
+  </div>
+
+  <h3 class="sec-title">Who gains what</h3>
+  <div class="cols">
+    <div class="card"><h4><span class="k">→M</span>For the producer</h4><ul class="tick"><li>Bulk buying enables mass production</li><li>Takes over storage and transport burden</li><li>Opens wide markets with less risk</li><li>Feeds back market intelligence</li><li>Prevents stock-outs and brand switching</li></ul></div>
+    <div class="card"><h4><span class="k">→R</span>For the retailer</h4><ul class="tick"><li>Variety in small lots without big capital</li><li>Setup and expansion support</li><li>Steady supply, so lower stock and risk</li><li>POP material, display and layout ideas</li><li>Voluntary groups help independents compete with chains</li></ul></div>
+    <div class="card"><h4><span class="k">→C</span>For the consumer</h4><ul class="tick"><li>Wider choice at the corner shop</li><li>Emergency needs met, prices stable</li><li>Better-informed retailers make choosing easier</li></ul></div>
+  </div>
+
+  <h3 class="sec-title">Types of wholesalers</h3>
+  <div class="tree" style="--c:var(--c3)">
+    <div class="lvl">
+      <div class="pill main">Merchant wholesalers<small>take title</small></div>
+      <div class="pill main">Brokers &amp; agents<small>no title, commission</small></div>
+      <div class="pill main">Sales branches &amp; offices<small>maker-owned</small></div>
+      <div class="pill main">Miscellaneous<small>auctions, agri-assemblers, import–export</small></div>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="card"><h4><span class="k">FULL</span>Full-service</h4><p>Every channel function: stock, sales force, credit, management help. General merchandise, specialty (one line in depth, such as beauty soaps), and industrial distributors selling to OEMs.</p></div>
+    <div class="card"><h4><span class="k">LTD</span>Limited-service</h4><ul class="tick"><li><b>Cash &amp; carry</b>: retailer pays cash and collects</li><li><b>Truck</b>: bread, milk, soft drinks; also handles reverse logistics of empty bottles</li><li><b>Drop shipper</b>: no stock; the maker ships direct</li><li><b>Mail order</b>: catalogues, no sales force</li></ul></div>
+    <div class="card"><h4><span class="k">AGT</span>Agents vs brokers</h4><p><b>Agents</b> are long-term (insurance agents). <b>Brokers</b> work case by case (farm produce). Neither holds stock or title.</p></div>
+  </div>
+
+  <div class="cols">
+    <div class="card"><h4><span class="k">!</span>Complaints against wholesalers</h4><ul class="tick"><li>Push private labels over the maker's brand</li><li>Stock only fast-runners</li><li>Late or no market info</li><li>Weak retailer support</li></ul></div>
+    <div class="card"><h4><span class="k">✓</span>How they win back trust</h4><ul class="tick"><li><b>Clarity</b> on role and expectations</li><li><b>Visits</b>, trade shows, regular contact</li><li><b>Commitments</b>: targets, prompt payment</li><li><b>Value-added</b> service ideas</li><li><b>Investment</b> in tech and expansion</li></ul></div>
+  </div>
+  <div class="card"><h4><span class="k">4P</span>Wholesaler marketing decisions</h4><p><b>Target market</b> (serve profitable retailers, discourage others) · <b>Assortment</b> (ABC analysis: A = most profitable) · <b>Pricing</b> (margins flex to clear old stock) · <b>Place</b> (low-rent sites; looks matter little; automation matters) · <b>Promotion</b> (personal selling, co-op advertising).</p></div>
+  <div class="tip"><span class="t">Exam tip</span><p>Growth drivers: India's unorganised retail, distant factories, production ahead of orders. Threats: hypermarkets and consumer co-ops buying direct from makers.</p></div>
+</section>
+
+<!-- 4 RETAILERS -->
+<section class="panel" id="retailers" role="tabpanel" aria-labelledby="t-retailers" style="--c:var(--c4);--cs:var(--c4s)" hidden>
+  <div class="p-head"><div class="p-num">4</div><div><h2>Retailers</h2><p>The final link before the end user. About 30% of what we spend goes through retailers, which is why it's called the “sunrise sector”. It covers goods (corner shops to hypermarkets), services (banks, salons) and even knowledge (schools, consultants).</p></div></div>
+  <div class="def"><q>The activities involved in selling directly to the ultimate consumer for personal, non-business use.</q><span class="src">American Marketing Association · from the French “retailler”: to cut a piece off, to break bulk</span></div>
+
+  <h3 class="sec-title">Wholesaler vs retailer</h3>
+  <div class="tbl-wrap" style="--cs:var(--c4s)">
+    <table>
+      <thead><tr><th>Criterion</th><th>Wholesaler</th><th>Retailer</th></tr></thead>
+      <tbody>
+        <tr><td>Buyers</td><td>Business customers (retailers)</td><td>Final consumers</td></tr>
+        <tr><td>Buying motive</td><td>Resale</td><td>Personal / family use</td></tr>
+        <tr><td>Buys from</td><td>Producers</td><td>Wholesalers (large retailers: producers)</td></tr>
+        <tr><td>Volume · Risk · Investment</td><td>High · High · High</td><td>Low · Less · Moderate</td></tr>
+        <tr><td>Promotion</td><td>Less important</td><td>Very important</td></tr>
+        <tr><td>Atmosphere, layout, location</td><td>Little attention</td><td>Maximum attention</td></tr>
+        <tr><td>Area</td><td>Large, many territories</td><td>Small, local</td></tr>
+        <tr><td>Inventory vs variety</td><td>Large stock, limited variety</td><td>Less stock, more variety</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sec-title">Who needs retailers?</h3>
+  <div class="cols">
+    <div class="card"><h4><span class="k">P</span>Producers</h4><p>Limited money and staff; retailers know the local market, tastes and competition, and deliver during- and after-sale service.</p></div>
+    <div class="card"><h4><span class="k">C</span>Consumers</h4><ul class="tick"><li>Convenient time and place</li><li>Small quantity, more variety, fair price</li><li>Product feel: see and test</li><li>Information and demos</li><li>Credit to regulars</li><li>After-sales service</li></ul></div>
+    <div class="card"><h4><span class="k">S</span>Society</h4><ul class="tick"><li>Goods reach every corner</li><li>Long hours and 24×7 suit urban life</li><li>Jobs and economic growth</li><li>Competition gives better quality and prices</li></ul></div>
+  </div>
+  <div class="story"><h4>The time-poor society</h4><p>With both partners working, shopping eats leisure. Retailers respond with long hours, greeters (Wal-Mart), quick information, automation and one-stop shopping.</p></div>
+
+  <h3 class="sec-title">Functions of a retailer</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">1</span>Availability</h4><p>Right place, right time.</p></div>
+    <div class="card"><h4><span class="k">2</span>Customer service</h4><p>Acts as the service agent.</p></div>
+    <div class="card"><h4><span class="k">3</span>Rapport</h4><p>Regular, comfortable contact.</p></div>
+    <div class="card"><h4><span class="k">4</span>Bulk breaking</h4><p>Hypermarkets do it too.</p></div>
+    <div class="card"><h4><span class="k">5</span>Feedback</h4><p>Local response back to the producer.</p></div>
+    <div class="card"><h4><span class="k">6</span>Finance</h4><p>Credit, instalments, bank tie-ups (Maruti and Citibank).</p></div>
+    <div class="card"><h4><span class="k">7</span>Persuasion</h4><p>Demos, answering queries, closing the sale.</p></div>
+    <div class="card"><h4><span class="k">8</span>Change agent</h4><p>New models, prices, schemes.</p></div>
+    <div class="card"><h4><span class="k">9</span>Trust selling</h4><p>Unpackaged goods and new products; patronage motives.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · retail marketing decisions</div>
+    <div class="big">Target → Assortment → Price → Place → Promotion</div>
+    <p>Assortment = <b>width</b> (number of products) × <b>depth</b> (quantity of each). They pull against each other. Price can sit above rivals for a unique offer, or below with Wal-Mart-style lean service.</p>
+  </div>
+  <div class="tip"><span class="t">Exam tip</span><p>ORG-MARG Retail Store Audit tracks FMCG sales across 367 cities and about 983 villages. Use it as the example when asked about retail audits.</p></div>
+</section>
+
+<!-- 5 FRANCHISING -->
+<section class="panel" id="franchising" role="tabpanel" aria-labelledby="t-franchising" style="--c:var(--c5);--cs:var(--c5s)" hidden>
+  <div class="p-head"><div class="p-num">5</div><div><h2>Franchising</h2><p>The fastest-growing form of retailing and an extended version of licensing. McDonald's is the most admired franchiser in the world.</p></div></div>
+  <div class="def"><q>A form of marketing and distribution in which a parent company (franchiser) grants an individual or small company (franchisee) the right to do business in exchange for fees or royalties.</q><span class="src">The franchisee pays a lump sum plus a royalty on sales, and runs the outlet by the franchiser's rulebook in a defined territory.</span></div>
+  <div class="flips">
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Term · tap</small><b>Franchiser</b></div><div class="bc">Gives the authority to sell. Can be a manufacturer, wholesaler or service provider.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Term · tap</small><b>Franchisee</b></div><div class="bc">An independent businessperson who invests capital, runs the outlet and keeps the profit or bears the loss.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Term · tap</small><b>Franchiser's income</b></div><div class="bc">Initial fee, royalty on gross sales, equipment rent, material supplied, profit share, licence fee.</div></div></button>
+    <button class="flip" type="button" aria-pressed="false"><div class="in"><div class="fc"><small>Origin · tap</small><b>“Franchise”</b></div><div class="bc">From French: privileges given to traders, such as exemption from customs duty. Also means the right to vote.</div></div></button>
+  </div>
+
+  <h3 class="sec-title">4 types of franchise systems</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">M→R</span>Manufacturer–retailer</h4><p>Most common. Franchisee sells to consumers.</p><span class="eg">McDonald's, Raymond</span></div>
+    <div class="card"><h4><span class="k">M→W</span>Manufacturer–wholesaler</h4><p>Franchisee bottles and distributes to retailers.</p><span class="eg">Coca-Cola, Pepsi</span></div>
+    <div class="card"><h4><span class="k">W→R</span>Wholesaler–retailer</h4><p>A powerful wholesaler franchises retailers.</p><span class="eg">Big established wholesalers</span></div>
+    <div class="card"><h4><span class="k">S→R</span>Service sponsor–retailer</h4><p>A service firm licenses retailers.</p><span class="eg">VSNL internet resellers</span></div>
+  </div>
+
+  <h3 class="sec-title">5 methods of franchising</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">1</span>Single-unit</h4><p>One franchisee, one location. The most familiar method.</p></div>
+    <div class="card"><h4><span class="k">2</span>Sequential</h4><p>Extra units granted one at a time, only after proving you can run the existing ones.</p></div>
+    <div class="card"><h4><span class="k">3</span>Area development</h4><p>The “area developer” must open an agreed number of stores within a timeframe.</p></div>
+    <div class="card"><h4><span class="k">4</span>Sub-franchising</h4><p>Master franchisee recruits and supports sub-franchisees in a region.</p></div>
+    <div class="card"><h4><span class="k">5</span>Area representation</h4><p>Like sub-franchising, but the area rep has less responsibility; the franchiser still recruits.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · methods, from smallest to widest</div>
+    <div class="big">“Start Small, Add Some Areas”</div>
+    <p>Single-unit · Sequential · Area development · Sub-franchising (master) · Area representation</p>
+  </div>
+
+  <div class="cols">
+    <div class="card"><h4><span class="k">+F</span>Franchiser benefits</h4><ul class="tick"><li>More territory, rapid growth</li><li>Steady royalty with little fresh investment</li><li>Local know-how builds the brand quickly</li><li>Entry barriers: franchisees act as “category killers”</li><li>Saves sales-force cost; easier control</li></ul></div>
+    <div class="card"><h4><span class="k">+f</span>Franchisee benefits</h4><ul class="tick"><li><b>Initial</b>: training, market survey, manuals, finance, staff training</li><li><b>Ongoing</b>: central planning, national and co-op ads, audits, POP material, group insurance</li><li>Proven brand means lower risk and faster returns</li><li>Banks lend readily against the brand name</li></ul></div>
+    <div class="card"><h4><span class="k">−f</span>Constraints on franchisees</h4><ul class="tick"><li>High entry cost, monthly royalty even in bad months</li><li>Little freedom; breaking guidelines loses the business</li><li>Territory encroachment, dual distribution</li><li>Franchiser's bad decisions or erratic prices</li><li>Hard exit clauses</li></ul></div>
+  </div>
+  <div class="card"><h4><span class="k">♥</span>Keeping the relationship healthy</h4><p>Avoid misunderstandings · never act against each other · communicate regularly · write clear agreements and territories · share ad costs · treat each other as partners, not dictators · <b>no oversaturation or area-crossing</b>.</p></div>
+  <div class="story"><h4>Franchising in India</h4><p>It began with computer training institutes (NIIT, Aptech), then spread to fast food and apparel, starting in South India's IT hubs. Local brands franchise too: Chitale Bandhu sweets and Kaware Ice Creams in Pune. Tanishq has 50+ franchisees in 40 cities.</p></div>
+</section>
+
+<!-- 6 SYSTEMS & CONFLICT -->
+<section class="panel" id="systems" role="tabpanel" aria-labelledby="t-systems" style="--c:var(--c6);--cs:var(--c6s)" hidden>
+  <div class="p-head"><div class="p-num">6</div><div><h2>Managing Channels &amp; Channel Conflict</h2><p>How to set up and run channels, the integrated systems that replace loose arrangements, and why conflict is natural, sometimes useful, and always manageable.</p></div></div>
+
+  <h3 class="sec-title">5 steps of channel management</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">1</span>Set objectives</h4><p>Clear goals within resource limits, clearly communicated.</p></div>
+    <div class="card"><h4><span class="k">2</span>Decide the pattern</h4><p>Length, type and number of intermediaries; conventional or not.</p></div>
+    <div class="card"><h4><span class="k">3</span>Select members</h4><p>Judge experience, reputation, contacts, infrastructure, finance, coverage.</p></div>
+    <div class="card"><h4><span class="k">4</span>Train &amp; motivate</h4><p>Factory visits, joint calls, refreshers, rewards. Treat intermediaries as customers.</p></div>
+    <div class="card"><h4><span class="k">5</span>Assess &amp; modify</h4><p>Periodic reviews; add or drop members as the product life cycle moves.</p></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · the 5 steps</div>
+    <div class="big">“Our Pipeline Should Train &amp; Adapt”</div>
+    <p>Objectives · Pattern · Selection · Training · Assessment</p>
+  </div>
+
+  <h3 class="sec-title">Channel systems</h3>
+  <div class="grid two">
+    <div class="card"><h4><span class="k">CMS</span>Conventional</h4><p>Loose and unstable. Every member chases its own profit, joins or leaves freely, and conflict is obvious. Used by small makers and for perishables and farm produce.</p></div>
+    <div class="card"><h4><span class="k">HMS</span>Horizontal</h4><p>Many intermediaries at the <b>same level</b> under one structure; channel length 0–1. All-franchisee or all-dealer networks (McDonald's, HPCL), plus strategic alliances such as Maruti + Citibank and GE + Godrej.</p></div>
+    <div class="card"><h4><span class="k">VMS</span>Vertical</h4><p>Professionally managed and centrally coordinated, 2+ levels, led by a <b>channel captain</b>. Gives the widest distribution at low cost. HLL, P&amp;G, Nestlé, Ranbaxy.</p></div>
+    <div class="card"><h4><span class="k">MMS</span>Multichannel</h4><p>“Dual distribution”: two or more channels for the same product. Bata, Bajaj, Nike and Ceat Shoppe use own outlets plus dealers; tyre makers sell direct to OEMs and through dealers for replacements.</p></div>
+  </div>
+  <div class="tree" style="--c:var(--c6)">
+    <div class="lvl"><div class="pill main">Vertical Marketing System</div></div>
+    <div class="lvl">
+      <div class="pill">Corporate<small>single ownership · forward or backward integration</small></div>
+      <div class="pill">Administered<small>power and influence of a dominant member</small></div>
+      <div class="pill">Contractual<small>roles fixed by contract · most popular</small></div>
+    </div>
+    <div class="lvl">
+      <div class="pill" style="border-style:dashed">Wholesaler-sponsored voluntary chain</div>
+      <div class="pill" style="border-style:dashed">Retailer-sponsored co-operative</div>
+      <div class="pill" style="border-style:dashed">Franchise</div>
+    </div>
+  </div>
+  <div class="hook" style="background:linear-gradient(120deg,var(--c6),var(--c7))">
+    <div class="lbl">Memory hook · 3 VMS types, by what holds them together</div>
+    <div class="big">Own it · Sway it · Sign it</div>
+    <p>Corporate = <b>ownership</b> · Administered = <b>influence</b> · Contractual = <b>contract</b></p>
+  </div>
+
+  <h3 class="sec-title">Channel conflict</h3>
+  <div class="def"><q>A situation in which one channel member perceives another channel member(s) to be engaged in behaviour that prevents it from achieving its goals.</q><span class="src">From Latin “confligere”: to collide · Some conflict is healthy: it plugs loopholes and keeps members on their toes.</span></div>
+  <div class="ladder" aria-label="Conflict escalation stages">
+    <div class="rung"><b>Latent</b>Members don't yet sense it; goals quietly clash</div>
+    <div class="rung"><b>Perceived</b>Sensed, mostly psychological, not yet serious</div>
+    <div class="rung"><b>Felt</b>Actually felt (affective); sort it out early</div>
+    <div class="rung"><b>Manifest</b>Open and overt; co-operation stops</div>
+    <div class="rung"><b>Functional</b>Accepted, and it improves the relationship</div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · conflict climbs the ladder</div>
+    <div class="big">Lurking → Picked up → Felt → Fight · or Fix it (functional)</div>
+  </div>
+
+  <div class="grid two">
+    <div class="card"><h4><span class="k">↕</span>Vertical conflict</h4><p>Between <b>levels</b>: maker–dealer, wholesaler–retailer, franchiser–franchisee. Caused by goal differences, poor communication, unclear roles.</p></div>
+    <div class="card"><h4><span class="k">↔</span>Horizontal conflict</h4><p>Within the <b>same level</b>: dealer vs dealer. Price-offs, aggressive ads, extra service, territory crossing, malpractice. Price wars can help consumers.</p></div>
+    <div class="card"><h4><span class="k">⤨</span>Inter-type</h4><p>Members trade outside their normal range (“scrambled merchandising”): supermarkets selling vegetables, pan shops selling mobile recharges.</p></div>
+    <div class="card"><h4><span class="k">⧉</span>Multichannel</h4><p>The maker's dual distribution hits the same market: own outlets or direct supply to large retailers undercut dealers, common in readymade garments.</p></div>
+  </div>
+  <div class="cols">
+    <div class="card"><h4><span class="k">M!</span>When the manufacturer causes it</h4><ul class="tick"><li>Dual distribution and new channels</li><li>Oversaturation of dealers</li><li>Partial treatment and margins</li><li>No training, joint calls or co-op ads</li><li>Forced advance orders, dumping stock</li><li>Late deliveries, no replacement of damaged goods, delayed installations</li><li>Thin credit, margins never revised</li></ul></div>
+    <div class="card"><h4><span class="k">I!</span>When the intermediary causes it</h4><ul class="tick"><li>Pushes private labels or rival lines</li><li>Gives rivals more shelf space</li><li>Ignores the maker's promotions</li><li>Misses targets, high outstandings</li><li>Deliberate price-cutting</li><li>Refuses service and installation</li><li>No market feedback</li></ul></div>
+  </div>
+
+  <h3 class="sec-title">7 ways to resolve conflict</h3>
+  <div class="grid">
+    <div class="card"><h4><span class="k">1</span>Channel leadership</h4><p>The member with channel power steers everyone. IBM won over PC dealers by changing commissions, sharing leads and running joint ads.</p></div>
+    <div class="card"><h4><span class="k">2</span>Superordinate goals</h4><p>Agree on a shared big goal: survival, share, quality, satisfaction.</p></div>
+    <div class="card"><h4><span class="k">3</span>Exchange of persons</h4><p>Swap staff between levels to see the other side's view.</p></div>
+    <div class="card"><h4><span class="k">4</span>Co-optation</h4><p>Bring the other side's leaders onto your advisory councils or boards.</p></div>
+    <div class="card"><h4><span class="k">5</span>Trade associations</h4><p>Joint membership brings everyone under one roof.</p></div>
+    <div class="card"><h4><span class="k">6</span>Diplomacy</h4><p>Standing envoys who work continuously with counterparts.</p></div>
+    <div class="card"><h4><span class="k">7</span>Third party</h4><p><b>Mediation</b>: a neutral helps the parties reach their own deal. <b>Arbitration</b>: the parties accept the arbitrator's decision, which can be compulsory.</p></div>
+  </div>
+  <div class="tip"><span class="t">Exam tip</span><p>Mediation persuades and keeps parties talking; the parties decide. Arbitration decides for them. Examiners often ask for this difference in one line.</p></div>
+</section>
+
+<!-- 7 GOODS vs SERVICES -->
+<section class="panel" id="goods" role="tabpanel" aria-labelledby="t-goods" style="--c:var(--c7);--cs:var(--c7s)" hidden>
+  <div class="p-head"><div class="p-num">7</div><div><h2>Channels for Consumer Goods, Industrial Goods &amp; Services</h2><p>The nature of the product is one of the biggest factors in channel choice. Long channels suit soap, short ones suit lathes, and the shortest suit lawyers.</p></div></div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Consumer goods</th><th>Industrial goods</th><th>Services</th></tr></thead>
+      <tbody>
+        <tr><td>Channel length</td><td>0 to n, usually long</td><td>Short, mostly 0 (up to 1)</td><td>0 or 1, never more</td></tr>
+        <tr><td>Distribution</td><td>Wide / intensive</td><td>Concentrated</td><td>Make it available &amp; accessible</td></tr>
+        <tr><td>Specs &amp; price</td><td>Standard, fixed, no haggling</td><td>Customised, heavily negotiated</td><td>Less standardised</td></tr>
+        <tr><td>Orders</td><td>Small lots, frequent</td><td>Large, infrequent, made to order</td><td>Produced and consumed together</td></tr>
+        <tr><td>Decision</td><td>Individual, impulse possible</td><td>Group, takes months, no impulse</td><td>Relationship-driven</td></tr>
+        <tr><td>Sales skill</td><td>Little training needed</td><td>Technical engineers</td><td>Inseparable from the provider</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cols">
+    <div class="card"><h4><span class="k">CG</span>Consumer goods channels</h4><ul class="tick">
+      <li><b>0</b>: Maker → Consumer (cosmetics, fresh produce, encyclopaedias)</li>
+      <li><b>1</b>: Maker → Dealer / Franchisee / Agent / Co-op → Consumer (cars, garments, PCs, Apna Bazar)</li>
+      <li><b>2</b>: Maker → Wholesaler or Broker → Retailer → Consumer (FMCG, grains)</li>
+      <li><b>3</b>: Maker → C&amp;F agent → Stockist → Retailer → Consumer (medicines)</li>
+      <li><b>4</b>: Maker → C&amp;F → Redistribution stockist → Retailer → Consumer (HLL)</li>
+    </ul></div>
+    <div class="card"><h4><span class="k">IG</span>Industrial goods channels</h4><ul class="tick">
+      <li><b>0</b>: Maker → User (capital equipment, complex technical products)</li>
+      <li><b>1</b>: Maker → Agent → User (industrial tools, PCs)</li>
+      <li><b>1</b>: Maker → Industrial supply house → User (lathes, grinders, electrical supplies)</li>
+    </ul><p>Few, large, concentrated buyers make middlemen less useful.</p></div>
+    <div class="card"><h4><span class="k">SV</span>Services channels</h4><ul class="tick">
+      <li><b>0</b>: Provider → Client (doctors, lawyers, architects)</li>
+      <li><b>1</b>: Provider → Agent → Client (insurance, banks' DSAs, education)</li>
+      <li><b>1</b>: Franchiser → Franchisee → Client (courier, travel, hotels)</li>
+    </ul></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · 7 features of services</div>
+    <div class="big">“Ice Is Slippery, Lose Pace, Risk Crash”</div>
+    <div class="letters">
+      <span><b>I</b>ntangible</span><span><b>I</b>nseparable from provider</span><span><b>S</b>imultaneous production &amp; use</span><span><b>L</b>ess standardised</span><span><b>P</b>erishable</span><span><b>R</b>elationship-centred</span><span><b>C</b>an't be stored</span>
+    </div>
+  </div>
+  <div class="tip"><span class="t">Exam tip</span><p>Retailers appear only in <b>consumer-goods</b> channels. In Japan, food distribution can run to six levels: a favourite one-line fact.</p></div>
+</section>
+
+<!-- 8 MLM -->
+<section class="panel" id="mlm" role="tabpanel" aria-labelledby="t-mlm" style="--c:var(--c8);--cs:var(--c8s)" hidden>
+  <div class="p-head"><div class="p-num">8</div><div><h2>Multi-Level Marketing</h2><p>A controversial non-store, direct-selling channel. Also called network marketing, party selling, or pyramid selling. Independent contractors earn on their own sales and on the sales of everyone they recruit.</p></div></div>
+  <div class="cols">
+    <div class="card" style="display:grid;gap:12px"><h4><span class="k">▲</span>How the pyramid works</h4>
+      <div class="pyr" aria-hidden="true"><div>Company</div><div>Master distributors</div><div>Downline distributors</div><div>Consumers (and stuck last links)</div></div>
+      <p>Pay a registration fee, buy fixed lots in advance, sell or recruit. If you can do neither, you end up the consumer. No ads, no displays: the network is the promotion.</p>
+    </div>
+    <div class="card"><h4><span class="k">⌂</span>Party plan vs MLM</h4><p><b>Party plan</b>: a host invites friends; products are demonstrated; the host earns a gift or commission. <b>MLM</b>: multi-tier non-employee distributors who sell and recruit.</p>
+      <p style="margin-top:10px"><b>Who uses it:</b> Amway, Avon, Oriflame (pioneer in India, with Rollscon), Modicare, Tupperware, Electrolux, Britannica.</p>
+      <p style="margin-top:10px"><b>What sells:</b> light, portable products that need no after-sales service, such as cosmetics, personal care, kitchenware, books and toys. Trial kits and testers help.</p></div>
+  </div>
+  <div class="cols">
+    <div class="card"><h4><span class="k">+</span>Benefits</h4><ul class="tick"><li>Home convenience for buyers</li><li>Income for homemakers, retirees, youth</li><li>No distribution network cost or liability for the maker</li><li>No ad spend: distributors promote</li><li>Network self-expands; move to new areas when one saturates</li><li>High distributor margins drive sales</li></ul></div>
+    <div class="card"><h4><span class="k">−</span>Drawbacks</h4><ul class="tick"><li>Limited choice, higher prices</li><li>Hard to exchange faulty goods</li><li>Slow to start, unpredictable growth</li><li>Unfit for technical or service-heavy products</li><li>At saturation, the last links are stuck with stock</li><li>Pushy tactics, scam firms, lost friendships</li></ul></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook · the name says it</div>
+    <div class="big">MLM = “Make Lots of Money”, until the pyramid runs out of people</div>
+    <p>It succeeds only while new recruits keep joining. The bottom layer always pays for saturation.</p>
+  </div>
+</section>
+
+<!-- 9 SCM -->
+<section class="panel" id="scm" role="tabpanel" aria-labelledby="t-scm" style="--c:var(--c9);--cs:var(--c9s)" hidden>
+  <div class="p-head"><div class="p-num">9</div><div><h2>Supply Chain Management</h2><p>“Competition today is not among individual businesses but among their networks. The winner is the company with the better network.” SCM reaches further back than channels: right to the raw-material supplier.</p></div></div>
+  <div class="def"><q>The integration of businesses from end user through original suppliers that provides products, services, and information that add value for customers.</q><span class="src">A cradle-to-grave approach managing the flow of material, information and funds.</span></div>
+  <div class="explorer"><div class="chain">
+    <span class="box">Raw-material suppliers</span><span class="arr">→</span><span class="box">Logistics</span><span class="arr">→</span><span class="box">Manufacturer</span><span class="arr">→</span><span class="box">Logistics</span><span class="arr">→</span><span class="box">Intermediaries / retailers</span><span class="arr">→</span><span class="box end">Consumers</span>
+  </div><p class="chain-eg">Goods flow forward; <b>information flows back</b>. That return flow is what makes a chain “smart”.</p></div>
+
+  <h3 class="sec-title">SCM's 5 basic moves</h3>
+  <div class="psmdr">
+    <div><b>P</b><span>Plan</span><small>forecast demand</small></div>
+    <div><b>S</b><span>Source</span><small>pick suppliers</small></div>
+    <div><b>M</b><span>Make</span><small>schedule production</small></div>
+    <div><b>D</b><span>Deliver</span><small>orders &amp; logistics</small></div>
+    <div><b>R</b><span>Return</span><small>reverse flow</small></div>
+  </div>
+  <div class="hook">
+    <div class="lbl">Memory hook</div>
+    <div class="big">“Please Send More Dosas Regularly”</div>
+    <p>Plan · Source · Make · Deliver · Return</p>
+  </div>
+  <div class="card"><h4><span class="k">7</span>Detailed components</h4><p>Demand planning &amp; forecasting · Demand collaboration (consensus forecasts) · Order promising · Strategic network optimisation · Production &amp; distribution planning · Production scheduling · Cost reduction &amp; performance management.</p></div>
+
+  <h3 class="sec-title">Cases worth remembering</h3>
+  <div class="grid two">
+    <div class="story"><h4>Wal-Mart × P&amp;G</h4><p>A shared system alerts P&amp;G whenever its products run low, right down to scans at the till. Less inventory and automatic invoicing let P&amp;G fund “everyday low prices”.</p></div>
+    <div class="story"><h4>Levi's</h4><p>Every night Levi's learns which sizes sold at Sears, orders fabric for next-day delivery, and the fabric maker orders fibre from DuPont. Network vs network: Levi's vs Wrangler.</p></div>
+    <div class="story"><h4>Walgreens × Colgate</h4><p>A toothpaste scan triggers automatic replenishment. Colgate even pre-tags prices, so stock goes straight onto the shelf.</p></div>
+    <div class="story"><h4>FoodWorld (RPG)</h4><p>India's first national supermarket chain sources fresh produce directly from farmers and runs a consolidation centre at Hosekote: about 250 tonnes a month, 32 vegetable types.</p></div>
+    <div class="story"><h4>Fashion retail</h4><p>Many short seasons mean the chain must re-order fast-sellers and re-dye or re-cut slow styles mid-season.</p></div>
+    <div class="story"><h4>Citibank Singapore</h4><p>Places linked computers in corporate clients' offices, bringing the bank into the client's workflow.</p></div>
+  </div>
+  <div class="card"><h4><span class="k">⚙</span>Running the chain efficiently</h4><p>Customer-service standards and benchmarking · Transport (mode, consolidation, routing, scheduling) · Inventory (stocking policy, JIT, push and pull) · Warehousing (layout, docks, handling) · Purchase (source and timing) · Information maintenance.</p></div>
+</section>
+
+<!-- QUIZ -->
+<section class="panel" id="quiz" role="tabpanel" aria-labelledby="t-quiz" style="--c:var(--cq);--cs:var(--cqs)" hidden>
+  <div class="p-head" style="background:linear-gradient(120deg,var(--c1s),var(--c6s) 50%,var(--c8s))"><div class="p-num" style="background:linear-gradient(135deg,var(--c1),var(--c6),var(--c8))">?</div><div><h2>Test yourself</h2><p>Fifteen questions across all nine chapters, then flashcards for last-minute revision.</p></div></div>
+  <div class="quiz" id="quizBox"></div>
+  <h3 class="sec-title">Rapid-fire flashcards</h3>
+  <div class="flips" id="flashGrid"></div>
+</section>
+
+</main>
+<div class="foot wrap">Channel &amp; Distribution Atlas · built from Section I of <i>Channel Management and Retail Marketing</i></div>
+
+<script>
+(function(){
+  /* ---------- tabs ---------- */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(id,push){
+    tabs.forEach(function(t){
+      var on=t.getAttribute('aria-controls')===id;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      if(on) t.scrollIntoView({block:'nearest',inline:'center'});
+    });
+    try{localStorage.setItem('cda-tab',id)}catch(e){}
+    if(push){ var top=document.querySelector('.tabs-shell').offsetTop; if(window.scrollY>top) window.scrollTo({top:top,behavior:'smooth'}); }
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t.getAttribute('aria-controls'),true)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        var n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length]; n.focus(); n.click();
+      }
+    });
+  });
+  var start='channels', h=(location.hash||'').slice(1);
+  if(h && document.getElementById(h) && document.getElementById(h).classList.contains('panel')) start=h;
+  else { try{var s=localStorage.getItem('cda-tab'); if(s&&document.getElementById(s)) start=s;}catch(e){} }
+  show(start,false);
+
+  /* ---------- flip cards ---------- */
+  document.addEventListener('click',function(e){
+    var f=e.target.closest('.flip'); if(!f) return;
+    f.setAttribute('aria-pressed',f.getAttribute('aria-pressed')==='true'?'false':'true');
+  });
+
+  /* ---------- channel level explorer ---------- */
+  var LV={
+    0:{c:['Manufacturer','Consumer'],eg:'<b>Direct marketing.</b> Company showrooms, door-to-door, catalogues, online, teleshopping, telemarketing, direct mail, vending machines. Suits luxury goods, cash-rich firms, tiny local producers and highly perishable farm produce.'},
+    1:{c:['Manufacturer','Dealer / Franchisee / Agent / Large retailer','Consumer'],eg:'<b>One middleman.</b> Cars (dealer) · Supermarkets (large retailer) · Food, jewellery, garments (franchisee) · Life insurance (agent) · Personal computers (manufacturer’s agent).'},
+    2:{c:['Manufacturer','Wholesaler / Broker','Retailer','Consumer'],eg:'<b>Two layers.</b> All FMCGs go through wholesalers; farm products and food grains go through brokers.'},
+    3:{c:['Manufacturer','C&F agent','Stockist / Redistribution stockist','Retailer','Consumer'],eg:'<b>Three or more.</b> Drugs and medicines; HLL products use redistribution stockists. Japanese food distribution can run to six levels.'}
+  };
+  var chain=document.getElementById('chain'), eg=document.getElementById('chainEg');
+  function lvl(n){
+    var html=''; LV[n].c.forEach(function(x,i,a){ html+='<span class="box'+(i===a.length-1?' end':'')+'">'+x+'</span>'+(i<a.length-1?'<span class="arr">→</span>':''); });
+    chain.innerHTML=html; eg.innerHTML=LV[n].eg;
+    [].forEach.call(document.querySelectorAll('#lvlBtns button'),function(b){b.setAttribute('aria-pressed',b.dataset.l==n?'true':'false')});
+  }
+  document.getElementById('lvlBtns').addEventListener('click',function(e){var b=e.target.closest('button'); if(b) lvl(b.dataset.l)});
+  lvl(1);
+
+  /* ---------- EOQ ---------- */
+  function fmt(n,d){return n.toLocaleString('en-IN',{maximumFractionDigits:d||0})}
+  function eoq(){
+    var A=+document.getElementById('eA').value, P=+document.getElementById('eP').value,
+        C=+document.getElementById('eC').value/100, U=+document.getElementById('eU').value;
+    var ok=A>0&&P>=0&&C>0&&U>0;
+    if(!ok){document.getElementById('eoqV').textContent='—';return}
+    var q=Math.sqrt(2*A*P/(C*U));
+    document.getElementById('eoqV').textContent=fmt(Math.round(q));
+    document.getElementById('eoqN').textContent=q>0?fmt(A/q,1):'—';
+    document.getElementById('eoqO').textContent=q>0?'₹'+fmt(A*P/q):'—';
+    document.getElementById('eoqK').textContent='₹'+fmt(C*U*q/2);
+  }
+  document.getElementById('eoqForm').addEventListener('input',eoq); eoq();
+
+  /* ---------- quiz ---------- */
+  var Q=[
+    {q:'Using one middleman between 3 producers and 3 buyers cuts transactions from 9 to…',o:['3','6','5','9: no change'],a:1,w:'Each producer and each buyer deals once with the middleman: 3 + 3 = 6.'},
+    {q:'Branded garments sold through some, but not all, outlets is an example of…',o:['Exclusive distribution','Intensive distribution','Selective distribution','Zero-level channel'],a:2,w:'Selective means limited chosen outlets that may also stock rivals.'},
+    {q:'Manufacturer → C&F agent → Stockist → Retailer → Consumer is typical for…',o:['Automobiles','Medicines','Life insurance','Fresh vegetables'],a:1,w:'Drugs and medicines use this three-level channel.'},
+    {q:'Which is NOT one of the 5 components of physical distribution?',o:['Order processing','Material handling','Advertising','Inventory control'],a:2,w:'The five: Order processing, Transportation, Warehousing, Material handling, Inventory control.'},
+    {q:'“Fishyback” combines…',o:['Road + Rail','Road + Water','Rail + Water','Road + Air'],a:1,w:'Piggyback = road + rail, Fishyback = road + water, Trainship = rail + water, Airtruck = road + air.'},
+    {q:'At EOQ, which statement holds?',o:['Ordering cost is zero','Carrying cost is maximum','Ordering cost = Carrying cost','Unit price is lowest'],a:2,w:'EOQ = √(2AP/CU) is the point where the two opposing costs are equal and total cost is lowest.'},
+    {q:'A warehouse where imports wait until customs duty is paid is a…',o:['Mother depot','Bonded warehouse','Distribution centre','Public warehouse'],a:1,w:'Bonded warehouses are licensed and controlled by customs.'},
+    {q:'A wholesaler who takes orders but never holds stock, with the maker shipping direct, is a…',o:['Truck wholesaler','Cash-and-carry wholesaler','Drop shipper','Rack jobber'],a:2,w:'Drop shippers collect orders; the manufacturer ships straight to the customer.'},
+    {q:'Coca-Cola licensing bottlers to distribute to retailers is which franchise type?',o:['Manufacturer–retailer','Manufacturer–wholesaler','Wholesaler–retailer','Service sponsor–retailer'],a:1,w:'The bottler acts as a wholesaler distributing to retailers.'},
+    {q:'A master franchisee who recruits and supports franchisees in a region is…',o:['Single-unit franchising','Sequential franchising','Sub-franchising','Area development'],a:2,w:'Sub-franchising is also called master franchising.'},
+    {q:'A VMS held together by the influence of a dominant member, without ownership or contract, is…',o:['Corporate','Administered','Contractual','Horizontal'],a:1,w:'Own it = corporate, Sway it = administered, Sign it = contractual.'},
+    {q:'A supermarket starting to sell fresh vegetables and competing with vegetable vendors creates…',o:['Vertical conflict','Horizontal conflict','Inter-type conflict','Latent conflict'],a:2,w:'Trading outside the normal range is “scrambled merchandising”, which causes inter-type conflict.'},
+    {q:'In which method does a neutral third party help the parties reach their own settlement?',o:['Arbitration','Mediation','Co-optation','Diplomacy'],a:1,w:'Mediators persuade and clarify; arbitrators decide.'},
+    {q:'Channel length for services usually…',o:['Exceeds 3 levels','Never exceeds 1 level','Must include a wholesaler','Is the same as for FMCG'],a:1,w:'Inseparability and perishability keep service channels at zero or one level.'},
+    {q:'SCM’s five basic components are…',o:['Plan, Source, Make, Deliver, Return','Plan, Sell, Market, Distribute, Retain','Produce, Store, Move, Deliver, Repair','Price, Supply, Make, Display, Return'],a:0,w:'“Please Send More Dosas Regularly.”'}
+  ];
+  var box=document.getElementById('quizBox'), i=0, score=0, answered=false;
+  function render(){
+    if(i>=Q.length){
+      var msg=score>=13?'Distribution champion. You could run HLL’s channel.':score>=9?'Solid. Revisit the tabs where you slipped.':'Good start. Go through the memory hooks and try again.';
+      box.innerHTML='<div class="score"><div class="eyebrow">Your score</div><div class="v">'+score+' / '+Q.length+'</div><p style="color:var(--ink-2)">'+msg+'</p><button class="btn" id="again" type="button">Try again</button></div>';
+      document.getElementById('again').onclick=function(){i=0;score=0;render()};
+      return;
+    }
+    var it=Q[i]; answered=false;
+    var h='<div class="qmeta"><span>Question '+(i+1)+' of '+Q.length+'</span><span>Score '+score+'</span></div><div class="qbar"><i style="width:'+(i/Q.length*100)+'%"></i></div><div class="qtext">'+it.q+'</div><div class="opts">';
+    it.o.forEach(function(o,k){h+='<button class="opt" type="button" data-k="'+k+'">'+o+'</button>'});
+    h+='</div><div class="why" id="why" hidden></div><div class="qnav"><button class="btn" id="next" type="button" hidden>'+(i===Q.length-1?'See score':'Next question')+'</button></div>';
+    box.innerHTML=h;
+    box.querySelector('.opts').onclick=function(e){
+      var b=e.target.closest('.opt'); if(!b||answered) return; answered=true;
+      var k=+b.dataset.k, opts=box.querySelectorAll('.opt');
+      opts.forEach(function(x){x.disabled=true}); opts[it.a].classList.add('ok');
+      if(k===it.a){score++} else b.classList.add('no');
+      var w=document.getElementById('why'); w.hidden=false; w.innerHTML='<b>'+(k===it.a?'Correct. ':'Not quite. ')+'</b>'+it.w;
+      var n=document.getElementById('next'); n.hidden=false; n.focus();
+    };
+    document.getElementById('next').onclick=function(){i++;render()};
+  }
+  render();
+
+  /* ---------- flashcards ---------- */
+  var F=[
+    ['Logistics vs PD','Logistics covers inbound raw material plus outbound goods. PD is outbound finished goods only.'],
+    ['Lead time','Time from order to delivery, also called order-cycle or replenishment time.'],
+    ['Channel captain','The member with channel power who leads a VMS and keeps conflict low.'],
+    ['Dual distribution','Two or more channels for the same product, e.g. own outlets plus dealers (MMS).'],
+    ['Co-optation','Win the other side’s support by seating its leaders on your advisory boards.'],
+    ['ABC analysis','Wholesaler stock control: A = most profitable items, C = least.'],
+    ['Reverse logistics','Truck wholesalers returning empty soft-drink bottles for refilling.'],
+    ['Scrambled merchandising','Stocking lines outside your normal range, which causes inter-type conflict.'],
+    ['Backward integration','An intermediary owns manufacturing, e.g. Shoppers Stop’s own-label garments.'],
+    ['JIT success factors','Reliable suppliers, close communication, quality focus, good storage and transport.'],
+    ['Vending kiosk','Gives information and takes orders but doesn’t dispense goods, unlike a vending machine.'],
+    ['Company-sponsored selling','An employer buys in bulk for staff: cars, insurance, Diwali gifts.']
+  ];
+  var cols=['--c1','--c2','--c3','--c4','--c5','--c6','--c7','--c8','--c9'];
+  document.getElementById('flashGrid').innerHTML=F.map(function(f,k){
+    return '<button class="flip" type="button" aria-pressed="false" style="--c:var('+cols[k%cols.length]+')"><div class="in"><div class="fc"><small>Tap to flip</small><b>'+f[0]+'</b></div><div class="bc">'+f[1]+'</div></div></button>';
+  }).join('');
+})();
+</script>
+
+</body></html>
