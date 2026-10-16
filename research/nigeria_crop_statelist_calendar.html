@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nigeria State-Wise Crop Directory & Harvest Calendar</title>
+<meta name="description" content="Interactive Nigeria state-wise crop directory and harvest calendar covering 36 states and the FCT, six geopolitical zones, food and cash crops, planting schedules, and harvest windows.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #ffffff;
+    --bg: #f7f9f4;
+    --surface: #ffffff;
+    --border: #e2e8d8;
+    --border2: #c8d8b0;
+    --text: #1a2012;
+    --muted: #6b7c5a;
+    --accent: #2d6a2f;
+    --accent2: #5a9e3a;
+    --amber: #c47c0a;
+    --amber-light: #fff3d0;
+    --blue: #1a5a8a;
+    --blue-light: #e8f3fc;
+    --red: #b83232;
+    --red-light: #fdecea;
+    --green-light: #eaf4e2;
+    --teal: #1a7a6e;
+    --teal-light: #e2f4f1;
+    --orange: #c45e10;
+    --orange-light: #fef0e6;
+    --purple: #6a3aac;
+    --purple-light: #f0eafa;
+
+    --zone-nw: #e8650a;
+    --zone-ne: #c43a1a;
+    --zone-nc: #2d8a3a;
+    --zone-sw: #7a3aac;
+    --zone-se: #1a6aaa;
+    --zone-ss: #0a8a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 56px 48px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,106,47,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-light);
+    border: 1.5px solid var(--border2);
+    border-radius: 100px;
+    padding: 5px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 14px;
+    max-width: 700px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hero-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .hero-pill .num { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
+
+  /* ── NAV ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    padding: 0 48px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .nav-btn {
+    padding: 18px 28px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .nav-btn:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 44px 48px; max-width: 1440px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  .section-heading {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  /* ── FILTER ROW ── */
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 28px;
+    padding: 18px 20px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+  }
+  .search-box {
+    flex: 1;
+    min-width: 200px;
+    padding: 9px 16px 9px 38px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7c5a' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+  }
+  .search-box:focus { border-color: var(--accent2); }
+  .search-box::placeholder { color: #aab89a; }
+
+  .filter-btn {
+    padding: 8px 18px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--accent2); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* ── ZONE COLOR DOTS ── */
+  .zone-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  /* ── STATE GRID ── */
+  .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; }
+
+  .state-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.22s;
+    animation: cardIn 0.35s ease both;
+  }
+  .state-card:hover {
+    border-color: var(--accent2);
+    box-shadow: 0 8px 30px rgba(45,106,47,0.1);
+    transform: translateY(-3px);
+  }
+
+  @keyframes cardIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+  .card-top {
+    padding: 20px 22px 14px;
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-state-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .card-climate { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+
+  .zone-badge {
+    padding: 4px 11px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .card-body { padding: 16px 22px 18px; }
+
+  .crop-section { margin-bottom: 12px; }
+  .crop-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .crop-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .crop-tag {
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .ct-food { background: var(--green-light); border-color: #b8d8a0; color: #2a5a1c; }
+  .ct-cash { background: var(--amber-light); border-color: #e8c870; color: #7a4a00; }
+
+  .season-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .season-box {
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+  .sb-plant { background: var(--blue-light); border: 1px solid #b8d8f0; }
+  .sb-harvest { background: var(--amber-light); border: 1px solid #e8c870; }
+  .sb-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+  .sb-plant .sb-label { color: var(--blue); }
+  .sb-harvest .sb-label { color: var(--amber); }
+  .sb-value { font-weight: 600; color: var(--text); line-height: 1.4; }
+
+  /* Month bar */
+  .month-bar-wrap { margin-top: 14px; }
+  .month-bar { display: flex; gap: 2px; height: 18px; }
+  .mc {
+    flex: 1;
+    border-radius: 3px;
+    transition: transform 0.1s;
+  }
+  .mc:hover { transform: scaleY(1.3); }
+  .mc.p { background: #4a9fd4; }
+  .mc.g { background: #5cb85c; }
+  .mc.h { background: #e8a020; }
+  .mc.o { background: #e8eee0; }
+  .month-lbl-row { display: flex; gap: 2px; margin-top: 3px; }
+  .ml { flex:1; text-align:center; font-size: 0.58rem; color: #aab89a; font-weight: 500; }
+
+  .notes-box {
+    margin-top: 12px;
+    padding: 9px 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent2);
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── CALENDAR SECTION ── */
+  .cal-container {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .cal-header-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px 24px;
+    border-bottom: 1.5px solid var(--border);
+    align-items: center;
+    background: var(--bg);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+  .ld { width: 18px; height: 14px; border-radius: 4px; }
+  .ld-p { background: #4a9fd4; }
+  .ld-g { background: #5cb85c; }
+  .ld-h { background: #e8a020; }
+  .ld-o { background: #e8eee0; border: 1px solid #ccdabc; }
+
+  .cal-scroll { overflow-x: auto; }
+
+  table.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 820px;
+  }
+  .cal-table thead tr { background: var(--bg); }
+  .cal-table th {
+    padding: 12px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    text-align: left;
+    border-bottom: 1.5px solid var(--border);
+    white-space: nowrap;
+  }
+  .cal-table th.month-th { text-align: center; padding: 12px 6px; }
+  .cal-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .cal-table tr:last-child td { border-bottom: none; }
+  .cal-table tr:hover td { background: var(--bg); }
+
+  .crop-name-cell { font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+  .region-cell { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+  .period-cell { font-size: 0.8rem; white-space: nowrap; font-weight: 500; }
+  .period-plant { color: var(--blue); }
+  .period-harvest { color: var(--amber); }
+
+  .cal-cell {
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .cal-pip {
+    display: block;
+    width: 26px;
+    height: 22px;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  .cp { background: #4a9fd4; }
+  .cg { background: #5cb85c; }
+  .ch { background: #e8a020; }
+  .co { background: #e8eee0; }
+
+  /* Zone badge colors */
+  .z-nw { background: #fff0e6; color: var(--zone-nw); border: 1.5px solid #f8c8a0; }
+  .z-ne { background: #fde8e4; color: var(--zone-ne); border: 1.5px solid #f0b4a4; }
+  .z-nc { background: var(--green-light); color: var(--zone-nc); border: 1.5px solid var(--border2); }
+  .z-sw { background: var(--purple-light); color: var(--purple); border: 1.5px solid #d0bcf0; }
+  .z-se { background: var(--blue-light); color: var(--blue); border: 1.5px solid #b0cce8; }
+  .z-ss { background: var(--teal-light); color: var(--teal); border: 1.5px solid #9adace; }
+
+  /* ── RESULT COUNT ── */
+  .result-count {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .result-count strong { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { padding: 36px 20px 30px; }
+    .nav-bar { padding: 0 16px; }
+    .section { padding: 28px 16px; }
+    .state-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    .nav-bar { display: none; }
+    .section { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">🌿 Agricultural Intelligence · 2025</div>
+  <h1>Nigeria <em>State-Wise</em><br>Crop Directory &<br>Harvest Calendar</h1>
+  <p>Comprehensive data on major crops, planting schedules, and harvest periods for all 36 states and FCT Abuja — validated from FAOSTAT, NBS, IITA, and FAO GIEWS.</p>
+  <div class="hero-pills">
+    <div class="hero-pill"><span class="num">37</span> States & FCT</div>
+    <div class="hero-pill"><span class="num">6</span> Geopolitical Zones</div>
+    <div class="hero-pill"><span class="num">25+</span> Major Crops</div>
+    <div class="hero-pill"><span class="num">2</span> Growing Seasons</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <button class="nav-btn active" onclick="showTab('list', this)">📋 State Crop List</button>
+  <button class="nav-btn" onclick="showTab('calendar', this)">📅 Harvest Calendar</button>
+</nav>
+
+<!-- ═══════════ STATE LIST ═══════════ -->
+<div id="list" class="section active">
+  <div class="section-heading">State Crop Directory</div>
+  <p class="section-sub">All 37 states with food crops, cash crops, planting seasons, harvest periods and a monthly activity bar. Filter by zone or search by name.</p>
+
+  <div class="filter-row">
+    <input class="search-box" type="text" placeholder="Search state name..." oninput="filterCards(this.value)" id="searchInput">
+    <button class="filter-btn active" onclick="filterZone('all',this)">All Zones</button>
+    <button class="filter-btn" onclick="filterZone('NW',this)"><span class="zone-dot" style="background:var(--zone-nw)"></span>North West</button>
+    <button class="filter-btn" onclick="filterZone('NE',this)"><span class="zone-dot" style="background:var(--zone-ne)"></span>North East</button>
+    <button class="filter-btn" onclick="filterZone('NC',this)"><span class="zone-dot" style="background:var(--zone-nc)"></span>N. Central</button>
+    <button class="filter-btn" onclick="filterZone('SW',this)"><span class="zone-dot" style="background:var(--zone-sw)"></span>South West</button>
+    <button class="filter-btn" onclick="filterZone('SE',this)"><span class="zone-dot" style="background:var(--zone-se)"></span>South East</button>
+    <button class="filter-btn" onclick="filterZone('SS',this)"><span class="zone-dot" style="background:var(--zone-ss)"></span>South South</button>
+  </div>
+
+  <div class="result-count" id="resultCount"></div>
+  <div class="state-grid" id="stateGrid"></div>
+</div>
+
+<!-- ═══════════ HARVEST CALENDAR ═══════════ -->
+<div id="calendar" class="section">
+  <div class="section-heading">Harvest Calendar</div>
+  <p class="section-sub">Month-by-month planting, growing, and harvest windows for Nigeria's 20 major crops across northern and southern zones.</p>
+
+  <div class="cal-container">
+    <div class="cal-header-row">
+      <div class="legend-item"><div class="ld ld-p"></div> Planting</div>
+      <div class="legend-item"><div class="ld ld-g"></div> Growing</div>
+      <div class="legend-item"><div class="ld ld-h"></div> Harvest</div>
+      <div class="legend-item"><div class="ld ld-o"></div> Off-season</div>
+    </div>
+    <div class="cal-scroll">
+      <table class="cal-table" id="calTable">
+        <thead>
+          <tr>
+            <th style="min-width:160px;">Crop</th>
+            <th style="min-width:170px;">Region / States</th>
+            <th class="month-th">Jan</th><th class="month-th">Feb</th><th class="month-th">Mar</th>
+            <th class="month-th">Apr</th><th class="month-th">May</th><th class="month-th">Jun</th>
+            <th class="month-th">Jul</th><th class="month-th">Aug</th><th class="month-th">Sep</th>
+            <th class="month-th">Oct</th><th class="month-th">Nov</th><th class="month-th">Dec</th>
+            <th style="min-width:120px;">Planting</th>
+            <th style="min-width:130px;">Harvest</th>
+          </tr>
+        </thead>
+        <tbody id="calBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+const states = [
+  // NORTH WEST
+  { name:"Kano", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sudan Savannah",
+    food:["Sorghum","Millet","Onion","Cowpea"],
+    cash:["Groundnut","Cotton","Tomato","Sugarcane"],
+    planting:"May–Jun (Main) · Oct–Nov (Irrigation)",
+    harvest:"Oct–Dec (Main) · Feb–Mar (Dry)",
+    months:[0,0,0,0,0,"p","g","g","g","h","h",0],
+    notes:"Produces 30% of national sugarcane output. Largest tomato belt in the north." },
+
+  { name:"Katsina", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sudan Savannah",
+    food:["Millet","Sorghum","Cowpea"],
+    cash:["Groundnut","Cotton","Sesame","Sugarcane"],
+    planting:"May–Jun", harvest:"Oct–Nov",
+    months:[0,0,0,0,0,"p","g","g","g","h","h",0],
+    notes:"Major groundnut and sesame exporter. Cotton grown in savannah belt." },
+
+  { name:"Sokoto", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sahel Savannah",
+    food:["Millet","Sorghum","Cowpea"],
+    cash:["Cotton","Sesame","Groundnut","Gum Arabic"],
+    planting:"Jun–Jul", harvest:"Nov–Dec",
+    months:[0,0,0,0,0,0,"p","g","g","h","h",0],
+    notes:"Nigeria's driest state. Gum arabic and cowpea are key exports." },
+
+  { name:"Kebbi", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sudan Savannah",
+    food:["Rice","Wheat","Millet","Sorghum"],
+    cash:["Cotton","Sugarcane","Cowpea"],
+    planting:"May–Jun (Rain-fed) · Oct–Dec (Irrigation)",
+    harvest:"Sep–Nov · Feb–Mar",
+    months:[0,0,0,0,"p","p","g","g","h","h",0,0],
+    notes:"Major rice state under Lake Chad Basin and Kebbi irrigation schemes." },
+
+  { name:"Zamfara", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sudan Savannah",
+    food:["Millet","Sorghum","Cowpea"],
+    cash:["Cotton","Sesame","Groundnut"],
+    planting:"Jun–Jul", harvest:"Oct–Dec",
+    months:[0,0,0,0,0,0,"p","g","g","h","h",0],
+    notes:"Cotton in savannah belt. Security challenges affect agricultural output." },
+
+  { name:"Jigawa", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Sudan Savannah",
+    food:["Rice","Wheat","Millet","Tomato"],
+    cash:["Cowpea","Soybean","Cotton","Groundnut"],
+    planting:"May–Jun (Rain) · Oct–Nov (Dry)",
+    harvest:"Sep–Nov · Feb–Mar",
+    months:[0,0,0,0,"p","p","g","g","g","h","h",0],
+    notes:"Cultivated 200,000 ha of rice in 2024. 80,000 ha of wheat in 2024/25 season." },
+
+  { name:"Kaduna", zone:"NW", zoneLabel:"North West", zoneClass:"z-nw",
+    climate:"Guinea Savannah",
+    food:["Maize","Sorghum","Rice"],
+    cash:["Groundnut","Cotton","Soybean","Sesame","Tobacco"],
+    planting:"Apr–May (South) · May–Jun (North)",
+    harvest:"Sep–Nov",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"Key maize, groundnut, and soybean producer. Major cotton growing state." },
+
+  // NORTH EAST
+  { name:"Borno", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Sahel / Sudan Savannah",
+    food:["Maize","Millet","Sorghum","Rice"],
+    cash:["Groundnut","Sesame","Cowpea","Wheat"],
+    planting:"Jun–Jul", harvest:"Nov–Jan",
+    months:[0,0,0,0,0,0,"p","g","g","h","h","h"],
+    notes:"Top maize producer — Konduga & Bama are key LGAs. Major cowpea state." },
+
+  { name:"Yobe", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Sahel Savannah",
+    food:["Millet","Sorghum","Cowpea"],
+    cash:["Groundnut","Sesame","Gum Arabic"],
+    planting:"Jun–Jul", harvest:"Nov–Dec",
+    months:[0,0,0,0,0,0,"p","g","g","h","h",0],
+    notes:"Major cowpea and gum arabic state. Driest part of northeast." },
+
+  { name:"Gombe", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Sudan Savannah",
+    food:["Maize","Sorghum","Millet","Rice"],
+    cash:["Cowpea","Groundnut","Cotton"],
+    planting:"May–Jun", harvest:"Oct–Nov",
+    months:[0,0,0,0,"p","p","g","g","h","h",0,0],
+    notes:"Cowpea and sorghum are key crops alongside increasing maize cultivation." },
+
+  { name:"Adamawa", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Guinea Savannah / Highland",
+    food:["Maize","Sorghum","Rice","Yam","Cassava"],
+    cash:["Groundnut","Sugarcane","Millet"],
+    planting:"Apr–Jun", harvest:"Sep–Nov",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"Highland climate supports diverse crops. Sugarcane production in Numan area." },
+
+  { name:"Bauchi", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Guinea / Sudan Savannah",
+    food:["Maize","Sorghum","Millet","Rice"],
+    cash:["Groundnut","Sesame","Soybean"],
+    planting:"May–Jun", harvest:"Oct–Dec",
+    months:[0,0,0,0,"p","p","g","g","g","h","h",0],
+    notes:"Soybean and sesame production alongside staple grains. Yankari Game Reserve area." },
+
+  { name:"Taraba", zone:"NE", zoneLabel:"North East", zoneClass:"z-ne",
+    climate:"Guinea Savannah",
+    food:["Maize","Rice","Yam","Cassava"],
+    cash:["Groundnut","Sugarcane","Soybean","Sesame"],
+    planting:"Apr–May", harvest:"Oct–Nov",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"High rainfall supports rice and yam. Sugarcane grown along river valleys." },
+
+  // NORTH CENTRAL
+  { name:"Niger", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah",
+    food:["Maize","Sorghum","Cassava","Yam","Rice"],
+    cash:["Groundnut","Soybean","Cotton"],
+    planting:"Apr–Jun", harvest:"Sep–Nov",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"One of Nigeria's largest maize producing states. Diverse agro-ecological zones." },
+
+  { name:"Nasarawa", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah",
+    food:["Yam","Maize","Cassava","Rice","Sorghum"],
+    cash:["Groundnut","Sugarcane","Sesame","Soybean","Cashew"],
+    planting:"Apr–Jun", harvest:"Oct–Dec",
+    months:[0,0,0,"p","p","g","g","g","g","h","h",0],
+    notes:"Pandagric Novum Farm (1,200 ha). ₦10B+ investment. Top maize & soybean state." },
+
+  { name:"Plateau", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Temperate Highland",
+    food:["Maize","Potato","Millet","Yam","Rice","Vegetables"],
+    cash:["Tomato","Cowpea","Acha"],
+    planting:"Mar–May", harvest:"Aug–Nov",
+    months:[0,0,"p","p","g","g","h","h","h",0,0,0],
+    notes:"Produces 95% of Nigeria's Irish potatoes. Jos Plateau at 1,600m elevation — unique temperate climate." },
+
+  { name:"Benue", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah",
+    food:["Yam","Cassava","Rice","Maize"],
+    cash:["Soybean","Groundnut","Sesame","Cashew"],
+    planting:"Apr–Jun", harvest:"Oct–Dec",
+    months:[0,0,0,"p","p","g","g","g","g","h","h",0],
+    notes:"'Food Basket of the Nation'. Produces 70%+ of Nigeria's soybean output." },
+
+  { name:"Kogi", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah / Forest",
+    food:["Yam","Cassava","Maize","Rice"],
+    cash:["Cashew","Groundnut","Palm Oil"],
+    planting:"Mar–May", harvest:"Sep–Nov",
+    months:[0,0,"p","p","g","g","g","g","h","h",0,0],
+    notes:"Strategic Niger-Benue confluence state. Cashew and yam are major exports." },
+
+  { name:"Kwara", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah",
+    food:["Cassava","Yam","Maize","Rice"],
+    cash:["Soybean","Cotton","Kolanut","Cashew"],
+    planting:"Apr–Jun", harvest:"Oct–Dec",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"Major kolanut producing state. Cashew orchards expanding across the state." },
+
+  { name:"FCT Abuja", zone:"NC", zoneLabel:"North Central", zoneClass:"z-nc",
+    climate:"Guinea Savannah",
+    food:["Maize","Cassava","Yam","Rice","Vegetables"],
+    cash:["Soybean","Groundnut"],
+    planting:"Apr–Jun", harvest:"Oct–Nov",
+    months:[0,0,0,"p","p","g","g","g","h","h",0,0],
+    notes:"Primarily peri-urban farming. Urban agriculture and vegetable production growing rapidly." },
+
+  // SOUTH WEST
+  { name:"Oyo", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Derived Savannah / Forest",
+    food:["Cassava","Maize","Yam"],
+    cash:["Cocoa","Cotton","Kolanut","Soybean","Cashew","Oil Palm"],
+    planting:"Mar–May (Main) · Aug–Sep (Minor)",
+    harvest:"Sep–Dec · Jan–Mar",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"Major cocoa state — SW belt accounts for 80% of national cocoa output. Cotton in savannah north." },
+
+  { name:"Osun", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Forest / Derived Savannah",
+    food:["Cassava","Maize","Yam","Plantain"],
+    cash:["Cocoa","Kolanut","Oil Palm"],
+    planting:"Mar–May · Aug–Sep", harvest:"Sep–Nov · Jan–Feb",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"Part of the cocoa belt. Kolanut supports religious and cultural markets." },
+
+  { name:"Ekiti", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Forest",
+    food:["Cassava","Yam","Plantain"],
+    cash:["Cocoa","Oil Palm","Kolanut","Cashew"],
+    planting:"Mar–May", harvest:"Oct–Jan",
+    months:[0,0,"p","p","g","g","g","h","h","h","h",0],
+    notes:"Highland forest supports premium cocoa. Major yam and cassava belt in southwest." },
+
+  { name:"Ondo", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Forest",
+    food:["Cassava","Plantain","Yam"],
+    cash:["Cocoa","Oil Palm","Rubber","Cashew"],
+    planting:"Mar–May (Main) · Aug–Sep (Minor)",
+    harvest:"Oct–Jan",
+    months:[0,0,"p","p","g","g","g","h","h","h","h",0],
+    notes:"Highest cocoa producing state in Nigeria. Major rubber and oil palm estate." },
+
+  { name:"Ogun", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Forest / Derived Savannah",
+    food:["Cassava","Maize","Yam"],
+    cash:["Oil Palm","Rubber","Cotton","Kolanut","Cocoa"],
+    planting:"Mar–May · Aug–Sep", harvest:"Sep–Dec · Jan–Mar",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"Major rubber state. Proximity to Lagos drives commercial agriculture and agri-processing." },
+
+  { name:"Lagos", zone:"SW", zoneLabel:"South West", zoneClass:"z-sw",
+    climate:"Coastal / Rainforest",
+    food:["Cassava","Maize","Vegetables","Plantain"],
+    cash:["Coconut","Oil Palm"],
+    planting:"Mar–May · Aug–Sep", harvest:"Jul–Sep · Nov–Jan",
+    months:[0,0,"p","p","g","g","h","h",0,0,0,0],
+    notes:"Mainly peri-urban farming. Coastal fishing and aquaculture significant. Nigeria's largest consumer market." },
+
+  // SOUTH EAST
+  { name:"Enugu", zone:"SE", zoneLabel:"South East", zoneClass:"z-se",
+    climate:"Rainforest / Derived Savannah",
+    food:["Rice","Cassava","Yam","Maize"],
+    cash:["Oil Palm","Cashew","Soybean"],
+    planting:"Mar–May", harvest:"Sep–Dec",
+    months:[0,0,"p","p","g","g","g","g","h","h",0,0],
+    notes:"Southeast's major rice hub. Oil palm production along Niger corridor." },
+
+  { name:"Anambra", zone:"SE", zoneLabel:"South East", zoneClass:"z-se",
+    climate:"Rainforest",
+    food:["Cassava","Yam","Rice","Maize","Plantain"],
+    cash:["Oil Palm","Cocoa","Cashew"],
+    planting:"Mar–May · Aug–Sep", harvest:"Sep–Nov · Jan–Mar",
+    months:[0,0,"p","p","g","g","g","g","h","h",0,0],
+    notes:"Largest cassava-producing state. Onitsha Market — one of West Africa's largest trading hubs." },
+
+  { name:"Imo", zone:"SE", zoneLabel:"South East", zoneClass:"z-se",
+    climate:"Rainforest",
+    food:["Cassava","Yam","Plantain","Maize"],
+    cash:["Oil Palm","Rubber","Cocoa"],
+    planting:"Mar–May", harvest:"Sep–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Major oil palm state (SE oil palm belt). Rubber commercially grown." },
+
+  { name:"Abia", zone:"SE", zoneLabel:"South East", zoneClass:"z-se",
+    climate:"Rainforest",
+    food:["Cassava","Yam","Plantain","Maize"],
+    cash:["Oil Palm","Rubber","Cocoa"],
+    planting:"Mar–May", harvest:"Sep–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Oil palm and rubber production. Significant food processing industry in Aba." },
+
+  { name:"Ebonyi", zone:"SE", zoneLabel:"South East", zoneClass:"z-se",
+    climate:"Rainforest",
+    food:["Rice","Cassava","Yam","Maize","Plantain"],
+    cash:["Oil Palm","Cashew"],
+    planting:"Mar–May", harvest:"Sep–Nov",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"'Salt of the Nation' — SE's major rice hub. Rice terraces in Ishielu LGA are iconic." },
+
+  // SOUTH SOUTH
+  { name:"Cross River", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Tropical Rainforest",
+    food:["Cassava","Plantain","Rice","Banana"],
+    cash:["Cocoa","Rubber","Oil Palm","Cashew"],
+    planting:"Mar–May · Aug–Sep", harvest:"Oct–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Premium cocoa production. Cross River National Park. Rubber and oil palm historically major exports." },
+
+  { name:"Akwa Ibom", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Tropical Rainforest / Coastal",
+    food:["Cassava","Yam","Plantain","Coconut"],
+    cash:["Oil Palm","Rubber","Cocoa"],
+    planting:"Mar–May", harvest:"Oct–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Major oil palm state. Coastal fishing very significant. High rainfall 3,000mm+/year." },
+
+  { name:"Rivers", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Tropical Rainforest / Mangrove",
+    food:["Cassava","Plantain","Vegetables","Banana"],
+    cash:["Oil Palm","Rubber"],
+    planting:"Mar–May · Aug–Sep", harvest:"Sep–Nov · Feb–Mar",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"Oil-producing state. Mangrove swamp agriculture. Fishing and aquaculture dominant." },
+
+  { name:"Bayelsa", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Coastal / Mangrove",
+    food:["Cassava","Plantain","Coconut","Banana"],
+    cash:["Oil Palm","Fisheries"],
+    planting:"Mar–May", harvest:"Sep–Nov",
+    months:[0,0,"p","p","g","g","g","h","h","h",0,0],
+    notes:"Niger Delta state. Aquaculture and fishing dominant. Flooding periodically affects crop agriculture." },
+
+  { name:"Delta", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Tropical Rainforest",
+    food:["Cassava","Plantain","Yam"],
+    cash:["Oil Palm","Rubber","Cocoa"],
+    planting:"Mar–May", harvest:"Sep–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Sapele is a major rubber hub. Significant oil palm estates. Cocoa in northern delta areas." },
+
+  { name:"Edo", zone:"SS", zoneLabel:"South South", zoneClass:"z-ss",
+    climate:"Tropical Rainforest",
+    food:["Cassava","Yam","Plantain","Banana"],
+    cash:["Rubber","Cocoa","Oil Palm"],
+    planting:"Mar–May · Aug–Sep", harvest:"Oct–Jan",
+    months:[0,0,"p","p","g","g","g","g","h","h","h",0],
+    notes:"Rubber Benin estate — one of Nigeria's largest. Premium cocoa production zone." },
+];
+
+// CALENDAR DATA — months: o=off, p=plant, g=grow, h=harvest
+const calData = [
+  { crop:"Maize (South)",    region:"Southern Nigeria",          months:["o","o","o","p","p","g","g","h","h","o","o","o"], planting:"Mar–May",       harvest:"Jul–Sep" },
+  { crop:"Maize (North)",    region:"Northern Nigeria",          months:["o","o","o","o","p","p","g","g","h","h","o","o"], planting:"May–Jun",       harvest:"Sep–Oct" },
+  { crop:"Cassava",          region:"South / Middle Belt",       months:["o","o","p","p","p","g","g","g","g","g","g","h"], planting:"Mar–May",       harvest:"Nov–Jan (+1)" },
+  { crop:"Yam",              region:"Middle Belt / Southeast",   months:["o","o","p","p","p","g","g","g","g","h","h","o"], planting:"Mar–May",       harvest:"Oct–Nov" },
+  { crop:"Rice (Rain-fed)",  region:"Nationwide",                months:["o","o","o","o","p","p","g","g","g","h","h","o"], planting:"May–Jun",       harvest:"Oct–Nov" },
+  { crop:"Rice (Irrigated)", region:"Jigawa, Kebbi, Kano",       months:["h","o","o","o","o","o","o","o","o","p","p","g"], planting:"Oct–Nov",       harvest:"Jan–Feb" },
+  { crop:"Sorghum",          region:"Northern Nigeria",          months:["o","o","o","o","o","p","g","g","g","h","h","o"], planting:"Jun",           harvest:"Oct–Nov" },
+  { crop:"Millet",           region:"Sahel / Sudan Savannah",    months:["o","o","o","o","o","p","g","g","h","h","o","o"], planting:"Jun",           harvest:"Sep–Oct" },
+  { crop:"Groundnut",        region:"North",                     months:["o","o","o","o","p","p","g","g","g","h","h","o"], planting:"May–Jun",       harvest:"Oct–Nov" },
+  { crop:"Cocoa",            region:"SW / SE / SS Nigeria",      months:["h","h","o","o","o","p","g","g","g","h","h","h"], planting:"Jun",           harvest:"Oct–Feb (Peak: Oct–Jan)" },
+  { crop:"Oil Palm",         region:"Southern Nigeria",          months:["h","h","h","o","o","o","g","g","g","h","h","h"], planting:"Year-round",    harvest:"Oct–Mar (Peak)" },
+  { crop:"Cowpea",           region:"Northern Nigeria",          months:["o","o","o","o","o","p","g","g","h","h","o","o"], planting:"Jun–Jul",       harvest:"Sep–Oct" },
+  { crop:"Soybean",          region:"Middle Belt (Benue)",       months:["o","o","o","o","p","p","g","g","g","h","h","o"], planting:"May–Jun",       harvest:"Oct–Nov" },
+  { crop:"Cotton",           region:"North West / South West",   months:["o","o","o","o","p","p","g","g","g","h","h","o"], planting:"May–Jun",       harvest:"Oct–Nov" },
+  { crop:"Tomato",           region:"Kano, Jigawa, Kaduna",      months:["p","g","h","h","o","o","o","o","p","g","g","h"], planting:"Aug–Sep / Dec–Jan", harvest:"Mar–Apr / Nov–Dec" },
+  { crop:"Rubber",           region:"Southern Nigeria",          months:["o","o","o","p","p","g","g","g","g","h","h","h"], planting:"Apr–May",       harvest:"Oct–Jan" },
+  { crop:"Sugarcane",        region:"Kano, Jigawa, N. West",     months:["o","o","o","o","o","p","g","g","g","g","g","h"], planting:"Jun",           harvest:"Dec–Feb" },
+  { crop:"Irish Potato",     region:"Plateau State",             months:["o","o","p","p","g","g","h","h","o","o","o","o"], planting:"Mar–Apr",       harvest:"Jul–Aug" },
+  { crop:"Sesame",           region:"N. Central (Nasarawa)",     months:["o","o","o","o","p","p","g","g","h","h","o","o"], planting:"May–Jun",       harvest:"Sep–Oct" },
+  { crop:"Cashew",           region:"Anambra, Enugu, Oyo",       months:["o","h","h","h","o","o","o","o","o","o","o","o"], planting:"Perennial",     harvest:"Feb–Apr" },
+];
+
+// ═══════════════════════════════════════════════
+// RENDER STATE CARDS
+// ═══════════════════════════════════════════════
+function renderCards() {
+  const grid = document.getElementById('stateGrid');
+  states.forEach((s, i) => {
+    const bars = s.months.map((v, mi) => {
+      const cls = v==="p"?"p":v==="g"?"g":v==="h"?"h":"o";
+      const tip = v==="p"?"Planting":v==="g"?"Growing":v==="h"?"Harvest":"Off-season";
+      return `<div class="mc ${cls}" title="${MONTHS[mi]}: ${tip}"></div>`;
+    }).join('');
+
+    const el = document.createElement('div');
+    el.className = 'state-card';
+    el.dataset.zone = s.zone;
+    el.dataset.name = s.name.toLowerCase();
+    el.style.animationDelay = `${(i%8)*40}ms`;
+    el.innerHTML = `
+      <div class="card-top">
+        <div>
+          <div class="card-state-name">${s.name}</div>
+          <div class="card-climate">🌡 ${s.climate}</div>
+        </div>
+        <div class="zone-badge ${s.zoneClass}">${s.zoneLabel}</div>
+      </div>
+      <div class="card-body">
+        <div class="crop-section">
+          <div class="crop-label">Food Crops</div>
+          <div class="crop-tags">${s.food.map(c=>`<span class="crop-tag ct-food">${c}</span>`).join('')}</div>
+        </div>
+        <div class="crop-section">
+          <div class="crop-label">Cash Crops</div>
+          <div class="crop-tags">${s.cash.map(c=>`<span class="crop-tag ct-cash">${c}</span>`).join('')}</div>
+        </div>
+        <div class="season-row">
+          <div class="season-box sb-plant">
+            <div class="sb-label">🌱 Planting</div>
+            <div class="sb-value">${s.planting}</div>
+          </div>
+          <div class="season-box sb-harvest">
+            <div class="sb-label">🌾 Harvest</div>
+            <div class="sb-value">${s.harvest}</div>
+          </div>
+        </div>
+        <div class="month-bar-wrap">
+          <div class="month-bar">${bars}</div>
+          <div class="month-lbl-row">${MONTHS.map(m=>`<span class="ml">${m[0]}</span>`).join('')}</div>
+        </div>
+        <div class="notes-box">${s.notes}</div>
+      </div>`;
+    grid.appendChild(el);
+  });
+  updateCount();
+}
+
+function updateCount() {
+  const visible = document.querySelectorAll('.state-card:not([style*="display: none"])').length;
+  document.getElementById('resultCount').innerHTML = `Showing <strong>${visible}</strong> of <strong>${states.length}</strong> states`;
+}
+
+function filterZone(zone, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('.state-card').forEach(c => {
+    c.style.display = (zone==='all' || c.dataset.zone===zone) ? 'block' : 'none';
+  });
+  updateCount();
+}
+
+function filterCards(q) {
+  const lq = q.toLowerCase();
+  document.querySelectorAll('.state-card').forEach(c => {
+    c.style.display = c.dataset.name.includes(lq) ? 'block' : 'none';
+  });
+  updateCount();
+}
+
+// ═══════════════════════════════════════════════
+// RENDER CALENDAR
+// ═══════════════════════════════════════════════
+function renderCalendar() {
+  const tbody = document.getElementById('calBody');
+  calData.forEach(row => {
+    const cells = row.months.map(v => {
+      const cls = v==="p"?"cp":v==="g"?"cg":v==="h"?"ch":"co";
+      const tip = v==="p"?"Planting":v==="g"?"Growing":v==="h"?"Harvest":"Off-season";
+      return `<td class="cal-cell"><span class="cal-pip ${cls}" title="${tip}"></span></td>`;
+    }).join('');
+    tbody.innerHTML += `
+      <tr>
+        <td><span class="crop-name-cell">${row.crop}</span></td>
+        <td><span class="region-cell">${row.region}</span></td>
+        ${cells}
+        <td><span class="period-cell period-plant">${row.planting}</span></td>
+        <td><span class="period-cell period-harvest">${row.harvest}</span></td>
+      </tr>`;
+  });
+}
+
+// ═══════════════════════════════════════════════
+// TAB SWITCH
+// ═══════════════════════════════════════════════
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if (id==='calendar' && !document.getElementById('calBody').children.length) renderCalendar();
+}
+
+// INIT
+renderCards();
+</script>
+</body>
+</html>
