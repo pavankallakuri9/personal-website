@@ -23,7 +23,27 @@
     @media(max-width:900px){.nav-links{gap:15px}.hero-grid{gap:24px}.about-grid,.research-grid{gap:35px}.card-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:700px){.container{width:min(100% - 32px,1120px)}.section{padding:65px 0}.nav{min-height:69px}.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:15px 22px 24px;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:12px 6px}.nav-links .nav-contact{text-align:center;margin-top:7px}.hero-grid{grid-template-columns:1fr;padding:70px 0 55px}.hero-art{min-height:320px}.art-frame{width:270px}.floating-tag{left:4%;bottom:0}.feature-row,.about-grid,.research-grid,.card-grid{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid #dedbd5}.feature:last-child{border-bottom:0}.about-panel{padding:30px}.contact-card{padding:30px;flex-direction:column;align-items:flex-start}.hero-note{gap:12px}.section-intro{font-size:1rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+    /* Leadership Atlas: featured learning resource */
+    .leadership-atlas-card{max-width:990px;margin:42px auto 32px;padding:36px 42px;background:linear-gradient(120deg,#1d3452 0%,#142641 75%);border:1px solid rgba(221,183,124,.36);border-radius:18px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:25px;align-items:center;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,.16);overflow:hidden}
+    .leadership-atlas-label{display:flex;align-items:center;gap:12px;color:#e0be85;font-size:.71rem;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
+    .leadership-atlas-symbol{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border-radius:10px;background:#0c1e3a;border:1px solid rgba(224,190,133,.35);font:italic 1.3rem Georgia,serif;letter-spacing:-.09em;text-transform:none;color:#efba48}
+    .leadership-atlas-card h3{font:800 clamp(1.7rem,3.2vw,2.45rem)/1.2 Manrope,sans-serif;letter-spacing:-.045em;margin:22px 0 12px;color:#fff}
+    .leadership-atlas-card h3 em{font-family:Georgia,serif;font-weight:400;color:#e8bd72}
+    .leadership-atlas-card p{color:#cbd7e6;margin:0 0 20px;max-width:630px;font-size:.99rem}
+    .leadership-atlas-stats{display:flex;flex-wrap:wrap;gap:10px 21px;margin:20px 0 24px;color:#d7e0eb;font-size:.82rem}
+    .leadership-atlas-stats span{display:inline-flex;gap:6px;align-items:baseline}
+    .leadership-atlas-stats strong{font:800 1.23rem Manrope,sans-serif;color:#f4cb83}
+    .leadership-atlas-button{margin-top:3px}
+    .leadership-atlas-decoration{position:relative;min-height:240px;display:grid;place-items:center}
+    .leadership-atlas-orbit{position:absolute;width:195px;height:195px;border:1px solid rgba(224,190,133,.26);border-radius:50%;transform:rotate(-22deg) scaleX(.76)}
+    .leadership-atlas-orbit.orbit-two{transform:rotate(53deg) scaleX(.76)}
+    .leadership-atlas-center{position:relative;z-index:1;color:#f6d59e;text-align:center;font:italic 2rem/1.3 Georgia,serif}
+    @media(max-width:700px){.leadership-atlas-card{grid-template-columns:1fr;padding:27px 24px;gap:0}.leadership-atlas-decoration{display:none}.leadership-atlas-stats{gap:8px 14px}.leadership-atlas-button{width:100%}}
+    /* Automated resource cards are styled in the shared library stylesheet. */
   </style>
+  <link rel="stylesheet" href="/resource-library.css">
+  <script src="/resource-library.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -31,7 +51,7 @@
       <a class="brand" href="#home" aria-label="Pavan Kumar Kallakuri, home"><span class="brand-mark">PK</span><span>Pavan Kallakuri<small>Learn · Apply · Lead</small></span></a>
       <button class="nav-toggle" id="menuButton" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a><a href="#academy">Sales Mastery School</a><a href="#research">Research</a><a href="#leadership">Leadership</a><a href="#contact" class="nav-contact">Get in Touch</a>
+        <a href="#about">About</a><a href="#academy">Sales Mastery School</a><a href="#research">Research</a><a href="#leadership">Leadership</a><a href="/library.html">Knowledge Library</a><a href="#contact" class="nav-contact">Get in Touch</a>
       </div>
     </nav>
   </header>
@@ -55,14 +75,49 @@
       <article class="card"><div class="card-icon" aria-hidden="true">▤</div><h3>Sales Planning & Analytics</h3><p>Forecasting, sales metrics, territory planning and decisions informed by evidence.</p><span class="status">Lessons coming soon</span></article>
       <article class="card"><div class="card-icon" aria-hidden="true">✧</div><h3>People & Performance</h3><p>Coaching teams, developing talent and building performance-oriented cultures.</p><span class="status">Lessons coming soon</span></article>
       <article class="card"><div class="card-icon" aria-hidden="true">⌘</div><h3>Digital Tools & AI</h3><p>Exploring responsible ways technology can make learning, analysis and sales work better.</p><span class="status">Lessons coming soon</span></article>
-    </div></div></section>
+    </div>
+    <div class="eyebrow" style="margin-top:44px">Published learning resources</div>
+    <div class="resource-grid" data-resource-section="Sales Mastery" data-limit="3" aria-live="polite"></div>
+    <div class="library-link-row"><a href="/library.html?category=Sales%20Mastery">View all Sales Mastery resources ↗</a></div>
+    </div></section>
 
     <section class="section" id="research"><div class="container research-grid"><div><div class="eyebrow">Research & insights</div><h2 class="section-title">Curiosity backed by exploration.</h2><p class="section-intro">From market dynamics to mobility and industry trends, I enjoy exploring questions, connecting data and presenting insights in accessible formats.</p><div class="research-list">
       <a class="research-item" href="https://marketresearch-wine.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Explore my existing research library</span><span aria-hidden="true">↗</span></a>
       <a class="research-item" href="https://github.com/pavankallakuri9/marketresearch" target="_blank" rel="noopener noreferrer"><span>View research HTML projects on GitHub</span><span aria-hidden="true">↗</span></a>
-    </div><p class="section-intro" style="font-size:.9rem">More original articles, interactive research pages and downloadable resources will be added here over time.</p></div><div class="research-art" aria-hidden="true"><div class="chart">▥ ↗</div><h3>Research. Reflect. Share.</h3><p>Making complex questions easier to understand.</p></div></div></section>
+    </div><p class="section-intro" style="font-size:.9rem">More original articles, interactive research pages and downloadable resources will be added here over time.</p>
+    <div class="eyebrow" style="margin-top:31px">Published research</div>
+    <div class="resource-grid" data-resource-section="Research" data-limit="3" aria-live="polite" style="grid-template-columns:1fr"></div>
+    <div class="library-link-row"><a href="/library.html?category=Research">View all research resources ↗</a></div>
+    </div><div class="research-art" aria-hidden="true"><div class="chart">▥ ↗</div><h3>Research. Reflect. Share.</h3><p>Making complex questions easier to understand.</p></div></div></section>
 
-    <section class="section philosophy" id="leadership"><div class="container"><div class="eyebrow">Leadership & lifelong learning</div><h2 class="section-title">The most useful lessons don't stop at the classroom door.</h2><p class="section-intro">I believe leadership grows through experience, reflection, diverse perspectives and the willingness to keep learning. Here I'll share ideas worth discussing and practices worth trying.</p><a class="button button-light" href="#contact">Connect & Share Ideas <span aria-hidden="true">↗</span></a></div></section>
+    <section class="section philosophy" id="leadership">
+      <div class="container">
+        <div class="eyebrow">Leadership &amp; lifelong learning</div>
+        <h2 class="section-title">The most useful lessons don't stop at the classroom door.</h2>
+        <p class="section-intro">I believe leadership grows through experience, reflection, diverse perspectives and the willingness to keep learning. Here I'll share ideas worth discussing and practices worth trying.</p>
+
+        <article class="leadership-atlas-card" aria-labelledby="atlas-title">
+          <div class="leadership-atlas-copy">
+            <div class="leadership-atlas-label"><span class="leadership-atlas-symbol" aria-hidden="true">La</span><span>Featured leadership resource</span></div>
+            <h3 id="atlas-title">Executive Leadership <em>Learning Atlas</em></h3>
+            <p>A visual, interactive guide to leadership frameworks, expert perspectives and practical tools — inspired by my executive leadership learning journey.</p>
+            <div class="leadership-atlas-stats" aria-label="Leadership Atlas at a glance">
+              <span><strong>8</strong> Modules</span>
+              <span><strong>24</strong> Units</span>
+              <span><strong>92</strong> Frameworks &amp; models</span>
+              <span><strong>21</strong> Expert voices</span>
+            </div>
+            <a class="button button-primary leadership-atlas-button" href="/leadership-atlas/index.html">Explore Leadership Atlas <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="leadership-atlas-decoration" aria-hidden="true"><span class="leadership-atlas-orbit orbit-one"></span><span class="leadership-atlas-orbit orbit-two"></span><span class="leadership-atlas-center">Learn.<br>Apply.<br>Lead.</span></div>
+        </article>
+
+        <div class="eyebrow" style="margin-top:40px">Leadership resource library</div>
+        <div class="resource-grid resource-dark" data-resource-section="Leadership" data-limit="3" aria-live="polite"></div>
+        <div class="library-link-row" style="margin-bottom:30px"><a href="/library.html?category=Leadership">View all leadership resources ↗</a></div>
+        <a class="button button-light" href="#contact">Connect &amp; Share Ideas <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
 
     <section class="section contact" id="contact"><div class="container"><div class="contact-card"><div><div class="eyebrow">Let's connect</div><h2 class="section-title" style="margin-bottom:8px">Good ideas grow through conversation.</h2><p>Interested in sales, leadership, research or learning? Connect with me on LinkedIn.</p></div><a class="button button-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a></div></div></section>
   </main>
