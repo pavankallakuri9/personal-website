@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Sales Foundations | Sales Mastery School</title>
+<meta name="library-title" content="Sales Foundations — Interactive Sales Course">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A tabbed, colour-coded study guide to selling: the seller, the buyer's mind, the sales process, discovery, presenting, objections, closing, after the sale and managing a sales team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: white masthead, sticky row of colour-coded tabs, one tab panel at a time. Each tab owns a signal colour (--c) that tints its hero, cards and memory box. Single light theme by request. */
+:root{
+  --paper:#F6F7FB; --white:#FFFFFF; --ink:#101830; --ink-2:#47526B; --ink-3:#7C869B;
+  --line:#E3E7F0; --line-2:#CED5E3; --navy:#0A2A5E; --gold:#E8B53D; --gold-l:#FFF4D6;
+  --good:#0E9F6E; --bad:#E11D48;
+  --navyc:#0A2A5E; --navyl:#E6ECF7; --navyd:#0A2A5E;
+  --blue:#2B59F0;  --bluel:#E8EEFF;  --blued:#1C3FB8;
+  --pink:#E0247A;  --pinkl:#FFE6F1;  --pinkd:#A8135A;
+  --orng:#F2603A;  --orngl:#FFEDE7;  --orngd:#B83A1A;
+  --vio:#7B3FF2;   --viol:#F1E9FF;   --viod:#5524BF;
+  --cyan:#0891B2;  --cyanl:#DDF4FA;  --cyand:#066A82;
+  --red:#E11D48;   --redl:#FFE4EA;   --redd:#A3122F;
+  --grn:#0E9F6E;   --grnl:#DFF7EE;   --grnd:#08724F;
+  --ind:#4F46E5;   --indl:#E9E8FF;   --indd:#3730A3;
+  --olv:#4D7C0F;   --olvl:#EEF6DC;   --olvd:#365A08;
+  --amb:#D99A00;   --ambl:#FFF5D9;   --ambd:#8A6100;
+  --c:var(--navyc); --cl:var(--navyl); --cd:var(--navyd);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:14px;
+  --shadow:0 1px 2px rgba(16,24,48,.05),0 10px 26px -14px rgba(16,24,48,.18);
+  color-scheme:light;
+}
+.t-navy{--c:var(--navyc);--cl:var(--navyl);--cd:var(--navyd)}
+.t-blue{--c:var(--blue);--cl:var(--bluel);--cd:var(--blued)}
+.t-pink{--c:var(--pink);--cl:var(--pinkl);--cd:var(--pinkd)}
+.t-orng{--c:var(--orng);--cl:var(--orngl);--cd:var(--orngd)}
+.t-vio{--c:var(--vio);--cl:var(--viol);--cd:var(--viod)}
+.t-cyan{--c:var(--cyan);--cl:var(--cyanl);--cd:var(--cyand)}
+.t-red{--c:var(--red);--cl:var(--redl);--cd:var(--redd)}
+.t-grn{--c:var(--grn);--cl:var(--grnl);--cd:var(--grnd)}
+.t-ind{--c:var(--ind);--cl:var(--indl);--cd:var(--indd)}
+.t-olv{--c:var(--olv);--cl:var(--olvl);--cd:var(--olvd)}
+.t-amb{--c:var(--amb);--cl:var(--ambl);--cd:var(--ambd)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
+@media (max-width:700px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+
+/* masthead */
+.mast{background:var(--white);border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;padding-block:16px}
+.brand{display:flex;gap:12px;align-items:center}
+.crest{width:42px;height:42px;border-radius:11px;background:var(--navy);display:grid;place-items:center;flex:none}
+.crest span{font-family:var(--f-serif);font-style:italic;color:var(--gold);font-size:25px;line-height:1}
+.brand b{display:block;font-family:var(--f-display);font-weight:800;font-size:19px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.progress{min-width:220px;flex:0 1 300px;font-size:12.5px;color:var(--ink-2)}
+.prog{height:7px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--pink),var(--orng),var(--vio),var(--cyan),var(--red),var(--grn),var(--ind),var(--olv),var(--amb));transition:width .4s}
+
+/* tabs */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--white)}
+.tabbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:thin}
+.tab{flex:none;display:flex;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid var(--cl);background:var(--cl);color:var(--cd);border-radius:999px;padding:7px 14px 7px 8px;transition:transform .15s,background .15s,color .15s}
+.tab:hover{transform:translateY(-1px);border-color:var(--c)}
+.tab .n{width:24px;height:24px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--f-mono);font-size:11px;display:grid;place-items:center}
+.tab[aria-selected="true"]{background:var(--c);color:#fff;border-color:var(--c);box-shadow:0 6px 16px -8px var(--c)}
+.tab[aria-selected="true"] .n{background:#fff;color:var(--c)}
+.tab .ok{font-size:12px;color:var(--good);display:none}
+.tab.learned .ok{display:inline}
+.tab[aria-selected="true"] .ok{color:#fff}
+
+/* panel */
+.panel{display:none}
+.panel.show{display:block;animation:in .35s ease both}
+@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hero{background:linear-gradient(180deg,var(--cl),var(--paper));border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-140px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--white) 0%,transparent 66%);opacity:.8}
+.hero .wrap{position:relative;z-index:1;padding-block:44px 34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.hero .big{font-family:var(--f-display);font-weight:800;font-size:clamp(90px,13vw,170px);line-height:.8;color:var(--c);letter-spacing:-.05em}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cd)}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;margin:10px 0 12px}
+.hero h1 em{font-family:var(--f-serif);font-weight:400;font-style:italic;color:var(--c);letter-spacing:0}
+.lede{font-size:17px;color:var(--ink-2);max-width:66ch}
+.bigidea{display:inline-flex;gap:10px;align-items:baseline;margin-top:18px;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14.5px;max-width:100%}
+.bigidea b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cd);font-weight:500;flex:none}
+@media (max-width:700px){.hero .wrap{grid-template-columns:1fr;padding-block:28px 24px}.hero .big{font-size:80px;order:-1}}
+
+/* sections */
+.sec{padding-block:40px 6px}
+.sh{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;margin-bottom:6px}
+.sh h2{font-size:clamp(23px,3vw,30px);font-weight:800}
+.sh .tag{font-family:var(--f-mono);font-size:11px;color:var(--cd);background:var(--cl);border-radius:6px;padding:2px 8px}
+.intro{color:var(--ink-2);max-width:72ch;margin-bottom:18px}
+.subh{font-family:var(--f-display);font-size:17px;font-weight:700;margin:24px 0 10px}
+
+.g{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px;min-width:0}
+.card h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.card p{font-size:14px;color:var(--ink-2)}
+.k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cd);display:block;margin-bottom:6px}
+.card.tint{background:var(--cl);border-color:transparent}
+.card.solid{background:var(--c);border-color:transparent;color:#fff}
+.card.solid p,.card.solid .k{color:rgba(255,255,255,.9)}
+.card.ink{background:var(--ink);border-color:transparent;color:#fff}
+.card.ink p{color:rgba(255,255,255,.8)}
+.card.ink .k{color:var(--gold)}
+.list{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.list li{font-size:14px;color:var(--ink-2);padding-left:16px;position:relative}
+.list li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--c)}
+.card.solid .list li,.card.ink .list li{color:rgba(255,255,255,.9)}
+.card.solid .list li::before{background:#fff}
+.card.ink .list li::before{background:var(--gold)}
+.num{font-family:var(--f-display);font-weight:800;font-size:34px;line-height:1;color:var(--c)}
+.letter{font-family:var(--f-display);font-weight:800;font-size:46px;line-height:.9;color:var(--c)}
+.card.solid .num,.card.solid .letter{color:#fff}
+
+.note{background:var(--cl);border-radius:var(--r);padding:15px 18px;margin-top:16px;font-size:14.5px}
+.note b.lab{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cd);display:block;margin-bottom:4px;font-weight:500}
+.note.gold{background:var(--gold-l)} .note.gold b.lab{color:var(--ambd)}
+
+.quote{margin-top:18px;padding:24px 26px;border-radius:var(--r);background:var(--white);border:1px solid var(--line)}
+.quote p{font-family:var(--f-serif);font-size:clamp(21px,2.4vw,27px);line-height:1.3}
+.quote p::before{content:"\201C";color:var(--c);font-size:1.6em;line-height:0;vertical-align:-.35em;margin-right:4px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:15px 17px}
+.stat b{display:block;font-family:var(--f-display);font-weight:800;font-size:38px;line-height:1;color:var(--c);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--ink-2)}
+
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--white)}
+.tbl table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+.tbl th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:left;color:var(--cd);background:var(--cl);padding:10px 14px;font-weight:500}
+.tbl td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.tbl td:first-child{color:var(--ink);font-weight:600}
+
+.flow{display:flex;flex-wrap:wrap;counter-reset:fl}
+.flow .st{flex:1 1 140px;min-width:0;padding:15px 18px 15px 15px;background:var(--white);border:1px solid var(--line);margin:0 -1px -1px 0}
+.flow .st:first-child{border-radius:var(--r) 0 0 var(--r)}
+.flow .st:last-child{border-radius:0 var(--r) var(--r) 0}
+.flow .st::before{counter-increment:fl;content:counter(fl,decimal-leading-zero);font-family:var(--f-mono);font-size:11px;color:var(--cd);display:block;margin-bottom:5px}
+.flow .st:nth-child(odd){background:var(--cl);border-color:transparent}
+.flow .st h4{font-size:15.5px;font-weight:700;margin-bottom:3px}
+.flow .st p{font-size:13px;color:var(--ink-2)}
+@media (max-width:700px){.flow .st{flex-basis:100%;border-radius:0!important}.flow .st:first-child{border-radius:var(--r) var(--r) 0 0!important}.flow .st:last-child{border-radius:0 0 var(--r) var(--r)!important}}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border-radius:999px;padding:5px 12px;font-size:13px;background:var(--white);border:1px solid var(--line-2);color:var(--ink-2)}
+.chip.c{background:var(--cl);border-color:transparent;color:var(--cd);font-weight:600}
+
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.vs .mid{display:grid;place-items:center;font-family:var(--f-serif);font-style:italic;font-size:28px;color:var(--ink-3)}
+@media (max-width:700px){.vs{grid-template-columns:1fr}.vs .mid{font-size:22px}}
+
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700}
+.eq .t{background:var(--white);border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;font-size:16px}
+.eq .op{width:32px;height:32px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--ink);font-size:16px}
+.eq .r{background:var(--c);color:#fff;border-radius:10px;padding:10px 16px;font-size:16px}
+
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dodont .card ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+.dodont li{font-size:14px;color:var(--ink-2);padding-left:24px;position:relative}
+.do li::before{content:"\2713";position:absolute;left:0;color:var(--good);font-weight:700}
+.dont li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-weight:700}
+@media (max-width:560px){.dodont{grid-template-columns:1fr}}
+
+.say{display:flex;flex-wrap:wrap;gap:8px}
+.say span{font-family:var(--f-serif);font-style:italic;font-size:18px;background:var(--white);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:6px 12px}
+
+.story{display:grid;grid-template-columns:auto 1fr;gap:16px;background:var(--white);border:1px dashed var(--line-2);border-radius:var(--r);padding:18px 20px;margin-top:16px}
+.story .ic{width:44px;height:44px;border-radius:12px;background:var(--cl);color:var(--cd);display:grid;place-items:center;font-family:var(--f-serif);font-style:italic;font-size:24px}
+.story h4{font-size:16px;margin-bottom:4px}
+.story p{font-size:14px;color:var(--ink-2)}
+
+/* memory box */
+.remember{margin:40px 0 10px;border-radius:18px;background:var(--ink);color:#fff;padding:24px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px}
+.remember h3{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.remember ol{margin:0;padding-left:20px;display:grid;gap:7px}
+.remember li{font-size:14.5px;color:rgba(255,255,255,.9)}
+.remember li::marker{color:var(--gold);font-family:var(--f-mono);font-size:12px}
+.hook{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px}
+.hook .word{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3.4vw,36px);letter-spacing:.02em;color:#fff;line-height:1.05}
+.hook .word i{font-style:normal;color:var(--gold)}
+.hook p{font-size:13.5px;color:rgba(255,255,255,.78);margin-top:8px}
+.donebtn{grid-column:1/-1;justify-self:start;font:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:999px;padding:9px 16px;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff}
+.donebtn[aria-pressed="true"]{background:var(--good);border-color:var(--good)}
+@media (max-width:760px){.remember{grid-template-columns:1fr}}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-block:20px 56px}
+.pager button{font:inherit;text-align:left;cursor:pointer;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:15px 18px;color:var(--ink)}
+.pager button:hover{border-color:var(--ink-3)}
+.pager small{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.pager b{display:block;font-family:var(--f-display);font-size:18px;margin-top:3px}
+.pager .nx{text-align:right}
+@media (max-width:560px){.pager{grid-template-columns:1fr}.pager .nx{text-align:left}}
+
+/* overview map */
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.mapc{display:flex;flex-direction:column;text-align:left;font:inherit;cursor:pointer;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px;min-height:190px;transition:transform .18s,box-shadow .18s,border-color .18s;color:var(--ink)}
+.mapc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--c)}
+.mapc .n{font-family:var(--f-display);font-weight:800;font-size:54px;line-height:.85;color:var(--c);letter-spacing:-.04em}
+.mapc h3{font-size:18.5px;margin:12px 0 5px}
+.mapc p{font-size:13.5px;color:var(--ink-2);flex:1}
+.mapc .bar{height:5px;border-radius:9px;background:var(--cl);margin-top:12px;overflow:hidden}
+.mapc .bar i{display:block;height:100%;width:0;background:var(--c)}
+.mapc.learned .bar i{width:100%}
+
+/* process stepper */
+.stepper{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.stepper button{font:inherit;cursor:pointer;border:1.5px solid var(--line);background:var(--white);border-radius:12px;padding:10px 8px;text-align:left;color:var(--ink);min-width:0}
+.stepper button b{display:block;font-family:var(--f-display);font-size:22px;color:var(--c);line-height:1}
+.stepper button span{font-size:12.5px;font-weight:600;display:block;margin-top:4px}
+.stepper button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.stepper button[aria-pressed="true"] b{color:#fff}
+@media (max-width:820px){.stepper{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stepdetail{margin-top:12px;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.stepdetail h3{font-size:22px;margin-bottom:6px}
+.stepdetail p{color:var(--ink-2);font-size:14.5px}
+
+/* thermometer */
+.temp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-radius:var(--r);overflow:hidden}
+.temp div{padding:16px 18px;color:#fff}
+.temp div h4{font-size:19px}
+.temp div p{font-size:13.5px;color:rgba(255,255,255,.92)}
+@media (max-width:560px){.temp{grid-template-columns:1fr}}
+
+/* closing cards */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
+.filters button{font:inherit;font-size:13px;border:1px solid var(--line-2);background:var(--white);border-radius:999px;padding:7px 13px;cursor:pointer;color:var(--ink-2)}
+.filters button[aria-pressed="true"]{background:var(--c);color:#fff;border-color:var(--c)}
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:1000px;min-height:220px;border:0;padding:0;background:none;font:inherit;text-align:left;cursor:pointer;color:var(--ink)}
+.flip .in{position:relative;width:100%;height:100%;min-height:220px;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:16px;display:flex;flex-direction:column;overflow:auto}
+.flip .f{background:var(--white);border:1px solid var(--line)}
+.flip .b{background:var(--c);color:#fff;transform:rotateY(180deg)}
+.flip .f .ix{font-family:var(--f-mono);font-size:11px;color:var(--cd)}
+.flip .f h4{font-size:19px;margin:6px 0 6px}
+.flip .f p{font-size:13.5px;color:var(--ink-2);flex:1}
+.flip .f small{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.flip .b .k{color:rgba(255,255,255,.8)}
+.flip .b p{font-size:13.5px}
+.flip .b q{display:block;font-family:var(--f-serif);font-style:italic;font-size:17px;line-height:1.3;margin-top:10px;quotes:"\201C" "\201D"}
+.flip .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.flip .tags span{font-size:11px;background:var(--cl);color:var(--cd);border-radius:6px;padding:2px 7px}
+.flip.hidden{display:none}
+.style-key{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-3);margin-bottom:8px}
+
+/* accordion */
+.acc details{background:var(--white);border:1px solid var(--line);border-radius:14px;margin-top:10px}
+.acc summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;gap:12px;align-items:center;font-family:var(--f-display);font-weight:700;font-size:17px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .d{width:30px;height:30px;border-radius:9px;background:var(--c);color:#fff;font-family:var(--f-mono);font-size:12px;display:grid;place-items:center;flex:none}
+.acc summary .plus{margin-left:auto;font-family:var(--f-mono);color:var(--ink-3);transition:transform .2s}
+.acc details[open] summary .plus{transform:rotate(45deg)}
+.acc .in{padding:0 18px 18px;display:grid;gap:12px}
+.acc .in p{font-size:14.5px;color:var(--ink-2)}
+
+/* calc */
+.calc{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px}
+.calc .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.field{display:grid;gap:5px}
+.field label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cd)}
+.field input{font:inherit;font-size:16px;border:1px solid var(--line-2);border-radius:10px;padding:9px 12px;background:var(--paper);color:var(--ink);width:100%;font-variant-numeric:tabular-nums}
+.field input:focus{outline:none;border-color:var(--c);background:var(--white)}
+.calc .out{margin-top:14px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--cl);border-radius:12px;padding:14px 16px}
+.calc .out b{font-family:var(--f-display);font-size:40px;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.calc .out span{font-size:14px;color:var(--ink-2)}
+
+/* quiz */
+.quiz{display:grid;gap:12px}
+.q{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px}
+.q h4{font-size:16.5px;margin-bottom:10px}
+.q h4 small{font-family:var(--f-mono);font-size:11px;color:var(--cd);margin-right:8px}
+.opts{display:grid;gap:7px}
+.opts button{font:inherit;font-size:14.5px;text-align:left;cursor:pointer;border:1.5px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 12px;color:var(--ink)}
+.opts button:hover:not(:disabled){border-color:var(--c)}
+.opts button.right{background:var(--grnl);border-color:var(--grn);color:var(--grnd);font-weight:600}
+.opts button.wrong{background:var(--redl);border-color:var(--red);color:var(--redd)}
+.opts button:disabled{cursor:default}
+.why{margin-top:10px;font-size:14px;color:var(--ink-2);background:var(--cl);border-radius:10px;padding:10px 12px}
+.score{position:sticky;bottom:max(12px,env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;border-radius:14px;padding:12px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.score b{font-family:var(--f-display);font-size:22px}
+.score button{font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;padding:7px 14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.cards .flip,.cards .flip .in{min-height:160px}
+.cards .flip .f h4{font-size:22px;color:var(--c)}
+
+footer.site{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--ink-3);font-size:12.5px;background:var(--white)}
+
+/* Navigation back to the main academy and central library. */
+.site-return{background:#0A2A5E;color:#fff;font:600 13px var(--f-body);padding:10px max(16px,calc((100vw - 1100px)/2))}
+.site-return a{color:#fff;text-decoration:none}
+.site-return a:hover{text-decoration:underline}
+.site-return span{opacity:.65;margin:0 12px}
+</style>
+</head>
+<body>
+<div class="site-return"><a href="/#academy">← Sales Mastery School</a><span aria-hidden="true">|</span><a href="/library.html?category=Sales%20Mastery">Knowledge Library</a></div>
+<header class="mast">
+  <div class="wrap">
+    <div class="brand"><div class="crest"><span>Sf</span></div><div><b>Sales Foundations</b><small>11 tabs · prospect to repeat order</small></div></div>
+    <div class="progress"><span id="progTxt">0 of 10 topics learned</span><div class="prog"><i id="progBar"></i></div></div>
+  </div>
+</header>
+
+<nav class="tabbar" aria-label="Topics">
+  <div class="wrap"><div class="tabs" role="tablist" id="tabs"></div></div>
+</nav>
+
+<main id="main">
+
+<!-- ============ 0 OVERVIEW ============ -->
+<section class="panel t-navy" id="overview" data-name="Overview" data-short="Start" role="tabpanel">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Sales Foundations · Start here</div>
+      <h1>Selling is a <em>process</em>,<br>not a personality.</h1>
+      <p class="lede">The whole journey from a cold name on a list to a customer who buys again and again. Each tab is one stage, with its own colour, the frameworks to know, phrases you can use, and a memory box at the end.</p>
+      <div class="bigidea"><b>Big idea</b><span>People buy from people they like, respect and trust. Find the need first. Present second.</span></div>
+    </div>
+    <div class="big">00</div>
+  </div></div>
+
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>What selling is</h2></div>
+      <p class="intro">Selling happens when a salesperson, in a personal interaction, helps a potential buyer decide to buy a product or service. It is one element of the promotional mix, next to advertising, sales promotion, direct marketing and public relations, and the only one that talks back.</p>
+      <div class="vs">
+        <div class="card"><span class="k">Marketing</span><h4>Make what the customer wants</h4><ul class="list"><li>Focus on the customer</li><li>Meets needs and wants</li><li>Shapes the product to the market</li></ul></div>
+        <div class="mid">vs</div>
+        <div class="card tint"><span class="k">Selling</span><h4>Help the customer want what you have</h4><ul class="list"><li>Focus on the product</li><li>Persuades face to face</li><li>Adjusts the message to each buyer</li></ul></div>
+      </div>
+      <div class="note"><b class="lab">Shared goal</b>Both aim at customer satisfaction. That makes every salesperson a <b>micro-marketer</b> for one customer at a time.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Three goals of selling</h2></div>
+      <div class="g g3">
+        <div class="card solid"><div class="num">1</div><h4>Find</h4><p>Find new prospects who need what you sell.</p></div>
+        <div class="card solid"><div class="num">2</div><h4>Convince</h4><p>Help those prospects decide to buy.</p></div>
+        <div class="card solid"><div class="num">3</div><h4>Keep</h4><p>Keep customers satisfied so they buy again and tell others.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Why personal selling matters</h2></div>
+      <div class="g g2">
+        <div class="card"><span class="k">Strengths</span><ul class="list">
+          <li>The message can change on the spot to answer each buyer's questions.</li>
+          <li>It targets the most promising leads with precision.</li>
+          <li>You read spoken cues and body language and adapt.</li>
+          <li>Two-way flow: feedback on customers, products and competitors comes straight back.</li>
+          <li>It builds lasting relationships with customers.</li>
+        </ul></div>
+        <div class="card"><span class="k">Limit</span><h4>Cost per sale is high</h4><p>A sales force is expensive to hire, train and run. That is why the rest of this guide is about making every call count.</p>
+        <div class="stats" style="margin-top:14px">
+          <div class="stat"><b>96%</b><span>of buyers are swayed by sellers who focus on value</span></div>
+          <div class="stat"><b>69%</b><span>say sellers would improve by listening to their needs</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Your learning map</h2><span class="tag">tap a card</span></div>
+      <p class="intro">Ten topics in the order a sale actually happens, then a practice tab to test yourself. The bar on each card fills when you mark that topic as learned.</p>
+      <div class="map" id="map"></div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Selling is a process: find the need, recommend, resolve objections, close, follow through.</li>
+        <li>The customer's need drives everything. Listen before you present.</li>
+        <li>Anyone can win the first order. Professionals win the second, third and fourth.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>L</i>·<i>R</i>·<i>T</i></div><p><b>Like, Respect, Trust.</b> The three things a buyer must feel about you before they buy anything from you.</p></div>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 1 THE SELLER ============ -->
+<section class="panel t-blue" id="seller" data-name="The Seller" data-short="Who sells" role="tabpanel" data-blurb="Order takers, order getters, support staff, and the traits of top performers.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 01 · The seller</div>
+      <h1>Who sells, and what <em>great</em> looks like</h1>
+      <p class="lede">Your job is not to push a product. It is to solve problems and help customers make good buying decisions, while keeping an eye on competitors and the market.</p>
+      <div class="bigidea"><b>Big idea</b><span>Move up the value chain: from order taker, to problem solver, to trusted advisor.</span></div>
+    </div>
+    <div class="big">01</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>Three types of salespeople</h2></div>
+      <p class="intro">Grouped by what they do. In practice one person often does all three jobs.</p>
+      <div class="g g3">
+        <div class="card"><div class="letter">T</div><h4>Order takers</h4><p>Handle routine and repeat orders, restock, arrange displays and answer calls. They generate the bulk of a firm's sales but get less training and pay, so turnover is high.</p>
+          <div class="chips" style="margin-top:10px"><span class="chip c">Inside: from the store or phone</span><span class="chip c">Field: visit the customer</span></div></div>
+        <div class="card solid"><div class="letter">G</div><h4>Order getters</h4><p>Drive growth by winning new customers and selling more to existing ones. Used for expensive, complex or brand-new products. Under target pressure, so they need constant training and motivation.</p>
+          <div class="chips" style="margin-top:10px"><span class="chip">Current customer sales</span><span class="chip">New business sales</span></div></div>
+        <div class="card"><div class="letter">S</div><h4>Support personnel</h4><p>Don't close sales but make them possible: find prospects, educate buyers, build goodwill and give after-sales help. Common in business-to-business selling.</p>
+          <div class="chips" style="margin-top:10px"><span class="chip c">Missionary</span><span class="chip c">Trade</span><span class="chip c">Technical</span></div></div>
+      </div>
+      <div class="note"><b class="lab">New business is harder</b>Converting a stranger into a buyer takes longer than selling more to a current customer. The two most common routes in: referrals from existing customers and door-to-door outreach.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Selling then and now</h2></div>
+      <div class="vs">
+        <div class="card"><span class="k">Then</span><h4>One-way persuasion</h4><p>Tell the customer everything about the product and why your company is best. The standard pitch is now seen as the lowest level of selling.</p></div>
+        <div class="mid">→</div>
+        <div class="card tint"><span class="k">Now</span><h4>Partnership and problem solving</h4><p>Buyers are informed and demanding. They expect you to understand their business and bring solutions to problems they didn't know they had.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Six traits of top salespeople</h2></div>
+      <p class="intro">There is no single formula, but strong sellers are natural problem solvers who share these habits.</p>
+      <div class="g g3">
+        <div class="card"><span class="k">Thick skin</span><p>Even the best lose more often than they win. They handle rejection without taking it personally.</p></div>
+        <div class="card"><span class="k">Willing to take risks</span><p>They try unproven ideas and go into new territory.</p></div>
+        <div class="card"><span class="k">Generosity</span><p>They share credit freely, without fear of looking smaller.</p></div>
+        <div class="card"><span class="k">Methodical</span><p>Planning and follow-up are where sales are won.</p></div>
+        <div class="card"><span class="k">Tenacity</span><p>Effort and determination to tackle hard problems.</p></div>
+        <div class="card"><span class="k">Resourcefulness</span><p>Always improving the approach and using the talent around them.</p></div>
+      </div>
+      <div class="stats" style="margin-top:14px">
+        <div class="stat"><b>85%</b><span>of top salespeople in one survey were conscientious</span></div>
+        <div class="stat"><b>82%</b><span>of top salespeople are inquisitive: they ask questions</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>The value ladder</h2></div>
+      <p class="intro">Where do you sit with each customer? Value only starts when you help them work out what they need.</p>
+      <div class="flow">
+        <div class="st"><h4>Supplier</h4><p>Fills orders. Reacting, adding little value.</p></div>
+        <div class="st"><h4>Solution provider</h4><p>Solves known problems. Still reactive.</p></div>
+        <div class="st"><h4>Needs partner</h4><p>Helps the customer find their real needs.</p></div>
+        <div class="st"><h4>Trusted advisor</h4><p>Called for ideas, insight and help. Rock-solid position.</p></div>
+      </div>
+      <div class="stats" style="margin-top:14px"><div class="stat"><b>86%</b><span>of B2B buyers expect sellers to be trusted advisors</span></div></div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Order <b>takers</b> keep business flowing; order <b>getters</b> grow it; <b>support</b> staff make it possible.</li>
+        <li>The canned pitch is the lowest level of selling today.</li>
+        <li>Your goal with every customer is to become the person they call for advice.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>T</i>ake · <i>G</i>et · <i>S</i>upport</div><p>Three jobs. Picture a shop: one person rings up the till (take), one goes out to win new accounts (get), one trains the customer's team (support).</p></div>
+      <button class="donebtn" data-done="seller" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 2 BUYER MIND ============ -->
+<section class="panel t-pink" id="buyer" data-name="Buyer's Mind" data-short="Why they buy" role="tabpanel" data-blurb="Credibility, empathy, trust, the trust formula and how to lower risk.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 02 · Why buyers buy</div>
+      <h1>Inside the <em>buyer's</em> mind</h1>
+      <p class="lede">Buying decisions come down to three things buyers look for in a seller: you know your stuff, you understand them, and they can trust you.</p>
+      <div class="bigidea"><b>Big idea</b><span>Trust takes a long time to build and a second to lose.</span></div>
+    </div>
+    <div class="big">02</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>The three buying behaviours</h2></div>
+      <div class="g g3">
+        <div class="card tint"><div class="letter">1</div><h4>Believe in your position</h4><p>People buy from people who know their stuff. Know your product inside out, and also the customer's business, industry, competitors and market. Most of it is online.</p></div>
+        <div class="card solid"><div class="letter">2</div><h4>Empathy</h4><p>Seeing things from the buyer's side. For many buyers, a seller who understands their situation is the single strongest reason to buy. Empathy does not depend on age or background: let them talk and show real interest.</p></div>
+        <div class="card tint"><div class="letter">3</div><h4>Trust</h4><p>Be responsive, direct, clear, reliable and straightforward. Assume the customer is smart, keep promises, and never spring nasty surprises.</p></div>
+      </div>
+      <div class="note"><b class="lab">Watch for bias</b>Affinity bias pulls you toward customers who are like you and away from those who aren't. It can keep you from talking to the people who actually control the decision.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>The trust formula</h2></div>
+      <p class="intro">Being seen as trustworthy is not the same as being trusted with a large contract. This formula shows the gap.</p>
+      <div class="eq">
+        <span class="r">Trust</span><span class="op">=</span>
+        <span class="t">( Credibility</span><span class="op">×</span><span class="t">Intimacy )</span><span class="op">÷</span><span class="t">Risk</span>
+      </div>
+      <div class="g g3" style="margin-top:16px">
+        <div class="card"><span class="k">Credibility · you control</span><p>You know what you are talking about and you deliver.</p></div>
+        <div class="card"><span class="k">Intimacy · you control</span><p>How safe it feels to work with you: empathy, warmth, sensitivity, likeability.</p></div>
+        <div class="card ink"><span class="k">Risk · they feel</span><p>How much the buyer could lose. Higher risk divides your trust down, so work to shrink it.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Eight ways to lower the buyer's risk</h2></div>
+      <p class="intro">Keep asking yourself: how can I make saying yes less risky for this customer?</p>
+      <div class="g g4">
+        <div class="card"><span class="k">Start small</span><p>Ask for a piece of the business, not all of it. Earn more over time.</p></div>
+        <div class="card"><span class="k">Show a parallel</span><p>Walk through a similar case and how it worked.</p></div>
+        <div class="card"><span class="k">Build an exit</span><p>Show there is a way out if things don't go to plan.</p></div>
+        <div class="card"><span class="k">Reassure</span><p>You'll be there throughout, ready to act if anything goes wrong.</p></div>
+        <div class="card"><span class="k">Guarantee</span><p>Offer assurance, or at least your commitment to see it through.</p></div>
+        <div class="card"><span class="k">Share the risk</span><p>Explain what you lose if it fails. "We're in this together."</p></div>
+        <div class="card"><span class="k">Take the burden</span><p>Take full responsibility if things go wrong.</p></div>
+        <div class="card"><span class="k">Explain the worst case</span><p>Name all the risks and how you'll keep them under control.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Gain respect by showing it</h2></div>
+      <div class="g g3">
+        <div class="card"><span class="k">Their time</span><p>Reply promptly and concisely.</p></div>
+        <div class="card"><span class="k">Their business</span><p>Ask before you take notes. Respect confidentiality.</p></div>
+        <div class="card"><span class="k">Your competitors</span><p>Running down their current supplier insults the person who chose it.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Stand out: the "wow" checklist</h2></div>
+      <p class="intro">Give customers something they didn't ask for or expect. When you and a competitor are neck and neck, this tips the scale.</p>
+      <div class="g g3">
+        <div class="card tint"><p>A relevant article or piece of research you could send?</p></div>
+        <div class="card tint"><p>A third party who can provide something you can't?</p></div>
+        <div class="card tint"><p>A supplier who could help them cut costs?</p></div>
+        <div class="card tint"><p>A pressing problem you can help them solve?</p></div>
+        <div class="card tint"><p>A personal milestone you could acknowledge?</p></div>
+        <div class="card tint"><p>A useful conference or event for them?</p></div>
+      </div>
+      <div class="note"><b class="lab">Stay visible</b>Visit in person when you can: you learn needs directly, read body language and see who they work with. Stay on their mind with short notes and messages, without becoming a nuisance.</div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Buyers buy on credibility, empathy and trust.</li>
+        <li>Trust = (Credibility × Intimacy) ÷ Risk. You raise the top; you shrink the bottom.</li>
+        <li>Never knock a competitor. It insults the customer's past choice.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>C</i>×<i>I</i> ÷ <i>R</i></div><p>Say it as "<b>C</b>ustomers <b>I</b>nvest when <b>R</b>isk falls." Top line is your job, bottom line is their fear.</p></div>
+      <button class="donebtn" data-done="buyer" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 3 SALES PROCESS ============ -->
+<section class="panel t-orng" id="process" data-name="Sales Process" data-short="7 steps" role="tabpanel" data-blurb="Prospecting to follow-up: the seven steps, lead qualification and presentation styles.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 03 · The selling process</div>
+      <h1>Seven steps from <em>stranger</em> to customer</h1>
+      <p class="lede">The aim is customer satisfaction and a long-term relationship. Some situations use all seven steps; a repeat customer lets you skip prospecting and pre-approach.</p>
+      <div class="bigidea"><b>Big idea</b><span>The process is easy to understand and hard to do. Planning before and after the meeting is what separates good from excellent.</span></div>
+    </div>
+    <div class="big">03</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>The seven steps</h2><span class="tag">tap a step</span></div>
+      <div class="stepper" id="stepper"></div>
+      <div class="stepdetail" id="stepdetail"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Where leads come from</h2></div>
+      <div class="g g4">
+        <div class="card"><span class="k">People</span><p>Current and former customers, suppliers, dealers, colleagues, friends and their networks.</p></div>
+        <div class="card"><span class="k">Events</span><p>Social events, seminars, conferences, trade shows and exhibitions.</p></div>
+        <div class="card"><span class="k">Published info</span><p>Directories, news and trade press, databases, public records, mailing lists, online articles and social media.</p></div>
+        <div class="card"><span class="k">Associations</span><p>Professional bodies, trade associations and chambers of commerce.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Qualify: is this a real prospect?</h2></div>
+      <p class="intro">Don't spend time on everyone. Check three things, then sort leads by temperature.</p>
+      <div class="g g3">
+        <div class="card solid"><span class="k">Willingness</span><h4>Will they?</h4><p>Is there an immediate or future need they want to meet?</p></div>
+        <div class="card solid"><span class="k">Ability</span><h4>Can they?</h4><p>Can they afford it? Check credit ratings or annual reports for firms.</p></div>
+        <div class="card solid"><span class="k">Authority</span><h4>May they?</h4><p>Are they allowed to make the decision?</p></div>
+      </div>
+      <div class="temp" style="margin-top:14px">
+        <div style="background:#2B59F0"><h4>Cold lead</h4><p>Can't turn into a customer. Move on.</p></div>
+        <div style="background:#D99A00"><h4>Warm lead</h4><p>Has a hidden or future need. Nurture.</p></div>
+        <div style="background:#E11D48"><h4>Hot lead</h4><p>Willing to buy. Plan the call now.</p></div>
+      </div>
+      <div class="note"><b class="lab">Talk to the right person</b>Two-thirds of sales calls go to people who don't make or carry out decisions. Ask: "Everyone has their own way of making decisions. So I don't leave anyone out of the loop, how does the process work here?"</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Plan with five questions</h2></div>
+      <div class="g g4" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+        <div class="card tint"><span class="k">Who?</span><p>Who decides? Who should I see? Who does what on our side?</p></div>
+        <div class="card tint"><span class="k">What?</span><p>What will I ask? What drives their decisions? What objections do I expect?</p></div>
+        <div class="card tint"><span class="k">Where &amp; when?</span><p>In person or online? When is the most effective time?</p></div>
+        <div class="card tint"><span class="k">Why?</span><p>Why this customer? Why is this approach good for us?</p></div>
+        <div class="card tint"><span class="k">How?</span><p>How will I run the meeting and stand out from competitors?</p></div>
+      </div>
+      <div class="note gold"><b class="lab">Rehearse</b>Practise your questions, objection answers and even the close with colleagues. It shows where you are shaky and where information is missing.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Three presentation styles</h2></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Style</th><th>How it works</th><th>Best for</th><th>Watch out</th></tr></thead>
+        <tbody>
+          <tr><td>Canned</td><td>A memorised talk, the same for every buyer (stimulus–response)</td><td>Simple products, new sellers, door-to-door and phone selling</td><td>Buyer can't raise questions; feels frustrating</td></tr>
+          <tr><td>Formulated</td><td>Identify needs and buying style, then try one appeal after another</td><td>Moderately complex sales</td><td>Still seller-led; can miss the real need</td></tr>
+          <tr><td>Need-satisfaction</td><td>Listen, think from the buyer's side, tailor everything to their needs</td><td>Experienced, skilled sellers; complex B2B sales</td><td>Takes time and real skill</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>First contact: three emails</h2></div>
+      <div class="flow">
+        <div class="st"><h4>Introduce</h4><p>A formal note about you and your company. A printed letter can stand out.</p></div>
+        <div class="st"><h4>Confirm</h4><p>Date, time, length, agenda and useful reading. Invite others who should attend.</p></div>
+        <div class="st"><h4>Remind</h4><p>A short reminder before the meeting.</p></div>
+        <div class="st"><h4>Follow up</h4><p>After the meeting: thanks, summary, next steps.</p></div>
+      </div>
+      <div class="dodont" style="margin-top:14px">
+        <div class="card do"><span class="k">First meeting: do</span><ul><li>Confirm in writing</li><li>Be humble: you haven't worked together yet</li><li>Show what you learned in preparation</li><li>Thank them for their time</li><li>Ask lots of questions and let them talk</li></ul></div>
+        <div class="card dont"><span class="k">First meeting: don't</span><ul><li>Turn up unprepared</li><li>Act overly familiar</li><li>Treat it like any other meeting</li><li>Act as if you're entitled to it</li><li>Present specific recommendations yet</li></ul></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Running the sales meeting</h2></div>
+      <p class="intro">You called the meeting, but it belongs to the customer. Your role is facilitator.</p>
+      <div class="flow">
+        <div class="st"><h4>Build rapport</h4><p>Introductions, small talk, a sincere compliment, a news item about their business. Move on at their pace.</p></div>
+        <div class="st"><h4>Set the agenda</h4><p>Ask each person what they want from the meeting. Confirm the time and stick to it.</p></div>
+        <div class="st"><h4>Guide</h4><p>Keep to the purpose, draw ideas from everyone, move to an action plan and book the follow-up.</p></div>
+      </div>
+      <div class="g g3" style="margin-top:14px">
+        <div class="card"><span class="k">Salesperson</span><p>Facilitates, may take minutes, helps find solutions.</p></div>
+        <div class="card"><span class="k">Client</span><p>Owns the problem, may chair, helps find solutions.</p></div>
+        <div class="card"><span class="k">Others</span><p>Help find good solutions and bring problem-solving resources.</p></div>
+      </div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Prospect → Pre-approach → Approach → Present → Handle objections → Close → Follow up.</li>
+        <li>Qualify every lead: Will they? Can they? May they?</li>
+        <li>Presentations follow AIDA: Attention, Interest, Desire, Action.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>P</i>P<i>A</i>P<i>H</i>C<i>F</i></div><p>"<b>P</b>lease <b>P</b>repare <b>A</b> <b>P</b>erfect <b>H</b>andshake, <b>C</b>lose, <b>F</b>ollow." One word per step, in order.</p></div>
+      <button class="donebtn" data-done="process" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 4 DISCOVERY ============ -->
+<section class="panel t-vio" id="discovery" data-name="Finding Needs" data-short="Discovery" role="tabpanel" data-blurb="Business vs personal needs, the 5:3:1 question mix, listening and reviewing needs.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 04 · Needs-based selling</div>
+      <h1>Find the <em>need</em> before the answer</h1>
+      <p class="lede">Determine a customer's needs before you propose anything. If you respond to the first need you hear, it is like judging a book by its first chapter.</p>
+      <div class="bigidea"><b>Big idea</b><span>People don't want a quarter-inch drill. They want a quarter-inch hole.</span></div>
+    </div>
+    <div class="big">04</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="stats">
+        <div class="stat"><b>80%</b><span>of firms think they deliver a superior experience</span></div>
+        <div class="stat"><b>8%</b><span>of firms actually do, say their customers</span></div>
+        <div class="stat"><b>63%</b><span>of business buyers say sales talks focus on products, not solutions</span></div>
+        <div class="stat"><b>84%</b><span>of B2B buyers prefer sellers who understand their goals</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Selling is problem solving</h2></div>
+      <p class="intro">The two follow almost the same steps. If you're good at one, you'll be good at the other.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Step</th><th>Problem solving</th><th>Needs-based selling</th></tr></thead>
+        <tbody>
+          <tr><td>01</td><td>Set the stage and give the session structure</td><td>Open the meeting: rapport, agenda, prepare the customer</td></tr>
+          <tr><td>02</td><td>Define the problem and what's been tried</td><td>Determine needs, both obvious and hidden</td></tr>
+          <tr><td>03</td><td>Generate ideas without judging</td><td>Present products through features and benefits</td></tr>
+          <tr><td>04</td><td>Evaluate: list what appeals, then the concerns</td><td>Resolve objections sensitively</td></tr>
+          <tr><td>05</td><td>Summarise the solution as an action plan</td><td>Close the deal and agree next steps</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Two kinds of need</h2></div>
+      <p class="intro">Every buyer, however company-minded, is also driven by personal needs. Risk-averse buyers, and those worried about how they look, lean heavily on personal needs.</p>
+      <div class="vs">
+        <div class="card tint"><span class="k">Business needs · measurable</span><ul class="list"><li>Reduce cost</li><li>Increase efficiency</li><li>Shorten production time</li><li>Increase profitability</li><li>Improve turnaround time</li></ul></div>
+        <div class="mid">+</div>
+        <div class="card solid"><span class="k">Personal needs · subjective</span><ul class="list"><li>Look good in front of peers</li><li>Gain recognition</li><li>Get that promotion</li><li>Minimise personal risk</li><li>Decrease stress</li></ul></div>
+      </div>
+      <div class="story"><div class="ic">i</div><div><h4>Read between the lines</h4><p>A client complains that his boss keeps second-guessing him. The implied need: a solid, well-reasoned case he can use to defend the purchase. Overt needs anyone can hear. Implied needs are where you stand out.</p></div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>The 5 : 3 : 1 question mix</h2></div>
+      <p class="intro">Keep it a conversation, not an interrogation. A comfortable ratio is five fact-finding questions, three needs-oriented, one big-picture.</p>
+      <div class="g g3">
+        <div class="card"><div class="num">5</div><span class="k">Fact-finding</span><p>Basic facts. Everyone asks these; they don't set you apart, but you can't skip them.</p>
+          <ul class="list"><li>What are your annual sales?</li><li>Who are your current suppliers?</li><li>How often do you buy?</li><li>Who makes the decisions?</li></ul></div>
+        <div class="card tint"><div class="num">3</div><span class="k">Needs-oriented</span><p>Open-ended. Get them talking about goals, hopes, problems and fears. These set you apart.</p>
+          <ul class="list"><li>What do you expect from someone like me?</li><li>What are your biggest challenges today?</li><li>If you could change one thing about how you work, what would it be?</li></ul></div>
+        <div class="card solid"><div class="num">1</div><span class="k">Big-picture</span><p>Strategic. Uncovers needs they don't know they have and makes you an advisor. Plan these carefully.</p>
+          <ul class="list"><li>Where would you like the company to be in five years?</li><li>What could stop that from happening?</li><li>What is your vision for the business?</li></ul></div>
+      </div>
+      <div class="g g3" style="margin-top:14px">
+        <div class="card"><span class="k">Give a preamble</span><p>Tell them questions are coming, why, and how answering helps them get better recommendations.</p></div>
+        <div class="card"><span class="k">Cluster topics</span><p>Group questions (strategy, finance, stock), each with its own short intro.</p></div>
+        <div class="card"><span class="k">Careful with "why"</span><p>It can sound judgemental. Try: "I'd like to know more about the process behind the decision to…"</p></div>
+      </div>
+      <div class="story"><div class="ic">!</div><div><h4>The pad-and-pen pitch</h4><p>A challenger drinks brand wanted an airline's in-flight business and couldn't win on price. Instead of a polished deck, the team turned up with only notepads and spent two hours asking questions. They learned the airline's biggest need, after safety, was selling more tickets. Their winning idea: discount coupons for airline tickets through retailers. The airline switched suppliers and saw millions in extra sales within a year.</p></div></div>
+      <div class="note"><b class="lab">Keep asking</b>Long relationships breed complacency: you start assuming instead of asking, and your share quietly falls. The person who understands the most needs wins the business.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Listen like it's your job (it is)</h2></div>
+      <p class="intro">We think faster than people speak, so attention drifts to the next question, tomorrow's meeting, the drive home.</p>
+      <div class="g g2">
+        <div class="card"><span class="k">Active listening</span><h4>Attend, then reflect back</h4><p>Give the speaker full attention, then repeat in your own words what you heard, including the feeling behind it.</p></div>
+        <div class="card solid"><span class="k">Make notes, don't just take them</span><h4>Pen on paper from minute one</h4><p>Capture each need, concern and opportunity, plus the links you spot. It stops you answering too early, and people often save their deepest need for last.</p></div>
+      </div>
+      <div class="story"><div class="ic">✎</div><div><h4>"Bring two pads for our guests"</h4><p>Two sellers sat through the start of a meeting without writing anything. The client phoned his assistant for two pads and pens, "so I can have the impression they are at least somewhat interested." Four out of five clients think a seller who doesn't write isn't engaged. Always ask first if it's OK to take notes.</p></div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Review needs before you present</h2></div>
+      <p class="intro">Showing you understood is a sale in itself. Many customers decide to buy at this point. Tell them what you <b>heard</b>, not what they <b>said</b>.</p>
+      <div class="dodont">
+        <div class="card do"><span class="k">Say</span><ul><li>"Here's my understanding of what you said…"</li><li>"I may be reading too much into this, but it appears that…"</li><li>"How I interpreted that was that you'd like to…"</li></ul></div>
+        <div class="card dont"><span class="k">Avoid</span><ul><li>"What you need is…"</li><li>"You said that…"</li><li>"X told us you wanted…"</li></ul></div>
+      </div>
+      <div class="flow" style="margin-top:14px">
+        <div class="st"><h4>Overt needs first</h4><p>Summarise what they stated.</p></div>
+        <div class="st"><h4>Then implied</h4><p>Add what you inferred.</p></div>
+        <div class="st"><h4>Confirm</h4><p>Check with every person in the room.</p></div>
+        <div class="st"><h4>Prioritise</h4><p>Ask which matter most and what you missed.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Solve it together</h2></div>
+      <div class="g g2">
+        <div class="card"><span class="k">Brainstorm</span><h4>Wild first, tame later</h4><p>Define the task, time and roles. Then invite every idea and judge none. It is easier to tone down a wild idea than to invent a new one. Don't over-define the problem or people stop speculating.</p></div>
+        <div class="card"><span class="k">Evaluate</span><h4>Positives, then concerns</h4><p>Pick the best ideas. List what appeals first so it is preserved, then fix each concern, worst first, until the idea works. Finish with an action plan.</p></div>
+      </div>
+      <div class="subh">Bringing a colleague? Five benefits of a joint call</div>
+      <div class="chips"><span class="chip c">Specialist knowledge</span><span class="chip c">Two pairs of ears</span><span class="chip c">Feedback on your performance</span><span class="chip c">Different perspectives</span><span class="chip c">Shows the client they matter</span></div>
+      <p class="intro" style="margin-top:10px">Brief them on the client, the goal and their role. Introduce them with why they're there: "She has worked on problems like this for 15 years."</p>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Never present until you understand the need. Humility here is a strength.</li>
+        <li>Ask 5 fact, 3 need, 1 big-picture question.</li>
+        <li>Make notes. Review what you heard. Confirm with everyone.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>5</i> · <i>3</i> · <i>1</i></div><p>"Five <b>facts</b>, three <b>feelings</b>, one <b>future</b>." Facts set the scene, feelings find the need, the future makes you an advisor.</p></div>
+      <button class="donebtn" data-done="discovery" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 5 PRESENTING ============ -->
+<section class="panel t-cyan" id="present" data-name="Presenting" data-short="Recommend" role="tabpanel" data-blurb="AIDA, features vs benefits, the specific-first pitch order, ideas and feedback.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 05 · Recommending solutions</div>
+      <h1>Answer "<em>so what?</em>"</h1>
+      <p class="lede">Presenting is the part most salespeople enjoy. It works when every feature is tied to a benefit, and every benefit is tied to this customer's confirmed need.</p>
+      <div class="bigidea"><b>Big idea</b><span>People buy benefits, not features. Lead with what's in it for them.</span></div>
+    </div>
+    <div class="big">05</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>AIDA: the shape of a presentation</h2></div>
+      <div class="g g4">
+        <div class="card solid"><div class="letter">A</div><h4>Attention</h4><p>Open with something that makes them look up.</p></div>
+        <div class="card tint"><div class="letter">I</div><h4>Interest</h4><p>Let them touch, hold and try it while you talk.</p></div>
+        <div class="card solid"><div class="letter">D</div><h4>Desire</h4><p>Show how it meets their needs, plus extra benefits.</p></div>
+        <div class="card tint"><div class="letter">A</div><h4>Action</h4><p>Make the next step clear and easy.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Three questions every pitch must answer</h2></div>
+      <div class="flow">
+        <div class="st"><h4>What? · Feature</h4><p>How it works: specs, attributes, facts. Easy to say, hard to argue with.</p></div>
+        <div class="st"><h4>So what? · Benefit</h4><p>Why it matters and how it helps. More subjective, and the reason people buy.</p></div>
+        <div class="st"><h4>What's in it for me? · Specific benefit</h4><p>How it meets this customer's confirmed, top-priority need. This sets you apart.</p></div>
+      </div>
+      <div class="tbl" style="margin-top:14px"><table>
+        <thead><tr><th>Feature</th><th>Benefit statement</th></tr></thead>
+        <tbody>
+          <tr><td>Neat design</td><td>Saves space, so it's more convenient</td></tr>
+          <tr><td>Solid construction</td><td>Lasts longer, which saves you money</td></tr>
+          <tr><td>Ergonomic features</td><td>Better performance and comfort for the user</td></tr>
+          <tr><td>Reinforced materials</td><td>Easy to carry and robust, giving more flexibility</td></tr>
+        </tbody></table></div>
+      <div class="note"><b class="lab">Half the story</b>A feature without its benefit tells only half the story. Link them every time: "…which means that you…"</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Order the pitch: specific first</h2></div>
+      <p class="intro">Peak listening lasts about <b>90 seconds</b> before it drops sharply. Specific benefits close deals, so get them in early.</p>
+      <div class="flow">
+        <div class="st"><h4>Review needs</h4><p>Short recap of what you heard.</p></div>
+        <div class="st"><h4>Recommend</h4><p>Your solution.</p></div>
+        <div class="st"><h4>Specific benefits</h4><p>How it meets their top needs.</p></div>
+        <div class="st"><h4>Generic features &amp; benefits</h4><p>The brochure material, last.</p></div>
+      </div>
+      <div class="note gold"><b class="lab">Hold back the brochure</b>Hand it over after you present, not before, and highlight the parts that match their needs.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Give ideas, not just products</h2></div>
+      <p class="intro">What's in your head matters as much as what's in your bag. A free, useful idea shows you value the relationship, even if they don't use it.</p>
+      <div class="g g2">
+        <div class="card"><span class="k">Where to look</span><ul class="list"><li>Could better technology or software help them?</li><li>Problems they keep raising that you could research</li><li>A cheaper way to do something they already do</li><li>A book or podcast linked to a shared interest</li><li>A seminar or course to build their industry knowledge</li></ul></div>
+        <div class="card tint"><span class="k">How to offer it</span><ul class="list"><li>Ask permission: "I've been thinking about your situation and have an idea. Would it be useful to share?"</li><li>State the need you see, present the idea, explain the benefit</li><li>Be humble and credit others</li><li>Save it for the end of the meeting to finish on a high</li></ul></div>
+      </div>
+      <div class="story"><div class="ic">✉</div><div><h4>The article that won the deal</h4><p>Three suppliers bid for a training company's video system and were level on price, quality and service. One salesperson emailed a news article about one of the client's own customers with a note: "I'm sure you saw this, but just in case…" That seller won the contract.</p></div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Ask for feedback</h2></div>
+      <p class="intro">Nodding heads don't mean yes. If you don't ask, you don't learn. Expect an objection, and welcome it: an objection out in the open can be resolved.</p>
+      <div class="say"><span>What do you think about our recommendation?</span><span>How does that sound?</span><span>I've been talking for a while; now I'd love to hear from you.</span></div>
+      <div class="note"><b class="lab">Avoid</b>Slippery patter like "Sounds pretty good, doesn't it?" It feels manipulative and invites a blunt no.</div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Feature = what. Benefit = so what. Specific benefit = what's in it for me.</li>
+        <li>Lead with specifics; you have about 90 seconds of full attention.</li>
+        <li>End by asking for feedback with an open question.</li>
+      </ol></div>
+      <div class="hook"><div class="word">What → <i>So what?</i> → <i>Me?</i></div><p>Picture the customer asking those three questions out loud after every sentence you say.</p></div>
+      <button class="donebtn" data-done="present" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 6 OBJECTIONS ============ -->
+<section class="panel t-red" id="objections" data-name="Objections" data-short="Handle" role="tabpanel" data-blurb="Why buyers object, the five-step resolution process, price and six objection types.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 06 · Handling objections</div>
+      <h1>An objection is a <em>request</em> for more</h1>
+      <p class="lede">Most people object even when they want to buy. They are looking for reassurance that they are making a sensible decision. Silence is the worse sign: it often means no interest at all.</p>
+      <div class="bigidea"><b>Big idea</b><span>Most objections are unmet needs in disguise, and most show some level of interest.</span></div>
+    </div>
+    <div class="big">06</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>Five basic obstacles in every sale</h2></div>
+      <div class="g g4" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+        <div class="card solid"><span class="k">No</span><h4>Need</h4></div>
+        <div class="card tint"><span class="k">No</span><h4>Money</h4></div>
+        <div class="card solid"><span class="k">No</span><h4>Hurry</h4></div>
+        <div class="card tint"><span class="k">No</span><h4>Desire</h4></div>
+        <div class="card solid"><span class="k">No</span><h4>Trust</h4></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Why buyers object</h2></div>
+      <div class="g g2">
+        <div class="card"><span class="k">Cognitive dissonance</span><h4>Two thoughts at once</h4><p>Part of the buyer feels good about the purchase and part isn't sure. Objecting protects them from feeling hasty. It's the same reason people read car ads after they've bought the car.</p></div>
+        <div class="card"><span class="k">Common reasons</span><ul class="list"><li>No time to talk right now</li><li>No money or authority</li><li>Product doesn't fit their need</li><li>A poor experience during the presentation</li><li>They want more information</li><li>Habit, or to test the seller</li></ul></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Three reactions that kill deals</h2></div>
+      <div class="g g3">
+        <div class="card"><span class="k">01 · Aggressive</span><h4>Arguing</h4><p>Implies you're right and they're wrong. Shuts down openness.</p></div>
+        <div class="card"><span class="k">02 · Defensive</span><h4>Justifying</h4><p>Makes the conversation about you, not the client.</p></div>
+        <div class="card"><span class="k">03 · Passive</span><h4>Giving up</h4><p>The worst reaction. There may be real interest behind the objection.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>The resolution process</h2></div>
+      <p class="intro">Borrowed from conflict management. You don't have to use every step, but a clear process stops you reacting too fast.</p>
+      <div class="flow">
+        <div class="st"><h4>Acknowledge</h4><p>Recognise their right to object, without agreeing or disagreeing.</p></div>
+        <div class="st"><h4>Clarify</h4><p>Ask open, content-free questions to hear the whole issue.</p></div>
+        <div class="st"><h4>Reframe</h4><p>Turn the objection into a need you can meet. Confirm it.</p></div>
+        <div class="st"><h4>Respond</h4><p>Address the need with your strongest evidence.</p></div>
+        <div class="st"><h4>Check for more</h4><p>"Is there anything else we need to discuss?" Repeat, or close.</p></div>
+      </div>
+
+      <div class="subh">1 · Acknowledge</div>
+      <div class="say"><span>That's a fair question…</span><span>I appreciate your candour…</span><span>I can see why…</span><span>I recognise that cost is a major concern for you.</span></div>
+
+      <div class="subh">2 · Clarify, without leading the witness</div>
+      <div class="say"><span>Could you be more specific?</span><span>Can you say a little more about that?</span><span>How come?</span><span>I'm not sure I understand. Could you clarify?</span></div>
+      <div class="note"><b class="lab">Don't plant doubts</b>If the objection is vague, never ask "Is it the price?" You've just given them a new reason not to buy.</div>
+      <div class="g g4" style="margin-top:14px">
+        <div class="card"><span class="k">Be positive</span><p>"Thank you. That's very helpful."</p></div>
+        <div class="card"><span class="k">Be direct</span><p>"I'd like to ask another question or two so that…"</p></div>
+        <div class="card"><span class="k">Mirror</span><p>"Ridiculous?" → "What makes it seem ridiculous?" Said with genuine curiosity.</p></div>
+        <div class="card"><span class="k">Be silent</span><p>When a reaction is too strong, a pause can defuse it.</p></div>
+      </div>
+
+      <div class="subh">3 · Reframe the objection as a need</div>
+      <div class="tbl"><table>
+        <thead><tr><th>They say</th><th>The hidden need</th><th>Your reframe</th></tr></thead>
+        <tbody>
+          <tr><td>"Your proposal is too complicated."</td><td>A clearer explanation</td><td>"Let me walk you through how it works."</td></tr>
+          <tr><td>"I bought something similar and it didn't work."</td><td>Reassurance it won't happen again</td><td>"It sounds like you need confidence this time will be different."</td></tr>
+          <tr><td>"We'd have to change our in-house systems."</td><td>Help with the change</td><td>"So you need to know we'll support the switch."</td></tr>
+          <tr><td>"My manager will never go for this."</td><td>A rock-solid business case</td><td>"It appears there's a need for a strong business case for this purchase."</td></tr>
+        </tbody></table></div>
+      <div class="note"><b class="lab">Rules for reframing</b>Ask "how can this be done", not "why can't it". Open with "It appears to me…" so you don't put words in their mouth. Only reframe into a need you can meet, and confirm they agree.</div>
+
+      <div class="subh">4 · Respond with everything you have</div>
+      <div class="g g4">
+        <div class="card tint"><p><b>Create confidence:</b> similar problems you've solved.</p></div>
+        <div class="card tint"><p><b>Highlight benefits</b> they forgot or underrated.</p></div>
+        <div class="card tint"><p><b>Review features &amp; benefits.</b></p></div>
+        <div class="card tint"><p><b>Get creative together:</b> "Our priority now is to…"</p></div>
+        <div class="card tint"><p><b>Praise your company:</b> history, successes.</p></div>
+        <div class="card tint"><p><b>Sell yourself:</b> why you're well placed.</p></div>
+        <div class="card tint"><p><b>Praise your colleagues:</b> a dedicated team.</p></div>
+        <div class="card tint"><p><b>Still stuck?</b> Ask for a day or two and return with fresh ideas.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Price: the most common objection</h2></div>
+      <div class="g g3">
+        <div class="card"><span class="k">Pre-empt it</span><p>Ask about budget during discovery. If they won't say, give a "sense of" cost: "Programmes like this typically cost about 100. How does that sound?"</p></div>
+        <div class="card"><span class="k">Find what's really behind it</span><p>Price is often a smokescreen. Ask "How far off are we?" and compare the value of competing offers, not just the number.</p></div>
+        <div class="card"><span class="k">Reframe to value</span><p>"So you need to see exactly what you get for the extra 10 per cent." Price is not value; people pay more when they see the value.</p></div>
+      </div>
+      <div class="note gold"><b class="lab">Never just drop the price</b>Cutting price without removing something says you overcharged. If you must lower it, take something off the table, or make clear it's a one-off to earn your way in.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Six objection types and what to do</h2><span class="tag">tap to open</span></div>
+      <div class="acc">
+        <details open><summary><span class="d">N</span>Need · "We're happy as we are"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">I'm not interested</span><span class="chip">We don't need it</span><span class="chip">I don't see how it helps</span></div>
+          <p>Don't kill the deal. Dig deeper: is it real satisfaction, or inertia and fear of change? Help them see the size of the problem or opportunity first, and only then position your product. Lower the barrier with trials and pilots.</p>
+          <div class="say"><span>If nothing changed for the next year, what would that cost you?</span></div>
+        </div></details>
+        <details><summary><span class="d">M</span>Money · "It's too expensive"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">No budget right now</span><span class="chip">Budget is needed elsewhere</span><span class="chip">We'll buy if you cut the price</span></div>
+          <p>Ask qualifying questions: are they unsure of the value, truly short of budget, or haggling? Show the return on investment clearly. A tight budget needn't end the deal; it may just need creative pricing.</p>
+          <div class="say"><span>Leaving the price aside for a moment, is this the right solution for you?</span></div>
+        </div></details>
+        <details><summary><span class="d">T</span>Time · "Call me in two months"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">I'm busy now</span><span class="chip">Not a focus for us</span><span class="chip">I need time to think</span></div>
+          <p>Respect their priorities, then make your issue one of them: show the problem behind it and why it matters now. Tie your product to their top three goals, or find someone in the company for whom it is a priority.</p>
+          <div class="say"><span>What are your top three priorities this quarter?</span></div>
+        </div></details>
+        <details><summary><span class="d">Tr</span>Trust · "Never heard of you"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">I've read bad reviews</span><span class="chip">We had a bad experience</span><span class="chip">I heard about your problems</span></div>
+          <p>Don't take it personally. If you're new, explain who you are and share case studies and success stories. For bad press, hear them out fully without interrupting, then explain what you've done to fix it.</p>
+          <div class="say"><span>I'd like to hear what you've heard, then tell you what we changed.</span></div>
+        </div></details>
+        <details><summary><span class="d">P</span>Product · "It's too complicated"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">I don't understand it</span><span class="chip">I need features X and Y</span><span class="chip">We'll buy if you add…</span></div>
+          <p>Peel the onion one layer at a time. Start with the number-one problem it solves for them and reach the "aha" moment before the extras. For feature requests, check: nice-to-have or deal-breaker? There is often a workaround.</p>
+          <div class="say"><span>If that feature existed tomorrow, what would it let you do?</span></div>
+        </div></details>
+        <details><summary><span class="d">C</span>Competitor · "We already use X"<span class="plus">+</span></summary><div class="in">
+          <div class="chips"><span class="chip">How are you different?</span><span class="chip">I'm happy with X</span><span class="chip">X is cheaper</span></div>
+          <p>Every product has trade-offs. Find what they live with today and what it would take to get a foot in the door, perhaps with a different team or use case. Point out real differences, but never rubbish the competitor.</p>
+          <div class="say"><span>If you could improve one thing about your current setup, what would it be?</span></div>
+        </div></details>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Mind the line</h2></div>
+      <p class="intro">Any good behaviour turns bad when overdone.</p>
+      <div class="g g3">
+        <div class="card"><p><b>Curious</b>, not nosy</p></div>
+        <div class="card"><p><b>Assertive</b>, not aggressive</p></div>
+        <div class="card"><p><b>Pleasant</b>, not obsequious</p></div>
+        <div class="card"><p><b>Empathetic</b>, not patronising</p></div>
+        <div class="card"><p><b>Firm</b>, not dogmatic</p></div>
+        <div class="card"><p><b>Tenacious</b>, not stubborn</p></div>
+      </div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Objections mean interest. Welcome them.</li>
+        <li>Acknowledge, clarify, reframe, respond, check for more.</li>
+        <li>Never lower a price without taking something away.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>A</i> <i>C</i>alm <i>R</i>eply <i>R</i>eally <i>C</i>loses</div><p><b>A</b>cknowledge · <b>C</b>larify · <b>R</b>eframe · <b>R</b>espond · <b>C</b>heck for more.</p></div>
+      <button class="donebtn" data-done="objections" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 7 CLOSING ============ -->
+<section class="panel t-grn" id="closing" data-name="Closing" data-short="Ask" role="tabpanel" data-blurb="24 closing techniques as flip cards, the assumptive dialogue and the four Ws.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 07 · Closing the sale</div>
+      <h1>If you don't <em>ask</em>, you don't get</h1>
+      <p class="lede">Closing should be the natural end of a good problem-solving conversation, not a trick. The biggest barrier is fear of rejection, so practise until asking feels normal.</p>
+      <div class="bigidea"><b>Big idea</b><span>If the customer has no reason not to buy, assume they're ready, and ask.</span></div>
+    </div>
+    <div class="big">07</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>The cleanest close</h2></div>
+      <p class="intro">Same credibility and honesty as the rest of the process. Check for concerns, double-check, then ask.</p>
+      <div class="g g4">
+        <div class="card"><span class="k">You</span><p style="font-family:var(--f-serif);font-size:19px;color:var(--ink)">"Anything else we need to discuss?"</p></div>
+        <div class="card tint"><span class="k">Customer</span><p style="font-family:var(--f-serif);font-size:19px;color:var(--ink)">"No, not that I can think of."</p></div>
+        <div class="card"><span class="k">You</span><p style="font-family:var(--f-serif);font-size:19px;color:var(--ink)">"So everything seems OK?"</p></div>
+        <div class="card solid"><span class="k">Customer → You</span><p style="font-family:var(--f-serif);font-size:19px">"Yes, I believe so." → "Great, then how do we get started?"</p></div>
+      </div>
+      <div class="note"><b class="lab">Trial close</b>Test readiness during the presentation with small questions about payment terms or delivery. Their answers show how close they are.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>24 closing techniques</h2><span class="tag">tap a card to flip</span></div>
+      <p class="intro">No single close works for everyone; it depends on the buyer, their needs and the size of the deal. Filter by the situation you're in.</p>
+      <div class="filters" id="closeFilters"></div>
+      <div class="style-key"><span>● Soft: relationship-led</span><span>● Firm: adds pressure, use sparingly</span></div>
+      <div class="flips" id="closeCards"></div>
+      <div class="note gold"><b class="lab">Use pressure closes with care</b>Take-away, now-or-never and specific-terms closes can win a sale, but buyers often find them presumptuous. They are canned selling at its lowest when used as a substitute for understanding the need.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Quick picker: which close when?</h2></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Situation</th><th>Try</th></tr></thead>
+        <tbody>
+          <tr><td>They clearly understand the benefits</td><td>Summary close</td></tr>
+          <tr><td>They keep complaining to drive a bargain</td><td>Take-away close</td></tr>
+          <tr><td>They struggle to picture the value</td><td>Pros &amp; cons close, visual close</td></tr>
+          <tr><td>You don't know how interested they are</td><td>Scale close, thermometer close</td></tr>
+          <tr><td>One nagging objection remains</td><td>Sharp angle close, objection close</td></tr>
+          <tr><td>They're on the fence with no deadline</td><td>Calendar close, best-time-to close</td></tr>
+          <tr><td>They need proof it works for firms like them</td><td>Testimonial close</td></tr>
+          <tr><td>They aren't ready and need space</td><td>Empathy close</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Pin down the four Ws</h2></div>
+      <p class="intro">Once they commit, cover every key variable so you're ready to execute.</p>
+      <div class="g g4">
+        <div class="card solid"><div class="letter">Who</div><p>will do it</p></div>
+        <div class="card tint"><div class="letter">What</div><p>exactly</p></div>
+        <div class="card solid"><div class="letter">When</div><p>by which date</p></div>
+        <div class="card tint"><div class="letter">Whom</div><p>with help from</p></div>
+      </div>
+      <div class="story"><div class="ic">?</div><div><h4>"What took you so long to ask?"</h4><p>A young seller visited a client twice a month for two years. On the big day he reviewed prices, terms and specs and kept asking if everything was fine. It was. He still couldn't ask for the order. His manager finally said "Well then, how about an order?" The customer replied, "What took you so long to ask?" Hesitation raises suspicion. Ask.</p></div></div>
+      <div class="g g3" style="margin-top:14px">
+        <div class="card"><span class="k">Be gracious</span><p>Always thank them for the business.</p></div>
+        <div class="card"><span class="k">Stay humble</span><p>Once they commit, power shifts to you. Not the moment to celebrate in front of them.</p></div>
+        <div class="card"><span class="k">No deal?</span><p>Get a next step. The only failed sales call is one without one.</p></div>
+      </div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Closing is the natural outcome of the process, not a trick at the end.</li>
+        <li>Check for concerns, double-check, then ask: "How do we get started?"</li>
+        <li>Lock in who does what, by when, with whose help.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>4W</i>: Who · What · When · Whom</div><p>"<b>Who</b> does <b>what</b> by <b>when</b> with help from <b>whom</b>?" If you can answer it, the deal is real.</p></div>
+      <button class="donebtn" data-done="closing" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 8 AFTER THE SALE ============ -->
+<section class="panel t-ind" id="after" data-name="After the Sale" data-short="Keep" role="tabpanel" data-blurb="Follow-up vs follow-through, relationship marketing and staying in touch.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 08 · Beyond the close</div>
+      <h1>The real selling starts <em>after</em> the yes</h1>
+      <p class="lede">Anyone can win a first order with hard work. The successful ones win the second, third and fourth. Don't be the seller who disappears once the contract is signed.</p>
+      <div class="bigidea"><b>Big idea</b><span>Always Be Closing? Better: Always Be Collecting. Keep questioning, understanding and solving together.</span></div>
+    </div>
+    <div class="big">08</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="stats">
+        <div class="stat"><b>6–7×</b><span>more expensive to win a new customer than keep one</span></div>
+        <div class="stat"><b>66%</b><span>of people who switch brands do so because of poor service</span></div>
+        <div class="stat"><b>90</b><span>days can pass unnoticed without contact. Your competitor won't wait.</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Follow up vs follow through</h2></div>
+      <div class="vs">
+        <div class="card"><span class="k">Follow up</span><h4>Do what you promised</h4><p>Make sure samples arrive, delivery dates are met, the team turns up. Every call, even a short catch-up, gets a follow-up message: thanks, summary, next steps, who does what by when.</p></div>
+        <div class="mid">→</div>
+        <div class="card solid"><span class="k">Follow through</span><h4>Do more than expected</h4><p>Check progress internally every day. Send a dated list of deliverables and hit every one. Warn early if you'll miss one. Send updates that need no reply.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Four goals of follow-up</h2></div>
+      <div class="g g4">
+        <div class="card tint"><div class="letter">S</div><h4>Satisfaction</h4><p>Was it delivered on time? Any problems after installation?</p></div>
+        <div class="card tint"><div class="letter">D</div><h4>No dissonance</h4><p>Reassure them they made a wise decision.</p></div>
+        <div class="card tint"><div class="letter">R</div><h4>Referrals</h4><p>Happy customers send you new leads.</p></div>
+        <div class="card tint"><div class="letter">R</div><h4>Repeat orders</h4><p>Learn their future needs early.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Relationship marketing</h2></div>
+      <p class="intro">Keeping customers is far more profitable than finding new ones. Selling to existing customers skips prospecting, rapport-building and research. Some sellers even recommend a rival's product when it fits the customer better, and earn lasting trust.</p>
+      <div class="g g3">
+        <div class="card"><span class="k">Thank-you note</span><p>For the order and for any referrals.</p></div>
+        <div class="card"><span class="k">Useful information</span><p>Articles about their market and competitors.</p></div>
+        <div class="card"><span class="k">New launches</span><p>With a note on how it could help them.</p></div>
+        <div class="card"><span class="k">Offers</span><p>Upcoming sales, special deals, discount coupons.</p></div>
+        <div class="card"><span class="k">Reminders</span><p>Pending orders and reorder dates.</p></div>
+        <div class="card"><span class="k">Personal touches</span><p>Greetings on birthdays and holidays, a small branded gift.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Making the mark</h2></div>
+      <div class="dodont">
+        <div class="card do"><span class="k">Do</span><ul><li>Promise, then deliver</li><li>Put it in writing</li><li>Stay visible</li><li>Be consistently professional</li><li>Show interest in more business</li><li>Track every contact in a simple log</li></ul></div>
+        <div class="card dont"><span class="k">Don't</span><ul><li>Over-promise and under-deliver</li><li>Assume the customer understands</li><li>Become a nuisance</li><li>Forget details</li><li>Look desperate or over-anxious</li></ul></div>
+      </div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Follow up = keep promises. Follow through = exceed them.</li>
+        <li>Every call deserves a follow-up message.</li>
+        <li>Track your contacts so 90 days never slip by.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>S</i>·<i>D</i>·<i>R</i>·<i>R</i></div><p>"<b>S</b>atisfied customers <b>D</b>on't <b>R</b>eally <b>R</b>oam." Satisfaction, no Dissonance, Referrals, Repeat orders.</p></div>
+      <button class="donebtn" data-done="after" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 9 SALES TEAM ============ -->
+<section class="panel t-olv" id="team" data-name="Sales Team" data-short="Manage" role="tabpanel" data-blurb="Objectives, quotas, structure, sizing, hiring, training, pay and motivation.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 09 · Sales force management</div>
+      <h1>Building a team that <em>sells</em></h1>
+      <p class="lede">Plan, implement, evaluate. Set objectives, design and size the team, hire and train the right people, pay them well, and keep them motivated.</p>
+      <div class="bigidea"><b>Big idea</b><span>Hire too many and profit falls. Hire too few and morale and sales fall.</span></div>
+    </div>
+    <div class="big">09</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>Objectives and quotas</h2></div>
+      <div class="g g2">
+        <div class="card"><span class="k">Team objectives</span><h4>What the team aims to achieve in a period</h4><p>Stated as sales volume, market share and overall profit. Set with the salespeople, starting from key performance areas.</p></div>
+        <div class="card tint"><span class="k">Individual quotas</span><h4>Measurable targets per person</h4><ul class="list"><li>Unit sales volume and average order size</li><li>Number of calls and order ratio</li><li>Dealers contacted, displays and demos</li><li>New accounts opened</li></ul></div>
+      </div>
+      <div class="note"><b class="lab">Make them explicit, feasible, measurable</b>Quotas reflect the selling objectives, sales plan, team size and territory, and motivate when they're clearly communicated.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Three ways to organise</h2></div>
+      <div class="tbl"><table>
+        <thead><tr><th>By</th><th>How</th><th>Plus</th><th>Minus</th></tr></thead>
+        <tbody>
+          <tr><td>Territory · where</td><td>Each seller owns an area, from part of a city to a country</td><td>Simplest; know the market, less travel, stronger relationships</td><td>Weak for complex products needing specialists</td></tr>
+          <tr><td>Customer · who</td><td>Split by customer type, e.g. institutions vs households</td><td>Fits different needs and requirements</td><td>Costlier: several sellers cover one area</td></tr>
+          <tr><td>Product · what</td><td>Specialists per product line</td><td>Deep product knowledge</td><td>Several sellers call on the same customer</td></tr>
+        </tbody></table></div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>How many salespeople?</h2></div>
+      <div class="g g2">
+        <div class="card"><span class="k">Equalized workload</span><p>Everyone carries the same load. Group customers by purchase volume, set calls needed per group, then divide by calls one person can make.</p>
+          <p style="margin-top:8px;font-family:var(--f-mono);font-size:13px;color:var(--ink)">Reps = total annual calls needed ÷ calls per rep</p>
+          <p style="margin-top:8px">Limits: call needs vary by customer, and travel distances differ.</p></div>
+        <div class="card solid"><span class="k">Incremental productivity · most appropriate</span><p>Keep adding a salesperson as long as the extra sales they bring exceed the cost of hiring them. Needs forecasts of sales, selling costs and hiring cost.</p></div>
+      </div>
+      <div class="calc" style="margin-top:14px">
+        <div class="sh" style="margin-bottom:12px"><h2 style="font-size:20px">Try it: workload calculator</h2><span class="tag">example figures</span></div>
+        <div class="row">
+          <div class="field"><label for="cA">Group A customers</label><input id="cA" type="number" min="0" value="1000"></div>
+          <div class="field"><label for="fA">Calls per year each</label><input id="fA" type="number" min="0" value="16"></div>
+          <div class="field"><label for="cB">Group B customers</label><input id="cB" type="number" min="0" value="3000"></div>
+          <div class="field"><label for="fB">Calls per year each</label><input id="fB" type="number" min="0" value="8"></div>
+          <div class="field"><label for="cap">Calls one rep makes a year</label><input id="cap" type="number" min="1" value="1000"></div>
+        </div>
+        <div class="out"><b id="reps">40</b><span id="repsTxt">salespeople needed · 40,000 calls a year ÷ 1,000 per rep</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Recruit and select</h2></div>
+      <div class="g g3">
+        <div class="card"><span class="k">Define first</span><p>Set the qualifications and write a job description listing the tasks.</p></div>
+        <div class="card"><span class="k">Internal or external</span><p>Promote your own sellers, move staff across, or recruit via referrals, job fairs, adverts, agencies and campuses.</p></div>
+        <div class="card"><span class="k">Select carefully</span><p>Tests check aptitude, language and problem solving; interviews check drive, maturity and stress tolerance. A wrong hire costs training, lost sales and a re-hire.</p></div>
+      </div>
+      <div class="note"><b class="lab">Routing and scheduling</b>Set territory, customer count and spread, then call frequency, length and transport, to get the most from each call at the least time and cost.</div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Train</h2></div>
+      <div class="vs">
+        <div class="card"><span class="k">Sales-oriented</span><h4>Pressure and presentations</h4><p>Assumes buyers need pushing and won't complain later. Little care for satisfaction or after-sales.</p></div>
+        <div class="mid">vs</div>
+        <div class="card solid"><span class="k">Customer-oriented</span><h4>Solve problems</h4><p>Assumes every customer has unique, hidden needs. Ask probing questions and give honest advice. Builds trust.</p></div>
+      </div>
+      <div class="g g3" style="margin-top:14px">
+        <div class="card"><span class="k">What new hires learn</span><p>Company policies, products, warranties, terms, promotion and distribution.</p></div>
+        <div class="card"><span class="k">What veterans learn</span><p>New products, policy changes, advanced techniques, time management.</p></div>
+        <div class="card"><span class="k">Where</span><p>In the field, at educational institutions, or in company learning centres.</p></div>
+      </div>
+      <div class="quote"><p>Tell me, I forget. Show me, I remember. Involve me, I understand.</p></div>
+      <div class="g g2" style="margin-top:14px">
+        <div class="card tint"><span class="k">Role play · most effective</span><p>One plays the seller, one the customer, others observe. The seller reflects on their own performance, observers say what worked, the trainer sums up. Repeat until everyone has played.</p></div>
+        <div class="card"><span class="k">Evaluate training</span><p>Compare sales records or test scores before and after, or send observers into the field. Effects take time to show, and theory doesn't always become practice.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Pay</h2></div>
+      <div class="g g3">
+        <div class="card"><span class="k">Straight salary</span><h4>Security</h4><p>Fixed, predictable, simple. Good for new recruits and long industrial sales cycles. Weak incentive to hit targets.</p></div>
+        <div class="card"><span class="k">Straight commission</span><h4>Drive</h4><p>A percentage of sales or profit. Suits experienced sellers. Too low or too complex and it demotivates; costs more to administer.</p></div>
+        <div class="card solid"><span class="k">Salary + commission · most preferred</span><h4>Both</h4><p>Security of a base plus the drive to earn more. Flexible and motivating.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sh"><h2>Motivate and evaluate</h2></div>
+      <p class="intro">Sellers spend most of their time away from the office, so belonging and loyalty can fade. Link their personal goals to the company's.</p>
+      <div class="g g4">
+        <div class="card tint"><span class="k">Real-play</span><p>Everyone puts a token in a bowl and phones real prospects. First to book an appointment wins the bowl.</p></div>
+        <div class="card tint"><span class="k">Assignments</span><p>Ask a seller to present a topic at the next meeting, especially one they're weak in.</p></div>
+        <div class="card tint"><span class="k">Contests</span><p>Most sellers love a competition.</p></div>
+        <div class="card tint"><span class="k">Two solutions rule</span><p>Bring every problem with two possible solutions. Builds judgement.</p></div>
+      </div>
+      <div class="vs" style="margin-top:14px">
+        <div class="card"><span class="k">Financial incentives</span><ul class="list"><li>Salary</li><li>Bonus</li><li>Commission</li></ul></div>
+        <div class="mid">+</div>
+        <div class="card"><span class="k">Non-financial incentives</span><ul class="list"><li>Recognition and public praise</li><li>Training, flexibility, authority</li><li>Prizes, promotion, job security</li><li>A personal call from the top boss</li></ul></div>
+      </div>
+      <div class="note"><b class="lab">Evaluation</b>A periodic appraisal compares results with objectives, using call reports, customer feedback and invoices. Falling short? Adjust standards, add training and supervision, or improve pay and motivation.</div>
+    </div>
+
+    <div class="remember">
+      <div><h3>Remember</h3><ol>
+        <li>Organise by Where (territory), Who (customer) or What (product).</li>
+        <li>Size: equal workload for a quick estimate; incremental productivity for the right answer.</li>
+        <li>Salary = security, commission = drive, combination = both.</li>
+      </ol></div>
+      <div class="hook"><div class="word"><i>O</i>·<i>D</i>·<i>S</i>·<i>H</i>·<i>T</i>·<i>P</i>·<i>M</i></div><p>"<b>O</b>ur <b>D</b>ream <b>S</b>quad <b>H</b>its <b>T</b>argets, <b>P</b>aid &amp; <b>M</b>otivated." Objectives, Design, Size, Hire, Train, Pay, Motivate.</p></div>
+      <button class="donebtn" data-done="team" aria-pressed="false">Mark this topic as learned</button>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+
+<!-- ============ 10 PRACTICE ============ -->
+<section class="panel t-amb" id="practice" data-name="Practice" data-short="Test" role="tabpanel" data-blurb="Flashcards of every memory hook and a 12-question quiz.">
+  <div class="hero"><div class="wrap">
+    <div>
+      <div class="eyebrow">Topic 10 · Practice</div>
+      <h1>Lock it <em>in</em></h1>
+      <p class="lede">Flip the memory cards until you can say each answer before you turn it. Then take the quiz. Anything you miss points you to the tab to revisit.</p>
+      <div class="bigidea"><b>Big idea</b><span>Recall beats re-reading. Test yourself, then check.</span></div>
+    </div>
+    <div class="big">10</div>
+  </div></div>
+  <div class="wrap">
+    <div class="sec">
+      <div class="sh"><h2>Memory cards</h2><span class="tag">tap to flip</span></div>
+      <div class="cards" id="memCards"></div>
+    </div>
+    <div class="sec">
+      <div class="sh"><h2>Quiz</h2><span class="tag">12 questions</span></div>
+      <div class="quiz" id="quiz"></div>
+      <div class="score"><span><b id="scoreN">0</b> / 12 correct · <span id="scoreA">0</span> answered</span><button id="resetQuiz" type="button">Start again</button></div>
+    </div>
+    <div class="pager" data-pager></div>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="wrap">Sales Foundations · a study guide to selling and sales management. Your progress is saved in this browser only.</div></footer>
+
+<script>
+(function(){
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var ids=panels.map(function(p){return p.id});
+  var learnable=ids.filter(function(id){return id!=='overview'&&id!=='practice'});
+  var store={get:function(k,d){try{var v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  var learned=store.get('sf-learned',{});
+  var tabsEl=document.getElementById('tabs');
+
+  panels.forEach(function(p,i){
+    var cls=[].slice.call(p.classList).filter(function(c){return c.indexOf('t-')===0})[0];
+    var b=document.createElement('button');
+    b.className='tab '+cls;b.type='button';b.setAttribute('role','tab');b.id='tab-'+p.id;b.dataset.go=p.id;
+    b.setAttribute('aria-controls',p.id);
+    b.innerHTML='<span class="n">'+(i<10?'0'+i:i)+'</span>'+p.dataset.name+'<span class="ok">✓</span>';
+    tabsEl.appendChild(b);
+  });
+
+  var map=document.getElementById('map');
+  panels.forEach(function(p,i){
+    if(p.id==='overview')return;
+    var cls=[].slice.call(p.classList).filter(function(c){return c.indexOf('t-')===0})[0];
+    var b=document.createElement('button');b.type='button';b.className='mapc '+cls;b.dataset.go=p.id;
+    b.innerHTML='<div class="n">'+(i<10?'0'+i:i)+'</div><h3>'+p.dataset.name+'</h3><p>'+(p.dataset.blurb||'')+'</p><div class="bar"><i></i></div>';
+    map.appendChild(b);
+  });
+
+  document.querySelectorAll('[data-pager]').forEach(function(pg){
+    var id=pg.closest('.panel').id,i=ids.indexOf(id),h='';
+    if(i>0){var pv=panels[i-1];h+='<button type="button" data-go="'+pv.id+'"><small>← Previous</small><b>'+pv.dataset.name+'</b></button>'}else h+='<span></span>';
+    if(i<ids.length-1){var nx=panels[i+1];h+='<button type="button" class="nx" data-go="'+nx.id+'"><small>Next →</small><b>'+nx.dataset.name+'</b></button>'}
+    pg.innerHTML=h;
+  });
+
+  function show(id,scroll){
+    if(ids.indexOf(id)<0)id='overview';
+    panels.forEach(function(p){p.classList.toggle('show',p.id===id)});
+    document.querySelectorAll('.tab').forEach(function(t){var on=t.dataset.go===id;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;if(on&&t.scrollIntoView){var tb=tabsEl;tb.scrollLeft=Math.max(0,t.offsetLeft-tb.clientWidth/2+t.clientWidth/2)}});
+    store.set('sf-tab',id);
+    try{history.replaceState(null,'','#'+id)}catch(e){}
+    if(scroll)window.scrollTo({top:0,behavior:'auto'});
+  }
+  document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g){show(g.dataset.go,true)}});
+  tabsEl.addEventListener('keydown',function(e){
+    if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+    var cur=ids.indexOf(document.querySelector('.panel.show').id);var n=(cur+(e.key==='ArrowRight'?1:-1)+ids.length)%ids.length;
+    show(ids[n],false);document.getElementById('tab-'+ids[n]).focus();
+  });
+
+  function paintLearned(){
+    var n=0;learnable.forEach(function(id){
+      var on=!!learned[id];if(on)n++;
+      var t=document.getElementById('tab-'+id);if(t)t.classList.toggle('learned',on);
+      var m=document.querySelector('.mapc[data-go="'+id+'"]');if(m)m.classList.toggle('learned',on);
+      var b=document.querySelector('[data-done="'+id+'"]');if(b){b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'✓ Learned · tap to undo':'Mark this topic as learned'}
+    });
+    document.getElementById('progTxt').textContent=n+' of '+learnable.length+' topics learned';
+    document.getElementById('progBar').style.width=(n/learnable.length*100)+'%';
+  }
+  document.querySelectorAll('[data-done]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.done;learned[id]=!learned[id];store.set('sf-learned',learned);paintLearned()})});
+  paintLearned();
+
+  /* process stepper */
+  var steps=[
+    ['Prospect','Find and evaluate potential customers','Generate leads from people, events, published information and associations. Identify prospects by letter, phone or telemarketing. Then qualify: do they have the willingness, ability and authority to buy? Sort them as cold, warm or hot.'],
+    ['Pre-approach','Prepare before you make contact','Build the prospect\'s profile: personal details, needs, brands they use and what they think of them. For firms, find the decision makers, credit history and account history. Choose how to approach, set clear objectives for the call and prepare your materials.'],
+    ['Approach','Make the first impression','First contact is about attention, rapport and interest, not pushing the product. Appearance and manner matter. Three ways in: a referral from someone they know, cold canvassing without prior consent, or repeat contact with an existing customer.'],
+    ['Present','Show how you meet their needs','The most important step. Follow AIDA: attention, interest, desire, action. Let them handle the product. Choose canned, formulated or need-satisfaction style. Talk benefits as well as features, and the extra benefits they didn\'t expect.'],
+    ['Handle objections','Treat doubts as requests for information','No objections at all can mean no interest. Listen, ask questions, answer clearly and never evade. Use "yes, but": agree, then offer a solution. If you don\'t know, promise to find out and keep your word. Price is the most common objection; probe whether it hides something else.'],
+    ['Close','Ask for the order','Use trial closes during the presentation to test readiness. Popular closes: silent, direct, assumptive, alternative, concession and cautious. Never trick a customer into buying. Afterwards, spend a few minutes reassuring them they made a wise choice.'],
+    ['Follow up','Build the long-term relationship','Check delivery, installation and satisfaction. Follow-up reduces buyer\'s remorse, brings referrals and leads to repeat orders. It shows you care about the relationship, not just one sale.']
+  ];
+  var sp=document.getElementById('stepper'),sd=document.getElementById('stepdetail');
+  steps.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.innerHTML='<b>'+(i+1)+'</b><span>'+s[0]+'</span>';b.addEventListener('click',function(){pick(i)});sp.appendChild(b)});
+  function pick(i){[].forEach.call(sp.children,function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')});
+    sd.innerHTML='<span class="k">Step '+(i+1)+' of 7</span><h3>'+steps[i][0]+' · '+steps[i][1]+'</h3><p>'+steps[i][2]+'</p>'}
+  pick(0);
+
+  /* closing cards */
+  var closes=[
+    ['Assumptive','Act as if the deal is done.','They have ticked most boxes but not said yes. Stops them sitting on it and inventing objections.','I\'ve completed the paperwork; all you need to do is read through and sign.',['ready'],'soft'],
+    ['Alternative','Offer two choices that both move the deal forward.','They have no open questions on price or features. Choosing is easier than deciding.','Would you prefer delivery on Monday or Thursday?',['ready'],'soft'],
+    ['Direct','Simply ask for the order.','The conversation has gone well and nothing is left open.','Are you ready to place the order?',['ready'],'soft'],
+    ['Silent','Present, then wait quietly.','You\'ve made your case. Let the buyer fill the silence with a decision.','(Say nothing. Let them speak first.)',['ready'],'soft'],
+    ['Summary','Recap the highlights; point to the only logical conclusion.','After a long evaluation, like a closing argument in court. No new facts.','So, we agreed it saves your team ten hours a week, fits your budget and starts this month.',['ready','visual'],'soft'],
+    ['Ownership','Talk as if they already own it.','Paint how their business improves, backed by facts and stories of goals achieved.','Once your team is using it, where will you put the time you save?',['ready','visual'],'soft'],
+    ['Needs','List their needs and tick off each one you meet.','They aren\'t sure how it benefits them. More ticks, better fit.','You needed faster reports, fewer errors and mobile access. Let\'s check each one.',['hesitant','visual'],'soft'],
+    ['Pros & cons','List pros and cons together.','They are hesitant. When pros clearly outweigh cons, the choice is obvious.','Let\'s write the reasons for and against side by side.',['hesitant','visual'],'soft'],
+    ['Visual','Use charts, videos or tables to show progress and results.','They struggle to picture the value. Images land faster than words.','Here\'s how far we\'ve come since our first call, and what\'s left is signing.',['visual'],'soft'],
+    ['Testimonial','Let real customers do the talking.','They doubt it will work for a company like theirs. Peer stories build trust.','A firm your size cut onboarding time in half. Want to hear how?',['hesitant'],'soft'],
+    ['Objection','Invite any final objections.','They understand the offer. Lets them raise doubts without saying no.','Is there anything that would stop us moving forward?',['hesitant','objection'],'soft'],
+    ['Sharp angle','Answer their challenge with a commitment question.','One nagging condition is all that stands in the way.','If we can deliver by the 15th, are you ready to sign today?',['objection'],'firm'],
+    ['Scale','Ask for a 1–10 rating, then ask why not higher.','You need to gauge interest and surface the hidden concern.','On a scale of one to ten, how interested are you? What would make it a ten?',['gauge'],'soft'],
+    ['Thermometer','Repeat the 1–10 rating until it reaches 10.','6 or below: a big objection. 7–9: a few reservations. Work each one.','How likely are you to buy, one to ten? What would move it up?',['gauge','objection'],'soft'],
+    ['Cautious','Check if they have any questions before closing.','A careful, respectful step before asking for the order.','Before we finalise, is there anything you\'d like to ask?',['objection','gauge'],'soft'],
+    ['Empathy','Give them space when they\'re not ready.','Not every deal needs pressure. Builds a bond for the long run.','I understand. Take the time you need; I\'ll check in next week.',['hesitant'],'soft'],
+    ['Artisan','Highlight the skill and effort behind the product.','For buyers who value craftsmanship and care.','Our engineers spent two years refining this one part.',['hesitant'],'soft'],
+    ['Something for nothing','Give a small, valued extra in goodwill.','People like to return favours. Low cost to you, high value to them.','I\'ll add the setup session at no charge.',['price','hesitant'],'soft'],
+    ['Concession','Offer a concession to tip the decision.','A buyer needs a small push and you have margin to give.','If we include extended warranty, can we go ahead?',['price'],'firm'],
+    ['Opportunity cost','Show what waiting will cost them.','It\'s an investment, not an expense. Every week of delay is lost return.','Each month without it costs you roughly what it costs to buy.',['urgency','price'],'firm'],
+    ['Best time to','Link a timely event to buying now.','A trigger event: expansion, a competitor\'s funding round, a seasonal sale.','With your new branch opening, now is the moment to set this up.',['urgency'],'soft'],
+    ['Calendar','Agree a date in the near future to decide.','They\'re on the fence. Ends endless back-and-forth and shows commitment.','Shall we pencil in Friday the 20th to finalise?',['urgency','hesitant'],'soft'],
+    ['Now or never','Time-limited offer to create urgency.','They\'re close; a limited discount or bonus tips them over.','This price holds until the end of the month.',['urgency','price'],'firm'],
+    ['Take-away','Offer to withdraw the deal.','They keep complaining to drive a bargain or waste time. Shows confidence.','It may not be the right fit for you right now, and that\'s fine.',['price'],'firm']
+  ];
+  var filters=[['all','All 24'],['ready','Ready to buy'],['hesitant','Hesitant'],['objection','One objection left'],['price','Price pressure'],['urgency','No urgency'],['gauge','Gauge interest'],['visual','Can\'t picture value']];
+  var fEl=document.getElementById('closeFilters'),cEl=document.getElementById('closeCards');
+  filters.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.textContent=f[1];b.dataset.f=f[0];b.setAttribute('aria-pressed',i===0?'true':'false');fEl.appendChild(b)});
+  closes.forEach(function(c,i){
+    var b=document.createElement('button');b.type='button';b.className='flip';b.dataset.tags=c[4].join(' ');
+    b.setAttribute('aria-label',c[0]+' close. Tap to flip.');
+    b.innerHTML='<div class="in"><div class="f"><span class="ix">'+(i<9?'0':'')+(i+1)+' · '+(c[5]==='firm'?'<span style="color:var(--red)">● firm</span>':'<span style="color:var(--grn)">● soft</span>')+'</span><h4>'+c[0]+'</h4><p>'+c[1]+'</p><div class="tags">'+c[4].map(function(t){return '<span>'+filters.filter(function(f){return f[0]===t})[0][1]+'</span>'}).join('')+'</div><small>tap to flip</small></div><div class="b"><span class="k">Use it when</span><p>'+c[2]+'</p><q>'+c[3]+'</q></div></div>';
+    b.addEventListener('click',function(){b.classList.toggle('on')});
+    cEl.appendChild(b);
+  });
+  fEl.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    [].forEach.call(fEl.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    [].forEach.call(cEl.children,function(c){c.classList.toggle('hidden',b.dataset.f!=='all'&&c.dataset.tags.split(' ').indexOf(b.dataset.f)<0)});
+  });
+
+  /* calculator */
+  function calc(){
+    var v=function(id){var n=parseFloat(document.getElementById(id).value);return isFinite(n)&&n>0?n:0};
+    var total=v('cA')*v('fA')+v('cB')*v('fB'),cap=v('cap');
+    var r=cap?Math.ceil(total/cap):0;
+    document.getElementById('reps').textContent=r;
+    document.getElementById('repsTxt').textContent=(cap?'salespeople needed · ':'enter calls per rep · ')+total.toLocaleString()+' calls a year ÷ '+cap.toLocaleString()+' per rep';
+  }
+  ['cA','fA','cB','fB','cap'].forEach(function(id){document.getElementById(id).addEventListener('input',calc)});calc();
+
+  /* memory cards */
+  var mem=[
+    ['L·R·T','Like, Respect, Trust: what buyers must feel about you.'],
+    ['T·G·S','Order Takers, order Getters, Support personnel.'],
+    ['C×I÷R','Trust = Credibility × Intimacy ÷ Risk.'],
+    ['W·A·A','Qualify: Willingness, Ability, Authority. Will they? Can they? May they?'],
+    ['PPAPHCF','Prospect, Pre-approach, Approach, Present, Handle objections, Close, Follow up.'],
+    ['AIDA','Attention, Interest, Desire, Action.'],
+    ['5·3·1','Five fact-finding, three needs-oriented, one big-picture question.'],
+    ['Heard ≠ said','Review needs with "Here\'s my understanding…", never "You said…".'],
+    ['What · So what · Me?','Feature, benefit, specific benefit.'],
+    ['90 sec','How long peak attention lasts. Lead with specific benefits.'],
+    ['N·M·H·D·T','Five obstacles: no Need, Money, Hurry, Desire, Trust.'],
+    ['ACRRC','Acknowledge, Clarify, Reframe, Respond, Check for more.'],
+    ['4W','Who does What by When with help from Whom.'],
+    ['ABC','Always Be Collecting: question, understand, resolve together.'],
+    ['S·D·R·R','Follow-up goals: Satisfaction, no Dissonance, Referrals, Repeat orders.'],
+    ['Where·Who·What','Organise the team by territory, customer or product.']
+  ];
+  var mc=document.getElementById('memCards');
+  mem.forEach(function(m){var b=document.createElement('button');b.type='button';b.className='flip';b.setAttribute('aria-label',m[0]+'. Tap to flip.');
+    b.innerHTML='<div class="in"><div class="f"><span class="ix">What does it stand for?</span><h4>'+m[0]+'</h4><small>tap to flip</small></div><div class="b"><span class="k">'+m[0]+'</span><p style="font-size:15px">'+m[1]+'</p></div></div>';
+    b.addEventListener('click',function(){b.classList.toggle('on')});mc.appendChild(b)});
+
+  /* quiz */
+  var Q=[
+    ['A lead who is willing to buy right now is a…',['Cold lead','Warm lead','Hot lead','Qualified suspect'],2,'Hot leads are willing to buy; warm leads have a hidden or future need; cold leads won\'t become customers.','process'],
+    ['In the trust formula, what sits on the bottom (the divisor)?',['Credibility','Intimacy','Price','Risk'],3,'Trust = (Credibility × Intimacy) ÷ Risk. Shrink the buyer\'s risk to raise trust.','buyer'],
+    ['A comfortable question mix in a needs meeting is…',['1 fact : 3 needs : 5 big-picture','5 fact : 3 needs : 1 big-picture','3 : 3 : 3','Only open questions'],1,'Five fact-finding, three needs-oriented, one big-picture.','discovery'],
+    ['"It saves you money because it lasts longer" is a…',['Feature','Benefit','Objection','Trial close'],1,'Features say how it works; benefits say why it matters to the buyer.','present'],
+    ['Why should specific benefits come early in a pitch?',['Brochures are boring','Peak attention lasts about 90 seconds','Customers prefer prices first','To avoid objections'],1,'High-level listening drops off after about 90 seconds.','present'],
+    ['A customer gives a vague objection. Your best first response is…',['"Is it the price?"','"Could you be more specific?"','Lower the price','Move on to closing'],1,'Ask open, content-free questions. Naming price can plant a new objection.','objections'],
+    ['Which reaction to an objection is described as the worst?',['Aggressive','Defensive','Passive (giving up)','Silent pause'],2,'Giving up is worst: there may be real interest behind the objection.','objections'],
+    ['You must lower your price. What should you do?',['Drop it quietly','Take something off the table','Blame your manager','Match the competitor exactly'],1,'Cutting price without removing anything signals you overcharged.','objections'],
+    ['Asking a prospect to rate interest 1–10, then asking what makes it a 10, is the…',['Scale or thermometer close','Take-away close','Artisan close','Calendar close'],0,'Scale and thermometer closes gauge interest and surface hidden concerns.','closing'],
+    ['After a close, the four Ws are…',['Why, What, Where, Wait','Who, What, When, whom','Want, Will, Worth, Win','Who, Why, When, Where'],1,'Who will do what by when with help from whom.','closing'],
+    ['Making sure every promised delivery happens on time is…',['Follow-through','Follow-up','Prospecting','Pre-approach'],1,'Follow-up keeps promises; follow-through goes beyond them.','after'],
+    ['The most preferred sales pay plan is…',['Straight salary','Straight commission','Salary plus commission','Prizes only'],2,'It combines the security of salary with the drive of commission.','team']
+  ];
+  var qEl=document.getElementById('quiz'),ans={};
+  function names(id){var p=document.getElementById(id);return p?p.dataset.name:''}
+  function renderQuiz(){qEl.innerHTML='';ans={};
+    Q.forEach(function(q,i){var d=document.createElement('div');d.className='q';
+      d.innerHTML='<h4><small>Q'+(i+1)+'</small>'+q[0]+'</h4><div class="opts">'+q[1].map(function(o,j){return '<button type="button" data-q="'+i+'" data-o="'+j+'">'+o+'</button>'}).join('')+'</div><div class="why" hidden></div>';
+      qEl.appendChild(d)});score()}
+  qEl.addEventListener('click',function(e){var b=e.target.closest('button[data-q]');if(!b)return;var i=+b.dataset.q,o=+b.dataset.o;if(i in ans)return;ans[i]=o;
+    var box=b.closest('.q'),q=Q[i];
+    [].forEach.call(box.querySelectorAll('button'),function(x,j){x.disabled=true;if(j===q[2])x.classList.add('right');else if(j===o)x.classList.add('wrong')});
+    var w=box.querySelector('.why');w.hidden=false;w.innerHTML=(o===q[2]?'<b>Correct.</b> ':'<b>Not quite.</b> ')+q[3]+(o===q[2]?'':' <button type="button" data-go="'+q[4]+'" style="font:inherit;font-weight:600;color:var(--cd);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline">Revisit '+names(q[4])+' →</button>');
+    score()});
+  function score(){var n=0,a=0;for(var k in ans){a++;if(ans[k]===Q[k][2])n++}document.getElementById('scoreN').textContent=n;document.getElementById('scoreA').textContent=a}
+  document.getElementById('resetQuiz').addEventListener('click',renderQuiz);
+  renderQuiz();
+
+  var start=(location.hash||'').replace('#','');
+  show(ids.indexOf(start)>=0?start:store.get('sf-tab','overview'),false);
+})();
+</script>
+
+</body></html>
