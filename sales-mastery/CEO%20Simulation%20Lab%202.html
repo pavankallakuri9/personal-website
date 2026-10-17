@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boardroom: CEO Simulation</title>
+<style>
+:root{
+  --bg:#0d1420; --panel:#141d2c; --panel2:#1a2537; --line:#2a3850; --ink:#e8edf5; --muted:#93a1b8;
+  --gold:#d4a84b; --gold2:#f0cf86; --green:#3fb57a; --red:#e0605a; --amber:#e9a23b; --blue:#5b8def;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+.sans{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{padding:28px 16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#121b2b,#0d1420)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.kicker{font:600 12px/1 -apple-system,Segoe UI,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(26px,4vw,40px);margin:8px 0 6px;font-weight:normal}
+h1 b{color:var(--gold2);font-weight:normal}
+.sub{color:var(--muted);max-width:760px;font-size:16px}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+nav button{font:600 13px -apple-system,Segoe UI,sans-serif;background:var(--panel);color:var(--muted);border:1px solid var(--line);padding:9px 14px;border-radius:8px;cursor:pointer}
+nav button.active{background:var(--gold);color:#1a1405;border-color:var(--gold)}
+main{padding:24px 0 60px}
+.tab{display:none}.tab.active{display:block}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+.card h2{margin:0 0 4px;font-weight:normal;font-size:22px;color:var(--gold2)}
+.card h3{margin:16px 0 6px;font:700 14px -apple-system,Segoe UI,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+.card p{margin:6px 0 10px}
+.muted{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font:13px -apple-system,Segoe UI,sans-serif}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600;background:var(--panel2)}
+.tscroll{overflow-x:auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+.dec-layout{display:grid;grid-template-columns:1fr 330px;gap:18px;align-items:start}
+@media(max-width:960px){.dec-layout{grid-template-columns:1fr}}
+.sticky{position:sticky;top:12px}
+.field{padding:12px 0;border-bottom:1px dashed var(--line)}
+.field:last-child{border-bottom:0}
+.field label{display:flex;justify-content:space-between;gap:10px;font:600 14px -apple-system,Segoe UI,sans-serif}
+.field label output{color:var(--gold2);font-variant-numeric:tabular-nums}
+.field .help{font:12.5px/1.45 -apple-system,Segoe UI,sans-serif;color:var(--muted);margin-top:4px}
+input[type=range]{width:100%;accent-color:var(--gold);margin-top:8px}
+select,input[type=text]{width:100%;margin-top:8px;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:14px -apple-system,Segoe UI,sans-serif}
+.check{display:flex;gap:8px;align-items:center;font:14px -apple-system,Segoe UI,sans-serif;margin-top:8px}
+.btn{font:700 15px -apple-system,Segoe UI,sans-serif;background:var(--gold);color:#1a1405;border:0;border-radius:10px;padding:13px 18px;cursor:pointer;width:100%}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--line);margin-top:8px}
+.kv{display:flex;justify-content:space-between;font:13.5px -apple-system,Segoe UI,sans-serif;padding:5px 0;border-bottom:1px solid var(--line)}
+.kv b{font-variant-numeric:tabular-nums}
+.warn{color:var(--amber)}.bad{color:var(--red)}.good{color:var(--green)}
+.banner{border-radius:12px;padding:22px;margin-bottom:18px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;border:1px solid var(--line)}
+@media(max-width:700px){.banner{grid-template-columns:1fr}}
+.dial{width:150px;height:150px}
+.outcome{font-size:clamp(20px,3vw,28px);margin:2px 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.kpi .l{font:600 11.5px -apple-system,Segoe UI,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font:700 22px -apple-system,Segoe UI,sans-serif;margin-top:4px;font-variant-numeric:tabular-nums}
+.bar{height:10px;background:var(--panel2);border-radius:6px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--gold)}
+.sc-row{font:13.5px -apple-system,Segoe UI,sans-serif;margin:10px 0}
+.sc-row .top{display:flex;justify-content:space-between}
+.insight{border-left:3px solid var(--line);padding:8px 12px;margin:10px 0;background:var(--panel2);border-radius:0 8px 8px 0}
+.insight.w{border-color:var(--amber)}.insight.b{border-color:var(--red)}.insight.g{border-color:var(--green)}
+.insight b{font-family:-apple-system,Segoe UI,sans-serif;font-size:14px}
+.insight div{font-size:14.5px;margin-top:2px}
+.events li{font:13.5px -apple-system,Segoe UI,sans-serif;margin:4px 0}
+.chart svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font:12px -apple-system,Segoe UI,sans-serif;color:var(--muted);margin-top:6px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;background:var(--c);vertical-align:-1px}
+.pill{display:inline-block;font:600 11px -apple-system,Segoe UI,sans-serif;padding:3px 8px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.empty{text-align:center;padding:50px 20px;color:var(--muted)}
+details summary{cursor:pointer;font:600 14px -apple-system,Segoe UI,sans-serif;color:var(--gold)}
+blockquote{margin:12px 0;padding:10px 16px;border-left:3px solid var(--gold);color:#cdd6e4;font-style:italic;background:var(--panel2);border-radius:0 8px 8px 0}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:3px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Advanced Management Program · Capstone Simulation</div>
+    <h1>The Boardroom: <b>Amber Crown Brewing Co.</b></h1>
+    <div class="sub">You are the founding CEO. You have five years, a fixed pool of capital, three entrenched rivals and a board that judges you on value created, not volume shipped. Every lever is connected. Decide like it's real.</div>
+    <nav class="sans">
+      <button class="active" data-tab="brief">1 · Case brief</button>
+      <button data-tab="decide">2 · Your decisions</button>
+      <button data-tab="results">3 · Board verdict</button>
+      <button data-tab="history">4 · Track record</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ CASE BRIEF ============ -->
+<section class="tab active" id="tab-brief">
+  <div class="card">
+    <h2>The situation</h2>
+    <p>Amber Crown Brewing Co. is a newly incorporated lager company. Investors have committed growth equity and two banks have offered term debt. You must build a brewery, choose how beer reaches the consumer, set price against three incumbents, and deliver a business the board considers <em>sustainable and value-creating</em> by the end of Year 5.</p>
+    <blockquote>"Anyone can buy market share. Anyone can cut costs until the brand dies. Your job is to find the narrow path where customers, cash and capability reinforce one another." — Chair of the Board</blockquote>
+    <div class="grid3">
+      <div class="kpi"><div class="l">Market size, Year 0</div><div class="v">1.5 bn bottles</div><div class="muted sans" style="font-size:12.5px">330 ml equivalent · ~$1.5 bn at retail</div></div>
+      <div class="kpi"><div class="l">Expected growth</div><div class="v">3–4% / yr</div><div class="muted sans" style="font-size:12.5px">Recession or boom are possible</div></div>
+      <div class="kpi"><div class="l">Board hurdle rate</div><div class="v">12% WACC</div><div class="muted sans" style="font-size:12.5px">Value = NPV of free cash flow</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>The competitive landscape</h2>
+    <div class="tscroll"><table>
+      <thead><tr><th>Brand</th><th>Position</th><th>Shelf price / bottle</th><th>Quality index</th><th>Brand equity</th><th>Distribution reach</th><th>Est. share</th></tr></thead>
+      <tbody>
+        <tr><td><b>Valor Lager</b></td><td>Mainstream leader</td><td>$1.00</td><td>70</td><td>85</td><td>95</td><td>~49%</td></tr>
+        <tr><td><b>Titan Premium</b></td><td>Premium, import-style</td><td>$1.30</td><td>85</td><td>80</td><td>85</td><td>~30%</td></tr>
+        <tr><td><b>Kaya Value</b></td><td>Value / price fighter</td><td>$0.75</td><td>55</td><td>60</td><td>70</td><td>~21%</td></tr>
+        <tr><td><b>Amber Crown (you)</b></td><td>Your choice</td><td>Your choice</td><td>Your recipe + process</td><td>10 (unknown)</td><td>5 (none yet)</td><td>0%</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Intelligence on rivals</h3>
+    <ul class="tight">
+      <li><b>Valor</b> defends share fiercely. If a newcomer gains real share at a visibly lower price, expect a price response.</li>
+      <li><b>Titan</b> does not cut price; it outspends on brand when someone attacks the premium tier.</li>
+      <li><b>Kaya</b> lives on thin margins and will follow anyone who prices near it.</li>
+    </ul>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Economics of a bottle</h2>
+      <ul class="tight">
+        <li><b>Excise duty:</b> $0.10 per bottle, paid by the brewer. The Finance Ministry has signalled a hike from Year 3.</li>
+        <li><b>Retailer margin:</b> 6–25% of shelf price depending on channel.</li>
+        <li><b>Distributor margin:</b> you set it. Higher margin buys push and shelf space.</li>
+        <li><b>Ingredients:</b> malt, hops, adjuncts, water. Better recipes cost more and drive repeat purchase.</li>
+        <li><b>Packaging</b> is the single largest cost line. Glass, returnables, cans, or build your own furnace.</li>
+        <li><b>Commodity risk:</b> barley, glass and energy prices are volatile. Hedging is available at a cost.</li>
+        <li><b>Cost inflation:</b> about 4% a year on most inputs.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>How you will be judged</h2>
+      <p class="muted sans" style="font-size:14px">A 1,000-point balanced scorecard, built the way a sophisticated board actually evaluates a CEO:</p>
+      <div class="kv"><span>Shareholder value created (NPV)</span><b>250</b></div>
+      <div class="kv"><span>Profitability (Year 5 margins)</span><b>150</b></div>
+      <div class="kv"><span>Market position (share, brand)</span><b>150</b></div>
+      <div class="kv"><span>Financial health (liquidity, leverage)</span><b>150</b></div>
+      <div class="kv"><span>Operational excellence</span><b>100</b></div>
+      <div class="kv"><span>Resilience under a perfect storm</span><b>100</b></div>
+      <div class="kv"><span>People &amp; sustainability</span><b>100</b></div>
+      <p class="muted sans" style="font-size:13px;margin-top:12px">Your plan is also re-run silently under recession, a severe commodity shock and aggressive competitors. Plans that only work in good weather are penalised.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>The dilemmas you must resolve</h2>
+    <div class="grid2">
+      <ul class="tight">
+        <li><b>Scale vs. risk:</b> a big plant lowers unit cost but an idle plant destroys cash.</li>
+        <li><b>Price vs. proof:</b> can your quality and brand justify your price against Titan and Valor?</li>
+        <li><b>Leverage:</b> debt is cheaper than equity until the covenants bite.</li>
+        <li><b>Route to market:</b> bars build brands, supermarkets build volume, kiosks build reach. Each has different margins and payment terms.</li>
+      </ul>
+      <ul class="tight">
+        <li><b>Working capital:</b> generous credit wins distributors and quietly drains cash.</li>
+        <li><b>Integration:</b> owning the glass furnace is a scale bet, not a cost trick.</li>
+        <li><b>People:</b> under-paying a brewery workforce has consequences.</li>
+        <li><b>Sustainability:</b> regulators are tightening on waste water and packaging.</li>
+      </ul>
+    </div>
+    <button class="btn" style="max-width:320px;margin-top:10px" onclick="showTab('decide')">Take the CEO chair →</button>
+  </div>
+</section>
+
+<!-- ============ DECISIONS ============ -->
+<section class="tab" id="tab-decide">
+  <div class="dec-layout">
+    <div id="decisionForm"></div>
+    <aside class="sticky">
+      <div class="card">
+        <h2 style="font-size:19px">Sources &amp; uses</h2>
+        <div id="funding"></div>
+      </div>
+      <div class="card">
+        <h2 style="font-size:19px">Your positioning</h2>
+        <div id="positioning"></div>
+      </div>
+      <div class="card">
+        <div class="field" style="padding-top:0"><label>CEO / team name</label><input type="text" id="ceoName" placeholder="e.g. Team Alpha"></div>
+        <button class="btn" onclick="runSimulation()">Submit plan to the Board</button>
+        <button class="btn ghost" onclick="resetDecisions()">Reset to defaults</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="tab" id="tab-results">
+  <div id="results"><div class="card empty">No plan submitted yet. Make your decisions and submit them to the Board.</div></div>
+</section>
+
+<!-- ============ HISTORY ============ -->
+<section class="tab" id="tab-history">
+  <div class="card">
+    <h2>Track record</h2>
+    <p class="muted sans" style="font-size:14px">Every plan you submit in this browser is logged here, so you can compare strategies or run a class leaderboard.</p>
+    <div id="history"></div>
+    <button class="btn ghost" style="max-width:220px" onclick="clearHistory()">Clear track record</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* =================== MODEL CONSTANTS =================== */
+const COMP0 = [
+  {key:'valor', name:'Valor Lager', price:1.00, q:70, brand:85, dist:95, color:'#5b8def'},
+  {key:'titan', name:'Titan Premium', price:1.30, q:85, brand:80, dist:85, color:'#c0504d'},
+  {key:'kaya',  name:'Kaya Value', price:0.75, q:55, brand:60, dist:70, color:'#8a96a8'}
+];
+const AUTO = {
+  low:{name:'Low: labour-intensive, proven kit', capex:0.85, labor:1.45, energy:1.10, q:-6, waste:0.050},
+  med:{name:'Medium: semi-automated lines', capex:1.00, labor:1.00, energy:1.00, q:0, waste:0.030},
+  high:{name:'High: fully automated, Industry 4.0', capex:1.30, labor:0.55, energy:0.88, q:3, waste:0.015}
+};
+const PACK = {
+  oneway:{name:'One-way glass, bought from a supplier', unit:0.140, capex:()=>0, fixed:0, energy:0, logistics:0, util:0, esg:-5},
+  returnable:{name:'Returnable glass: deposit, collect, wash', unit:0.070, capex:p=>p*0.06, fixed:0.5, energy:0.005, logistics:0.020, util:0, esg:15},
+  ownglass:{name:'Backward integration: own glass furnace', unit:0.075, capex:p=>p<=250?30:45, fixed:3.0, energy:0.015, logistics:0, util:0, esg:-8},
+  cans:{name:'Aluminium cans, bought in', unit:0.125, capex:()=>5, fixed:0, energy:0, logistics:0, util:-0.08, esg:6}
+};
+const CH = {
+  ontrade:{name:'On-trade led: bars, hotels, restaurants', brand:1.25, reach:0.85, retail:0.25, distMult:1.0, creditAdd:0, logistics:0.012, fixed:1.0},
+  modern:{name:'Modern trade led: supermarkets & chains', brand:0.95, reach:0.90, retail:0.15, distMult:0.7, creditAdd:25, logistics:0.006, fixed:2.0},
+  general:{name:'Distributor-led general trade: kiosks & corner stores', brand:0.90, reach:1.20, retail:0.18, distMult:1.1, creditAdd:0, logistics:0.008, fixed:0},
+  omni:{name:'Balanced omnichannel', brand:1.05, reach:1.05, retail:0.19, distMult:1.0, creditAdd:10, logistics:0.010, fixed:1.5},
+  d2c:{name:'Digital-first: D2C & e-commerce', brand:1.00, reach:0.55, retail:0.06, distMult:0.3, creditAdd:-20, logistics:0.070, fixed:1.5}
+};
+const WAGE = {90:{f:0.90,q:-3,waste:0.010}, 100:{f:1.00,q:0,waste:0}, 115:{f:1.15,q:2,waste:-0.005}};
+const GROWTH = {recession:[-0.04,-0.02,0.01,0.02,0.03], base:[0.03,0.04,0.04,0.04,0.04], boom:[0.06,0.08,0.08,0.07,0.06]};
+const ELAST = {recession:3.6, base:3.0, boom:2.6};
+const COMPINFL = {recession:1.02, base:1.035, boom:1.045};
+const SHOCK = {none:[1,1,1,1,1], moderate:[1,1.20,1.15,1.05,1.05], severe:[1,1.45,1.30,1.15,1.10]};
+const WACC = 0.12, TG = 0.03, TAX = 0.30, MKT0 = 1500;
+
+/* =================== DECISION SCHEMA =================== */
+const SECTIONS = [
+ {title:'A · Capital structure & risk', intro:'How you fund the venture sets your margin for error.', fields:[
+  {id:'equity', type:'range', label:'Equity raised from investors', min:20, max:100, step:5, val:60, fmt:v=>'$'+v+'M', help:'Patient, expensive capital. The board measures value created against everything invested.'},
+  {id:'debt', type:'range', label:'Term debt from banks', min:0, max:100, step:5, val:30, fmt:v=>'$'+v+'M', help:'Interest rises sharply once debt exceeds half of equity. Covenant: net debt / EBITDA above 4.5x from Year 3 triggers penalty interest.'},
+  {id:'hedge', type:'range', label:'Commodity hedging (malt, glass, energy)', min:0, max:100, step:10, val:30, fmt:v=>v+'%', help:'Hedged volume is locked at plan prices plus a 1.5% premium. Protects against shocks; costs money if none comes.'}
+ ]},
+ {title:'B · Operations & supply chain', intro:'Capacity, technology and packaging lock in your cost structure for a decade.', fields:[
+  {id:'plant', type:'select', label:'Brewery capacity', val:'150', opts:[['100','100 M bottles / yr (≈7% of market)'],['150','150 M bottles / yr (≈10%)'],['250','250 M bottles / yr (≈17%)'],['400','400 M bottles / yr (≈27%)']], help:'Capex about $0.22 per bottle of annual capacity. Year 1 runs at 70% while commissioning.'},
+  {id:'auto', type:'select', label:'Automation level', val:'med', opts:Object.entries(AUTO).map(([k,v])=>[k,v.name]), help:'More automation costs more up-front but lowers labour, waste and energy and lifts consistency.'},
+  {id:'pack', type:'select', label:'Packaging strategy', val:'oneway', opts:Object.entries(PACK).map(([k,v])=>[k,v.name]), help:'Returnables are cheap per trip but need a bottle float and a channel that returns empties. A furnace needs volume.'},
+  {id:'expand', type:'select', label:'Capacity expansion option', val:'no', opts:[['no','No expansion: stay disciplined'],['yes','Add 50% capacity in Year 3 (funded from cash)']], help:'Expansion costs about 55% of the original plant capex in Year 3.'},
+  {id:'quality', type:'range', label:'Recipe & ingredient grade', min:50, max:95, step:1, val:75, fmt:v=>v+' / 100', help:'Each point raises ingredient cost. Final perceived quality also depends on automation, training and morale.'}
+ ]},
+ {title:'C · Product, pricing & brand', intro:'Where you play and how you win in the consumer\'s mind.', fields:[
+  {id:'price', type:'range', label:'Shelf price per bottle (Year 1)', min:0.60, max:1.80, step:0.05, val:1.00, fmt:v=>'$'+(+v).toFixed(2), help:'Compare with Valor $1.00, Titan $1.30, Kaya $0.75. Consumers weigh price against quality, brand and availability.'},
+  {id:'pstrat', type:'select', label:'Pricing path over five years', val:'infl', opts:[['infl','Pass through inflation (+4% / yr)'],['hold','Hold the price flat'],['pen','Penetration: −10% for 2 yrs, then reset upward'],['skim','Skim: +8% launch premium, then broaden']], help:'Holding prices flat erodes real margin. Penetration buys trial; resetting price tests loyalty.'},
+  {id:'mkt', type:'range', label:'Annual marketing & brand investment', min:1, max:25, step:0.5, val:6, fmt:v=>'$'+v+'M / yr', help:'Builds brand equity with diminishing returns. Brand decays about 30% a year without support.'},
+  {id:'channel', type:'select', label:'Primary route to market', val:'general', opts:Object.entries(CH).map(([k,v])=>[k,v.name]), help:'On-trade builds brand at high retail margins; supermarkets pay slowly and charge listing fees; general trade gives reach; D2C keeps margin but lacks reach.'}
+ ]},
+ {title:'D · Distribution & commercial terms', intro:'The invisible battlefield: shelf presence and payment terms.', fields:[
+  {id:'sales', type:'range', label:'Sales force & route-to-market spend', min:1, max:15, step:0.5, val:5, fmt:v=>'$'+v+'M / yr', help:'Feet on the street, coolers and trade support. Drives numeric distribution.'},
+  {id:'dmargin', type:'range', label:'Distributor margin offered', min:8, max:30, step:1, val:15, fmt:v=>v+'%', help:'Higher margins make distributors push your brand, at the cost of every bottle\'s profit.'},
+  {id:'credit', type:'range', label:'Trade credit given to customers', min:0, max:90, step:5, val:30, fmt:v=>v+' days', help:'Longer terms win listings but tie up cash and increase bad debts.'}
+ ]},
+ {title:'E · People & sustainability', intro:'The long-term foundations investors increasingly price in.', fields:[
+  {id:'wage', type:'select', label:'Pay policy vs. market', val:'100', opts:[['90','90%: lean cost'],['100','100%: market rate'],['115','115%: employer of choice']], help:'Pay affects morale, quality, waste and industrial-relations risk.'},
+  {id:'training', type:'range', label:'Training & capability building', min:0, max:3, step:0.25, val:1, fmt:v=>'$'+v+'M / yr', help:'Improves quality, lowers waste and stabilises the workforce.'},
+  {id:'esg', type:'range', label:'Sustainability capex: solar, waste-water, recovery', min:0, max:15, step:1, val:4, fmt:v=>'$'+v+'M one-off', help:'Cuts energy costs, builds brand goodwill and reduces regulatory exposure.'}
+ ]},
+ {title:'Facilitator settings (the world you face)', facilitator:true, intro:'Leave these on default for a fair test. Professors can change them to set the environment for a class.', fields:[
+  {id:'econ', type:'select', label:'Economic scenario', val:'base', opts:[['base','Base case'],['recession','Recession'],['boom','Boom']]},
+  {id:'shock', type:'select', label:'Commodity shock (Years 2–3)', val:'moderate', opts:[['none','None'],['moderate','Moderate (+20%)'],['severe','Severe (+45%)']]},
+  {id:'comp', type:'select', label:'Competitor behaviour', val:'rational', opts:[['passive','Passive'],['rational','Rational defenders'],['aggressive','Aggressive']]},
+  {id:'excise', type:'check', label:'Excise hike of $0.03 from Year 3', val:true},
+  {id:'reg', type:'check', label:'Environmental enforcement from Year 4', val:true}
+ ]}
+];
+const DEFAULTS = {};
+SECTIONS.forEach(s=>s.fields.forEach(f=>DEFAULTS[f.id]=f.val));
+
+/* =================== UTILS =================== */
+const $ = id=>document.getElementById(id);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const fm=(v,d=1)=>(v<0?'−$':'$')+Math.abs(v).toFixed(d)+'M';
+const pct=(v,d=1)=>(v*100).toFixed(d)+'%';
+function showTab(t){
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));
+  document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('active',s.id==='tab-'+t));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+
+/* =================== FORM BUILD =================== */
+function buildForm(){
+  const root=$('decisionForm'); let html='';
+  SECTIONS.forEach(s=>{
+    const inner = s.fields.map(f=>{
+      let ctl='';
+      if(f.type==='range') ctl=`<input type="range" id="${f.id}" min="${f.min}" max="${f.max}" step="${f.step}" value="${f.val}">`;
+      if(f.type==='select') ctl=`<select id="${f.id}">${f.opts.map(o=>`<option value="${o[0]}" ${o[0]==f.val?'selected':''}>${o[1]}</option>`).join('')}</select>`;
+      if(f.type==='check') return `<div class="field"><label class="check" style="justify-content:flex-start"><input type="checkbox" id="${f.id}" ${f.val?'checked':''}> ${f.label}</label></div>`;
+      return `<div class="field"><label>${f.label}${f.type==='range'?`<output id="${f.id}_o"></output>`:''}</label>${ctl}${f.help?`<div class="help">${f.help}</div>`:''}</div>`;
+    }).join('');
+    if(s.facilitator){
+      html+=`<div class="card"><details><summary>${s.title}</summary><p class="muted sans" style="font-size:13.5px">${s.intro}</p>${inner}</details></div>`;
+    } else {
+      html+=`<div class="card"><h2>${s.title}</h2><p class="muted sans" style="font-size:14px">${s.intro}</p>${inner}</div>`;
+    }
+  });
+  root.innerHTML=html;
+  root.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',updateLive));
+  updateLive();
+}
+function readDecisions(){
+  const d={};
+  SECTIONS.forEach(s=>s.fields.forEach(f=>{
+    const el=$(f.id);
+    if(f.type==='range') d[f.id]=parseFloat(el.value);
+    else if(f.type==='check') d[f.id]=el.checked;
+    else d[f.id]=el.value;
+  }));
+  d.plant=+d.plant; d.wage=+d.wage;
+  return d;
+}
+function resetDecisions(){
+  SECTIONS.forEach(s=>s.fields.forEach(f=>{
+    const el=$(f.id);
+    if(f.type==='check') el.checked=f.val; else el.value=f.val;
+  }));
+  updateLive();
+}
+function capexOf(d){
+  const plantCapex=d.plant*0.22*AUTO[d.auto].capex;
+  const packCapex=PACK[d.pack].capex(d.plant);
+  return {plantCapex,packCapex,esg:d.esg,total:plantCapex+packCapex+d.esg};
+}
+function updateLive(){
+  SECTIONS.forEach(s=>s.fields.forEach(f=>{ if(f.type==='range'){ $(f.id+'_o').textContent=f.fmt(parseFloat($(f.id).value)); }}));
+  const d=readDecisions(), c=capexOf(d);
+  const src=d.equity+d.debt, open=src-c.total;
+  const de=d.debt/d.equity, rate=interestRate(d);
+  $('funding').innerHTML=`
+    <div class="kv"><span>Equity + debt</span><b>${fm(src,0)}</b></div>
+    <div class="kv"><span>Brewery capex</span><b>${fm(-c.plantCapex)}</b></div>
+    <div class="kv"><span>Packaging capex</span><b>${fm(-c.packCapex)}</b></div>
+    <div class="kv"><span>Sustainability capex</span><b>${fm(-c.esg)}</b></div>
+    <div class="kv"><span>Opening cash for operations</span><b class="${open<15?'bad':open<30?'warn':'good'}">${fm(open)}</b></div>
+    <div class="kv"><span>Debt / equity</span><b class="${de>1.2?'bad':de>0.7?'warn':''}">${de.toFixed(2)}x</b></div>
+    <div class="kv"><span>Interest rate offered</span><b>${pct(rate)}</b></div>
+    <p class="sans muted" style="font-size:12px;margin:8px 0 0">Opening cash must carry launch losses, working capital and any expansion. Run dry and you borrow at 18%.</p>`;
+  const players=[...COMP0.map(c=>({n:c.name,p:c.price,col:c.color})),{n:'Amber Crown',p:d.price,col:'#d4a84b'}].sort((a,b)=>a.p-b.p);
+  $('positioning').innerHTML=players.map(p=>`<div class="sc-row"><div class="top"><span>${p.n}</span><b>$${p.p.toFixed(2)}</b></div><div class="bar"><i style="width:${p.p/1.8*100}%;background:${p.col}"></i></div></div>`).join('')+
+   `<p class="sans muted" style="font-size:12px;margin:8px 0 0">Price per quality point: you ${(d.price/d.quality*100).toFixed(2)}¢ · Titan 1.53¢ · Valor 1.43¢ · Kaya 1.36¢</p>`;
+}
+function interestRate(d){ const de=d.debt/Math.max(1,d.equity); return clamp(0.08+0.05*Math.max(0,de-0.5),0.08,0.22); }
+
+/* =================== SIMULATION ENGINE =================== */
+function simulate(d, env){
+  const A=AUTO[d.auto], P=PACK[d.pack], C=CH[d.channel], W=WAGE[d.wage];
+  const g=GROWTH[env.econ], el=ELAST[env.econ], shock=SHOCK[env.shock], cinf=COMPINFL[env.econ];
+  const cx=capexOf(d); const I0=cx.total;
+  const sources=d.equity+d.debt;
+  let cash=sources-I0, revolver=0, maxRev=0, minCash=cash;
+  let rate=interestRate(d), covenantBreach=false;
+  let brand=10, dist=5, prevShare=0, prevPrice=d.price, stockPrev=false;
+  let comp=COMP0.map(c=>({...c}));
+  let market=MKT0, nol=0, prevWC=0, bankrupt=false, bankruptYear=null;
+  const expCapex = d.expand==='yes' ? cx.plantCapex*0.55 : 0;
+  let gross=I0; // gross fixed assets
+  let accDep=0;
+  const qEff=clamp(d.quality+A.q+d.training*1.5+W.q,30,98);
+  const waste=Math.max(0.008, A.waste - d.training*0.005 + W.waste);
+  const strike = d.wage===90 && d.training<0.5;
+  const mismatch = d.pack==='returnable' && (d.channel==='modern'||d.channel==='d2c');
+  const effCredit = Math.max(0, d.credit + C.creditAdd);
+  const years=[], events=[];
+  if(mismatch) events.push([1,'Bottle return rates are poor in your chosen channel. Returnable economics are deteriorating.']);
+
+  for(let t=1;t<=5;t++){
+    const ev=[];
+    market*=1+g[t-1];
+    const infl=Math.pow(1.04,t-1);
+    // --- competitor moves
+    const thr = env.comp==='passive'?99: env.comp==='aggressive'?0.05:0.08;
+    const cut = env.comp==='aggressive'?0.90:0.94;
+    comp.forEach(c=>{
+      let reacted=false;
+      if(t>1 && prevShare>thr){
+        if(c.key==='valor' && prevPrice < c.price*0.95){ c.price*=cut; reacted=true; ev.push(`Valor cut prices ${Math.round((1-cut)*100)}% to defend share against your discount.`); }
+        if(c.key==='kaya' && prevPrice < c.price*1.08){ c.price*=cut; reacted=true; ev.push('Kaya followed you down on price. The value tier is now a price war.'); }
+        if(c.key==='titan' && prevPrice >= 1.10){ c.brand=Math.min(95,c.brand+(env.comp==='aggressive'?7:4)); ev.push('Titan launched a heavy brand campaign to protect the premium tier.'); }
+        if(c.key==='valor' && prevShare>0.12){ c.brand=Math.min(95,c.brand+3); if(env.comp==='aggressive'){c.dist=Math.min(98,c.dist+2); ev.push('Valor signed exclusive outlet deals to lock you out of key bars.');} }
+      }
+      if(!reacted) c.price*=cinf;
+    });
+    // --- your price
+    let price;
+    if(d.pstrat==='hold') price=d.price;
+    else if(d.pstrat==='infl') price=d.price*infl;
+    else if(d.pstrat==='pen') price = t<=2? d.price*0.90 : d.price*infl*1.03;
+    else price = t<=2? d.price*1.08 : d.price*infl*0.97;
+    // --- brand & distribution
+    const esgBrand = (d.esg>=5?2:0) + (P.esg>=10?2:0);
+    brand = clamp(0.7*brand + 6*Math.sqrt(d.mkt)*C.brand + (qEff-70)*0.15 + esgBrand - (stockPrev?3:0), 5, 95);
+    const mf = clamp(0.7+(d.dmargin-8)/22*0.6, 0.6, 1.3);
+    const target = clamp(15 + 14*Math.sqrt(d.sales)*mf*C.reach + effCredit*0.12, 5, 95);
+    dist = dist + 0.6*(target-dist) - (stockPrev?2:0);
+    // --- demand (multinomial logit)
+    const uYou = 0.04*qEff + 0.025*brand + 0.025*dist - el*Math.log(price) + P.util + (d.pack==='cans'&&d.channel==='d2c'?0.13:0);
+    const uC = comp.map(c=>0.04*c.q + 0.025*c.brand + 0.025*c.dist - el*Math.log(c.price));
+    const ex=[Math.exp(uYou),...uC.map(Math.exp)], tot=ex.reduce((a,b)=>a+b,0);
+    const shares=ex.map(e=>e/tot);
+    const share=shares[0], demand=share*market;
+    // --- capacity
+    const nominal = d.plant*(d.expand==='yes'&&t>=3?1.5:1);
+    let strikeF=1; if(strike && t===3){ strikeF=0.85; ev.push('Industrial action: a two-month strike over pay cut output by 15%.'); }
+    const cap = nominal*(t===1?0.70:1)*0.93*strikeF;
+    const salesCap = cap*(1-waste);
+    const sales = Math.min(demand, salesCap);
+    const stockout = demand > salesCap*1.02;
+    if(stockout) ev.push(`Demand exceeded capacity by ${Math.round(demand-salesCap)}M bottles. Lost sales and frustrated distributors.`);
+    const production = sales/(1-waste);
+    const util = production/nominal;
+    // --- revenue
+    const excise = 0.10 + (env.excise && t>=3 ? 0.03 : 0);
+    if(env.excise && t===3) ev.push('Government raised excise duty by $0.03 per bottle.');
+    const dm = d.dmargin/100*C.distMult;
+    const grossSales = price*(1-C.retail)*(1-dm)*sales;
+    const exciseCost = excise*sales;
+    const netRev = grossSales - exciseCost;
+    // --- variable costs
+    const mat = 0.05 + 0.0025*(d.quality-50);
+    let packU = P.unit + (mismatch?0.04:0);
+    if(d.pack==='ownglass') packU *= 1 + Math.max(0,0.85-util)*1.2;
+    const energyU = 0.025*A.energy*(1-Math.min(0.35,d.esg*0.025)) + P.energy;
+    const commodityBase = (mat+packU+energyU)*production*infl;
+    const h=d.hedge/100, sm=shock[t-1];
+    const commodity = commodityBase*(h + (1-h)*sm);
+    const hedgeCost = 0.015*h*commodityBase;
+    if(sm>1 && t===2) ev.push(`Commodity shock: malt, glass and energy prices jumped ${Math.round((sm-1)*100)}%. You were ${d.hedge}% hedged.`);
+    const logistics = (C.logistics + P.logistics)*sales*infl;
+    // --- fixed costs
+    const labor = d.plant*(d.expand==='yes'&&t>=3?1.35:1)*0.04*A.labor*W.f*infl;
+    const plantOH = 0.025*(cx.plantCapex + (t>=3?expCapex:0))*infl + P.fixed*infl;
+    const sga = 3*infl + 0.02*netRev + (t===1?2:0);
+    const badDebt = grossSales*0.004*effCredit/30;
+    const fine = (env.reg && t===4 && d.esg<3 && P.esg<=0) ? 3 : 0;
+    if(fine) ev.push('Environmental regulator fined Amber Crown $3M for effluent and packaging-waste breaches.');
+    const opex = labor+plantOH+d.mkt+d.sales+C.fixed+d.training+sga+badDebt+fine;
+    const ebitda = netRev - commodity - hedgeCost - logistics - opex;
+    // --- capex & depreciation
+    const capexT = (t===3?expCapex:0) + 0.015*gross;
+    gross += capexT;
+    const dep = gross/10; accDep+=dep;
+    const ebit = ebitda - dep;
+    // --- interest
+    if(covenantBreach) rate=Math.min(0.22, interestRate(d)+0.03);
+    const interest = d.debt*rate + revolver*0.18;
+    const ebt = ebit - interest;
+    let tax=0;
+    if(ebt>0){ const taxable=Math.max(0,ebt-nol); nol=Math.max(0,nol-ebt); tax=taxable*TAX; } else nol+= -ebt;
+    const ni = ebt - tax;
+    // --- working capital
+    const wc = grossSales*effCredit/365 + commodity*35/365 - commodity*45/365;
+    const dWC = wc - prevWC; prevWC=wc;
+    cash += ni + dep - dWC - capexT;
+    // revolver
+    if(cash<3){ const draw=3-cash; revolver+=draw; cash=3; if(t>0) ev.push(`Cash ran short: drew ${fm(draw)} on an emergency revolver at 18%.`); }
+    else if(revolver>0 && cash>15){ const rep=Math.min(revolver,cash-15); revolver-=rep; cash-=rep; }
+    maxRev=Math.max(maxRev,revolver); minCash=Math.min(minCash,cash);
+    if(!bankrupt && revolver > 0.6*sources){ bankrupt=true; bankruptYear=t; ev.push('Lenders refused further funding. The company has breached solvency limits.'); }
+    // covenant
+    const netDebt = d.debt + revolver - cash;
+    if(t>=3 && d.debt>0 && (ebitda<=0 || netDebt/ebitda>4.5) && !covenantBreach){ covenantBreach=true; ev.push('Bank covenant breached (net debt / EBITDA above 4.5x). Penalty interest applies.'); }
+    // unlevered FCF
+    const nopat = ebit>0? ebit*(1-TAX) : ebit;
+    const fcf = nopat + dep - capexT - dWC;
+    years.push({t,market,price,comp:comp.map(c=>({name:c.name,price:c.price})),shares,share,demand,sales,cap:salesCap,util,brand,dist,
+      grossSales,exciseCost,netRev,commodity:commodity+hedgeCost,logistics,labor,plantOH,mkt:d.mkt,salesSp:d.sales,other:C.fixed+d.training+sga+badDebt+fine,
+      ebitda,dep,ebit,interest,tax,ni,cash,revolver,netDebt,wc,capexT,fcf,nopat,
+      unitCost:(commodity+hedgeCost+logistics+labor+plantOH)/Math.max(1,sales)});
+    ev.forEach(e=>events.push([t,e]));
+    prevShare=share; prevPrice=price; stockPrev=stockout;
+  }
+  // valuation
+  const y5=years[4];
+  let pv=0; years.forEach(y=>pv+=y.fcf/Math.pow(1+WACC,y.t));
+  const tv = bankrupt?0: Math.max(0,y5.nopat)*(1+TG)/(WACC-TG);
+  const npv = -I0 + pv + tv/Math.pow(1+WACC,5);
+  const investedCap = (gross-accDep) + y5.wc;
+  const sum = {
+    I0, npv, bankrupt, bankruptYear, share5:y5.share, brand5:y5.brand, dist5:y5.dist,
+    ni5:y5.ni, rev5:y5.netRev, cumNI:years.reduce((a,y)=>a+y.ni,0),
+    ebitdaM5:y5.ebitda/Math.max(1,y5.netRev), netM5:y5.ni/Math.max(1,y5.netRev),
+    icr5: y5.interest>0? y5.ebit/y5.interest : (y5.ebit>0?99:0),
+    ndE5: y5.ebitda>0? y5.netDebt/y5.ebitda : 99,
+    maxRev, minCash, util5:y5.util, qEff, unitCost5:y5.unitCost, waste,
+    roic5: y5.nopat/Math.max(1,investedCap), cash5:y5.cash, revolver5:y5.revolver,
+    effCredit, stockouts: years.filter((y,i)=>y.demand>y.cap*1.02).length, covenantBreach, mismatch, strike
+  };
+  sum.outcome = classify(sum);
+  return {years, sum, events, d, env};
+}
+function classify(s){
+  if(s.bankrupt) return {k:'insolvent', t:'INSOLVENT', s:'The lenders take the keys', c:'var(--red)'};
+  if(s.ni5<0) return {k:'loss', t:'LOSS-MAKING', s:'Still burning shareholder capital in Year 5', c:'var(--red)'};
+  if(s.npv<0 || s.cumNI<0) return {k:'fragile', t:'FRAGILE', s:'Profitable now, but not yet creating value', c:'var(--amber)'};
+  if(s.npv>0.5*s.I0 && s.share5>=0.12) return {k:'leader', t:'VALUE CREATOR', s:'Sustainable, value-creating challenger with leadership trajectory', c:'var(--green)'};
+  return {k:'sustainable', t:'SUSTAINABLE', s:'Profitable and earning above its cost of capital', c:'var(--green)'};
+}
+
+/* =================== SCORING =================== */
+function score(r, stress){
+  const s=r.sum, d=r.d, P=PACK[d.pack];
+  const parts=[];
+  parts.push(['Shareholder value created', clamp((s.npv/s.I0+0.5)/1.5,0,1)*250, 250]);
+  parts.push(['Profitability', clamp(s.ebitdaM5/0.25,0,1)*90 + clamp(s.netM5/0.12,0,1)*60, 150]);
+  parts.push(['Market position', clamp(s.share5/0.18,0,1)*100 + clamp(s.brand5/80,0,1)*50, 150]);
+  let f=0;
+  if(!s.bankrupt){ f+=clamp(s.icr5/6,0,1)*60; f+= s.ndE5<=1.5?50 : s.ndE5<=3?30 : s.ndE5<=4.5?10:0; f+= s.maxRev<=0.01?40 : s.maxRev<5?20:0; }
+  parts.push(['Financial health', f, 150]);
+  parts.push(['Operational excellence', clamp(1-Math.abs(s.util5-0.85)/0.45,0,1)*40 + clamp((s.qEff-50)/40,0,1)*30 + clamp((0.6-s.unitCost5)/0.25,0,1)*30, 100]);
+  const rs=stress.sum;
+  parts.push(['Resilience (perfect storm)', clamp((rs.npv/rs.I0+0.6),0,1)*70 + (rs.bankrupt?0:30), 100]);
+  parts.push(['People & sustainability', clamp(d.esg/8,0,1)*35 + clamp((P.esg+8)/23,0,1)*30 + (d.wage>=100?15:0) + clamp(d.training/2,0,1)*20, 100]);
+  const total=Math.round(parts.reduce((a,p)=>a+p[1],0));
+  let grade;
+  if(total>=880) grade=['Legendary CEO','Case-study material. The board extends your contract and your options.'];
+  else if(total>=760) grade=['World-class CEO','Disciplined, coherent, resilient. Investors would back you again.'];
+  else if(total>=640) grade=['Strong CEO','A credible plan with one or two strategic leaks to fix.'];
+  else if(total>=500) grade=['Competent manager','The business survives, but the strategy lacks coherence.'];
+  else if(total>=350) grade=['Struggling','Value is leaking. The board has started asking hard questions.'];
+  else grade=['Board replaces the CEO','The plan destroyed capital. Time for a different leader.'];
+  return {total, parts, grade};
+}
+
+/* =================== PROFESSOR'S DEBRIEF =================== */
+function debrief(r, stress){
+  const s=r.sum, d=r.d, y=r.years, out=[];
+  const W=(t,x)=>out.push(['w',t,x]), B=(t,x)=>out.push(['b',t,x]), G=(t,x)=>out.push(['g',t,x]);
+  const valueIdx = s.qEff/(d.price*75);
+  if(d.price>=1.25 && s.qEff<83) B('Premium price without premium proof', `You priced at $${d.price.toFixed(2)}, in Titan's territory, with a perceived quality of ${s.qEff.toFixed(0)} against Titan's 85 and a brand that starts unknown. Premium pricing is earned through product superiority and years of brand investment, not declared in a pricing meeting.`);
+  if(d.price<0.80) B('A race to the bottom', `At $${d.price.toFixed(2)} you are fighting Kaya on its own ground. The value tier is where an incumbent with sunk costs can out-wait a newcomer with debt. Low price is a strategy only if you have a structural cost advantage, and you did not build one.`);
+  if(valueIdx>1.05 && d.price>=0.85 && d.price<1.25) G('Clear value proposition', `Your quality-to-price ratio beats the incumbents. That is the classic challenger wedge: better beer at a fair price, which forces rivals to choose between matching you and protecting their margins.`);
+  if(s.util5<0.55) B('You built a cathedral for a congregation that never came', `Year 5 utilisation is only ${pct(s.util5,0)}. Fixed costs and depreciation on idle capacity are dragging margins. Scale economics only work at scale. Size the plant to realistic demand and keep an expansion option.`);
+  else if(s.stockouts>=2) W('Under-built for your own success', `Demand outran capacity in ${s.stockouts} years. Every lost case went to a rival, and frustrated distributors remember. A Year 3 expansion option, or a slightly larger initial plant, would have captured that demand.`);
+  else if(s.util5>=0.72 && s.util5<=0.95) G('Capacity matched to demand', `Year 5 utilisation of ${pct(s.util5,0)} means you sized the brewery close to what the market would give you. That discipline shows up directly in unit cost and return on capital.`);
+  if(d.pack==='ownglass' && d.plant<=150) B('Integration without scale', 'A glass furnace is a scale business. At your volumes it runs below efficient throughput, so you carry its fixed costs and its carbon footprint without the cost advantage. Vertical integration is a strategic decision about control and scale, not a shortcut to cheaper bottles.');
+  if(s.mismatch) B('Packaging and channel are fighting each other', 'Returnable bottles depend on empties coming back. Supermarkets and e-commerce do not return empties at scale, so your bottle float leaks away. Strategy is about fit: each choice must reinforce the others.');
+  if(d.pack==='returnable' && !s.mismatch) G('A returnable system aligned with the channel', 'Returnables plus a channel that brings empties back is a genuine structural cost and sustainability advantage, and difficult for rivals locked into one-way glass to copy quickly.');
+  if(d.auto==='high' && d.plant<=100) W('Over-engineered for the volume', 'Full automation on a small brewery buys capability you cannot amortise. Automation pays when volume is high and labour is a large share of cost.');
+  const de=d.debt/d.equity;
+  if(de>1.2) B('Leverage became the strategy', `Debt of ${de.toFixed(1)}x equity raised your interest rate and shrank your margin for error. Start-ups have volatile early cash flows; debt suits stable cash flows. ${s.covenantBreach?'You breached covenants, and the banks repriced you.':''}`);
+  if(s.maxRev>0) B('You ran out of cash', `You had to draw ${fm(s.maxRev)} on an 18% emergency facility. Profit is opinion; cash is fact. The plan needed more equity, less capex, tighter working capital, or a slower ramp-up.`);
+  if(s.effCredit>=60) W('The working-capital trap', `Effective customer credit of ${s.effCredit} days means you are financing your customers' businesses. Receivables grow with revenue, so success itself consumes cash, and bad debts rise.`);
+  const mktRatio=d.mkt/Math.max(1,s.rev5);
+  if(d.mkt<3) W('An invisible brand', 'Marketing below $3M a year cannot overcome the incumbents\' share of voice. Brand equity decays every year; a newcomer has to invest to be considered at all.');
+  else if(mktRatio>0.2) W('Brand spend outran the business', `Marketing equals ${pct(mktRatio,0)} of Year 5 net revenue. Beyond a point each extra dollar buys little awareness. Brand building has sharply diminishing returns.`);
+  if(d.dmargin<11 && d.channel!=='d2c') W('Starving the channel', `A ${d.dmargin}% distributor margin gives intermediaries little reason to push your brand over Valor's. In fast-moving consumer goods, the distributor is a customer too.`);
+  if(d.dmargin>24) W('Over-paying for distribution', `A ${d.dmargin}% distributor margin bought reach, but it is taken from every bottle forever. Reach can also be bought with sales-force investment that you control.`);
+  if(d.channel==='d2c') W('Digital-first in a physical category', 'Beer is bought impulsively, cold, close to consumption. D2C keeps margin but caps reach and adds last-mile cost. It is a strong complement and a weak foundation.');
+  if(d.channel==='ontrade' && d.mkt>=6) G('Brand built where beer is chosen', 'Leading through bars and restaurants with real brand investment is how most enduring beer brands were made: trial happens socially, and the brand earns the right to the supermarket shelf.');
+  const shocked=r.env.shock!=='none';
+  if(d.hedge<20 && shocked) W('Unhedged into a commodity shock', `With only ${d.hedge}% of input costs hedged, the Year 2–3 spike went straight through to your margin. Hedging is not about predicting prices; it is about buying time to adjust them.`);
+  if(d.hedge>=80 && !shocked) W('Paying for insurance you did not need', 'Heavy hedging in a calm market is a steady cost. Thoughtful hedging covers the exposure that would actually hurt, not everything.');
+  if(d.hedge>=30 && d.hedge<=70 && shocked) G('Measured risk management', 'Partial hedging absorbed much of the commodity shock without locking the whole cost base. That is risk management, not speculation.');
+  if(s.strike) B('Cheap labour proved expensive', 'Below-market pay with almost no investment in people led to a strike in Year 3, plus higher waste and lower quality throughout. Culture shows up on the P&L.');
+  if(d.wage>=100 && d.training>=1) G('Capability as a competitive advantage', 'Market-rate pay and real training lifted quality and cut waste. These are quiet advantages that rivals underestimate.');
+  if(d.esg<3 && r.env.reg) W('Regulatory exposure ignored', 'Minimal sustainability investment left you exposed to tightening enforcement, and you missed energy savings that would have paid back within the five years.');
+  if(d.pstrat==='hold') W('Letting inflation set your margin', 'Holding price flat while costs inflate 4% a year transfers your margin to consumers. Pricing power is a capability you must exercise, carefully and regularly.');
+  if(d.pstrat==='pen' && s.share5>0.10) G('Penetration that converted to loyalty', 'Your introductory pricing bought trial, and the brand was strong enough to hold customers when price reset.');
+  if(stress.sum.bankrupt && !s.bankrupt) B('Works only in fair weather', 'Under recession, a severe commodity shock and aggressive rivals, this plan becomes insolvent. A board will ask: what is our margin of safety? Build plans that bend, not break.');
+  else if(!stress.sum.bankrupt && stress.sum.npv>0) G('Robust under stress', 'Even under recession, a severe commodity shock and aggressive competitors, your plan still creates value. That robustness is what separates strategy from a forecast.');
+  if(s.roic5>0.15 && !s.bankrupt) G('Returns above the cost of capital', `Year 5 return on invested capital of ${pct(s.roic5,0)} comfortably exceeds the 12% WACC. Growth now creates value rather than consuming it.`);
+  const order={b:0,w:1,g:2};
+  return out.sort((a,b)=>order[a[0]]-order[b[0]]);
+}
+const BOARD_Q = [
+ 'If Valor cut prices 15% tomorrow, which of your choices would protect you, and which would expose you?',
+ 'Which single decision in your plan is the hardest for a competitor to copy, and why?',
+ 'Where is your plan most dependent on the economy being kind?',
+ 'If you had to raise $20M more, would you raise it as debt or equity? What would the market say about your plan?',
+ 'Which decision would you reverse first after seeing these results, and what would you give up to change it?'
+];
+
+/* =================== CHARTS (inline SVG) =================== */
+function chart(type, labels, series, fmtY, h=240){
+  const W=560,H=h,pl=56,pr=12,pt=14,pb=28;
+  let all=series.flatMap(s=>s.values); let mn=Math.min(0,...all), mx=Math.max(0,...all);
+  if(mx===mn) mx=mn+1; const pad=(mx-mn)*0.08; mx+=pad; if(mn<0) mn-=pad;
+  const y=v=>pt+(H-pt-pb)*(1-(v-mn)/(mx-mn));
+  const n=labels.length, cw=(W-pl-pr)/n;
+  let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,sans-serif" font-size="11">`;
+  for(let i=0;i<=4;i++){ const v=mn+(mx-mn)*i/4, yy=y(v); s+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="#2a3850"/><text x="${pl-6}" y="${yy+4}" text-anchor="end" fill="#93a1b8">${fmtY(v)}</text>`; }
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}" stroke="#93a1b8" stroke-width="1"/>`;
+  labels.forEach((l,i)=>s+=`<text x="${pl+cw*i+cw/2}" y="${H-8}" text-anchor="middle" fill="#93a1b8">${l}</text>`);
+  if(type==='bar'){
+    const bw=cw*0.7/series.length;
+    series.forEach((se,k)=>se.values.forEach((v,i)=>{ const x=pl+cw*i+cw*0.15+bw*k; const y0=y(0),y1=y(v); s+=`<rect x="${x}" y="${Math.min(y0,y1)}" width="${bw-2}" height="${Math.max(1,Math.abs(y1-y0))}" rx="2" fill="${se.color}"><title>${se.name} ${labels[i]}: ${fmtY(v)}</title></rect>`; }));
+  } else {
+    series.forEach(se=>{ const pts=se.values.map((v,i)=>`${pl+cw*i+cw/2},${y(v)}`).join(' ');
+      s+=`<polyline points="${pts}" fill="none" stroke="${se.color}" stroke-width="${se.w||2.5}"/>`;
+      se.values.forEach((v,i)=>s+=`<circle cx="${pl+cw*i+cw/2}" cy="${y(v)}" r="3.5" fill="${se.color}"><title>${se.name} ${labels[i]}: ${fmtY(v)}</title></circle>`); });
+  }
+  s+='</svg>';
+  const leg=`<div class="legend">${series.map(se=>`<span style="--c:${se.color}">${se.name}</span>`).join('')}</div>`;
+  return `<div class="chart">${s}${leg}</div>`;
+}
+function dial(score,color){
+  const r=62, c=2*Math.PI*r, f=score/1000;
+  return `<svg class="dial" viewBox="0 0 150 150"><circle cx="75" cy="75" r="${r}" stroke="#2a3850" stroke-width="12" fill="none"/>
+  <circle cx="75" cy="75" r="${r}" stroke="${color}" stroke-width="12" fill="none" stroke-dasharray="${c*f} ${c}" transform="rotate(-90 75 75)" stroke-linecap="round"/>
+  <text x="75" y="80" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="34" font-weight="700" fill="#e8edf5">${score}</text>
+  <text x="75" y="100" text-anchor="middle" font-family="-apple-system,Segoe UI,sans-serif" font-size="11" fill="#93a1b8">of 1,000</text></svg>`;
+}
+
+/* =================== RUN & RENDER =================== */
+function envFrom(d){ return {econ:d.econ, shock:d.shock, comp:d.comp, excise:d.excise, reg:d.reg}; }
+function runSimulation(){
+  const d=readDecisions(), env=envFrom(d);
+  const r=simulate(d,env);
+  const storm=simulate(d,{econ:'recession',shock:'severe',comp:'aggressive',excise:true,reg:true});
+  const rec=simulate(d,{...env,econ:'recession'});
+  const boom=simulate(d,{...env,econ:'boom'});
+  const sc=score(r,storm);
+  render(r,sc,{rec,boom,storm});
+  saveHistory(r,sc);
+  showTab('results');
+}
+function render(r,sc,st){
+  const s=r.sum, y=r.years, o=s.outcome, L=y.map(v=>'Y'+v.t);
+  const ins=debrief(r,st.storm);
+  const row=(label,fn,cls='')=>`<tr><td>${label}</td>${y.map(v=>`<td class="${cls}">${fn(v)}</td>`).join('')}</tr>`;
+  const money=v=>v.toFixed(1);
+  const stressRow=(n,x)=>`<tr><td>${n}</td><td>${fm(x.sum.npv)}</td><td>${fm(x.sum.ni5)}</td><td>${pct(x.sum.share5)}</td><td>${fm(x.sum.maxRev)}</td><td style="color:${x.sum.outcome.c}">${x.sum.outcome.t}</td></tr>`;
+  $('results').innerHTML=`
+  <div class="banner" style="background:linear-gradient(120deg,var(--panel),var(--panel2));border-color:${o.c}">
+    ${dial(sc.total,o.c)}
+    <div>
+      <div class="kicker">Business outcome after 5 years</div>
+      <div class="outcome" style="color:${o.c}">${o.t}: ${o.s}</div>
+      <div style="font-size:18px;margin-top:6px">Leadership rating: <b style="color:var(--gold2)">${sc.grade[0]}</b></div>
+      <div class="muted">${sc.grade[1]}</div>
+      ${s.bankrupt?`<div class="bad sans" style="margin-top:6px;font-size:14px">Insolvency in Year ${s.bankruptYear}.</div>`:''}
+    </div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="l">NPV @12%</div><div class="v ${s.npv>=0?'good':'bad'}">${fm(s.npv)}</div></div>
+    <div class="kpi"><div class="l">Year 5 net profit</div><div class="v ${s.ni5>=0?'good':'bad'}">${fm(s.ni5)}</div></div>
+    <div class="kpi"><div class="l">Year 5 market share</div><div class="v">${pct(s.share5)}</div></div>
+    <div class="kpi"><div class="l">Year 5 ROIC</div><div class="v ${s.roic5>=WACC?'good':'warn'}">${pct(s.roic5,0)}</div></div>
+    <div class="kpi"><div class="l">5-yr cumulative profit</div><div class="v ${s.cumNI>=0?'good':'bad'}">${fm(s.cumNI)}</div></div>
+    <div class="kpi"><div class="l">Year 5 EBITDA margin</div><div class="v">${pct(s.ebitdaM5,0)}</div></div>
+    <div class="kpi"><div class="l">Brand equity Y5</div><div class="v">${s.brand5.toFixed(0)} / 100</div></div>
+    <div class="kpi"><div class="l">Peak emergency debt</div><div class="v ${s.maxRev>0?'bad':'good'}">${fm(s.maxRev)}</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h2>Balanced scorecard</h2>
+      ${sc.parts.map(p=>`<div class="sc-row"><div class="top"><span>${p[0]}</span><b>${Math.round(p[1])} / ${p[2]}</b></div><div class="bar"><i style="width:${p[1]/p[2]*100}%;background:${p[1]/p[2]>=0.7?'var(--green)':p[1]/p[2]>=0.4?'var(--gold)':'var(--red)'}"></i></div></div>`).join('')}
+    </div>
+    <div class="card"><h2>What happened in the market</h2>
+      ${r.events.length?`<ul class="events tight">${r.events.map(e=>`<li><span class="pill">Y${e[0]}</span> ${e[1]}</li>`).join('')}</ul>`:'<p class="muted">A quiet five years. Rivals did not feel threatened enough to respond.</p>'}
+    </div>
+  </div>
+
+  <div class="card"><h2>The professor's debrief</h2>
+    ${ins.map(i=>`<div class="insight ${i[0]}"><b>${i[0]==='g'?'✓ ':i[0]==='b'?'✗ ':'! '}${i[1]}</b><div>${i[2]}</div></div>`).join('')||'<p class="muted">A balanced plan with no glaring faults. Now push for an edge.</p>'}
+    <h3>Questions the board will ask you</h3>
+    <ul class="tight">${BOARD_Q.map(q=>`<li>${q}</li>`).join('')}</ul>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h2>Revenue and profit</h2>${chart('bar',L,[{name:'Net revenue',values:y.map(v=>v.netRev),color:'#5b8def'},{name:'EBITDA',values:y.map(v=>v.ebitda),color:'#d4a84b'},{name:'Net profit',values:y.map(v=>v.ni),color:'#3fb57a'}],v=>'$'+v.toFixed(0)+'M')}</div>
+    <div class="card"><h2>Market share battle</h2>${chart('line',L,[{name:'Amber Crown',values:y.map(v=>v.shares[0]*100),color:'#d4a84b',w:3.5},...COMP0.map((c,k)=>({name:c.name,values:y.map(v=>v.shares[k+1]*100),color:c.color}))],v=>v.toFixed(0)+'%')}</div>
+    <div class="card"><h2>Cash position</h2>${chart('line',L,[{name:'Cash',values:y.map(v=>v.cash),color:'#3fb57a'},{name:'Emergency revolver',values:y.map(v=>v.revolver),color:'#e0605a'},{name:'Free cash flow',values:y.map(v=>v.fcf),color:'#5b8def'}],v=>'$'+v.toFixed(0)+'M')}</div>
+    <div class="card"><h2>Demand vs. capacity</h2>${chart('bar',L,[{name:'Demand (M bottles)',values:y.map(v=>v.demand),color:'#8a96a8'},{name:'Sellable capacity',values:y.map(v=>v.cap),color:'#5b8def'},{name:'Sold',values:y.map(v=>v.sales),color:'#d4a84b'}],v=>v.toFixed(0))}</div>
+  </div>
+
+  <div class="card"><h2>Five-year financials <span class="muted sans" style="font-size:13px">($M unless stated)</span></h2>
+    <div class="tscroll"><table>
+      <thead><tr><th></th>${L.map(l=>`<th>${l}</th>`).join('')}</tr></thead>
+      <tbody>
+        ${row('Market (M bottles)',v=>v.market.toFixed(0))}
+        ${row('Your shelf price',v=>'$'+v.price.toFixed(2))}
+        ${row('Valor / Titan / Kaya price',v=>v.comp.map(c=>c.price.toFixed(2)).join(' / '))}
+        ${row('Bottles sold (M)',v=>v.sales.toFixed(1))}
+        ${row('Market share',v=>pct(v.share))}
+        ${row('Plant utilisation',v=>pct(v.util,0))}
+        ${row('Brand equity / reach',v=>v.brand.toFixed(0)+' / '+v.dist.toFixed(0))}
+        ${row('Producer gross sales',v=>money(v.grossSales))}
+        ${row('Excise duty',v=>money(-v.exciseCost))}
+        ${row('<b>Net revenue</b>',v=>'<b>'+money(v.netRev)+'</b>')}
+        ${row('Materials, packaging, energy',v=>money(-v.commodity))}
+        ${row('Logistics',v=>money(-v.logistics))}
+        ${row('Labour',v=>money(-v.labor))}
+        ${row('Plant overheads',v=>money(-v.plantOH))}
+        ${row('Marketing',v=>money(-v.mkt))}
+        ${row('Sales force & route-to-market',v=>money(-v.salesSp))}
+        ${row('SG&A, listing, training, bad debt, fines',v=>money(-v.other))}
+        ${row('<b>EBITDA</b>',v=>'<b>'+money(v.ebitda)+'</b>')}
+        ${row('Depreciation',v=>money(-v.dep))}
+        ${row('Interest',v=>money(-v.interest))}
+        ${row('Tax',v=>money(-v.tax))}
+        ${row('<b>Net profit</b>',v=>`<b class="${v.ni>=0?'good':'bad'}">${money(v.ni)}</b>`)}
+        ${row('Unit cash cost / bottle',v=>'$'+v.unitCost.toFixed(3))}
+        ${row('Working capital',v=>money(v.wc))}
+        ${row('Capex',v=>money(-v.capexT))}
+        ${row('Free cash flow (unlevered)',v=>money(v.fcf))}
+        ${row('Closing cash',v=>money(v.cash))}
+        ${row('Emergency revolver',v=>money(v.revolver))}
+      </tbody>
+    </table></div>
+    <p class="muted sans" style="font-size:12.5px">Initial investment ${fm(s.I0)}. Perceived quality ${s.qEff.toFixed(0)}/100. Production waste ${pct(s.waste)}. Terminal value assumes 3% growth on Year 5 after-tax operating profit.</p>
+  </div>
+
+  <div class="card"><h2>Stress test: does your strategy survive other worlds?</h2>
+    <div class="tscroll"><table>
+      <thead><tr><th>Scenario</th><th>NPV</th><th>Y5 net profit</th><th>Y5 share</th><th>Peak emergency debt</th><th>Outcome</th></tr></thead>
+      <tbody>
+        ${stressRow('Your environment (facilitator settings)',r)}
+        ${stressRow('Recession',st.rec)}
+        ${stressRow('Boom',st.boom)}
+        ${stressRow('Perfect storm: recession, severe shock, aggressive rivals',st.storm)}
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card" style="text-align:center">
+    <p>Great CEOs iterate. Adjust one lever at a time and learn what really moves value.</p>
+    <button class="btn" style="max-width:300px" onclick="showTab('decide')">Revise the strategy</button>
+  </div>`;
+}
+
+/* =================== HISTORY =================== */
+const HKEY='amberCrownHistory';
+function loadHist(){ try{ return JSON.parse(localStorage.getItem(HKEY)||'[]'); }catch(e){ return window.__hist||[]; } }
+function saveHistory(r,sc){
+  const h=loadHist();
+  h.unshift({when:new Date().toLocaleString(),name:($('ceoName').value||'Anonymous CEO').slice(0,40),score:sc.total,grade:sc.grade[0],outcome:r.sum.outcome.t,npv:r.sum.npv,share:r.sum.share5,
+    plan:`${r.d.plant}M plant, ${r.d.auto} automation, ${r.d.pack}, $${r.d.price.toFixed(2)}, ${r.d.channel}`});
+  window.__hist=h.slice(0,50);
+  try{ localStorage.setItem(HKEY,JSON.stringify(window.__hist)); }catch(e){}
+  renderHistory();
+}
+function renderHistory(){
+  const h=loadHist();
+  if(!h.length){ $('history').innerHTML='<p class="muted">No plans submitted yet.</p>'; return; }
+  const best=Math.max(...h.map(x=>x.score));
+  $('history').innerHTML=`<div class="tscroll"><table><thead><tr><th>CEO</th><th>When</th><th>Score</th><th>Rating</th><th>Outcome</th><th>NPV</th><th>Share Y5</th><th>Plan</th></tr></thead><tbody>
+    ${h.map(x=>`<tr><td>${x.score===best?'★ ':''}${x.name.replace(/</g,'&lt;')}</td><td>${x.when}</td><td><b>${x.score}</b></td><td>${x.grade}</td><td>${x.outcome}</td><td>${fm(x.npv)}</td><td>${pct(x.share)}</td><td style="text-align:left">${x.plan}</td></tr>`).join('')}
+  </tbody></table></div>`;
+}
+function clearHistory(){ window.__hist=[]; try{ localStorage.removeItem(HKEY);}catch(e){} renderHistory(); }
+
+buildForm(); renderHistory();
+</script>
+</body>
+</html>
