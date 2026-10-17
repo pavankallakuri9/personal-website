@@ -1,0 +1,1249 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Nigeria Textile Value Chain Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: long-form board report — fixed contents rail on wide screens, single reading column with wide data tables; indigo (adire) as the one accent, ochre reserved for estimates */
+:root{
+  --bg:#f5f6f9; --paper:#ffffff; --ink:#151a2b; --ink-2:#4a5068; --rule:#d9dce6; --tint:#eceff6;
+  --accent:#27347a; --accent-soft:#e3e7f6; --est:#a86a12; --est-soft:#f7ecd8; --good:#1f7a4d; --bad:#b0352b;
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --measure:68ch;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1220; --paper:#161a2c; --ink:#e7e9f2; --ink-2:#a8adc4; --rule:#2c3150; --tint:#1c2138;
+  --accent:#9fb0ff; --accent-soft:#232a4d; --est:#e2a84a; --est-soft:#34291a; --good:#5cc995; --bad:#ff8a7d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1220; --paper:#161a2c; --ink:#e7e9f2; --ink-2:#a8adc4; --rule:#2c3150; --tint:#1c2138;
+  --accent:#9fb0ff; --accent-soft:#232a4d; --est:#e2a84a; --est-soft:#34291a; --good:#5cc995; --bad:#ff8a7d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shell{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px;padding-block:32px 80px}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;max-height:calc(100vh - 40px);overflow:auto;font-family:var(--f-display);font-size:13px;line-height:1.35;padding-right:6px}
+nav.toc h2{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px;font-weight:600}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+nav.toc a{display:grid;grid-template-columns:30px 1fr;text-decoration:none;color:var(--ink-2);padding:4px 6px;border-radius:4px}
+nav.toc a:hover{background:var(--tint);color:var(--ink)}
+nav.toc a span{font-family:var(--f-mono);font-size:11px;color:var(--ink-2);opacity:.8}
+nav.toc .vol{margin-top:12px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding-left:6px;font-weight:700}
+main{min-width:0}
+/* selvedge: the printed edge of a wax-print bolt */
+.selvedge{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--paper);background:var(--accent);padding:5px 12px;white-space:nowrap;overflow:hidden;text-overflow:clip;border-radius:2px}
+header.cover{padding-block:8px 28px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+header.cover .kicker{font-family:var(--f-display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px;font-weight:600}
+h1{font-family:var(--f-display);font-stretch:78%;font-weight:800;font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.01em;margin:0 0 16px;text-wrap:balance}
+.dek{font-size:20px;line-height:1.5;color:var(--ink-2);max-width:var(--measure);margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:18px;font-family:var(--f-mono);font-size:12px;color:var(--ink-2)}
+h2.part{font-family:var(--f-display);font-stretch:85%;font-weight:750;font-size:clamp(26px,3.4vw,36px);line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.partno{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px}
+section.part{padding-block:40px 8px;border-top:1px solid var(--rule)}
+h3{font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.25;margin:30px 0 8px;text-wrap:balance}
+h4{font-family:var(--f-display);font-weight:650;font-size:16px;margin:22px 0 6px}
+p,ul,ol.prose{max-width:var(--measure)}
+p{margin:0 0 14px}
+ul{padding-left:1.2em;margin:0 0 14px}
+li{margin-bottom:5px}
+.lede{font-size:18.5px}
+.sowhat{max-width:var(--measure);background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 18px;margin:22px 0 10px;border-radius:0 6px 6px 0}
+.sowhat b.tag{font-family:var(--f-display);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.sowhat p:last-child{margin:0}
+.tbl{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--rule);border-radius:6px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-family:var(--f-display);font-size:13.5px;line-height:1.35}
+th,td{padding:8px 10px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+thead th{background:var(--tint);font-weight:650;font-size:12px;letter-spacing:.03em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+table.num td,table.num th{font-variant-numeric:tabular-nums}
+table.num td:not(:first-child),table.num th:not(:first-child){text-align:right}
+table.num.left td,table.num.left th{text-align:left}
+td.neg{color:var(--bad)}
+.caption{font-family:var(--f-display);font-size:12.5px;color:var(--ink-2);margin:-8px 0 18px;max-width:var(--measure)}
+.conf{display:inline-block;font-family:var(--f-mono);font-size:10.5px;padding:1px 6px;border-radius:3px;white-space:nowrap;vertical-align:1px}
+.c-h{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.c-m{background:var(--accent-soft);color:var(--accent)}
+.c-l{background:var(--est-soft);color:var(--est)}
+.est{color:var(--est);font-weight:600}
+.src{font-family:var(--f-mono);font-size:11px;color:var(--ink-2);text-decoration:none;vertical-align:1px}
+.src:hover{color:var(--accent)}
+/* dashboard */
+.dash{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:16px 0 8px}
+.dash>div{background:var(--paper);padding:14px 14px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.dash .k{font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+.dash .v{font-family:var(--f-display);font-stretch:82%;font-weight:750;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.dash .n{font-family:var(--f-display);font-size:12px;color:var(--ink-2);line-height:1.35}
+.dash .v.e{color:var(--est)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--f-display);font-size:12.5px;color:var(--ink-2);margin:6px 0 14px}
+.answers{display:grid;gap:0;border-top:1px solid var(--rule);max-width:var(--measure)}
+.answers>div{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.answers b.q{font-family:var(--f-display);display:block}
+.answers .i{font-family:var(--f-mono);font-size:12px;color:var(--accent);padding-top:3px}
+figure{margin:18px 0 22px;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:14px;overflow-x:auto}
+figure svg{width:100%;min-width:560px;height:auto;display:block}
+figcaption{font-family:var(--f-display);font-size:12.5px;color:var(--ink-2);margin-top:8px}
+svg text{font-family:"Archivo",Arial,sans-serif}
+svg .grid{stroke:var(--rule);stroke-width:1}
+svg .ax{fill:var(--ink-2);font-size:11.5px}
+svg .ax.strong,svg .val.strong{fill:var(--ink);font-weight:700;font-size:12.5px}
+svg .val{fill:var(--ink);font-size:11.5px;font-weight:600}
+svg .val2{fill:var(--est);font-size:11px;font-weight:600}
+svg .lab{fill:var(--ink);font-size:11.5px}
+svg .bar{fill:var(--accent)}
+svg .bar.half{fill:var(--accent);opacity:.55}
+svg .line2{stroke:var(--est);stroke-width:2.5}
+svg .dot2{fill:var(--est)}
+svg .b-rec{fill:var(--accent)} svg .b-est{fill:var(--est)} svg .b-dom{fill:var(--good)}
+svg .s-hi{stroke:var(--good);stroke-width:2.5} svg .s-hid{fill:var(--good)}
+svg .s-base{stroke:var(--accent);stroke-width:3} svg .s-based{fill:var(--accent)}
+svg .s-lo{stroke:var(--est);stroke-width:2.5;stroke-dasharray:6 4} svg .s-lod{fill:var(--est)}
+svg .wf{fill:var(--est)} svg .wf-a{fill:var(--accent)} svg .wf-t{fill:var(--ink)}
+svg .zone{fill:var(--accent-soft)}
+svg .op{fill:var(--paper);stroke:var(--ink-2);stroke-width:1.5}
+svg .op-k{fill:var(--accent)}
+/* models */
+.model{border:1px solid var(--rule);border-radius:8px;background:var(--paper);padding:4px 18px 10px;margin:18px 0 26px}
+.model h3{margin-top:18px}
+dl.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px 24px;margin:12px 0 6px;font-size:14.5px;line-height:1.45}
+dl.spec div{min-width:0}
+dl.spec dt{font-family:var(--f-display);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);font-weight:650}
+dl.spec dd{margin:2px 0 0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:6px 0 4px}
+.kpis div{background:var(--tint);border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.kpis span{font-family:var(--f-display);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.kpis b{font-family:var(--f-display);font-stretch:85%;font-size:21px;font-variant-numeric:tabular-nums}
+.model .tbl{background:transparent}
+details{max-width:100%;margin:10px 0}
+summary{cursor:pointer;font-family:var(--f-display);font-weight:650}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px 28px}
+.two>div{min-width:0}
+ol.biblio{list-style:none;padding-left:0 !important;font-family:var(--f-display);font-size:13px;line-height:1.45;padding-left:3.2em;max-width:none}
+ol.biblio .bid{font-family:var(--f-mono);font-size:11px;color:var(--accent);margin-right:4px}
+ol.biblio li{margin-bottom:6px;overflow-wrap:anywhere}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--f-display);font-size:13px;margin:10px 0 16px}
+.flow span{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:6px 9px}
+.flow i{font-style:normal;color:var(--ink-2)}
+footer{border-top:1px solid var(--rule);margin-top:40px;padding-top:16px;font-family:var(--f-display);font-size:12.5px;color:var(--ink-2)}
+@media (max-width:980px){.shell{grid-template-columns:minmax(0,1fr);gap:0}nav.toc{position:static;max-height:none;border:1px solid var(--rule);border-radius:8px;padding:12px;margin-bottom:20px;background:var(--paper);font-size:12.5px}nav.toc ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}nav.toc .vol{display:none}nav.toc a{grid-template-columns:26px 1fr;padding:3px 4px}}
+@media (max-width:520px){body{font-size:16px}.dash .v{font-size:22px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="shell">
+<nav class="toc" aria-label="Contents">
+<h2>Contents</h2>
+<ol>
+<li><a href="#exec"><span>ES</span>Executive summary</a></li>
+<li><a href="#dashboard"><span>KPI</span>Industry dashboard</a></li>
+<li><a href="#method"><span>M</span>Methodology & data quality</a></li>
+<li class="vol">Vol I · Market</li>
+<li><a href="#p1"><span>01</span>Industry overview</a></li>
+<li><a href="#p2"><span>02</span>Market size & consumption</a></li>
+<li><a href="#p6"><span>06</span>Consumer behaviour</a></li>
+<li class="vol">Vol II · Manufacturing</li>
+<li><a href="#p3"><span>03</span>Manufacturer database</a></li>
+<li><a href="#p4"><span>04</span>Process capability</a></li>
+<li><a href="#p11"><span>11</span>Raw materials</a></li>
+<li class="vol">Vol III · Trade & channels</li>
+<li><a href="#p5"><span>05</span>Imports</a></li>
+<li><a href="#p7"><span>07</span>Distribution</a></li>
+<li><a href="#p8"><span>08</span>Competitors & brands</a></li>
+<li><a href="#p9"><span>09</span>Pricing & cost</a></li>
+<li><a href="#p10"><span>10</span>Policy & tariffs</a></li>
+<li class="vol">Vol IV · Investment</li>
+<li><a href="#p12"><span>12</span>Regional mapping</a></li>
+<li><a href="#p13"><span>13</span>Competitiveness</a></li>
+<li><a href="#p14"><span>14</span>Forecast 2027–31</a></li>
+<li><a href="#p15"><span>15</span>Opportunities</a></li>
+<li><a href="#p16"><span>16</span>Financial feasibility</a></li>
+<li class="vol">Vol V · Decisions</li>
+<li><a href="#p17"><span>17</span>Market entry</a></li>
+<li><a href="#p18"><span>18</span>Field diligence</a></li>
+<li><a href="#p19"><span>19</span>Conclusions</a></li>
+<li><a href="#risks"><span>R</span>Risks & mitigation</a></li>
+<li><a href="#appx"><span>A</span>Appendices</a></li>
+<li><a href="#biblio"><span>S</span>Sources</a></li>
+</ol>
+</nav>
+<main>
+<header class="cover">
+<div class="selvedge" aria-hidden="true">Guaranteed · Nigeria textile value chain study · October 2026 · Guaranteed · Nigeria textile value chain study · October 2026</div>
+<p class="kicker">Board pre-read · Investment envelope US$20–100 million</p>
+<h1>Nigeria's textile & apparel industry: market, mills, trade and where to invest</h1>
+<p class="dek">A desktop market-intelligence and feasibility study as of 17 October 2026. It sizes the real market, maps who still manufactures, explains how imported cloth reaches the Lagos and Kano markets, and tests five investment cases.</p>
+<div class="meta"><span>FX used: ₦1,332 / US$ (CBN NFEM close, 12 Oct 2026)</span><span>CPI: 14.63% y/y (Sep 2026)</span><span>Latest trade data: NBS H1 2026</span></div>
+</header>
+
+<section class="part" id="exec" style="border-top:0;padding-top:0">
+<span class="partno">Executive summary</span>
+<h2 class="part">A US$6–7 billion market, more than 90% supplied from abroad, with almost no working mill capacity left</h2>
+<p class="lede">Nigeria consumes an estimated <span class="est">US$6.5 billion</span> (≈₦8.7 trillion) of textiles and apparel a year at retail value, range US$5.5–8.0 billion <span class="conf c-m">Medium</span>. Official statistics capture only a fraction of the supply: the National Bureau of Statistics recorded ₦1.06 trillion (≈US$0.7 billion) of textile imports in 2025 <a class="src" href="#s3">[S3]</a>, while Chinese customs alone reported roughly US$100 million a month of one product line, synthetic filament woven fabric, shipped to Nigeria in mid-2025 <a class="src" href="#s19">[S19]</a>. Our reconciliation puts true supply at the border at about <span class="est">US$3.4 billion</span> (range 2.6–4.2) before distribution margins.</p>
+<p>Domestic manufacturing is close to collapse. Industry bodies count roughly 20 surviving mills, many barely running, against 150–180 at the 1980s peak, and fewer than 20,000 mill workers <a class="src" href="#s4">[S4]</a>. The flagship United Nigerian Textiles mill in Kaduna stopped in 2022 <a class="src" href="#s11">[S11]</a>. Seed-cotton output has fallen to about 10,000–15,000 tonnes <a class="src" href="#s9">[S9]</a> <a class="src" href="#s42">[S42]</a>, too little to feed a single modern spinning mill at scale.</p>
+<p>The economics follow from three structural facts: Nigerian industrial power costs two to six times what Asian or Beninese competitors pay once diesel back-up is included; local cotton and synthetic fibre are not available at scale; and the duty and levy wall on imports is porous, because much cloth enters under-declared or through Benin and Niger. Greenfield spinning and weaving therefore fail our hurdle rate today. Investments that sit closer to the customer pass it.</p>
+<h3>Recommendation in one paragraph</h3>
+<p>Enter through <strong>distribution, then convert</strong>. Build a branded, compliant fabric import-and-wholesale platform in Lagos, Kano and Onitsha (≈US$4m capex plus ≈US$15m working capital; base IRR ≈31%), and add two cut-and-sew plants that carry low capital and protected demand: institutional uniforms and workwear (≈US$9m; IRR ≈21% with anchor contracts under Executive Order 003 and "Nigeria First") and home textiles and hospitality linen (≈US$6m; IRR ≈27%). Hold an option on a print, dye and finishing house (≈US$22m) until the platform proves volume and enforcement of the landed-cost wall improves; on today's prices it returns ≈12%, below an 18% US$ hurdle. Avoid greenfield spinning, integrated mega-mills and large brownfield rehabilitations with inherited labour liabilities. Total committed capital in the first 36 months: about <strong>US$35–45 million</strong>, scalable to US$100 million by Year 5 if the print house is triggered and an ECOWAS-origin sourcing leg (for example through Benin's Glo-Djigbé zone) is added.</p>
+<div class="answers" aria-label="Board questions answered">
+<div><span class="i">Q1</span><div><b class="q">How big is the real market?</b>≈US$6.5bn retail (₦8.7tn), ≈3.4bn linear metres of fabric-equivalent, ≈950,000 tonnes of fibre content, ≈1.1bn garment pieces (new and used). Recorded imports understate supply roughly fivefold.</div></div>
+<div><span class="i">Q2</span><div><b class="q">Largest categories?</b>Fabric bought by the metre for tailoring (≈45% of value): polyester and polycotton prints, Ankara, lace and plain-dyed cloth; then new ready-made garments (≈30%) and used clothing (≈6%).</div></div>
+<div><span class="i">Q3</span><div><b class="q">Most import-dependent?</b>Lace, chiffon, satin and synthetic filament fabrics (≈100% imported), knitted fabrics, denim and suiting (&gt;98%). Ankara is ≥90% imported despite a local heritage.</div></div>
+<div><span class="i">Q4</span><div><b class="q">Who still manufactures?</b>Sunflag (Lagos, yarn/towels/sheets/prints), African Textile Manufacturers and Tofa Textiles (Kano, at low output), plus small garment makers. UNTL is idle; most Kaduna mills are closed.</div></div>
+<div><span class="i">Q8</span><div><b class="q">Can local manufacturing compete?</b>Not at the mill stage on today's energy and fibre costs. Yes in cut-and-sew for institutional and bulky goods, and conditionally in printing and finishing.</div></div>
+</div>
+</section>
+
+<section class="part" id="dashboard">
+<span class="partno">Industry KPI dashboard</span>
+<h2 class="part">The twenty numbers that matter</h2>
+<div class="legend"><span><span class="conf c-h">High</span> published official figure</span><span><span class="conf c-m">Medium</span> credible secondary or triangulated</span><span><span class="conf c-l">Low</span> model estimate; validate in field</span><span><span class="est">Ochre values</span> are our estimates</span></div>
+<div class="dash">
+<div><span class="k">Retail market value</span><span class="v e">US$6.5bn</span><span class="n">₦8.7tn · range $5.5–8.0bn · 2026 <span class="conf c-m">Medium</span></span></div>
+<div><span class="k">Recorded imports 2025</span><span class="v">₦1.06tn</span><span class="n">≈US$0.71bn; +46% y/y in naira <a class="src" href="#s3">[S3]</a> <span class="conf c-h">High</span></span></div>
+<div><span class="k">Recorded imports H1 2026</span><span class="v">₦578.5bn</span><span class="n">+2.2% y/y; naira stabilised <a class="src" href="#s10">[S10]</a> <span class="conf c-h">High</span></span></div>
+<div><span class="k">Estimated true supply at border</span><span class="v e">US$3.4bn</span><span class="n">Range $2.6–4.2bn; reconciles mirror data <span class="conf c-l">Low</span></span></div>
+<div><span class="k">Import share of demand</span><span class="v">≈90–95%</span><span class="n">CTGDF cites ≈90% <a class="src" href="#s8">[S8]</a>; our volume model ≈95%</span></div>
+<div><span class="k">Recorded exports 2025</span><span class="v">₦16.6bn</span><span class="n">Down from ₦37.0bn in 2024 <a class="src" href="#s3">[S3]</a> <span class="conf c-h">High</span></span></div>
+<div><span class="k">Fabric-equivalent consumption</span><span class="v e">3.4bn m</span><span class="n">Linear metres incl. garments; ≈14 m/capita <span class="conf c-l">Low</span></span></div>
+<div><span class="k">Fibre content consumed</span><span class="v e">≈950kt</span><span class="n">≈4.0 kg/capita <span class="conf c-l">Low</span></span></div>
+<div><span class="k">Operating mills</span><span class="v">≈20</span><span class="n">"About 20", many distressed (union) <a class="src" href="#s4">[S4]</a>; vs 150–180 at peak</span></div>
+<div><span class="k">Mill employment</span><span class="v">&lt;20,000</span><span class="n">Union estimate <a class="src" href="#s4">[S4]</a>; ≈450–500k at peak <a class="src" href="#s51">[S51]</a></span></div>
+<div><span class="k">Capacity utilisation</span><span class="v">53.05%</span><span class="n">Textile, apparel &amp; footwear, 2025 (50.72% in 2024) <a class="src" href="#s7">[S7]</a></span></div>
+<div><span class="k">CTG value (NBS)</span><span class="v">₦4.38tn</span><span class="n">2025; down from ₦4.55tn in 2023 <a class="src" href="#s9">[S9]</a> <span class="conf c-m">Medium</span></span></div>
+<div><span class="k">Textile, apparel &amp; footwear</span><span class="v">₦8.15tn</span><span class="n">NBS, current prices, 2024 <a class="src" href="#s34">[S34]</a></span></div>
+<div><span class="k">Seed-cotton output</span><span class="v">10–15kt</span><span class="n">2025; ≈300kt in the 1980s <a class="src" href="#s9">[S9]</a></span></div>
+<div><span class="k">Lint available</span><span class="v e">≈4–5kt</span><span class="n">At 35–38% gin outturn <span class="conf c-l">Low</span></span></div>
+<div><span class="k">Industrial power cost</span><span class="v">₦209–225/kWh</span><span class="n">Band A grid; diesel self-generation ₦600–950 <a class="src" href="#s36">[S36]</a> <a class="src" href="#s38">[S38]</a></span></div>
+<div><span class="k">Diesel price</span><span class="v">₦1,716/L</span><span class="n">≈US$1.29, 5 Oct 2026 <a class="src" href="#s37">[S37]</a></span></div>
+<div><span class="k">Exchange rate</span><span class="v">₦1,332/$</span><span class="n">NFEM, 12 Oct 2026; parallel ≈₦1,375 <a class="src" href="#s29">[S29]</a></span></div>
+<div><span class="k">Headline inflation</span><span class="v">14.63%</span><span class="n">Sep 2026, down from 20.98% a year earlier <a class="src" href="#s30">[S30]</a></span></div>
+<div><span class="k">Base-case market 2031</span><span class="v e">US$8.1bn</span><span class="n">≈4.5% USD CAGR; ₦14.5tn nominal <span class="conf c-l">Low</span></span></div>
+</div>
+</section>
+
+<section class="part" id="method">
+<span class="partno">Research methodology</span>
+<h2 class="part">How the numbers were built, and how far to trust them</h2>
+<p>This is a desktop study completed on 17 October 2026. It draws on published NBS trade releases as reported by the Nigerian press, Central Bank and Ministry of Finance circulars, UN Comtrade and WITS extracts, Chinese customs (GACC) figures, industry-association statements, company material, academic work and credible trade publications. No interviews or factory visits were carried out; Part 18 sets out the field programme that must precede any capital commitment.</p>
+<div class="two">
+<div><h4>Evidence classes used throughout</h4>
+<ul><li><strong>Market research evidence:</strong> official statistics and named-source statements, cited with [S#] links to the bibliography.</li>
+<li><strong>Expert inference:</strong> triangulations and conversions, shown in ochre and labelled with a confidence grade.</li>
+<li><strong>Preliminary financial modelling:</strong> desktop estimates in constant 2026 US dollars, not engineering quotations or audited cases.</li></ul></div>
+<div><h4>Known limits</h4>
+<ul><li>NBS publishes textile imports only as a section total in naira (HS Section XI, chapters 50–63); product and origin detail rely on Comtrade mirrors.</li>
+<li>Nigeria's own Comtrade filings lag and are incomplete for 2024–2026.</li>
+<li>Company capacities and revenues are rarely published; where we could not verify them we say so rather than estimate.</li>
+<li>Historical naira-to-dollar conversions use our approximations of annual average official rates (Appendix A1).</li></ul></div>
+</div>
+<div class="sowhat"><b class="tag">So what?</b><p>The single largest analytical risk is the size of unrecorded supply. Every downstream conclusion holds across our range (US$2.6–4.2bn at the border), but the field programme should confirm it with importer and clearing-agent interviews before sizing any plant.</p></div>
+</section>
+
+<section class="part" id="p1">
+<span class="partno">Volume I · Part 1</span>
+<h2 class="part">Executive industry overview</h2>
+<h3>Where the industry came from</h3>
+<p>Nigeria's first large mill, Kaduna Textiles Limited, began production in 1957, and the Hong Kong-based Cha Group opened United Nigerian Textiles in Kaduna in 1964 <a class="src" href="#s13">[S13]</a>. Import restrictions in the 1960s–70s drew investment, and by the late 1970s and 1980s about 167 mills employed more than 500,000 people, making the sector the second-largest employer after government <a class="src" href="#s51">[S51]</a>. Clusters formed in Kaduna, Kano, Lagos (Isolo, Ikeja, Ikorodu), Aba, Asaba and Benin City <a class="src" href="#s16">[S16]</a>.</p>
+<div class="tbl"><table class="num left"><thead><tr><th>Period</th><th>Development</th><th>Effect on mills</th></tr></thead><tbody>
+<tr><td>1957–1985</td><td>Mill build-out under import protection; cotton output near 300kt seed cotton</td><td>Peak of ≈150–180 mills</td></tr>
+<tr><td>1986–1999</td><td>Structural adjustment, naira devaluation, WTO accession (1995), opening to Asian cloth</td><td>Closures begin; UNTL, KTL, Arewa barely functioning by 1997 <a class="src" href="#s59">[S59]</a></td></tr>
+<tr><td>2000–2009</td><td>Textile Development Fund (Obasanjo); import prohibitions on prints and garments re-confirmed 2006 <a class="src" href="#s55">[S55]</a></td><td>Smuggling via Benin grows; UNTL Kaduna closes 2007</td></tr>
+<tr><td>2009–2015</td><td>₦100bn CTG Fund via Bank of Industry; UNTL reopens Dec 2010 <a class="src" href="#s13">[S13]</a>; ban lifted and textiles moved to 35% CET band in 2015 <a class="src" href="#s25">[S25]</a></td><td>Short-lived restarts</td></tr>
+<tr><td>2019–2023</td><td>CBN CTG programme: FX ban for textile importers, ≈₦120bn lent, 19 ginneries revived <a class="src" href="#s44">[S44]</a>; FX restriction lifted 2023 <a class="src" href="#s6">[S6]</a></td><td>Cotton peaks briefly; UNTL stops again 2022</td></tr>
+<tr><td>2024–2026</td><td>Naira float, Band A tariff, CTG Development Board endorsed by NEC (Apr 2025); Senate urges a full import ban (Jun 2026) <a class="src" href="#s32">[S32]</a></td><td>≈20 mills; utilisation ≈53%</td></tr>
+</tbody></table></div>
+<h3>Five-year trend, 2020–2025</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Indicator</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>Source</th></tr></thead><tbody>
+<tr><td>Recorded textile imports, ₦bn</td><td>182.5</td><td>278.8</td><td>365.5</td><td>377.5</td><td>726.2</td><td>1,061</td><td>NBS <a class="src" href="#s4">[S4]</a> <a class="src" href="#s10">[S10]</a></td></tr>
+<tr><td>Est. avg FX, ₦/US$</td><td>381</td><td>410</td><td>425</td><td>645</td><td>1,480</td><td>1,500</td><td>Appendix A1</td></tr>
+<tr><td>Recorded imports, US$m</td><td class="est">479</td><td class="est">680</td><td class="est">860</td><td class="est">585</td><td class="est">491</td><td class="est">707</td><td>Derived</td></tr>
+<tr><td>Recorded exports, ₦bn</td><td>6.0</td><td>12.3</td><td>10.3</td><td>18.8</td><td>37.0</td><td>16.6</td><td>NBS <a class="src" href="#s4">[S4]</a> <a class="src" href="#s3">[S3]</a></td></tr>
+<tr><td>Capacity utilisation, %</td><td>–</td><td>–</td><td>–</td><td>–</td><td>50.72</td><td>53.05</td><td>MAN <a class="src" href="#s7">[S7]</a></td></tr>
+<tr><td>CTG value, ₦tn</td><td>–</td><td>–</td><td>–</td><td>4.548</td><td>4.476</td><td>4.384</td><td>NBS <a class="src" href="#s9">[S9]</a></td></tr>
+<tr><td>Seed cotton, kt</td><td>≈80–300*</td><td>–</td><td>–</td><td>≈100</td><td>≤15</td><td>≈10–13</td><td><a class="src" href="#s44">[S44]</a> <a class="src" href="#s45">[S45]</a> <a class="src" href="#s42">[S42]</a></td></tr>
+</tbody></table></div>
+<p class="caption">*2020 figures conflict: the CBN projected over 300kt seed cotton under its programme <a class="src" href="#s44">[S44]</a>; that target was not independently confirmed. Naira import growth after 2023 is mostly devaluation: in dollars, recorded imports were roughly flat.</p>
+<figure><svg viewBox="0 0 720 330" role="img" aria-label="Recorded textile imports 2020 to H1 2026 in naira and US dollars">
+<line x1="60" x2="656" y1="284.0" y2="284.0" class="grid"/><text x="52" y="288.0" class="ax" text-anchor="end">₦0bn</text>
+<text x="664" y="288.0" class="ax">$0m</text>
+<line x1="60" x2="656" y1="220.0" y2="220.0" class="grid"/><text x="52" y="224.0" class="ax" text-anchor="end">₦300bn</text>
+<text x="664" y="224.0" class="ax">$250m</text>
+<line x1="60" x2="656" y1="156.0" y2="156.0" class="grid"/><text x="52" y="160.0" class="ax" text-anchor="end">₦600bn</text>
+<text x="664" y="160.0" class="ax">$500m</text>
+<line x1="60" x2="656" y1="92.0" y2="92.0" class="grid"/><text x="52" y="96.0" class="ax" text-anchor="end">₦900bn</text>
+<text x="664" y="96.0" class="ax">$750m</text>
+<line x1="60" x2="656" y1="28.0" y2="28.0" class="grid"/><text x="52" y="32.0" class="ax" text-anchor="end">₦1,200bn</text>
+<text x="664" y="32.0" class="ax">$1000m</text>
+<rect x="78.7" y="245.1" width="47.7" height="38.9" class="bar"/>
+<text x="102.6" y="239.1" class="val" text-anchor="middle">183</text>
+<text x="102.6" y="302.0" class="ax" text-anchor="middle">2020</text>
+<rect x="163.9" y="224.5" width="47.7" height="59.5" class="bar"/>
+<text x="187.7" y="218.5" class="val" text-anchor="middle">279</text>
+<text x="187.7" y="302.0" class="ax" text-anchor="middle">2021</text>
+<rect x="249.0" y="206.0" width="47.7" height="78.0" class="bar"/>
+<text x="272.9" y="200.0" class="val" text-anchor="middle">365</text>
+<text x="272.9" y="302.0" class="ax" text-anchor="middle">2022</text>
+<rect x="334.2" y="203.5" width="47.7" height="80.5" class="bar"/>
+<text x="358.0" y="197.5" class="val" text-anchor="middle">377</text>
+<text x="358.0" y="302.0" class="ax" text-anchor="middle">2023</text>
+<rect x="419.3" y="129.1" width="47.7" height="154.9" class="bar"/>
+<text x="443.1" y="123.1" class="val" text-anchor="middle">726</text>
+<text x="443.1" y="302.0" class="ax" text-anchor="middle">2024</text>
+<rect x="504.4" y="57.7" width="47.7" height="226.3" class="bar"/>
+<text x="528.3" y="51.7" class="val" text-anchor="middle">1,061</text>
+<text x="528.3" y="302.0" class="ax" text-anchor="middle">2025</text>
+<rect x="589.6" y="160.6" width="47.7" height="123.4" class="bar half"/>
+<text x="613.4" y="154.6" class="val" text-anchor="middle">579</text>
+<text x="613.4" y="302.0" class="ax" text-anchor="middle">2026 H1</text>
+<polyline fill="none" class="line2" points="102.6,161.4 187.7,109.9 272.9,63.9 358.0,134.2 443.1,158.4 528.3,102.9 613.4,176.7"/>
+<circle cx="102.6" cy="161.4" r="4" class="dot2"/><text x="109.6" y="154.4" class="val2">$479m</text>
+<circle cx="187.7" cy="109.9" r="4" class="dot2"/><text x="194.7" y="102.9" class="val2">$680m</text>
+<circle cx="272.9" cy="63.9" r="4" class="dot2"/><text x="279.9" y="56.9" class="val2">$860m</text>
+<circle cx="358.0" cy="134.2" r="4" class="dot2"/><text x="365.0" y="127.2" class="val2">$585m</text>
+<circle cx="443.1" cy="158.4" r="4" class="dot2"/><text x="450.1" y="151.4" class="val2">$491m</text>
+<circle cx="528.3" cy="102.9" r="4" class="dot2"/><text x="535.3" y="95.9" class="val2">$707m</text>
+<circle cx="613.4" cy="176.7" r="4" class="dot2"/><text x="620.4" y="169.7" class="val2">$419m</text>
+<g transform="translate(60,320)"><rect width="12" height="10" y="-9" class="bar"/><text x="17" y="0" class="ax">NBS recorded imports, ₦bn (left)</text><circle cx="250" cy="-4" r="4" class="dot2"/><text x="259" y="0" class="ax">Converted to US$m at est. average FX (right)</text></g>
+</svg><figcaption>Recorded imports in naira tripled between 2022 and 2025, but in dollar terms they stayed in a US$0.5–0.9bn band. H1 2026 is a half-year figure.</figcaption></figure>
+<h3>Avoiding double counting</h3>
+<p>We size the market at the final-consumer stage only. Fibre and yarn appear in the supply chain, not the market total. Fabric sold to tailors is counted once at the cloth price; tailoring labour is reported separately and excluded from the textile market. Imported garments and used clothing are counted as garments. Home textiles and technical textiles are counted separately.</p>
+<div class="tbl"><table class="num"><thead><tr><th>Layer (2026E)</th><th>Retail value US$bn</th><th>₦tn @1,332</th><th>Share</th><th>Domestic share of supply</th></tr></thead><tbody>
+<tr><td>Fabric for tailoring (by the metre)</td><td class="est">2.95</td><td class="est">3.93</td><td>45%</td><td>≈3–5%</td></tr>
+<tr><td>New ready-made garments</td><td class="est">1.95</td><td class="est">2.60</td><td>30%</td><td>≈8–12% (mostly informal CMT)</td></tr>
+<tr><td>Used clothing (okrika)</td><td class="est">0.40</td><td class="est">0.53</td><td>6%</td><td>0%</td></tr>
+<tr><td>Home textiles</td><td class="est">0.65</td><td class="est">0.87</td><td>10%</td><td>≈10% (cut &amp; sew)</td></tr>
+<tr><td>Technical, industrial &amp; nonwoven</td><td class="est">0.40</td><td class="est">0.53</td><td>6%</td><td>≈15% (bags, hygiene)</td></tr>
+<tr><td>Traditional handwoven (aso-oke, adire, akwete)</td><td class="est">0.15</td><td class="est">0.20</td><td>2%</td><td>≈90% (yarn imported)</td></tr>
+<tr><td><strong>Total textiles &amp; apparel</strong></td><td class="est"><strong>6.50</strong></td><td class="est"><strong>8.66</strong></td><td>100%</td><td><strong>≈6–8% by value</strong></td></tr>
+<tr><td>Memo: tailoring services (excluded)</td><td class="est">1.5–2.5</td><td class="est">2.0–3.3</td><td>–</td><td>100%</td></tr>
+</tbody></table></div>
+<h3>Employment and economic weight</h3>
+<p>Mill employment is below 20,000 by the union's count <a class="src" href="#s4">[S4]</a>. Across tailoring, trading and cotton farming the value chain still employs millions, but no reliable census exists; we estimate 2–4 million livelihoods, mostly informal tailors and market traders <span class="conf c-l">Low</span>. NBS values the textile, apparel and footwear activity at ₦8.15 trillion at current prices for 2024 <a class="src" href="#s34">[S34]</a>, and the CTG component at ₦4.38 trillion for 2025 <a class="src" href="#s9">[S9]</a>. These large values reflect informal tailoring in the national accounts, not mill output.</p>
+<div class="sowhat"><b class="tag">So what?</b><p>Demand is large, stable and culturally anchored, but almost all value added upstream of the tailor is captured abroad. An investor is buying into a distribution and conversion problem, not a fibre-to-fabric one.</p></div>
+</section>
+
+<section class="part" id="p2">
+<span class="partno">Volume I · Part 2</span>
+<h2 class="part">Detailed market size and consumption</h2>
+<h3>Approach 1 — top-down from household spending</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Step</th><th>Assumption</th><th>Value</th><th>Basis</th></tr></thead><tbody>
+<tr><td>Nominal GDP 2026</td><td>Post-rebasing, ≈₦480tn</td><td class="est">₦480tn</td><td>NBS rebased series grown at nominal trend <span class="conf c-l">Low</span></td></tr>
+<tr><td>Household consumption</td><td>≈62% of GDP</td><td class="est">₦298tn</td><td>Historical share</td></tr>
+<tr><td>Clothing &amp; footwear share</td><td>3.5–4.0%</td><td class="est">₦10.4–11.9tn</td><td>NBS living-standards weights; CPI basket</td></tr>
+<tr><td>Less footwear (≈20%)</td><td>80% textiles &amp; apparel</td><td class="est">₦8.3–9.5tn</td><td>Assumption</td></tr>
+<tr><td>Less tailoring labour embedded</td><td>Partly in "clothing" spend</td><td class="est">₦7.2–8.4tn</td><td>Assumption</td></tr>
+<tr><td><strong>Result</strong></td><td>@ ₦1,332/$</td><td class="est"><strong>US$5.4–6.3bn</strong></td><td>Plus home &amp; technical ≈US$1.0bn</td></tr>
+</tbody></table></div>
+<h3>Approach 2 — bottom-up by product and consumer</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Category</th><th>Volume</th><th>Unit</th><th>Avg retail price</th><th>Value US$bn</th><th>Conversion logic</th></tr></thead><tbody>
+<tr><td>Fabric for tailoring</td><td class="est">1.70bn</td><td>linear m</td><td>₦2,300/m</td><td class="est">2.95</td><td>≈7.2 m per person/yr ≈ 1–1.5 tailored outfits</td></tr>
+<tr><td>New RMG</td><td class="est">0.62bn</td><td>pieces</td><td>₦4,200</td><td class="est">1.95</td><td>≈2.6 pieces/capita; T-shirts, jeans, underwear, kidswear</td></tr>
+<tr><td>Used clothing</td><td class="est">0.45bn</td><td>pieces</td><td>₦1,200</td><td class="est">0.40</td><td>≈150kt bales at ≈3 pieces/kg</td></tr>
+<tr><td>Home textiles</td><td class="est">110kt</td><td>tonnes</td><td>–</td><td class="est">0.65</td><td>Sheets, towels, curtains, upholstery</td></tr>
+<tr><td>Technical &amp; nonwoven</td><td class="est">95kt</td><td>tonnes</td><td>–</td><td class="est">0.40</td><td>PP sacks, hygiene nonwovens, tarpaulin, filters</td></tr>
+<tr><td>Handwoven traditional</td><td class="est">12m</td><td>pieces/sets</td><td>₦17,000</td><td class="est">0.15</td><td>Aso-oke sets, adire wrappers</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td></td><td></td><td class="est"><strong>6.50</strong></td><td>Population ≈237m (2026, UN projection)</td></tr>
+</tbody></table></div>
+<h3>Approach 3 — apparent consumption (supply side)</h3>
+<p>Supply at border or factory value: recorded imports ≈US$0.7bn, plus the mirror gap and unrecorded trade (Part 5), plus domestic mill output, less ≈US$0.02bn of exports. Inventory change is assumed nil.</p>
+<figure><svg viewBox="0 0 720 250" role="img" aria-label="Reconciling recorded imports with estimated true supply">
+<text x="320" y="37" class="ax" text-anchor="end">NBS recorded imports, 2025 (CIF)</text><rect x="330" y="24" width="162.3" height="20" class="b-rec"/><text x="498.3" y="39" class="val">$0.71bn</text>
+<text x="320" y="75" class="ax" text-anchor="end">Mirror gap: China-reported HS 5407 alone (annualised)</text><rect x="330" y="62" width="274.3" height="20" class="b-est"/><text x="610.3" y="77" class="val">$1.20bn</text>
+<text x="320" y="113" class="ax" text-anchor="end">Other under-declared formal imports (est.)</text><rect x="330" y="100" width="137.1" height="20" class="b-est"/><text x="473.1" y="115" class="val">$0.60bn</text>
+<text x="320" y="151" class="ax" text-anchor="end">Informal & transit via Benin/Niger (est.)</text><rect x="330" y="138" width="160.0" height="20" class="b-est"/><text x="496.0" y="153" class="val">$0.70bn</text>
+<text x="320" y="189" class="ax" text-anchor="end">Domestic mill output at ex-factory (est.)</text><rect x="330" y="176" width="34.3" height="20" class="b-dom"/><text x="370.3" y="191" class="val">$0.15bn</text>
+<line x1="330" x2="650" y1="212" y2="212" class="grid"/><text x="320" y="232" class="ax strong" text-anchor="end">Estimated total supply at border/factory value</text><text x="330" y="232" class="val strong">≈ $3.4bn  (range $2.6–4.2bn)</text>
+</svg><figcaption>Ochre bars are estimates. Applying a 1.9–2.1× landed-cost-plus-distribution multiple to US$3.4bn gives US$6.5–7.1bn at retail, consistent with Approaches 1 and 2.</figcaption></figure>
+<div class="tbl"><table class="num"><thead><tr><th>Method</th><th>Low</th><th>Central</th><th>High</th><th>Confidence</th></tr></thead><tbody>
+<tr><td>Top-down (household spend)</td><td>6.4</td><td>6.8</td><td>7.3</td><td><span class="conf c-m">Medium</span></td></tr>
+<tr><td>Bottom-up (product build)</td><td>5.6</td><td>6.5</td><td>7.6</td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Supply-side (border × markup)</td><td>5.0</td><td>6.8</td><td>8.8</td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td><strong>Adopted (US$bn, retail, 2026)</strong></td><td><strong>5.5</strong></td><td><strong>6.5</strong></td><td><strong>8.0</strong></td><td><span class="conf c-m">Medium</span></td></tr>
+</tbody></table></div>
+<h3>Units and conversion assumptions</h3>
+<ul>
+<li><strong>Metres to kilograms:</strong> West African prints are sold in 6-yard pieces (5.49 m) at ≈112–120 cm width. At 110–140 g/m² a linear metre weighs 130–165 g; we use 150 g, i.e. ≈6.7 linear metres per kg. Lace (heavier, embroidered) ≈4 m/kg; polyester chiffon ≈12 m/kg.</li>
+<li><strong>Square metres:</strong> linear metres × 1.15 m average width.</li>
+<li><strong>Garments to fabric:</strong> 1.3 linear metres and ≈0.22 kg per average garment, so 1.07bn new and used garments ≈1.4bn metres-equivalent.</li>
+<li><strong>Total fabric-equivalent:</strong> 1.70bn m tailoring + ≈1.4bn m in garments + ≈0.3bn m home textiles ≈ 3.4bn linear metres (≈3.9bn m²), ≈14 m per capita.</li>
+<li><strong>Fibre content:</strong> ≈950kt including technical textiles, ≈4.0 kg per capita, versus ≈13–15 kg world average.</li>
+</ul>
+<h3>Segment scorecard</h3>
+<div class="tbl"><table><thead><tr><th>Segment</th><th>Est. size US$m</th><th>Growth (real)</th><th>Sourcing mix</th><th>Typical retail price</th><th>Customers</th><th>Major suppliers</th></tr></thead><tbody>
+<tr><td>Cotton woven (poplin, shirting, prints)</td><td class="est">300</td><td>2–3%</td><td>≥95% imported (China, India)</td><td>₦2,500–5,000/m</td><td>Tailors, uniforms, prints</td><td>Chinese &amp; Indian mills; Sunflag (small)</td></tr>
+<tr><td>Polyester woven (incl. filament fabrics)</td><td class="est">700</td><td>4–5%</td><td>≈100% imported, mainly China</td><td>₦900–2,500/m</td><td>Mass market, abaya/kaftan, linings</td><td>Chinese weaving clusters (Zhejiang, Jiangsu)</td></tr>
+<tr><td>Polyester-cotton blends</td><td class="est">300</td><td>4%</td><td>≥95% imported</td><td>₦1,500–3,500/m</td><td>Uniforms, shirts, sheets</td><td>China, India, Pakistan</td></tr>
+<tr><td>Knitted fabrics &amp; jersey (as fabric)</td><td class="est">90</td><td>5–6%</td><td>≈98% imported</td><td>₦2,500–6,000/kg-equiv</td><td>T-shirt &amp; sportswear makers (Aba, Lagos)</td><td>China, Türkiye</td></tr>
+<tr><td>Denim (as fabric)</td><td class="est">40</td><td>4%</td><td>≈100% imported (mostly as jeans)</td><td>₦3,500–7,000/m</td><td>Youth, informal CMT</td><td>China, Pakistan, Bangladesh</td></tr>
+<tr><td>Ankara / wax-look prints</td><td class="est">600</td><td>3%</td><td>≈90% imported</td><td>₦800–3,000/m mass; premium wax multiples higher</td><td>Women, aso-ebi, all regions</td><td>China; Vlisco group; Da Viva (UNTL)</td></tr>
+<tr><td>Lace &amp; embroidery</td><td class="est">420</td><td>3–4%</td><td>≈100% imported</td><td>₦3,000–40,000/m by grade</td><td>Ceremonies, aso-ebi, south-west &amp; south-east</td><td>China, India, Austria/Switzerland (premium)</td></tr>
+<tr><td>Aso-oke</td><td class="est">90</td><td>3%</td><td>Local weaving; imported yarn</td><td>₦25,000–120,000 per set</td><td>Weddings, Yoruba ceremonies</td><td>Iseyin/Oyo and Lagos weavers</td></tr>
+<tr><td>Adire / batik</td><td class="est">60</td><td>6%</td><td>Local dyeing on imported cloth</td><td>₦8,000–30,000 per 2-yd piece</td><td>Fashion, tourism, diaspora</td><td>Abeokuta (Itoku), Osogbo artisans</td></tr>
+<tr><td>Chiffon, satin, silk-look</td><td class="est">200</td><td>5%</td><td>≈100% imported</td><td>₦1,000–4,000/m</td><td>Women, northern hijab/abaya</td><td>China, India, Indonesia</td></tr>
+<tr><td>Suiting &amp; shirting</td><td class="est">150</td><td>3%</td><td>≈99% imported</td><td>₦4,000–25,000/m</td><td>Professionals, institutions</td><td>China, India, Türkiye, Italy</td></tr>
+<tr><td>Uniform fabrics</td><td class="est">150</td><td>5%</td><td>≥95% imported</td><td>₦1,800–4,000/m</td><td>Schools (≈40m+ pupils), security services, industry</td><td>Chinese &amp; Indian mills via importers</td></tr>
+<tr><td>Home textiles</td><td class="est">650</td><td>5%</td><td>≈90% imported finished</td><td>Sheet set ₦15,000–45,000</td><td>Households, hotels, hospitals</td><td>China, India, Pakistan; Sunflag</td></tr>
+<tr><td>Industrial textiles</td><td class="est">220</td><td>4%</td><td>Mixed; PP sacks made locally</td><td>–</td><td>Agriculture, cement, construction</td><td>Local PP bag makers; China</td></tr>
+<tr><td>Nonwovens</td><td class="est">180</td><td>7%</td><td>Roll goods imported; converting local</td><td>–</td><td>Diapers, sanitary pads, medical</td><td>Hygiene converters; China, Türkiye, Egypt</td></tr>
+<tr><td>Ready-made garments (new)</td><td class="est">1,950</td><td>5%</td><td>≈88% imported</td><td>₦2,000–25,000/piece</td><td>Urban youth, children, menswear</td><td>China, Türkiye, Benin GDIZ, Aba CMT</td></tr>
+<tr><td>Used clothing</td><td class="est">400</td><td>–</td><td>100% imported (formally banned)</td><td>₦500–3,000/piece</td><td>Low and middle income, all regions</td><td>Bales from Europe, US, Asia via Cotonou</td></tr>
+<tr><td><strong>Total</strong></td><td class="est"><strong>6,500</strong></td><td>≈3.5%</td><td>≈92–95% imported by value at border</td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<p class="caption">Fabric rows sum to the ≈US$2.95bn tailoring-fabric layer; knit and denim fabric shown here is only what is sold as cloth, because most of it arrives already sewn into garments. Fibre overlaps (most Ankara is polyester or polycotton) are allocated once, by end-use category. Price ranges are model assumptions anchored to online retail listings <a class="src" href="#s48">[S48]</a> and must be field-validated <span class="conf c-l">Low</span>.</p>
+<p><strong>Largest by volume:</strong> polyester woven fabrics and RMG. <strong>Largest by revenue:</strong> new RMG, polyester woven and Ankara. <strong>Highest potential gross profit:</strong> lace and premium prints in trading (25–40% importer-to-retail), uniforms in manufacturing (institutional pricing, low fashion risk).</p>
+<div class="sowhat"><b class="tag">So what?</b><p>The three methods agree on a US$6–7bn market. The profit pools an entrant can access fastest are mid-tier prints (≈US$600m), home textiles (≈US$650m), lace (≈US$420m) and institutional uniforms (fabric plus garments, ≈US$400m), each almost wholly imported.</p></div>
+</section>
+
+<section class="part" id="p6">
+<span class="partno">Volume I · Part 6</span>
+<h2 class="part">Fabric categories, usage and consumer behaviour</h2>
+<p>Nigeria remains a "buy cloth, see the tailor" market. Most adult ceremonial and much everyday womenswear is made to measure from fabric bought by the 6-yard piece or 5-yard lace length, while T-shirts, jeans, underwear, children's wear and sportswear are bought finished, new or second-hand.</p>
+<div class="tbl"><table><thead><tr><th>Segment</th><th>Dominant purchase form</th><th>Key fabrics</th><th>Drivers and shifts</th></tr></thead><tbody>
+<tr><td>Women</td><td>Fabric by the piece → tailor</td><td>Ankara, lace, chiffon, satin, george (south-east)</td><td>Aso-ebi (matching event cloth) sustains volume; mid-income buyers trade down from premium wax to Chinese wax-look</td></tr>
+<tr><td>Men</td><td>Mixed</td><td>Plain cotton/polycotton (senator, kaftan), cashmere-look, suiting; jeans and T-shirts finished</td><td>Native "senator" wear for work; shadda brocade strong in the north</td></tr>
+<tr><td>Children</td><td>Finished garments</td><td>Knits, cotton prints</td><td>Price-led; used clothing and Chinese RMG dominate</td></tr>
+<tr><td>Religious &amp; ceremonial</td><td>Fabric → tailor</td><td>Lace, aso-oke, brocade, white cotton (church), abaya/hijab chiffon</td><td>Weddings, funerals and festivals concentrate demand in Q4 and around Sallah</td></tr>
+<tr><td>School uniforms</td><td>Fabric → local tailor or school vendor</td><td>Polycotton poplin, gabardine, checks</td><td>Large and repeat; quality-sensitive at private schools</td></tr>
+<tr><td>Workwear &amp; institutional</td><td>Finished garments by tender</td><td>Twill, ripstop, hi-vis, cotton drill</td><td>Executive Order 003 and "Nigeria First" favour local makers on paper</td></tr>
+<tr><td>Household</td><td>Finished goods</td><td>Polycotton sheeting, terry, curtains</td><td>Urban housing, short-lets and hotels</td></tr>
+<tr><td>Industrial</td><td>B2B</td><td>PP woven, nonwovens, canvas</td><td>Agriculture, cement, hygiene products</td></tr>
+</tbody></table></div>
+<h3>Changing preferences</h3>
+<ul>
+<li><strong>Income:</strong> the 2023–25 cost-of-living shock pushed buyers toward cheaper polyester wax-look prints and used clothing; with inflation easing to 14.6% <a class="src" href="#s30">[S30]</a>, a partial recovery of mid-tier cotton prints is plausible but unproven.</li>
+<li><strong>Age:</strong> under-30s buy more RMG and streetwear and use Instagram designers and small-batch "made in Nigeria" labels; older consumers remain loyal to tailored traditional dress.</li>
+<li><strong>Region:</strong> the north favours shadda, voile, chiffon and modest cuts with motif restrictions (premium brands avoid animal or cross motifs there <a class="src" href="#s41">[S41]</a>); the south-west buys aso-oke and lace; the south-east buys george and lace.</li>
+<li><strong>Local pride:</strong> local brands such as Merok (Onchek, founded 2016) are reported to be gaining ground under the "Nigeria First" policy <a class="src" href="#s10">[S10]</a>; scale is unknown.</li>
+</ul>
+<div class="sowhat"><b class="tag">So what?</b><p>Because most cloth is tailored, the cloth itself is the brand-bearing product. A trusted fabric brand with consistent colour-fastness and width can command a premium; a garment factory, by contrast, sells mainly to institutions and modern retail.</p></div>
+</section>
+
+<section class="part" id="p3">
+<span class="partno">Volume II · Part 3</span>
+<h2 class="part">Nigeria's textile manufacturing industry: plant database</h2>
+<p>Installed capacity is not production. Few Nigerian mills publish capacity, output or revenue, and the figures circulating online (for example a frequently repeated "1.4 billion metres" national capacity <a class="src" href="#s57x">[S57]</a>) date from the industry's peak and should not be read as current. Where a figure could not be verified the table says <em>not verified</em>. Third-party revenue estimates scraped by lead-generation sites are excluded.</p>
+<div class="tbl"><table><thead><tr><th>Company</th><th>Ownership</th><th>Location</th><th>Status (Oct 2026)</th><th>Est.</th><th>Products</th><th>Capacity / utilisation</th><th>Workforce</th><th>Latest development</th><th>Sources</th></tr></thead><tbody>
+<tr><td><strong>United Nigerian Textiles Plc (UNTL)</strong></td><td>Cha Group (Hong Kong) with Nigerian shareholders; chairman Sanusi Lamido Sanusi</td><td>Kaduna (Kakuri); Lagos office, Marina</td><td><span class="conf c-l">Idle since 2022</span></td><td>1964</td><td>Spinning, grey cloth, dyeing, roller and wax-look printing; Da Viva® brand</td><td>Not verified; reopened 2010 with 800 jobs targeting 2,000</td><td>800 (2020) before 300 lay-offs; once ≈10,000 across the chain</td><td>Minister and BOI inspected Aug 2025; revival framed as a "litmus test"; no restart confirmed</td><td><a class="src" href="#s11">[S11]</a> <a class="src" href="#s12">[S12]</a> <a class="src" href="#s14">[S14]</a> <a class="src" href="#s52">[S52]</a></td></tr>
+<tr><td><strong>Nichemtex Industries</strong> (now part of UNT Plc)</td><td>Cha Group</td><td>Ikorodu, Lagos</td><td><span class="conf c-l">Uncertain</span></td><td>1971</td><td>Wax and fancy prints ("Nichem Wax")</td><td>Not verified</td><td>Not verified</td><td>Merged with UNTL in 2001 to form United Nigerian Textiles Plc; Da Viva retail continues, mill output unconfirmed</td><td><a class="src" href="#s13">[S13]</a></td></tr>
+<tr><td><strong>Sunflag Group (Nigeria)</strong></td><td>Indian-origin Sunflag Group; MD Alok Bhardwaj</td><td>Lagos (Iganmu; Ikorodu)</td><td><span class="conf c-m">Active</span></td><td>1960–61</td><td>Yarn (sewing, knitting, weaving), terry towels, bedsheets, Ankara; has had a ginnery</td><td>Not verified</td><td>Not verified (listings say 201–500)</td><td>Hosted Minister of State for Industry, Feb 2025; says it uses Nigerian cotton and yarn</td><td><a class="src" href="#s15">[S15]</a></td></tr>
+<tr><td><strong>African Textile Manufacturers Ltd (ATM)</strong></td><td>Indigenous (Kano)</td><td>Kano, Fagge/Kantin Kwari</td><td><span class="conf c-m">Partially operational</span></td><td>n/a</td><td>Printed and dyed cloth</td><td>Producing "skeletally"</td><td>Not verified</td><td>One of two Kano producers still running per BusinessDay field check</td><td><a class="src" href="#s17">[S17]</a></td></tr>
+<tr><td><strong>Tofa Textiles Ltd</strong></td><td>Indigenous; MD Sulaiman Isiyaku Umar</td><td>Kano</td><td><span class="conf c-m">Partially operational</span></td><td>n/a</td><td>Woven and printed fabrics</td><td>Producing "skeletally"</td><td>Not verified</td><td>MD has publicly blamed power for northern mill decline</td><td><a class="src" href="#s17">[S17]</a> <a class="src" href="#s16">[S16]</a></td></tr>
+<tr><td><strong>Chellco Industries</strong></td><td>Private</td><td>Kaduna</td><td><span class="conf c-m">Operating (scope to verify)</span></td><td>n/a</td><td>To verify on site</td><td>Not verified</td><td>Not verified</td><td>Included in the Aug 2025 ministerial/BOI CTG inspection</td><td><a class="src" href="#s52">[S52]</a></td></tr>
+<tr><td>Femro 3 Nigeria</td><td>Private</td><td>Satellite Town, Lagos</td><td><span class="conf c-l">Uncertain</span></td><td>1985</td><td>Textiles and garments</td><td>Not verified</td><td>Not verified</td><td>Listed in directories; no recent activity found</td><td><a class="src" href="#s53x">[S58]</a></td></tr>
+<tr><td>Woollen &amp; Synthetic Textile Mfg (WSTM)</td><td>Private</td><td>Oba Akran, Ikeja</td><td><span class="conf c-l">Uncertain</span></td><td>n/a</td><td>Fabrics</td><td>Not verified</td><td>Not verified</td><td>Directory listing only</td><td>–</td></tr>
+<tr><td>Atlantic Textile Mfg Co</td><td>Private</td><td>Ilupeju, Lagos</td><td><span class="conf c-l">Uncertain</span></td><td>n/a</td><td>Fabrics</td><td>Not verified</td><td>Not verified</td><td>Directory listing only</td><td><a class="src" href="#s53x">[S58]</a></td></tr>
+<tr><td>Dangote General Textile Products</td><td>Dangote Group (historical)</td><td>Lagos/Kano</td><td><span class="conf c-l">Believed dormant</span></td><td>n/a</td><td>Formerly textiles</td><td>–</td><td>–</td><td>No current activity found</td><td>–</td></tr>
+<tr><td>Afprint Nigeria Plc</td><td>Indian-origin (historical)</td><td>Isolo, Lagos</td><td>Closed</td><td>1964</td><td>Prints</td><td>–</td><td>–</td><td>Among 120+ firms ceased</td><td><a class="src" href="#s16">[S16]</a></td></tr>
+<tr><td>Aswani Textile Mills</td><td>Indian-origin (historical)</td><td>Isolo, Lagos</td><td>Closed</td><td>n/a</td><td>Prints</td><td>–</td><td>–</td><td>Site area now a major used-clothing and textile market</td><td><a class="src" href="#s16">[S16]</a></td></tr>
+<tr><td>Nigerian Textile Mills Plc</td><td>Historical</td><td>Oba Akran, Ikeja</td><td>Closed</td><td>n/a</td><td>Integrated mill</td><td>–</td><td>–</td><td>–</td><td><a class="src" href="#s16">[S16]</a></td></tr>
+<tr><td>Kaduna Textiles Ltd (KTL)</td><td>Historical (state/Lancashire origins)</td><td>Kaduna</td><td>Closed</td><td>1957</td><td>Integrated</td><td>–</td><td>–</td><td>Nigeria's first large mill</td><td><a class="src" href="#s59">[S59]</a></td></tr>
+<tr><td>Arewa, Nortex, Finetex, Supertex, Unitex (Norspin)</td><td>Various; Unitex and Supertex acquired by UNTL in 1980/83</td><td>Kaduna</td><td>Closed or absorbed</td><td>1960s–80s</td><td>Spinning, weaving, printing</td><td>–</td><td>–</td><td>Kaduna once hosted ≈11 mills; reportedly none now operating</td><td><a class="src" href="#s13">[S13]</a> <a class="src" href="#s2">[S2]</a></td></tr>
+<tr><td>Funtua Textiles</td><td>Cha Group (historical)</td><td>Funtua, Katsina</td><td>Ceased</td><td>1978</td><td>Vertically integrated</td><td>–</td><td>–</td><td>–</td><td><a class="src" href="#s13">[S13]</a></td></tr>
+<tr><td>Aba, Asaba, Edo Textile Mills</td><td>Historical</td><td>Abia, Delta, Edo</td><td>Closed</td><td>n/a</td><td>Prints, grey cloth</td><td>–</td><td>–</td><td>–</td><td><a class="src" href="#s16">[S16]</a></td></tr>
+</tbody></table></div>
+<h3>Announced new investments</h3>
+<div class="tbl"><table><thead><tr><th>Project</th><th>Sponsor</th><th>Location</th><th>Announced scale</th><th>Status</th><th>Assessment</th></tr></thead><tbody>
+<tr><td>Renewed Hope Cotton Resurgent Initiative (cotton &amp; polyester processing / garment hub)</td><td>Arise IIP with Ogun State, Afreximbank involvement</td><td>Special Agro-Processing Zone, Gateway Airport, Iperu/Ilisan, Ogun</td><td>US$2–2.25bn; 400 ha; ≈350kt/yr fibre; up to 4.4m garments/day; 120–250k jobs</td><td>Site clearing and implementation team (2025); groundbreaking slated for Sept 2025</td><td>Treat as unconfirmed until EPC contracts and equipment orders are visible. If built at even 20% of claims it would reshape garment and fabric supply in the Lagos–Ogun corridor. <span class="conf c-l">Low</span></td></tr>
+<tr><td>Integrated textile facility</td><td>Afreximbank</td><td>Nigeria (site linked to Ogun)</td><td>≈US$5bn partnership; ≈250k workers</td><td>Groundbreaking promised for July 2025</td><td>Likely the same programme as above, reported differently. Validate directly with Afreximbank.</td></tr>
+<tr><td>National CTG value-chain pilot</td><td>Federal Ministry of Industry, Trade &amp; Investment</td><td>Multi-state</td><td>10,000 T-shirts from Nigerian cotton in 6–7 months</td><td>Completed pilot (2025)</td><td>Demonstration scale; useful mainly as proof of a farm-to-garment chain</td></tr>
+<tr><td>CTG Development Board</td><td>Presidency-domiciled, private-sector-led; funded by the textile import levy</td><td>National</td><td>Not stated</td><td>NEC endorsed Apr 2025; steering committee Mar 2026</td><td>Could unlock levy-funded finance; operational detail pending</td></tr>
+</tbody></table></div>
+<p class="caption">Sources: <a class="src" href="#s22">[S22]</a> <a class="src" href="#s23">[S23]</a> <a class="src" href="#s24">[S24]</a> <a class="src" href="#s42">[S42]</a> <a class="src" href="#s8">[S8]</a> <a class="src" href="#s9">[S9]</a>.</p>
+<h3>Map-ready cluster list</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Cluster</th><th>State</th><th>Lat</th><th>Lon</th><th>Type</th><th>Key sites</th></tr></thead><tbody>
+<tr><td>Kakuri industrial area</td><td>Kaduna</td><td>10.47</td><td>7.43</td><td>Dormant mills</td><td>UNTL, former KTL, Arewa, Nortex</td></tr>
+<tr><td>Kano (Sharada, Challawa, Kantin Kwari)</td><td>Kano</td><td>12.00</td><td>8.52</td><td>Mills + West Africa's largest cloth market</td><td>ATM, Tofa, Kantin Kwari</td></tr>
+<tr><td>Ikorodu &amp; Odogunyan</td><td>Lagos</td><td>6.62</td><td>3.51</td><td>Mills</td><td>Nichemtex/UNT, Sunflag</td></tr>
+<tr><td>Ikeja, Ilupeju, Isolo</td><td>Lagos</td><td>6.56</td><td>3.35</td><td>Former mills, now markets</td><td>Aswani market, WSTM, Atlantic</td></tr>
+<tr><td>Lagos Island (Balogun, Idumota)</td><td>Lagos</td><td>6.46</td><td>3.39</td><td>Wholesale fabric hub</td><td>Importers, lace and Ankara wholesalers</td></tr>
+<tr><td>Iperu / Ilisan SAPZ</td><td>Ogun</td><td>6.91</td><td>3.66</td><td>Announced mega-project</td><td>Arise IIP / Afreximbank site</td></tr>
+<tr><td>Aba (Ariaria, Ngwa Road)</td><td>Abia</td><td>5.11</td><td>7.37</td><td>Informal garment cluster</td><td>Thousands of CMT workshops</td></tr>
+<tr><td>Onitsha Main Market</td><td>Anambra</td><td>6.15</td><td>6.79</td><td>South-east wholesale hub</td><td>Fabric, lace, george traders</td></tr>
+<tr><td>Iseyin</td><td>Oyo</td><td>7.97</td><td>3.60</td><td>Handloom aso-oke</td><td>Weaving workshops</td></tr>
+<tr><td>Abeokuta (Itoku)</td><td>Ogun</td><td>7.16</td><td>3.35</td><td>Adire dyeing</td><td>Artisan dyers</td></tr>
+<tr><td>Glo-Djigbé Industrial Zone (cross-border)</td><td>Atlantique, Benin</td><td>6.57</td><td>2.27</td><td>Integrated cotton-to-garment SEZ</td><td>45 km from Cotonou</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>There is no large operating mill to buy. The acquirable assets are idle sites (UNTL Kaduna, Nichemtex Ikorodu and similar) whose value lies in land, buildings, water rights and brand rather than machinery. Any brownfield deal must be priced as a property-plus-brand transaction with a full re-equipment budget.</p></div>
+</section>
+
+<section class="part" id="p4">
+<span class="partno">Volume II · Part 4</span>
+<h2 class="part">Industrial plants and manufacturing capability, stage by stage</h2>
+<div class="tbl"><table><thead><tr><th>Stage</th><th>Domestic capability</th><th>Leading operators</th><th>Technology</th><th>Capacity in use</th><th>Imported machinery</th><th>Labour</th><th>Energy intensity</th><th>Main bottleneck</th><th>Competitive today?</th></tr></thead><tbody>
+<tr><td>Cotton farming &amp; ginning</td><td>≈10–15kt seed cotton; 19 ginneries revived in 2020 but now under-supplied</td><td>Northern ginners; farmer associations</td><td>Saw gins; Bt cotton approved 2018</td><td>Very low (&lt;10% of gin capacity) <span class="conf c-l">Low</span></td><td>Gins, presses</td><td>Seasonal, high</td><td>Low</td><td>Yields ≈0.2–0.5 t/ha; no assured offtake</td><td>No</td></tr>
+<tr><td>Fibre preparation &amp; spinning</td><td>Residual ring spinning at Sunflag and possibly Kano mills</td><td>Sunflag</td><td>Mostly 1980s–90s ring frames</td><td>Low</td><td>Blowroom, cards, ring/OE frames (Rieter, Toyota, Chinese)</td><td>Medium</td><td>High (≈3–4 kWh/kg yarn)</td><td>Fibre supply; power</td><td>No</td></tr>
+<tr><td>Weaving</td><td>Small; shuttle looms largely retired</td><td>Kano mills</td><td>Old</td><td>Low</td><td>Air-jet, rapier (Picanol, Tsudakoma, Chinese)</td><td>Medium</td><td>Medium-high</td><td>Capex and power vs Chinese grey cloth</td><td>No</td></tr>
+<tr><td>Knitting</td><td>Small circular-knit units, mostly informal</td><td>Lagos/Aba SMEs</td><td>Mixed</td><td>Low</td><td>Circular knitting machines</td><td>Low</td><td>Medium</td><td>Yarn import cost</td><td>Marginal</td></tr>
+<tr><td>Bleaching &amp; dyeing</td><td>Limited industrial; strong artisanal indigo and adire</td><td>Kano dye pits (Kofar Mata), Abeokuta</td><td>Artisanal to old continuous ranges</td><td>Low</td><td>Jiggers, jets, continuous ranges, ETPs</td><td>Medium</td><td>High (steam, water)</td><td>Effluent treatment, chemicals imported</td><td>Partly (artisanal)</td></tr>
+<tr><td>Printing</td><td>Historic strength; rotary lines mostly idle</td><td>UNTL/Nichemtex (idle), ATM</td><td>Rotary screen; few digital</td><td>Very low</td><td>Rotary screen, digital (MS, EFI Reggiani, Chinese)</td><td>Medium</td><td>High</td><td>Design copying and duty evasion by importers</td><td>Conditional</td></tr>
+<tr><td>Finishing</td><td>Limited</td><td>Integrated mills</td><td>Old</td><td>Low</td><td>Stenters, calenders, sanforizers</td><td>Low</td><td>High</td><td>Gas/steam cost</td><td>Conditional</td></tr>
+<tr><td>Cutting &amp; sewing</td><td>Very large informal base; a few formal factories</td><td>Aba workshops, uniform makers, Lagos fashion houses</td><td>Single-needle, manual cutting; CAD rare</td><td>Moderate in informal sector</td><td>Juki/Brother/Jack machines, CAD cutters</td><td>High</td><td>Low (≈1–2 kWh per garment)</td><td>Productivity, skills, working capital</td><td><strong>Yes</strong> for institutional and bulky goods</td></tr>
+<tr><td>Packaging &amp; distribution</td><td>Mature trading networks</td><td>Market associations, importers</td><td>Manual</td><td>High</td><td>–</td><td>High</td><td>Low</td><td>Credit, road logistics</td><td><strong>Yes</strong></td></tr>
+</tbody></table></div>
+<h3>Cost structure benchmarks (desktop estimates)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Cost element, % of ex-mill cost</th><th>Spinning</th><th>Weaving</th><th>Dye/print/finish</th><th>Cut &amp; sew</th></tr></thead><tbody>
+<tr><td>Raw material</td><td>55–65</td><td>50–60 (yarn)</td><td>50–55 (greige)</td><td>55–65 (fabric, trims)</td></tr>
+<tr><td>Energy</td><td>12–18</td><td>10–14</td><td>10–15</td><td>3–5</td></tr>
+<tr><td>Labour</td><td>6–9</td><td>8–10</td><td>5–7</td><td>12–18</td></tr>
+<tr><td>Chemicals &amp; dyes</td><td>–</td><td>2–3 (size)</td><td>10–14</td><td>–</td></tr>
+<tr><td>Maintenance, depreciation, other</td><td>10–15</td><td>12–16</td><td>10–14</td><td>8–12</td></tr>
+</tbody></table></div>
+<p class="caption">Energy shares assume Band A grid at ≈₦215/kWh (≈US$0.16) blended with captive gas; on diesel the energy share in spinning would exceed 30%. <span class="conf c-l">Low</span></p>
+<div class="sowhat"><b class="tag">So what?</b><p>Nigeria competes where energy is a small share of cost and proximity matters: cutting and sewing, artisanal dyeing, and distribution. Spinning and weaving are energy-heavy and fibre-dependent and remain import-dependent for the forecast period.</p></div>
+</section>
+
+<section class="part" id="p11">
+<span class="partno">Volume II · Part 11</span>
+<h2 class="part">Raw materials and supply chain</h2>
+<div class="tbl"><table class="num"><thead><tr><th>Indicator</th><th>Estimate</th><th>Basis</th><th>Confidence</th></tr></thead><tbody>
+<tr><td>Cotton area</td><td class="est">≈50–80k ha</td><td>Down from 253k ha (ICAC 2016 basis) <a class="src" href="#s46">[S46]</a></td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Seed-cotton output 2025</td><td>10–15kt</td><td>Minister: ≈10kt; CTGDF ≈13kt; industry ≈15kt <a class="src" href="#s42">[S42]</a> <a class="src" href="#s9">[S9]</a></td><td><span class="conf c-m">Medium</span></td></tr>
+<tr><td>Lint available</td><td class="est">≈4–5kt</td><td>35–38% gin outturn</td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Yield</td><td>≈0.2–0.5 t/ha</td><td>202 kg/ha historical average <a class="src" href="#s46">[S46]</a>; CBN target up to 4 t/ha never reached</td><td><span class="conf c-m">Medium</span></td></tr>
+<tr><td>Ginning capacity</td><td class="est">≥100kt lint/yr nameplate</td><td>CBN expected ginneries to produce &gt;102kt lint (2020) <a class="src" href="#s44">[S44]</a></td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Domestic lint consumption by mills</td><td class="est">&lt;5kt</td><td>Residual spinning only</td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Fibre quality</td><td>Medium staple; contamination issues</td><td>Industry statements; Adamawa and Ogun cited for quality</td><td><span class="conf c-l">Low</span></td></tr>
+<tr><td>Synthetic fibre dependence</td><td>≈100% imported</td><td>No PTA/PET polymerisation for fibre in Nigeria; China staple fibres $78.6m (2024, Nigeria-reported) <a class="src" href="#s18">[S18]</a></td><td><span class="conf c-m">Medium</span></td></tr>
+<tr><td>Dyes &amp; chemicals</td><td>≈100% imported</td><td>India, China, Germany</td><td><span class="conf c-m">Medium</span></td></tr>
+</tbody></table></div>
+<h3>What this means for spinning and weaving</h3>
+<p>A single modern 50,000-spindle cotton mill consumes about 10–12kt of lint a year, two to three times Nigeria's entire current lint output. A spinning investment would therefore import lint (from Benin, Burkina Faso, Mali or Côte d'Ivoire; Benin alone produced 1.15 million bales in 2025/26 <a class="src" href="#s35">[S35]</a>) and face the same energy disadvantage as weaving. Backward integration into cotton is a 5–7 year programme that requires guaranteed offtake, seed and input finance and ginning contracts; it should follow, not precede, proven downstream demand.</p>
+<div class="sowhat"><b class="tag">So what?</b><p>Plan on imported greige cloth, yarn and synthetic fibre for at least five years. Design any plant to switch to regional ECOWAS cotton inputs, which also secure duty-free origin status inside the bloc.</p></div>
+</section>
+
+<section class="part" id="p5">
+<span class="partno">Volume III · Part 5</span>
+<h2 class="part">Import industry and international supply</h2>
+<h3>Recorded imports by period (NBS, HS Section XI, chapters 50–63)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Period</th><th>₦bn</th><th>y/y in ₦</th><th>Est. FX</th><th>US$m (derived)</th><th>Source</th></tr></thead><tbody>
+<tr><td>2020</td><td>182.5</td><td>–</td><td>381</td><td class="est">479</td><td><a class="src" href="#s4">[S4]</a></td></tr>
+<tr><td>2021</td><td>278.8</td><td>+52.7%</td><td>410</td><td class="est">680</td><td><a class="src" href="#s4">[S4]</a></td></tr>
+<tr><td>2022</td><td>365.5</td><td>+31.1%</td><td>425</td><td class="est">860</td><td><a class="src" href="#s4">[S4]</a></td></tr>
+<tr><td>2023</td><td>377.5</td><td>+3.3%</td><td>645</td><td class="est">585</td><td><a class="src" href="#s10">[S10]</a></td></tr>
+<tr><td>2024</td><td>726.2</td><td>+92.4%</td><td>1,480</td><td class="est">491</td><td><a class="src" href="#s10">[S10]</a></td></tr>
+<tr><td>2025</td><td>1,061</td><td>+46.1%</td><td>1,500</td><td class="est">707</td><td><a class="src" href="#s10">[S10]</a></td></tr>
+<tr><td>H1 2025</td><td>566.0</td><td>+56.6%</td><td>1,560</td><td class="est">363</td><td><a class="src" href="#s2">[S2]</a></td></tr>
+<tr><td>9M 2025</td><td>814.3</td><td>+47.4%</td><td>1,530</td><td class="est">532</td><td><a class="src" href="#s6">[S6]</a></td></tr>
+<tr><td>H1 2026</td><td>578.5</td><td>+2.2%</td><td>1,380</td><td class="est">419</td><td><a class="src" href="#s10">[S10]</a></td></tr>
+</tbody></table></div>
+<p class="caption">Source series for 2023 differ slightly (₦377.08bn vs ₦377.47bn) between NBS releases; we use the later figure. Dollar conversions are ours.</p>
+<h3>Composition by product (estimated true supply, 2025, US$m CIF)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Group</th><th>HS codes</th><th>Est. value</th><th>Share</th><th>Est. quantity</th><th>Avg unit value</th><th>Main origins</th></tr></thead><tbody>
+<tr><td>Raw fibre (cotton, staple synthetics)</td><td>5201–03, 5501–07</td><td class="est">110</td><td>3%</td><td class="est">≈70kt</td><td>$1.5/kg</td><td>China, Benin (cotton)</td></tr>
+<tr><td>Yarn and thread</td><td>5204–07, 5401–06, 5508–11</td><td class="est">180</td><td>5%</td><td class="est">≈80kt</td><td>$2.2/kg</td><td>China, India</td></tr>
+<tr><td>Woven synthetic filament fabrics</td><td>5407–08</td><td class="est">1,150</td><td>34%</td><td class="est">≈1.6bn m</td><td>$0.72/m</td><td>China (dominant)</td></tr>
+<tr><td>Woven cotton &amp; staple-blend fabrics (incl. prints)</td><td>5208–12, 5512–16</td><td class="est">520</td><td>15%</td><td class="est">≈0.55bn m</td><td>$0.95/m</td><td>China, India, Ghana/Côte d'Ivoire (wax)</td></tr>
+<tr><td>Lace, embroidery, special wovens</td><td>5801–11</td><td class="est">340</td><td>10%</td><td class="est">≈0.12bn m</td><td>$2.8/m</td><td>China, India, Austria, Switzerland</td></tr>
+<tr><td>Knitted fabrics</td><td>60</td><td class="est">170</td><td>5%</td><td class="est">≈55kt</td><td>$3.1/kg</td><td>China, Türkiye</td></tr>
+<tr><td>Technical, coated, nonwoven</td><td>56, 59</td><td class="est">150</td><td>4%</td><td class="est">≈60kt</td><td>$2.5/kg</td><td>China, Türkiye, India, EU</td></tr>
+<tr><td>Garments, knitted &amp; woven</td><td>61, 62</td><td class="est">500</td><td>15%</td><td class="est">≈350m pieces</td><td>$1.4/piece</td><td>China, Türkiye, Benin (GDIZ)</td></tr>
+<tr><td>Home textiles &amp; made-ups</td><td>63 (ex-6309)</td><td class="est">150</td><td>4%</td><td class="est">≈45kt</td><td>$3.3/kg</td><td>China, India, Pakistan</td></tr>
+<tr><td>Used clothing</td><td>6309</td><td class="est">130</td><td>4%</td><td class="est">≈150kt</td><td>$0.9/kg</td><td>EU, UK, US, Asia via Cotonou</td></tr>
+<tr><td><strong>Total</strong></td><td></td><td class="est"><strong>3,400</strong></td><td>100%</td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<p class="caption">Allocation is a model built from Chinese customs line-level reports, typical unit values and the bottom-up demand model. <span class="conf c-l">Low</span></p>
+<h3>Which statistic to believe: source comparison</h3>
+<div class="tbl"><table><thead><tr><th>Source</th><th>What it shows</th><th>Implication</th></tr></thead><tbody>
+<tr><td>NBS (Nigeria)</td><td>₦1.06tn in 2025 (≈US$0.7bn) for all of chapters 50–63 <a class="src" href="#s3">[S3]</a></td><td>Records declared customs values only</td></tr>
+<tr><td>China GACC (mirror)</td><td>Synthetic filament woven fabric to Nigeria ≈US$101m (Aug 2025) and ≈US$103m (Jul 2025); Nigeria the second-largest buyer after Vietnam <a class="src" href="#s19">[S19]</a></td><td>One HS line alone implies ≈US$1.2bn a year, above NBS's total for all textiles</td></tr>
+<tr><td>China GACC (reported in press)</td><td>Polyester yarn exports to Nigeria reported at US$258m in three months of 2026 <a class="src" href="#s20">[S20]</a></td><td>Implausibly high relative to mill demand; may mix product lines. Treat with caution <span class="conf c-l">Low</span></td></tr>
+<tr><td>UN Comtrade (Nigeria-reported)</td><td>Imports from China of man-made staple fibres and fabrics US$78.6m (2024) <a class="src" href="#s18">[S18]</a></td><td>Nigeria's own line data are thin and lag</td></tr>
+<tr><td>WITS</td><td>Latest year 2023; top partners China, Japan, India, United States, Kenya <a class="src" href="#s21">[S21]</a></td><td>Japan, US and Kenya likely reflect used clothing and misclassification; not a reliable ranking</td></tr>
+<tr><td>Ministry / industry statements</td><td>"US$4bn" localisation target <a class="src" href="#s2">[S2]</a>; "US$6bn a year" quoted by Sunflag and the minister <a class="src" href="#s15">[S15]</a> <a class="src" href="#s54">[S54]</a></td><td>Probably retail or landed values, not CIF; consistent with our US$3.4bn border / US$6.5bn retail</td></tr>
+<tr><td>Industry associations</td><td>Up to 85% of textiles sold are smuggled (NTMA) <a class="src" href="#s60">[S60]</a></td><td>Older claim; direction confirmed by mirror gap</td></tr>
+</tbody></table></div>
+<h3>Ranking suppliers on the evidence</h3>
+<ol class="prose">
+<li><strong>China</strong> — an estimated 75–80% of supply. An academic study puts China's share of textiles in Nigerian markets at about 80% <a class="src" href="#s50">[S50]</a>; Chinese line data show Nigeria as a top-two market for synthetic woven fabrics.</li>
+<li><strong>India</strong> — yarns, cotton fabrics, lace, home textiles; India's High Commission reports active trade promotion in 2026 <a class="src" href="#s7b">[S7b]</a>.</li>
+<li><strong>Benin and other ECOWAS origins</strong> — re-exports of Asian cloth and used clothing via Cotonou, plus genuine ECOWAS-origin goods (GDIZ garments; Ghana and Côte d'Ivoire wax prints).</li>
+<li><strong>Europe</strong> — premium lace (Austria, Switzerland), Vlisco wax (Netherlands), used clothing.</li>
+<li><strong>Türkiye, Indonesia, Pakistan, Bangladesh</strong> — garments, knit fabrics, denim, home textiles; individually small in recorded data.</li>
+</ol>
+<h3>Transit and informal trade through Benin</h3>
+<p>Cotonou's port and markets serve as a regional wholesale hub. Some trade into Nigeria is legal (ECOWAS-origin goods enter under the trade liberalisation scheme), some is transit of third-country goods that should pay Nigerian duty, and some is outright smuggling, notably used clothing, which Nigeria has banned since the 1970s <a class="src" href="#s47">[S47]</a>. Benin is also building genuine capacity: the Glo-Djigbé Industrial Zone processes about 40,000 tonnes of Beninese cotton into 7–10 million garments a year <a class="src" href="#s35">[S35]</a>, and Nigeria's Vice President led a delegation there in July 2026 to study its integrated model <a class="src" href="#s34">[S34]</a>. We estimate informal and transit trade at <span class="est">US$0.5–1.0bn</span> a year at border value, by difference between demand and recorded plus mirror-gap supply <span class="conf c-l">Low</span>.</p>
+<div class="sowhat"><b class="tag">So what?</b><p>The real competitor of any Nigerian producer is a Chinese mill whose cloth often reaches Lagos with less than the full 35% duty, levy and VAT paid. Investment cases must be stress-tested at the "effective" landed cost, not the statutory one. A compliant importer with consistent quality and clean invoices can also win institutional and modern-trade buyers who cannot use informal supply.</p></div>
+</section>
+
+<section class="part" id="p7">
+<span class="partno">Volume III · Part 7</span>
+<h2 class="part">Distribution and commercial channels</h2>
+<h3>How an imported fabric reaches the customer</h3>
+<div class="flow" aria-label="Import flow"><span>Chinese / Indian mill</span><i>→</i><span>Agent or Nigerian buyer in Guangzhou, Keqiao, Surat</span><i>→</i><span>FCL to Lagos (Apapa/Tin Can/Lekki) or Cotonou</span><i>→</i><span>Clearing agent, Form M, duty</span><i>→</i><span>Importer warehouse (Lagos Island, Kano)</span><i>→</i><span>Market wholesaler</span><i>→</i><span>Regional distributor / retailer</span><i>→</i><span>Consumer → tailor</span></div>
+<h3>How local cloth reaches the market</h3>
+<div class="flow" aria-label="Local flow"><span>Mill (Lagos, Kano)</span><i>→</i><span>Company-appointed distributors and branded shops (e.g. Da Viva franchises)</span><i>→</i><span>Market wholesalers</span><i>→</i><span>Retailers</span><i>→</i><span>Consumer → tailor</span></div>
+<p>Local producers sell into the same market networks as importers and compete on the same shelves. Large importers often pre-finance wholesalers on 30–90 day credit; mills rarely can.</p>
+<h3>Major markets and clusters</h3>
+<div class="tbl"><table><thead><tr><th>Cluster</th><th>Main categories</th><th>Local vs imported</th><th>Structure</th><th>Payment &amp; credit</th><th>Importance</th><th>Competitive notes</th></tr></thead><tbody>
+<tr><td>Kantin Kwari, Kano</td><td>Shadda, voile, wax-look prints, plain cloth, lace</td><td>≈99% imported on a 2020s field check <a class="src" href="#s17">[S17]</a></td><td>Thousands of shops; buyers from Niger, Chad, Cameroon, Mali, CAR <a class="src" href="#s33">[S33]</a></td><td>Cash and trade credit; bale-based</td><td>West Africa's largest textile market</td><td>Chinese-linked traders active in import and distribution</td></tr>
+<tr><td>Lagos Island (Balogun, Idumota, Jankara)</td><td>Ankara, lace, aso-ebi bundles, george</td><td>Overwhelmingly imported</td><td>Importer-wholesalers with retail fronts</td><td>Cash, transfers, supplier credit to known buyers</td><td>Nigeria's largest fabric wholesale hub</td><td>Fast design churn; price wars</td></tr>
+<tr><td>Aswani &amp; Tejuosho, Lagos</td><td>Used clothing, low-cost fabrics</td><td>Imported</td><td>Bale breakers and retailers</td><td>Cash</td><td>Major used-clothing node <a class="src" href="#s47">[S47]</a></td><td>Informal supply</td></tr>
+<tr><td>Onitsha Main Market, Anambra</td><td>Lace, george, wrappers, suiting</td><td>Imported</td><td>Igbo trading networks, apprenticeship model</td><td>Strong intra-network credit</td><td>South-east and north-central distribution</td><td>Highly competitive</td></tr>
+<tr><td>Aba (Ariaria), Abia</td><td>Garment production; fabric inputs</td><td>Imported fabric, local CMT</td><td>Thousands of small workshops</td><td>Cash, advance orders</td><td>Largest informal garment cluster</td><td>Low cost, inconsistent quality</td></tr>
+<tr><td>Cotonou (Dantokpa, Biafra market), Benin</td><td>Wax prints, used clothing</td><td>Imported / transit</td><td>Regional hub serving Nigerian buyers</td><td>Cash; informal dispute systems</td><td>Key informal channel</td><td>Policy-sensitive</td></tr>
+</tbody></table></div>
+<h3>Distribution margin waterfall (mid-tier imported print)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Stage</th><th>₦ per metre</th><th>Gross margin at stage</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Landed, duty-paid cost</td><td>1,720</td><td>–</td><td>See Part 9</td></tr>
+<tr><td>Importer selling price</td><td>2,000</td><td>14%</td><td>Covers warehouse, sales, credit risk</td></tr>
+<tr><td>Wholesaler selling price</td><td>2,240</td><td>11%</td><td>Bale or piece sales</td></tr>
+<tr><td>Retail selling price</td><td>2,900</td><td>23%</td><td>≈₦16,000 per 6-yard piece, consistent with online listings <a class="src" href="#s48">[S48]</a></td></tr>
+</tbody></table></div>
+<p>E-commerce (Jiji, Instagram and WhatsApp sellers, Jumia) is growing for small lots but remains a minor share of volume. Modern retail chains carry RMG and home textiles; fabric remains market-led.</p>
+<div class="sowhat"><b class="tag">So what?</b><p>Control of the Lagos Island–Kano–Onitsha wholesale triangle and of trade credit is the true moat in Nigerian textiles. Any manufacturing strategy needs a distribution arm or partner on day one.</p></div>
+</section>
+
+<section class="part" id="p8">
+<span class="partno">Volume III · Part 8</span>
+<h2 class="part">Major competitors, importers and brands</h2>
+<div class="tbl"><table><thead><tr><th>Player</th><th>Core products</th><th>Positioning / price</th><th>Origin</th><th>Distribution in Nigeria</th><th>Strengths</th><th>Share</th></tr></thead><tbody>
+<tr><td><strong>Vlisco</strong> (Vlisco Group)</td><td>Dutch wax, super-wax, Java prints</td><td>Premium, prestige</td><td>Helmond, Netherlands</td><td>Exclusive partner LKA Fabrics (boutiques in Ikeja, Lekki and Lagos airports, plus wholesale) <a class="src" href="#s39">[S39]</a>; own store opened at Ikeja City Mall</td><td>Heritage brand, design archive; group revenue ≈€225m, ≈90% in West Africa (older figure) <a class="src" href="#s41">[S41]</a></td><td>Not estimable</td></tr>
+<tr><td><strong>Woodin, GTP, Uniwax</strong> (Vlisco Group)</td><td>Wax and fancy prints</td><td>Mid-to-upper; ≈€6/m vs €2–3/m for Chinese wax-look (older figure) <a class="src" href="#s40">[S40]</a></td><td>Ghana, Côte d'Ivoire (ECOWAS origin)</td><td>LKA Fabrics distributes GTP and Woodin <a class="src" href="#s39">[S39]</a></td><td>ECOWAS-origin (duty-free potential), African brand cachet</td><td>Not estimable</td></tr>
+<tr><td><strong>Da Viva</strong> (UNT Plc)</td><td>Cotton prints</td><td>Mid-premium, "made in Nigeria" heritage</td><td>Nigeria (sourcing now uncertain)</td><td>Franchised shops in major cities <a class="src" href="#s13">[S13]</a></td><td>Brand recognition</td><td>Not estimable</td></tr>
+<tr><td>Chinese wax-look and polyester print mills</td><td>Polyester and polycotton "Hollandais"-style prints</td><td>Mass, ₦4,000–16,000 per 6 yd</td><td>China (Zhejiang, Jiangsu, Guangdong)</td><td>Via Nigerian and Chinese-linked importers</td><td>Cost, speed, design copying</td><td class="est">≈70–80% of print volume</td></tr>
+<tr><td>Hitarget, Super Rhema and similar trade brands</td><td>Cotton and polycotton prints</td><td>Mid-tier, ₦15,000–18,000 per 6 yd online <a class="src" href="#s48">[S48]</a></td><td>Mostly Asian-made, Nigerian-branded</td><td>Market wholesale</td><td>Recognisable mid-tier labels</td><td>Not estimable</td></tr>
+<tr><td>Austrian/Swiss lace houses</td><td>Premium embroidered lace</td><td>Luxury</td><td>Vorarlberg (Austria), St Gallen (Switzerland)</td><td>Lagos and Onitsha lace importers</td><td>Quality, prestige for weddings</td><td>Not estimable</td></tr>
+<tr><td>Indian and Chinese lace</td><td>Cord, beaded, French and voile lace</td><td>Mass to mid</td><td>India, China</td><td>Importer-wholesalers</td><td>Price range, speed</td><td class="est">Majority of lace volume</td></tr>
+<tr><td>Sunflag Nigeria</td><td>Yarn, towels, bedsheets, prints</td><td>Mid</td><td>Nigeria</td><td>Own dealers</td><td>Only integrated-ish survivor in Lagos</td><td class="est">&lt;2% of home textiles</td></tr>
+<tr><td>Benin GDIZ garment makers</td><td>Cotton garments, basics</td><td>Export-grade, competitive</td><td>Benin (ECOWAS)</td><td>Export focus; Nigeria a stated target market <a class="src" href="#s15">[S15]</a></td><td>Integrated cotton, SEZ incentives</td><td>Emerging</td></tr>
+<tr><td>Aba &amp; Lagos informal CMT</td><td>Uniforms, shirts, kaftans, jeans copies</td><td>Low cost</td><td>Nigeria</td><td>Markets, direct to schools</td><td>Proximity, speed</td><td>Large but unmeasured</td></tr>
+</tbody></table></div>
+<h3>Positioning matrix (print and fashion fabrics)</h3>
+<div class="tbl"><table><thead><tr><th>Price tier ↓ / Reach →</th><th>Narrow (boutiques, few cities)</th><th>Broad (national market networks)</th></tr></thead><tbody>
+<tr><td>Premium</td><td>Vlisco, Swiss/Austrian lace</td><td>–  (gap: no premium brand with mass distribution)</td></tr>
+<tr><td>Mid</td><td>Da Viva, Woodin</td><td>Hitarget-type trade brands, Indian lace, GTP</td></tr>
+<tr><td>Mass</td><td>–</td><td>Chinese wax-look and polyester prints</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>The mid-tier is crowded but unbranded, and premium is concentrated in one house. A consistent, colour-fast mid-tier brand with national distribution and ECOWAS-origin production would occupy an open position. Market shares cannot be credibly estimated without trader panels; Part 18 includes one.</p></div>
+</section>
+
+<section class="part" id="p9">
+<span class="partno">Volume III · Part 9</span>
+<h2 class="part">Textile pricing and cost economics</h2>
+<p>All waterfalls are in naira per linear metre at ₦1,332/US$. Documented inputs are marked [S#]; everything else is a modelling assumption to be replaced by quotes from clearing agents and importers. Statutory charges assumed: import duty at the CET band (20% plain fabrics, 35% prints, lace and garments, per the 2015 move of textiles to the 35% band <a class="src" href="#s25">[S25]</a>), about 2.5% of combined levies (ECOWAS trade levy, CISS and similar) and 7.5% VAT on duty-inclusive value. The 10% Textile Development Fund levy dating from 1997 <a class="src" href="#s17">[S17]</a> is not included because its current collection base could not be confirmed.</p>
+<figure><svg viewBox="0 0 720 350" role="img" aria-label="Illustrative price waterfall for mid-tier imported Ankara print per metre">
+<line x1="50" x2="700" y1="270.0" y2="270.0" class="grid"/><text x="44" y="274.0" class="ax" text-anchor="end">₦0</text>
+<line x1="50" x2="700" y1="229.0" y2="229.0" class="grid"/><text x="44" y="233.0" class="ax" text-anchor="end">₦500</text>
+<line x1="50" x2="700" y1="188.0" y2="188.0" class="grid"/><text x="44" y="192.0" class="ax" text-anchor="end">₦1,000</text>
+<line x1="50" x2="700" y1="147.0" y2="147.0" class="grid"/><text x="44" y="151.0" class="ax" text-anchor="end">₦1,500</text>
+<line x1="50" x2="700" y1="106.0" y2="106.0" class="grid"/><text x="44" y="110.0" class="ax" text-anchor="end">₦2,000</text>
+<line x1="50" x2="700" y1="65.0" y2="65.0" class="grid"/><text x="44" y="69.0" class="ax" text-anchor="end">₦2,500</text>
+<line x1="50" x2="700" y1="24.0" y2="24.0" class="grid"/><text x="44" y="28.0" class="ax" text-anchor="end">₦3,000</text>
+<rect x="60.0" y="188.0" width="39.0" height="82.0" class="wf-a"/><text x="79.5" y="183.0" class="val" text-anchor="middle">1,000</text>
+<text transform="translate(82.5,280) rotate(40)" class="ax">FOB China</text>
+<rect x="119.1" y="182.5" width="39.0" height="5.5" class="wf"/><text x="138.6" y="177.5" class="val" text-anchor="middle">67</text>
+<text transform="translate(141.6,280) rotate(40)" class="ax">Freight & ins.</text>
+<rect x="178.2" y="151.9" width="39.0" height="30.6" class="wf"/><text x="197.7" y="146.9" class="val" text-anchor="middle">373</text>
+<text transform="translate(200.7,280) rotate(40)" class="ax">Duty 35%</text>
+<rect x="237.3" y="149.7" width="39.0" height="2.2" class="wf"/><text x="256.8" y="144.7" class="val" text-anchor="middle">27</text>
+<text transform="translate(259.8,280) rotate(40)" class="ax">Levies</text>
+<rect x="296.4" y="140.7" width="39.0" height="9.0" class="wf"/><text x="315.9" y="135.7" class="val" text-anchor="middle">110</text>
+<text transform="translate(318.9,280) rotate(40)" class="ax">VAT 7.5%</text>
+<rect x="355.5" y="134.1" width="39.0" height="6.6" class="wf"/><text x="375.0" y="129.1" class="val" text-anchor="middle">80</text>
+<text transform="translate(378.0,280) rotate(40)" class="ax">Port & inland</text>
+<rect x="414.6" y="129.0" width="39.0" height="5.2" class="wf"/><text x="434.1" y="124.0" class="val" text-anchor="middle">63</text>
+<text transform="translate(437.1,280) rotate(40)" class="ax">Finance & FX</text>
+<rect x="473.7" y="106.0" width="39.0" height="23.0" class="wf"/><text x="493.2" y="101.0" class="val" text-anchor="middle">280</text>
+<text transform="translate(496.2,280) rotate(40)" class="ax">Importer</text>
+<rect x="532.8" y="86.3" width="39.0" height="19.7" class="wf"/><text x="552.3" y="81.3" class="val" text-anchor="middle">240</text>
+<text transform="translate(555.3,280) rotate(40)" class="ax">Wholesaler</text>
+<rect x="591.9" y="32.2" width="39.0" height="54.1" class="wf"/><text x="611.4" y="27.2" class="val" text-anchor="middle">660</text>
+<text transform="translate(614.4,280) rotate(40)" class="ax">Retailer</text>
+<rect x="651.0" y="32.2" width="39.0" height="237.8" class="wf-t"/><text x="670.5" y="27.2" class="val" text-anchor="middle">2,900</text>
+<text transform="translate(673.5,280) rotate(40)" class="ax">Retail price</text>
+</svg><figcaption>Mid-tier imported polyester-cotton print. FOB ≈US$0.75/m sits within the range of Chinese exporter listings for 6-yard wax-look prints (US$0.30–0.96/m) <a class="src" href="#s49">[S49]</a>; retail ≈₦2,900/m matches mid-tier online prices <a class="src" href="#s48">[S48]</a>.</figcaption></figure>
+<div class="tbl"><table class="num"><thead><tr><th>₦ per metre</th><th>Mass polyester print</th><th>Mid-tier print</th><th>Cotton poplin (uniform)</th><th>Polycotton shirting</th><th>Suiting (poly-viscose)</th><th>Denim 12 oz</th><th>Mid-tier lace</th></tr></thead><tbody>
+<tr><td>FOB origin (US$)</td><td>0.38</td><td>0.75</td><td>0.95</td><td>0.85</td><td>1.90</td><td>2.40</td><td>3.50</td></tr>
+<tr><td>FOB in ₦</td><td>506</td><td>1,000</td><td>1,265</td><td>1,132</td><td>2,531</td><td>3,197</td><td>4,662</td></tr>
+<tr><td>Freight &amp; insurance</td><td>45</td><td>67</td><td>80</td><td>75</td><td>110</td><td>160</td><td>120</td></tr>
+<tr><td>CIF</td><td>551</td><td>1,067</td><td>1,345</td><td>1,207</td><td>2,641</td><td>3,357</td><td>4,782</td></tr>
+<tr><td>Duty rate assumed</td><td>35%</td><td>35%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>35%</td></tr>
+<tr><td>Duty</td><td>193</td><td>373</td><td>269</td><td>241</td><td>528</td><td>671</td><td>1,674</td></tr>
+<tr><td>Levies ≈2.5%</td><td>14</td><td>27</td><td>34</td><td>30</td><td>66</td><td>84</td><td>120</td></tr>
+<tr><td>VAT 7.5%</td><td>57</td><td>110</td><td>124</td><td>111</td><td>242</td><td>308</td><td>493</td></tr>
+<tr><td>Port, clearing, inland, warehousing</td><td>60</td><td>80</td><td>85</td><td>80</td><td>110</td><td>150</td><td>140</td></tr>
+<tr><td>Financing (90 days) &amp; FX buffer</td><td>35</td><td>63</td><td>70</td><td>63</td><td>135</td><td>170</td><td>270</td></tr>
+<tr><td><strong>Landed cost</strong></td><td><strong>910</strong></td><td><strong>1,720</strong></td><td><strong>1,927</strong></td><td><strong>1,732</strong></td><td><strong>3,722</strong></td><td><strong>4,740</strong></td><td><strong>7,479</strong></td></tr>
+<tr><td>Importer price (+12–16%)</td><td>1,040</td><td>2,000</td><td>2,200</td><td>1,980</td><td>4,250</td><td>5,400</td><td>8,800</td></tr>
+<tr><td>Wholesale price (+8–12%)</td><td>1,150</td><td>2,240</td><td>2,420</td><td>2,180</td><td>4,700</td><td>5,950</td><td>9,800</td></tr>
+<tr><td>Regional distributor (+6–8%)</td><td>1,230</td><td>2,400</td><td>2,600</td><td>2,340</td><td>5,050</td><td>6,400</td><td>10,500</td></tr>
+<tr><td>Retail price</td><td>1,500</td><td>2,900</td><td>3,100</td><td>2,850</td><td>6,500</td><td>7,800</td><td>13,500</td></tr>
+<tr><td>Retail price (US$/m)</td><td>1.13</td><td>2.18</td><td>2.33</td><td>2.14</td><td>4.88</td><td>5.86</td><td>10.14</td></tr>
+<tr><td>Landed-to-retail multiple</td><td>1.65×</td><td>1.69×</td><td>1.61×</td><td>1.65×</td><td>1.75×</td><td>1.65×</td><td>1.81×</td></tr>
+</tbody></table></div>
+<p class="caption">All FOB and margin values except those cited are modelling assumptions <span class="conf c-l">Low</span>. Under-declaration of customs value by 40% lowers the mid-tier landed cost by about ₦230/m (≈13%), which is the margin that compliant producers lose to informal imports.</p>
+<h3>Domestic production cost versus landed import (mid-tier print)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>₦ per metre</th><th>Local print house (imported greige)</th><th>Compliant import</th><th>Under-declared import</th></tr></thead><tbody>
+<tr><td>Greige / fabric</td><td>770</td><td>1,067 (CIF finished)</td><td>1,067</td></tr>
+<tr><td>Duty, levies, VAT on inputs</td><td>included (10% band on greige assumed)</td><td>510</td><td>≈300</td></tr>
+<tr><td>Dyes &amp; chemicals</td><td>160</td><td>–</td><td>–</td></tr>
+<tr><td>Energy (gas CHP + grid)</td><td>110</td><td>–</td><td>–</td></tr>
+<tr><td>Labour, overheads, depreciation</td><td>280</td><td>–</td><td>–</td></tr>
+<tr><td>Logistics, finance</td><td>80</td><td>143</td><td>143</td></tr>
+<tr><td><strong>Cost at Lagos warehouse</strong></td><td><strong>≈1,400</strong></td><td><strong>≈1,720</strong></td><td><strong>≈1,510</strong></td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>Statutory protection gives a local print house roughly an 18% cost advantage over a compliant importer, but only about 7% over an under-declared one, too thin to cover start-up risk. Printing becomes attractive when customs enforcement or valuation reform narrows the informal discount, or when the house sells into channels that require invoiced, compliant supply.</p></div>
+</section>
+
+<section class="part" id="p10">
+<span class="partno">Volume III · Part 10</span>
+<h2 class="part">Government policy, tariffs and regulation</h2>
+<div class="tbl"><table><thead><tr><th>Instrument</th><th>Status (Oct 2026)</th><th>What it does</th><th>Effect on investors</th></tr></thead><tbody>
+<tr><td>ECOWAS CET (2022–2027 phase)</td><td><span class="conf c-h">Current</span></td><td>Textiles dutiable since the 2015 move off the prohibition list, mostly in the 20% and 35% bands <a class="src" href="#s25">[S25]</a></td><td>Statutory protection of 20–35% on fabrics and garments</td></tr>
+<tr><td>2026 Fiscal Policy Measures (from 1 Apr 2026)</td><td><span class="conf c-h">Current</span></td><td>17-item non-ECOWAS import prohibition list (poultry, meat, eggs, beverages, cement, coated steel, pharmaceuticals, fertiliser, soaps, sugar and others) <a class="src" href="#s26">[S26]</a>; textiles are not among the items reported in published summaries; 0% duty on manufacturing machinery <a class="src" href="#s27">[S27]</a>; Import Adjustment Tax on 192 lines, to be phased out from Jan 2027 <a class="src" href="#s28">[S28]</a></td><td>Cheaper machinery imports; confirm tariff lines for each HS code against the gazette</td></tr>
+<tr><td>Used clothing prohibition</td><td><span class="conf c-h">Current</span>, weakly enforced</td><td>Second-hand clothing on the absolute prohibition list <a class="src" href="#s47">[S47]</a></td><td>Low-end garment demand stays with informal supply</td></tr>
+<tr><td>Textile import levy / Textile Development Fund levy</td><td><span class="conf c-m">Current; base unclear</span></td><td>10% levy on imported textiles introduced in 1997 <a class="src" href="#s17">[S17]</a>; the planned CTG Development Board is to be funded from the textile import levy collected by Customs <a class="src" href="#s8">[S8]</a></td><td>Potential future source of concessional finance</td></tr>
+<tr><td>CBN FX restriction on textile imports</td><td><span class="conf c-h">Repealed</span></td><td>Introduced 2019; lifted 2023 <a class="src" href="#s6">[S6]</a></td><td>Unified market (≈₦1,332 official vs ≈₦1,375 parallel) <a class="src" href="#s29">[S29]</a> eases imports of inputs</td></tr>
+<tr><td>Senate call for total textile import ban</td><td><span class="conf c-l">Proposed (non-binding)</span></td><td>Resolution of 9 Jun 2026 also seeks BOI funding and cotton support <a class="src" href="#s32">[S32]</a></td><td>MAN warns a ban needs procurement and border enforcement to work <a class="src" href="#s31">[S31]</a>; a ban without enforcement would favour smugglers</td></tr>
+<tr><td>Executive Order 003 and "Nigeria First"</td><td><span class="conf c-h">Current</span></td><td>Public procurement preference for local goods, including uniforms</td><td>Key demand lever for uniform makers if enforced in budgets</td></tr>
+<tr><td>CTG Development Board</td><td><span class="conf c-m">In formation</span></td><td>NEC-endorsed Apr 2025; steering committee Mar 2026 <a class="src" href="#s9">[S9]</a></td><td>Watch for its financing window</td></tr>
+<tr><td>Bank of Industry CTG financing</td><td><span class="conf c-m">Current</span></td><td>Targeted funding and machinery loans for CTG revival <a class="src" href="#s52">[S52]</a></td><td>Local-currency loans below commercial rates (MPR 26.5%)</td></tr>
+<tr><td>Historical funds</td><td><span class="conf c-h">Closed</span></td><td>Textile Development Fund; ₦100bn CTG Fund (2009/10); CBN programme ≈₦120bn (2018–20) <a class="src" href="#s44">[S44]</a></td><td>Poor track record; avoid business cases that depend on new subsidies</td></tr>
+<tr><td>SON standards &amp; SONCAP</td><td><span class="conf c-h">Current</span></td><td>Product certificates for imports; Nigerian Industrial Standards for textiles and labelling</td><td>Compliance cost for importers; quality floor</td></tr>
+<tr><td>ECOWAS Trade Liberalisation Scheme</td><td><span class="conf c-h">Current</span></td><td>Duty-free entry for goods meeting ECOWAS origin rules</td><td>Makes Benin, Ghana and Côte d'Ivoire production duty-competitive in Nigeria</td></tr>
+<tr><td>AfCFTA</td><td><span class="conf c-m">Phasing in</span></td><td>Textile rules of origin long contested; IAT exemptions linked to the AfCFTA exclusion list <a class="src" href="#s28">[S28]</a></td><td>Opens export markets for compliant Nigerian producers; also exposes Nigeria to more African competition</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>Policy direction is protective but erratic, and enforcement, not tariff design, decides outcomes. Build cases on today's statutory tariffs with an enforcement discount, treat any import ban as upside, and use ECOWAS origin and EO 003 procurement as the two reliable levers.</p></div>
+</section>
+
+<section class="part" id="p12">
+<span class="partno">Volume IV · Part 12</span>
+<h2 class="part">Regional textile industry mapping</h2>
+<div class="tbl"><table><thead><tr><th>Cluster</th><th>Manufacturing footprint</th><th>Consumers &amp; trade</th><th>Ports &amp; transport</th><th>Energy</th><th>Labour &amp; land</th><th>Security &amp; operating risk</th></tr></thead><tbody>
+<tr><td>Lagos</td><td>Sunflag, Nichemtex/UNT site, legacy Ikeja/Isolo mills</td><td>Largest consumer market; Lagos Island wholesale hub</td><td>Apapa, Tin Can, Lekki deep-sea port; severe congestion</td><td>Band A feeders available; gas in industrial estates</td><td>Skilled labour; land scarce and expensive</td><td>Low–medium; flooding, traffic</td></tr>
+<tr><td>Ogun (Agbara, Sagamu, Iperu, Ota)</td><td>Announced Arise/Afreximbank hub; many FMCG plants</td><td>Adjacent to Lagos demand</td><td>40–90 minutes to Lagos ports; Lagos–Ibadan rail</td><td>Gas pipelines along corridor</td><td>Abundant land, SEZ incentives</td><td>Low–medium</td></tr>
+<tr><td>Kano</td><td>ATM, Tofa (low output); dye pits</td><td>Kantin Kwari: northern and Sahel re-export hub</td><td>Dry port; road and rail to Lagos 1,000 km</td><td>Weak grid; diesel-dependent</td><td>Large, low-cost labour; land available</td><td>Medium; banditry in rural north-west</td></tr>
+<tr><td>Kaduna</td><td>Former "textile city"; UNTL idle; no mills operating per reports <a class="src" href="#s2">[S2]</a></td><td>Mid-size market</td><td>Rail link to Abuja and Kano</td><td>Weak grid</td><td>Experienced ex-mill workforce; large idle sites</td><td>Medium–high; insecurity affected cotton supply <a class="src" href="#s14">[S14]</a></td></tr>
+<tr><td>Abia / Aba</td><td>Largest informal garment cluster</td><td>South-east demand; "Made in Aba" brand</td><td>Port Harcourt/Onne ports ≈1 hour</td><td>Gas nearby; grid weak</td><td>Skilled tailors; small plots</td><td>Medium</td></tr>
+<tr><td>Anambra / Onitsha</td><td>Little manufacturing</td><td>Onitsha Main Market wholesale</td><td>Niger Bridge; road</td><td>Weak grid</td><td>Trading skills; land scarce</td><td>Medium</td></tr>
+<tr><td>Oyo / Ogun crafts (Iseyin, Abeokuta)</td><td>Aso-oke weaving, adire dyeing</td><td>Fashion and diaspora demand</td><td>Road to Lagos</td><td>Low need</td><td>Artisan base</td><td>Low</td></tr>
+<tr><td>Benin GDIZ (cross-border option)</td><td>Integrated cotton spinning to garments <a class="src" href="#s34">[S34]</a></td><td>Exports; Nigeria a target</td><td>Cotonou port 45 km</td><td>SEZ utilities</td><td>Plug-and-play sheds; local cotton</td><td>Low; Nigeria border policy risk</td></tr>
+</tbody></table></div>
+<h3>Weighted location score (1–5)</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Criterion</th><th>Weight</th><th>Lagos</th><th>Ogun</th><th>Kano</th><th>Kaduna</th><th>Aba</th><th>Onitsha</th><th>Abuja</th><th>Benin GDIZ</th></tr></thead><tbody>
+<tr><td>Access to consumers</td><td>20%</td><td>5</td><td>4</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3</td><td>3</td></tr>
+<tr><td>Ports &amp; logistics</td><td>15%</td><td>5</td><td>4</td><td>2</td><td>2</td><td>3</td><td>3</td><td>1</td><td>4</td></tr>
+<tr><td>Energy cost &amp; reliability</td><td>15%</td><td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><td>Labour availability &amp; cost</td><td>10%</td><td>4</td><td>4</td><td>5</td><td>4</td><td>4</td><td>3</td><td>3</td><td>3</td></tr>
+<tr><td>Industrial land</td><td>10%</td><td>2</td><td>5</td><td>4</td><td>4</td><td>3</td><td>2</td><td>4</td><td>5</td></tr>
+<tr><td>Supplier ecosystem</td><td>10%</td><td>5</td><td>3</td><td>3</td><td>2</td><td>4</td><td>4</td><td>2</td><td>3</td></tr>
+<tr><td>Incentives</td><td>10%</td><td>3</td><td>5</td><td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>5</td></tr>
+<tr><td>Security &amp; stability</td><td>10%</td><td>4</td><td>4</td><td>2</td><td>2</td><td>2</td><td>3</td><td>4</td><td>4</td></tr>
+<tr><td><strong>Weighted score</strong></td><td>100%</td><td><strong>4.00</strong></td><td><strong>3.95</strong></td><td><strong>3.10</strong></td><td><strong>2.70</strong></td><td><strong>3.05</strong></td><td><strong>2.95</strong></td><td><strong>2.70</strong></td><td><strong>3.80</strong></td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>Put factories in Ogun (land, incentives, Lagos access) and the main warehouse in Lagos; run Kano as the northern distribution hub, not a manufacturing base. Benin's GDIZ scores close to Lagos and Ogun and is the right place for any cotton-intensive stage that needs ECOWAS origin.</p></div>
+</section>
+
+<section class="part" id="p13">
+<span class="partno">Volume IV · Part 13</span>
+<h2 class="part">Why the industry declined: structural competitiveness</h2>
+<div class="tbl"><table><thead><tr><th>Factor</th><th>Quantification</th><th>Type</th></tr></thead><tbody>
+<tr><td>Electricity</td><td>Band A ≈₦209–225/kWh (≈US$0.16); diesel self-generation ₦600–950/kWh (US$0.45–0.70) <a class="src" href="#s36">[S36]</a> <a class="src" href="#s38">[S38]</a> vs ≈US$0.08–0.10 typical in Asian textile hubs <span class="conf c-l">Low</span></td><td>Structural</td></tr>
+<tr><td>Diesel</td><td>₦1,716/L (≈US$1.29) in Oct 2026 <a class="src" href="#s37">[S37]</a></td><td>Structural</td></tr>
+<tr><td>Cost of capital</td><td>Policy rate 26.5%; commercial naira loans typically 30%+; Chinese competitors borrow at single digits <a class="src" href="#s33">[S33]</a></td><td>Structural</td></tr>
+<tr><td>Fibre</td><td>Seed cotton down ≈95% from ≈200kt in 2001 to ≈10kt in 2025 <a class="src" href="#s42">[S42]</a>; no domestic polyester fibre</td><td>Structural</td></tr>
+<tr><td>FX volatility</td><td>Naira from ≈₦460 (mid-2023) to ≈₦1,500 (2024–25) before stabilising near ₦1,330 in 2026 <a class="src" href="#s29">[S29]</a></td><td>Structural (easing)</td></tr>
+<tr><td>Under-declaration and smuggling</td><td>Effective landed cost of informal imports ≈10–15% below compliant (Part 9); association claims of up to 85% smuggled supply <a class="src" href="#s60">[S60]</a></td><td>Structural / policy</td></tr>
+<tr><td>Design copying</td><td>Local designs copied and imported duty-free, cited by UNTL and the minister <a class="src" href="#s14">[S14]</a> <a class="src" href="#s12">[S12]</a></td><td>Policy / IP enforcement</td></tr>
+<tr><td>Ageing equipment</td><td>Mills "barely functioning with obsolete equipment" by 1997 <a class="src" href="#s59">[S59]</a></td><td>Company-specific</td></tr>
+<tr><td>Policy inconsistency</td><td>Bans imposed, lifted (2010, 2015), FX ban (2019) reversed (2023); several funds with weak results <a class="src" href="#s4">[S4]</a></td><td>Structural</td></tr>
+<tr><td>Logistics</td><td>Lagos port congestion; Lagos–Kano trucking ≈1,000 km</td><td>Structural</td></tr>
+<tr><td>Labour productivity</td><td>Wages competitive, productivity low without modern lines and training</td><td>Company-specific (fixable)</td></tr>
+<tr><td>Management and governance</td><td>Repeated closures despite fund disbursements (e.g. Kano firms receiving CTG funds still "skeletal" <a class="src" href="#s17">[S17]</a>)</td><td>Company-specific</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>Most of the gap is structural and outside any single firm's control. A new entrant can fix management, equipment and productivity, and can partly fix energy with captive gas or solar; it cannot fix fibre supply or border enforcement. Choose stages where the fixable factors dominate the cost base.</p></div>
+</section>
+
+<section class="part" id="p14">
+<span class="partno">Volume IV · Part 14</span>
+<h2 class="part">Future demand and industry forecast, 2027–2031</h2>
+<div class="tbl"><table class="num"><thead><tr><th>Assumption (annual avg)</th><th>Conservative</th><th>Base</th><th>High-growth</th></tr></thead><tbody>
+<tr><td>Population growth</td><td>2.2%</td><td>2.3%</td><td>2.4%</td></tr>
+<tr><td>Real per-capita textile spend</td><td>−0.2%</td><td>+1.2%</td><td>+3.0%</td></tr>
+<tr><td>Real market volume growth</td><td>2.0%</td><td>3.5%</td><td>5.5%</td></tr>
+<tr><td>CPI inflation</td><td>18%</td><td>12%</td><td>9%</td></tr>
+<tr><td>Naira depreciation vs US$</td><td>12%</td><td>6%</td><td>3%</td></tr>
+<tr><td>Textile price change in US$ terms</td><td>−1.5%</td><td>+1.0%</td><td>+2.0%</td></tr>
+<tr><td>Urbanisation (share urban by 2031)</td><td>56%</td><td>57%</td><td>58%</td></tr>
+<tr><td>Local manufacturing share of fabric volume, 2031</td><td>3%</td><td>8%</td><td>15%</td></tr>
+<tr><td>Trade policy</td><td>Status quo, weak enforcement</td><td>Gradual valuation reform, EO 003 applied</td><td>Enforced levy, procurement preference, Ogun hub partly built</td></tr>
+<tr><td>Institutional procurement</td><td>Flat</td><td>+5% real</td><td>+10% real</td></tr>
+</tbody></table></div>
+<figure><svg viewBox="0 0 720 300" role="img" aria-label="Market value forecast 2026 to 2031 in three scenarios">
+<line x1="56" x2="600" y1="260.0" y2="260.0" class="grid"/><text x="48" y="264.0" class="ax" text-anchor="end">$5bn</text>
+<line x1="56" x2="600" y1="212.8" y2="212.8" class="grid"/><text x="48" y="216.8" class="ax" text-anchor="end">$6bn</text>
+<line x1="56" x2="600" y1="165.6" y2="165.6" class="grid"/><text x="48" y="169.6" class="ax" text-anchor="end">$7bn</text>
+<line x1="56" x2="600" y1="118.4" y2="118.4" class="grid"/><text x="48" y="122.4" class="ax" text-anchor="end">$8bn</text>
+<line x1="56" x2="600" y1="71.2" y2="71.2" class="grid"/><text x="48" y="75.2" class="ax" text-anchor="end">$9bn</text>
+<line x1="56" x2="600" y1="24.0" y2="24.0" class="grid"/><text x="48" y="28.0" class="ax" text-anchor="end">$10bn</text>
+<text x="56.0" y="278" class="ax" text-anchor="middle">2026</text>
+<text x="164.8" y="278" class="ax" text-anchor="middle">2027</text>
+<text x="273.6" y="278" class="ax" text-anchor="middle">2028</text>
+<text x="382.4" y="278" class="ax" text-anchor="middle">2029</text>
+<text x="491.2" y="278" class="ax" text-anchor="middle">2030</text>
+<text x="600.0" y="278" class="ax" text-anchor="middle">2031</text>
+<polyline fill="none" class="s-hi" points="56.0,189.2 164.8,166.2 273.6,141.5 382.4,114.9 491.2,86.3 600.0,55.5"/>
+<circle cx="600.0" cy="55.5" r="4" class="s-hid"/><text x="608.0" y="59.5" class="val">High-growth $9.3bn</text>
+<polyline fill="none" class="s-base" points="56.0,189.2 164.8,175.4 273.6,161.0 382.4,145.9 491.2,130.1 600.0,113.7"/>
+<circle cx="600.0" cy="113.7" r="4" class="s-based"/><text x="608.0" y="117.7" class="val">Base case $8.1bn</text>
+<polyline fill="none" class="s-lo" points="56.0,189.2 164.8,187.7 273.6,186.1 382.4,184.6 491.2,183.0 600.0,181.5"/>
+<circle cx="600.0" cy="181.5" r="4" class="s-lod"/><text x="608.0" y="185.5" class="val">Conservative $6.7bn</text>
+</svg><figcaption>Retail market value in US$bn, 2026 base US$6.5bn. CAGRs: conservative 0.5%, base 4.5%, high 7.5% in US dollars.</figcaption></figure>
+<div class="tbl"><table class="num"><thead><tr><th>Base case</th><th>2026E</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th><th>CAGR</th></tr></thead><tbody>
+<tr><td>Market value, US$bn</td><td>6.50</td><td>6.79</td><td>7.10</td><td>7.42</td><td>7.75</td><td>8.10</td><td>4.5%</td></tr>
+<tr><td>Market value, ₦tn (nominal)</td><td>8.66</td><td>9.59</td><td>10.63</td><td>11.78</td><td>13.05</td><td>14.46</td><td>10.8%</td></tr>
+<tr><td>Implied ₦/US$</td><td>1,332</td><td>1,412</td><td>1,497</td><td>1,586</td><td>1,682</td><td>1,783</td><td>6.0%</td></tr>
+<tr><td>Real volume index</td><td>100</td><td>103.5</td><td>107.1</td><td>110.9</td><td>114.8</td><td>118.8</td><td>3.5%</td></tr>
+<tr><td>Fabric-equivalent, bn linear m</td><td>3.40</td><td>3.52</td><td>3.64</td><td>3.77</td><td>3.90</td><td>4.04</td><td>3.5%</td></tr>
+<tr><td>Garments (new + used), bn pieces</td><td>1.07</td><td>1.11</td><td>1.16</td><td>1.21</td><td>1.26</td><td>1.31</td><td>4.2%</td></tr>
+<tr><td>Local mill fabric output, m metres</td><td>≈130</td><td>150</td><td>180</td><td>220</td><td>270</td><td>320</td><td>20%</td></tr>
+<tr><td>Import requirement, US$bn (border value)</td><td>3.40</td><td>3.53</td><td>3.66</td><td>3.79</td><td>3.92</td><td>4.05</td><td>3.6%</td></tr>
+</tbody></table></div>
+<div class="tbl"><table class="num"><thead><tr><th>Category share of value</th><th>2026E</th><th>2031 base</th><th>Direction</th></tr></thead><tbody>
+<tr><td>Fabric for tailoring</td><td>45%</td><td>41%</td><td>Slow shift to RMG among the young</td></tr>
+<tr><td>New RMG</td><td>30%</td><td>33%</td><td>Urbanisation, modern retail</td></tr>
+<tr><td>Used clothing</td><td>6%</td><td>5%</td><td>Stable</td></tr>
+<tr><td>Home textiles</td><td>10%</td><td>11%</td><td>Housing, hospitality</td></tr>
+<tr><td>Technical &amp; nonwoven</td><td>6%</td><td>7%</td><td>Hygiene, agriculture</td></tr>
+<tr><td>Handwoven traditional</td><td>2%</td><td>2%</td><td>Fashion premium</td></tr>
+</tbody></table></div>
+<p class="caption">Nominal naira growth reflects real volume plus imported-price inflation (tracking naira depreciation more than CPI). Real growth is in volume. All forecasts are model estimates <span class="conf c-l">Low</span>.</p>
+<div class="sowhat"><b class="tag">So what?</b><p>The market adds roughly US$1.6bn of retail value by 2031 in the base case, mostly in RMG, home and technical textiles. Even the high case leaves Nigeria importing more than 85% of its fabric, so import substitution is a share-gain story inside a growing pie, not a market that will close to imports.</p></div>
+</section>
+
+<section class="part" id="p15">
+<span class="partno">Volume IV · Part 15</span>
+<h2 class="part">Business and investment opportunities</h2>
+<p>Each opportunity is scored 1–5 on twelve criteria, where 5 is always favourable to the investor (so a 5 under "capital needs" means low capital). Attractiveness averages market size, growth, margin, scalability and ROI; ability to win averages the seven execution criteria.</p>
+<div class="tbl"><table class="num"><thead><tr><th>Rank · Opportunity</th><th>Market size</th><th>Demand growth</th><th>Capital needs</th><th>EBITDA margin</th><th>Working capital</th><th>Technical complexity</th><th>Import dependence</th><th>Competitive intensity</th><th>Distribution complexity</th><th>Regulatory exposure</th><th>Scalability</th><th>Expected ROI</th><th>Attract.</th><th>Ability to win</th><th>Score</th></tr></thead><tbody>
+<tr><td>1. Large-scale domestic fabric distribution <span class="conf c-m">Model B</span></td><td>5</td><td>4</td><td>4</td><td>3</td><td>2</td><td>4</td><td>3</td><td>3</td><td>2</td><td>4</td><td>5</td><td>4</td><td>4.2</td><td>3.1</td><td><strong>3.67</strong></td></tr>
+<tr><td>2. Institutional uniform manufacturing <span class="conf c-m">Model A</span></td><td>4</td><td>4</td><td>4</td><td>3</td><td>2</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3</td><td>4</td><td>4</td><td>3.8</td><td>3.4</td><td><strong>3.61</strong></td></tr>
+<tr><td>3. Home textile manufacturing <span class="conf c-m">Model E</span></td><td>4</td><td>4</td><td>4</td><td>4</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>4</td><td>3</td><td>4</td><td>3.8</td><td>3.3</td><td><strong>3.54</strong></td></tr>
+<tr><td>4. Importing & wholesaling textiles <span class="conf c-m">Model B</span></td><td>5</td><td>4</td><td>4</td><td>3</td><td>1</td><td>5</td><td>2</td><td>2</td><td>3</td><td>3</td><td>4</td><td>4</td><td>4.0</td><td>2.9</td><td><strong>3.43</strong></td></tr>
+<tr><td>5. Ready-made garments (domestic/export CMT)</td><td>5</td><td>4</td><td>4</td><td>2</td><td>3</td><td>3</td><td>2</td><td>2</td><td>3</td><td>3</td><td>4</td><td>3</td><td>3.6</td><td>2.9</td><td><strong>3.23</strong></td></tr>
+<tr><td>6. Digital textile printing</td><td>2</td><td>5</td><td>3</td><td>4</td><td>3</td><td>2</td><td>2</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3.4</td><td>2.9</td><td><strong>3.13</strong></td></tr>
+<tr><td>7. Technical & nonwoven textiles</td><td>3</td><td>5</td><td>2</td><td>3</td><td>3</td><td>2</td><td>2</td><td>3</td><td>4</td><td>3</td><td>3</td><td>3</td><td>3.4</td><td>2.7</td><td><strong>3.06</strong></td></tr>
+<tr><td>8. Ankara & fashion-fabric print house <span class="conf c-m">Model C</span></td><td>4</td><td>3</td><td>2</td><td>3</td><td>3</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td><td>4</td><td>3</td><td>3.4</td><td>2.4</td><td><strong>2.91</strong></td></tr>
+<tr><td>9. Dyeing & finishing (commission) <span class="conf c-m">Model C</span></td><td>3</td><td>3</td><td>2</td><td>3</td><td>3</td><td>2</td><td>2</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>3.0</td><td>2.6</td><td><strong>2.79</strong></td></tr>
+<tr><td>10. Integrated textile & garment complex</td><td>5</td><td>4</td><td>1</td><td>3</td><td>2</td><td>1</td><td>2</td><td>2</td><td>2</td><td>2</td><td>5</td><td>2</td><td>3.8</td><td>1.7</td><td><strong>2.76</strong></td></tr>
+<tr><td>11. Brownfield acquisition / rehabilitation <span class="conf c-m">Model D</span></td><td>4</td><td>3</td><td>1</td><td>3</td><td>3</td><td>1</td><td>2</td><td>2</td><td>3</td><td>2</td><td>4</td><td>2</td><td>3.2</td><td>2.0</td><td><strong>2.60</strong></td></tr>
+<tr><td>12. Polyester/polycotton weaving</td><td>4</td><td>4</td><td>1</td><td>2</td><td>3</td><td>2</td><td>1</td><td>1</td><td>3</td><td>3</td><td>3</td><td>2</td><td>3.0</td><td>2.0</td><td><strong>2.50</strong></td></tr>
+<tr><td>13. Woven cotton fabric mill</td><td>3</td><td>2</td><td>1</td><td>2</td><td>3</td><td>1</td><td>2</td><td>1</td><td>3</td><td>3</td><td>3</td><td>1</td><td>2.2</td><td>2.0</td><td><strong>2.10</strong></td></tr>
+<tr><td>14. Cotton spinning mill</td><td>2</td><td>2</td><td>1</td><td>2</td><td>3</td><td>1</td><td>2</td><td>2</td><td>3</td><td>3</td><td>2</td><td>1</td><td>1.8</td><td>2.1</td><td><strong>1.97</strong></td></tr>
+</tbody></table></div>
+<figure><svg viewBox="0 0 720 440" role="img" aria-label="Opportunity attractiveness versus ability to win">
+<line x1="60.0" x2="60.0" y1="20" y2="390" class="grid"/><line x1="60" x2="680" y1="390.0" y2="390.0" class="grid"/><text x="60.0" y="406" class="ax" text-anchor="middle">1</text><text x="52" y="394.0" class="ax" text-anchor="end">1</text>
+<line x1="215.0" x2="215.0" y1="20" y2="390" class="grid"/><line x1="60" x2="680" y1="297.5" y2="297.5" class="grid"/><text x="215.0" y="406" class="ax" text-anchor="middle">2</text><text x="52" y="301.5" class="ax" text-anchor="end">2</text>
+<line x1="370.0" x2="370.0" y1="20" y2="390" class="grid"/><line x1="60" x2="680" y1="205.0" y2="205.0" class="grid"/><text x="370.0" y="406" class="ax" text-anchor="middle">3</text><text x="52" y="209.0" class="ax" text-anchor="end">3</text>
+<line x1="525.0" x2="525.0" y1="20" y2="390" class="grid"/><line x1="60" x2="680" y1="112.5" y2="112.5" class="grid"/><text x="525.0" y="406" class="ax" text-anchor="middle">4</text><text x="52" y="116.5" class="ax" text-anchor="end">4</text>
+<line x1="680.0" x2="680.0" y1="20" y2="390" class="grid"/><line x1="60" x2="680" y1="20.0" y2="20.0" class="grid"/><text x="680.0" y="406" class="ax" text-anchor="middle">5</text><text x="52" y="24.0" class="ax" text-anchor="end">5</text>
+<rect x="370.0" y="20" width="310.0" height="185.0" class="zone"/><text x="672" y="36" class="ax strong" text-anchor="end">Priority zone</text>
+<text x="370.0" y="432" class="ax strong" text-anchor="middle">Market attractiveness (size, growth, margin, scalability, ROI) →</text>
+<text transform="translate(16,205.0) rotate(-90)" class="ax strong" text-anchor="middle">Ability to win (capital, complexity, competition, regulation) →</text>
+<circle cx="556.0" cy="191.8" r="6.5" class="op-k"/><text x="566.0" y="195.8" class="lab" text-anchor="start">Distribution platform</text>
+<circle cx="494.0" cy="165.4" r="6.5" class="op-k"/><text x="504.0" y="169.4" class="lab" text-anchor="start">Uniforms</text>
+<circle cx="494.0" cy="178.6" r="6.5" class="op-k"/><text x="504.0" y="182.6" class="lab" text-anchor="start">Home textiles</text>
+<circle cx="525.0" cy="218.2" r="6.5" class="op-k"/><text x="535.0" y="222.2" class="lab" text-anchor="start">Import & wholesale</text>
+<circle cx="463.0" cy="218.2" r="6.5" class="op"/><text x="463.0" y="207.2" class="lab" text-anchor="middle">RMG / CMT</text>
+<circle cx="432.0" cy="218.2" r="6.5" class="op"/><text x="422.0" y="222.2" class="lab" text-anchor="end">Digital printing</text>
+<circle cx="432.0" cy="231.4" r="6.5" class="op"/><text x="442.0" y="235.4" class="lab" text-anchor="start">Nonwoven/technical</text>
+<circle cx="432.0" cy="257.9" r="6.5" class="op-k"/><text x="442.0" y="261.9" class="lab" text-anchor="start">Print house</text>
+<circle cx="370.0" cy="244.6" r="6.5" class="op-k"/><text x="360.0" y="248.6" class="lab" text-anchor="end">Dye & finish</text>
+<circle cx="494.0" cy="323.9" r="6.5" class="op"/><text x="504.0" y="327.9" class="lab" text-anchor="start">Integrated complex</text>
+<circle cx="401.0" cy="297.5" r="6.5" class="op-k"/><text x="411.0" y="301.5" class="lab" text-anchor="start">Brownfield rehab</text>
+<circle cx="370.0" cy="297.5" r="6.5" class="op"/><text x="360.0" y="301.5" class="lab" text-anchor="end">Polycotton weaving</text>
+<circle cx="246.0" cy="297.5" r="6.5" class="op"/><text x="236.0" y="301.5" class="lab" text-anchor="end">Cotton weaving</text>
+<circle cx="184.0" cy="284.3" r="6.5" class="op"/><text x="194.0" y="288.3" class="lab" text-anchor="start">Cotton spinning</text>
+</svg><figcaption>Filled dots are the five opportunities modelled in Part 16. Positions come directly from the scoring table above.</figcaption></figure>
+<h3>Fit by cheque size</h3>
+<div class="tbl"><table><thead><tr><th>Investment</th><th>Suitable opportunities</th></tr></thead><tbody>
+<tr><td>US$1m</td><td>Digital print studio for designers and aso-ebi short runs; adire/aso-oke brand aggregator; e-commerce fabric retailer</td></tr>
+<tr><td>US$5m</td><td>Home-textile cut-and-sew (Model E, first phase); uniform CMT for schools and private security; regional fabric wholesaler in one city</td></tr>
+<tr><td>US$10m</td><td>Institutional uniform and workwear plant (Model A); nonwoven converting line</td></tr>
+<tr><td>US$25m</td><td>National distribution platform with working capital (Model B) plus Model E; or a print and finishing house (Model C) once triggers are met</td></tr>
+<tr><td>US$50m</td><td>Platform B + A + E with a Benin GDIZ sourcing JV for ECOWAS-origin cotton goods</td></tr>
+<tr><td>US$100m</td><td>Full programme: B, A, E, C and a minority stake in a regional spinning/weaving partner; never a standalone greenfield integrated mill</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>The ranking is clear and stable under reasonable re-weighting: own the customer (distribution), then add low-capital conversion (uniforms, home textiles), then printing. Upstream fibre and fabric manufacturing ranks last.</p></div>
+</section>
+
+<section class="part" id="p16">
+<span class="partno">Volume IV · Part 16</span>
+<h2 class="part">Detailed financial feasibility: five preliminary models</h2>
+<p>All five models are desktop estimates in constant 2026 US dollars, with a 10-year explicit horizon, 30% corporate tax, straight-line depreciation over 10 years, working capital released in Year 10, an exit value of 4.5× Year-10 EBITDA and an 18% US-dollar discount rate reflecting Nigeria country and sector risk. They are not engineering quotations and must be rebuilt with supplier quotes, site surveys and audited partner data before any investment committee.</p>
+<div class="tbl"><table class="num"><thead><tr><th>Model</th><th>CAPEX $m</th><th>Y5 revenue $m</th><th>Y5 EBITDA %</th><th>Breakeven util.</th><th>Payback</th><th>IRR</th><th>NPV @18%</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>Model B: Fabric import & wholesale distribution platform</td><td>4.0</td><td>55.2</td><td>13%</td><td>24%</td><td>5.7 yrs</td><td>31.5%</td><td>+10.6</td><td>Proceed (phase 1)</td></tr>
+<tr><td>Model E: Home textiles & hospitality linen</td><td>6.0</td><td>19.7</td><td>20%</td><td>22%</td><td>5.2 yrs</td><td>26.9%</td><td>+4.7</td><td>Proceed (phase 1–2)</td></tr>
+<tr><td>Model A: Institutional uniform & workwear factory</td><td>9.0</td><td>22.9</td><td>18%</td><td>27%</td><td>6.4 yrs</td><td>20.6%</td><td>+1.9</td><td>Proceed with anchor contracts</td></tr>
+<tr><td>Model C: Print, dye & finishing house (Ankara/prints)</td><td>22.0</td><td>33.6</td><td>15%</td><td>30%</td><td>8.8 yrs</td><td>11.7%</td><td>-8.4</td><td>Conditional: needs price/landed-cost protection</td></tr>
+<tr><td>Model D: Brownfield mill rehabilitation (weave + print JV)</td><td>35.0</td><td>43.1</td><td>17%</td><td>30%</td><td>9.1 yrs</td><td>9.9%</td><td>-16.2</td><td>Avoid unless asset ≤ $3m & labour liabilities excluded</td></tr>
+</tbody></table></div>
+<p>Two upside tests for the manufacturing-heavy cases show what would have to change. If a print house (Model C) could sell at ₦1,600/m (US$1.20) instead of ₦1,400, for example because valuation reform narrows the informal import discount, its IRR rises to about <strong>23%</strong> and NPV to ≈+US$7.6m. A brownfield mill (Model D) at US$1.30/m reaches about <strong>19%</strong>. Both cases are bets on enforcement rather than on operations.</p>
+<section class="model" id="model-b"><h3>Model B — Fabric import & wholesale distribution platform</h3>
+<dl class="spec"><div><dt>Business model & customers</dt><dd>Lagos Island, Kantin Kwari, Onitsha and Aba wholesalers; tailoring hubs; institutional buyers; e-commerce resellers</dd></div><div><dt>Product portfolio</dt><dd>Mid-tier polyester & polycotton prints, plain dyed uniform fabrics, shirting, suiting, voile/lace basics under a private label</dd></div><div><dt>Planned capacity</dt><dd>60m metres/yr throughput at maturity (≈150 FCL/month)</dd></div><div><dt>Machinery</dt><dd>Not machinery-led: 3 bonded/regional warehouses (Lagos, Kano, Onitsha), 25 trucks, WMS/ERP, sampling studio</dd></div><div><dt>Land & building</dt><dd>≈18,000 m² warehousing across three sites</dd></div><div><dt>Staffing</dt><dd>≈220 (sales force 70, warehouse 90, logistics 40, finance/compliance 20)</dd></div><div><dt>Raw materials</dt><dd>Sourcing contracts with 6–10 mills in China, India, Türkiye and ECOWAS (Benin GDIZ for duty-free cotton goods)</dd></div><div><dt>Power & utilities</dt><dd>Minor (≈150 kW), grid + solar</dd></div><div><dt>CAPEX</dt><dd>$4.0m (warehouse fit-out $1.6m, fleet $1.4m, systems $0.5m, other $0.5m) plus ≈$15m peak working capital</dd></div><div><dt>Monthly OPEX</dt><dd>Fixed ≈$0.22m/month; landed cost of goods ≈82% of net revenue</dd></div><div><dt>Unit economics</dt><dd>Net revenue $1.00/m; landed COGS $0.82/m; gross margin 18%</dd></div></dl>
+<div class="tbl"><table class="num"><thead><tr><th>US$ m (constant 2026 USD)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead><tbody>
+<tr><td>Utilisation</td><td>33%</td><td>50%</td><td>65%</td><td>80%</td><td>92%</td></tr>
+<tr><td>Volume (m metres)</td><td>19.8</td><td>30.0</td><td>39.0</td><td>48.0</td><td>55.2</td></tr>
+<tr><td>Revenue</td><td>19.8</td><td>30.0</td><td>39.0</td><td>48.0</td><td>55.2</td></tr>
+<tr><td>Gross profit</td><td>3.6</td><td>5.4</td><td>7.0</td><td>8.6</td><td>9.9</td></tr>
+<tr><td>Gross margin</td><td>18%</td><td>18%</td><td>18%</td><td>18%</td><td>18%</td></tr>
+<tr><td>EBITDA</td><td>1.0</td><td>2.8</td><td>4.4</td><td>6.0</td><td>7.3</td></tr>
+<tr><td>EBITDA margin</td><td>5%</td><td>9%</td><td>11%</td><td>13%</td><td>13%</td></tr>
+<tr><td>Free cash flow (after tax & ΔWC)</td><td>-4.7</td><td>-0.8</td><td>0.7</td><td>1.8</td><td>3.2</td></tr>
+</tbody></table></div>
+<div class="kpis"><div><span>Initial CAPEX</span><b>$4.0m</b></div><div><span>Working capital</span><b>28% of sales</b></div><div><span>Breakeven utilisation</span><b>24%</b></div><div><span>Payback</span><b>5.7 yrs</b></div><div><span>Project IRR (10-yr, USD)</span><b>31.5%</b></div><div><span>NPV @ 18% USD</span><b>$10.6m</b></div></div>
+<div class="tbl"><table class="num sens"><thead><tr><th>Sensitivity</th><th>IRR</th><th>NPV @18% ($m)</th><th>Δ NPV vs base</th></tr></thead><tbody>
+<tr><td>Base</td><td>31.5%</td><td>10.6</td><td>+0.0</td></tr>
+<tr><td>Price −10%</td><td>7.5%</td><td class="neg">-6.9</td><td>-17.5</td></tr>
+<tr><td>Utilisation −15 pts</td><td>25.7%</td><td>5.5</td><td>-5.1</td></tr>
+<tr><td>Raw material +10%</td><td>15.3%</td><td class="neg">-2.0</td><td>-12.6</td></tr>
+<tr><td>Energy cost +50%</td><td>31.5%</td><td>10.6</td><td>+0.0</td></tr>
+<tr><td>Working capital +30%</td><td>27.1%</td><td>8.4</td><td>-2.3</td></tr>
+<tr><td>FX shock (−20% naira, 70% pass-through)</td><td>18.4%</td><td>0.3</td><td>-10.4</td></tr>
+</tbody></table></div></section>
+<section class="model" id="model-e"><h3>Model E — Home textiles & hospitality linen</h3>
+<dl class="spec"><div><dt>Business model & customers</dt><dd>Hotels and short-let operators, hospitals, retail chains, modern-trade bedding brands, government housing projects</dd></div><div><dt>Product portfolio</dt><dd>Bedsheets & duvet sets, towels (cut & hem from imported terry), curtains, hospital linen</dd></div><div><dt>Planned capacity</dt><dd>4.0m units/yr</dd></div><div><dt>Machinery</dt><dd>Automatic hemming & cut-to-length lines, quilting, sewing, packaging</dd></div><div><dt>Land & building</dt><dd>≈8,000 m² on 2 ha</dd></div><div><dt>Staffing</dt><dd>≈380</dd></div><div><dt>Raw materials</dt><dd>Wide-width polycotton/cotton sheeting and terry (imported; Sunflag-type local supply where available)</dd></div><div><dt>Power & utilities</dt><dd>≈0.8 MW</dd></div><div><dt>CAPEX</dt><dd>$6.0m: machinery $2.6m, building fit-out $1.8m, power $1.0m, other $0.6m</dd></div><div><dt>Monthly OPEX</dt><dd>Fixed ≈$0.12m/month; variable cost 73% of revenue</dd></div><div><dt>Unit economics</dt><dd>ASP $6.00/unit; variable $4.38; contribution $1.62</dd></div></dl>
+<div class="tbl"><table class="num"><thead><tr><th>US$ m (constant 2026 USD)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead><tbody>
+<tr><td>Utilisation</td><td>35%</td><td>55%</td><td>70%</td><td>78%</td><td>82%</td></tr>
+<tr><td>Volume (m units)</td><td>1.4</td><td>2.2</td><td>2.8</td><td>3.1</td><td>3.3</td></tr>
+<tr><td>Revenue</td><td>8.4</td><td>13.2</td><td>16.8</td><td>18.7</td><td>19.7</td></tr>
+<tr><td>Gross profit</td><td>2.3</td><td>3.6</td><td>4.5</td><td>5.1</td><td>5.3</td></tr>
+<tr><td>Gross margin</td><td>27%</td><td>27%</td><td>27%</td><td>27%</td><td>27%</td></tr>
+<tr><td>EBITDA</td><td>0.9</td><td>2.2</td><td>3.1</td><td>3.7</td><td>3.9</td></tr>
+<tr><td>EBITDA margin</td><td>10%</td><td>16%</td><td>19%</td><td>20%</td><td>20%</td></tr>
+<tr><td>Free cash flow (after tax & ΔWC)</td><td>-1.3</td><td>0.5</td><td>1.5</td><td>2.2</td><td>2.7</td></tr>
+</tbody></table></div>
+<div class="kpis"><div><span>Initial CAPEX</span><b>$6.0m</b></div><div><span>Working capital</span><b>25% of sales</b></div><div><span>Breakeven utilisation</span><b>22%</b></div><div><span>Payback</span><b>5.2 yrs</b></div><div><span>Project IRR (10-yr, USD)</span><b>26.9%</b></div><div><span>NPV @ 18% USD</span><b>$4.7m</b></div></div>
+<div class="tbl"><table class="num sens"><thead><tr><th>Sensitivity</th><th>IRR</th><th>NPV @18% ($m)</th><th>Δ NPV vs base</th></tr></thead><tbody>
+<tr><td>Base</td><td>26.9%</td><td>4.7</td><td>+0.0</td></tr>
+<tr><td>Price −10%</td><td>13.8%</td><td class="neg">-1.9</td><td>-6.6</td></tr>
+<tr><td>Utilisation −15 pts</td><td>20.5%</td><td>1.2</td><td>-3.5</td></tr>
+<tr><td>Raw material +10%</td><td>18.9%</td><td>0.5</td><td>-4.2</td></tr>
+<tr><td>Energy cost +50%</td><td>25.1%</td><td>3.7</td><td>-1.0</td></tr>
+<tr><td>Working capital +30%</td><td>24.9%</td><td>3.9</td><td>-0.8</td></tr>
+<tr><td>FX shock (−20% naira, 70% pass-through)</td><td>19.6%</td><td>0.8</td><td>-3.9</td></tr>
+</tbody></table></div></section>
+<section class="model" id="model-a"><h3>Model A — Institutional uniform & workwear factory</h3>
+<dl class="spec"><div><dt>Business model & customers</dt><dd>Federal & state uniformed services, NYSC, oil & gas and construction contractors, private schools, banks/corporates</dd></div><div><dt>Product portfolio</dt><dd>Shirts, trousers, coveralls, kaftans, school uniforms, caps; reflective PPE garments</dd></div><div><dt>Planned capacity</dt><dd>3.0m garments/yr at 2 shifts (≈600 sewing stations, CAD cutting room)</dd></div><div><dt>Machinery</dt><dd>Lockstitch/overlock/bartack lines, automatic spreaders, CAD/CAM marker & cutter, embroidery heads, steam finishing</dd></div><div><dt>Land & building</dt><dd>≈12,000 m² factory on 3 ha (lease preferred; Lagos–Ogun corridor)</dd></div><div><dt>Staffing</dt><dd>≈900 at steady state (≈780 operators, 60 supervisors/QA, 60 admin/sales)</dd></div><div><dt>Raw materials</dt><dd>≈7.5m metres/yr polyester-cotton & cotton twill/poplin (imported initially; local fabric when price-competitive)</dd></div><div><dt>Power & utilities</dt><dd>≈1.6 MW peak; Band A grid + 2 MW solar/gas hybrid</dd></div><div><dt>CAPEX</dt><dd>$9.0m: building fit-out $3.0m, machinery & CAD $2.5m, power $2.2m, IT/ERP & other $1.3m</dd></div><div><dt>Monthly OPEX</dt><dd>Fixed overhead ≈$0.17m/month; variable cost 73% of revenue (fabric & trims ≈52%, direct labour ≈12%, energy ≈4%, other ≈5%)</dd></div><div><dt>Unit economics</dt><dd>ASP $9.00 (≈₦12,000) blended; variable cost $6.57; contribution $2.43</dd></div></dl>
+<div class="tbl"><table class="num"><thead><tr><th>US$ m (constant 2026 USD)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead><tbody>
+<tr><td>Utilisation</td><td>40%</td><td>60%</td><td>75%</td><td>80%</td><td>85%</td></tr>
+<tr><td>Volume (m garments)</td><td>1.2</td><td>1.8</td><td>2.2</td><td>2.4</td><td>2.5</td></tr>
+<tr><td>Revenue</td><td>10.8</td><td>16.2</td><td>20.2</td><td>21.6</td><td>22.9</td></tr>
+<tr><td>Gross profit</td><td>2.9</td><td>4.4</td><td>5.5</td><td>5.8</td><td>6.2</td></tr>
+<tr><td>Gross margin</td><td>27%</td><td>27%</td><td>27%</td><td>27%</td><td>27%</td></tr>
+<tr><td>EBITDA</td><td>0.9</td><td>2.4</td><td>3.5</td><td>3.8</td><td>4.2</td></tr>
+<tr><td>EBITDA margin</td><td>8%</td><td>15%</td><td>17%</td><td>18%</td><td>18%</td></tr>
+<tr><td>Free cash flow (after tax & ΔWC)</td><td>-2.4</td><td>0.3</td><td>1.5</td><td>2.5</td><td>2.8</td></tr>
+</tbody></table></div>
+<div class="kpis"><div><span>Initial CAPEX</span><b>$9.0m</b></div><div><span>Working capital</span><b>30% of sales</b></div><div><span>Breakeven utilisation</span><b>27%</b></div><div><span>Payback</span><b>6.4 yrs</b></div><div><span>Project IRR (10-yr, USD)</span><b>20.6%</b></div><div><span>NPV @ 18% USD</span><b>$1.9m</b></div></div>
+<div class="tbl"><table class="num sens"><thead><tr><th>Sensitivity</th><th>IRR</th><th>NPV @18% ($m)</th><th>Δ NPV vs base</th></tr></thead><tbody>
+<tr><td>Base</td><td>20.6%</td><td>1.9</td><td>+0.0</td></tr>
+<tr><td>Price −10%</td><td>8.4%</td><td class="neg">-6.0</td><td>-7.9</td></tr>
+<tr><td>Utilisation −15 pts</td><td>15.1%</td><td class="neg">-2.0</td><td>-3.8</td></tr>
+<tr><td>Raw material +10%</td><td>13.3%</td><td class="neg">-3.2</td><td>-5.1</td></tr>
+<tr><td>Energy cost +50%</td><td>18.4%</td><td>0.3</td><td>-1.6</td></tr>
+<tr><td>Working capital +30%</td><td>19.0%</td><td>0.8</td><td>-1.1</td></tr>
+<tr><td>FX shock (−20% naira, 70% pass-through)</td><td>13.8%</td><td class="neg">-2.8</td><td>-4.7</td></tr>
+</tbody></table></div></section>
+<section class="model" id="model-c"><h3>Model C — Print, dye & finishing house (Ankara/prints)</h3>
+<dl class="spec"><div><dt>Business model & customers</dt><dd>Ankara and print wholesalers; aso-ebi event organisers; fashion brands; institutional print buyers</dd></div><div><dt>Product portfolio</dt><dd>Rotary-screen wax-look and fancy prints, digitally printed short runs, piece-dyed polycotton, finishing-for-hire</dd></div><div><dt>Planned capacity</dt><dd>40m metres/yr (2 rotary lines + 6 high-speed digital printers + continuous dye range)</dd></div><div><dt>Machinery</dt><dd>Singeing/desizing/bleaching range, mercerizer, 2 rotary-screen printers, 6 single-pass/scanning digital printers, steamers, stenters, effluent treatment plant</dd></div><div><dt>Land & building</dt><dd>≈20,000 m² on 6 ha (water access and ETP footprint drive siting)</dd></div><div><dt>Staffing</dt><dd>≈420</dd></div><div><dt>Raw materials</dt><dd>≈44m metres greige cloth (imported initially), dyes & chemicals (imported), wax/resins</dd></div><div><dt>Power & utilities</dt><dd>≈5 MW electric + steam; captive gas engine CHP with Band A backup</dd></div><div><dt>CAPEX</dt><dd>$22.0m: printing & finishing machinery $11.5m, ETP & water $3.0m, CHP/boilers $4.5m, buildings $2.5m, other $0.5m</dd></div><div><dt>Monthly OPEX</dt><dd>Fixed ≈$0.27m/month; variable cost 75% of revenue (greige ≈52%, chemicals ≈11%, energy ≈8%, labour & other ≈4%)</dd></div><div><dt>Unit economics</dt><dd>ASP $1.05/m ex-factory; variable $0.79/m; contribution $0.26/m</dd></div></dl>
+<div class="tbl"><table class="num"><thead><tr><th>US$ m (constant 2026 USD)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead><tbody>
+<tr><td>Utilisation</td><td>30%</td><td>50%</td><td>65%</td><td>75%</td><td>80%</td></tr>
+<tr><td>Volume (m metres)</td><td>12.0</td><td>20.0</td><td>26.0</td><td>30.0</td><td>32.0</td></tr>
+<tr><td>Revenue</td><td>12.6</td><td>21.0</td><td>27.3</td><td>31.5</td><td>33.6</td></tr>
+<tr><td>Gross profit</td><td>3.2</td><td>5.2</td><td>6.8</td><td>7.9</td><td>8.4</td></tr>
+<tr><td>Gross margin</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td></tr>
+<tr><td>EBITDA</td><td>-0.0</td><td>2.0</td><td>3.6</td><td>4.7</td><td>5.2</td></tr>
+<tr><td>EBITDA margin</td><td>-0%</td><td>10%</td><td>13%</td><td>15%</td><td>15%</td></tr>
+<tr><td>Free cash flow (after tax & ΔWC)</td><td>-2.8</td><td>0.2</td><td>1.7</td><td>2.9</td><td>3.8</td></tr>
+</tbody></table></div>
+<div class="kpis"><div><span>Initial CAPEX</span><b>$22.0m</b></div><div><span>Working capital</span><b>22% of sales</b></div><div><span>Breakeven utilisation</span><b>30%</b></div><div><span>Payback</span><b>8.8 yrs</b></div><div><span>Project IRR (10-yr, USD)</span><b>11.7%</b></div><div><span>NPV @ 18% USD</span><b>−$8.4m</b></div></div>
+<div class="tbl"><table class="num sens"><thead><tr><th>Sensitivity</th><th>IRR</th><th>NPV @18% ($m)</th><th>Δ NPV vs base</th></tr></thead><tbody>
+<tr><td>Base</td><td>11.7%</td><td class="neg">-8.4</td><td>+0.0</td></tr>
+<tr><td>Price −10%</td><td>-0.7%</td><td class="neg">-20.3</td><td>-12.0</td></tr>
+<tr><td>Utilisation −15 pts</td><td>6.1%</td><td class="neg">-14.5</td><td>-6.1</td></tr>
+<tr><td>Raw material +10%</td><td>4.6%</td><td class="neg">-16.0</td><td>-7.7</td></tr>
+<tr><td>Energy cost +50%</td><td>7.7%</td><td class="neg">-12.9</td><td>-4.5</td></tr>
+<tr><td>Working capital +30%</td><td>11.1%</td><td class="neg">-9.5</td><td>-1.1</td></tr>
+<tr><td>FX shock (−20% naira, 70% pass-through)</td><td>5.2%</td><td class="neg">-15.3</td><td>-7.0</td></tr>
+</tbody></table></div></section>
+<section class="model" id="model-d"><h3>Model D — Brownfield mill rehabilitation (weave + print JV)</h3>
+<dl class="spec"><div><dt>Business model & customers</dt><dd>As C, plus grey-cloth sales to uniform makers; brand legacy buyers of a revived Nigerian print label</dd></div><div><dt>Product portfolio</dt><dd>Grey cloth, printed cotton & polycotton, plain-dyed uniform fabric</dd></div><div><dt>Planned capacity</dt><dd>50m metres/yr woven + printed after rehabilitation</dd></div><div><dt>Machinery</dt><dd>Replace ≈60% of looms with air-jet, overhaul print/finish lines, new ETP, new power island</dd></div><div><dt>Land & building</dt><dd>Existing site (typically 10–30 ha with legacy buildings)</dd></div><div><dt>Staffing</dt><dd>≈900 (legacy labour liabilities must be ring-fenced)</dd></div><div><dt>Raw materials</dt><dd>Polyester & cotton yarn (mostly imported), greige for printing top-up</dd></div><div><dt>Power & utilities</dt><dd>≈8 MW; gas CHP plus grid</dd></div><div><dt>CAPEX</dt><dd>$35.0m: acquisition $8m, rehabilitation & machinery $19m, power $6m, contingency $2m</dd></div><div><dt>Monthly OPEX</dt><dd>Fixed ≈$0.40m/month; variable cost 72% of revenue</dd></div><div><dt>Unit economics</dt><dd>ASP $1.15/m; variable $0.83/m; contribution $0.32/m</dd></div></dl>
+<div class="tbl"><table class="num"><thead><tr><th>US$ m (constant 2026 USD)</th><th>Y1</th><th>Y2</th><th>Y3</th><th>Y4</th><th>Y5</th></tr></thead><tbody>
+<tr><td>Utilisation</td><td>25%</td><td>45%</td><td>60%</td><td>70%</td><td>75%</td></tr>
+<tr><td>Volume (m metres)</td><td>12.5</td><td>22.5</td><td>30.0</td><td>35.0</td><td>37.5</td></tr>
+<tr><td>Revenue</td><td>14.4</td><td>25.9</td><td>34.5</td><td>40.2</td><td>43.1</td></tr>
+<tr><td>Gross profit</td><td>4.0</td><td>7.2</td><td>9.7</td><td>11.3</td><td>12.1</td></tr>
+<tr><td>Gross margin</td><td>28%</td><td>28%</td><td>28%</td><td>28%</td><td>28%</td></tr>
+<tr><td>EBITDA</td><td>-0.8</td><td>2.4</td><td>4.9</td><td>6.5</td><td>7.3</td></tr>
+<tr><td>EBITDA margin</td><td>-5%</td><td>9%</td><td>14%</td><td>16%</td><td>17%</td></tr>
+<tr><td>Free cash flow (after tax & ΔWC)</td><td>-3.9</td><td>-0.1</td><td>2.4</td><td>4.2</td><td>5.4</td></tr>
+</tbody></table></div>
+<div class="kpis"><div><span>Initial CAPEX</span><b>$35.0m</b></div><div><span>Working capital</span><b>22% of sales</b></div><div><span>Breakeven utilisation</span><b>30%</b></div><div><span>Payback</span><b>9.1 yrs</b></div><div><span>Project IRR (10-yr, USD)</span><b>9.9%</b></div><div><span>NPV @ 18% USD</span><b>−$16.2m</b></div></div>
+<div class="tbl"><table class="num sens"><thead><tr><th>Sensitivity</th><th>IRR</th><th>NPV @18% ($m)</th><th>Δ NPV vs base</th></tr></thead><tbody>
+<tr><td>Base</td><td>9.9%</td><td class="neg">-16.2</td><td>+0.0</td></tr>
+<tr><td>Price −10%</td><td>-0.7%</td><td class="neg">-31.3</td><td>-15.1</td></tr>
+<tr><td>Utilisation −15 pts</td><td>3.9%</td><td class="neg">-25.9</td><td>-9.7</td></tr>
+<tr><td>Raw material +10%</td><td>4.1%</td><td class="neg">-25.5</td><td>-9.3</td></tr>
+<tr><td>Energy cost +50%</td><td>5.7%</td><td class="neg">-23.0</td><td>-6.8</td></tr>
+<tr><td>Working capital +30%</td><td>9.5%</td><td class="neg">-17.6</td><td>-1.4</td></tr>
+<tr><td>FX shock (−20% naira, 70% pass-through)</td><td>4.2%</td><td class="neg">-25.0</td><td>-8.8</td></tr>
+</tbody></table></div></section>
+<div class="sowhat"><b class="tag">So what?</b><p>Distribution, home textiles and uniforms clear an 18% dollar hurdle with margin to spare and survive most single shocks; the price and raw-material sensitivities are the ones to manage, through sourcing scale and contract pricing. Printing and mill rehabilitation only work if landed import prices rise; sequence them as options, not as the entry move.</p></div>
+</section>
+
+<section class="part" id="p17">
+<span class="partno">Volume V · Part 17</span>
+<h2 class="part">Market entry and go-to-market strategy</h2>
+<div class="tbl"><table><thead><tr><th>Entry model</th><th>Investment</th><th>Time to market</th><th>Control</th><th>Scalability</th><th>Execution risk</th><th>Return potential</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>Import-first</td><td>US$2–5m + working capital</td><td>3–6 months</td><td>Medium</td><td>High</td><td>FX, customs, credit</td><td>20–30% IRR</td><td><strong>Start here</strong></td></tr>
+<tr><td>Distribution-led (own warehouses, sales force, brand)</td><td>US$4m + ≈US$15m WC</td><td>6–12 months</td><td>High</td><td>High</td><td>Receivables, theft, staff</td><td>25–35% IRR</td><td><strong>Core platform</strong></td></tr>
+<tr><td>Contract manufacturing (in Benin, Asia, or with local CMT)</td><td>Low</td><td>3–6 months</td><td>Low–medium</td><td>Medium</td><td>Quality, origin rules</td><td>Margin uplift on platform</td><td>Use for private label</td></tr>
+<tr><td>Greenfield manufacturing (cut-and-sew)</td><td>US$6–10m per plant</td><td>12–18 months</td><td>High</td><td>Medium</td><td>Ramp-up, tenders</td><td>20–27% IRR</td><td>Phase 2</td></tr>
+<tr><td>Greenfield manufacturing (mill)</td><td>US$40–150m</td><td>30–42 months</td><td>High</td><td>Low</td><td>Energy, fibre, enforcement</td><td>&lt;12% IRR today</td><td>Avoid</td></tr>
+<tr><td>Brownfield acquisition</td><td>US$20–50m</td><td>18–30 months</td><td>High</td><td>Medium</td><td>Legacy liabilities, re-equipment</td><td>≈10% IRR base</td><td>Only as land/brand deal</td></tr>
+<tr><td>JV with existing manufacturer</td><td>US$5–20m</td><td>9–18 months</td><td>Shared</td><td>Medium</td><td>Partner governance</td><td>Varies</td><td>Selective (e.g. Sunflag-type for home textiles)</td></tr>
+<tr><td>Integrated manufacturing + distribution</td><td>US$60–100m</td><td>36+ months</td><td>High</td><td>High</td><td>Highest</td><td>15–20% if triggers met</td><td>End-state, by staged build</td></tr>
+</tbody></table></div>
+<h3>24-month launch roadmap</h3>
+<div class="tbl"><table><thead><tr><th>Months</th><th>Workstream</th><th>Key outputs</th><th>Gate</th></tr></thead><tbody>
+<tr><td>0–3</td><td>Market validation &amp; field diligence (Part 18)</td><td>Trader panel, price survey in 4 markets, customs-broker landed-cost quotes, institutional buyer pipeline</td><td>Board approves Phase 1</td></tr>
+<tr><td>2–5</td><td>Entity, licences, banking</td><td>CAC incorporation, NIPC registration, Form M facility, SONCAP and NAFDAC (where needed), tax incentive applications</td><td>Ready to import</td></tr>
+<tr><td>3–6</td><td>Sourcing</td><td>6–10 mills qualified in China, India, Türkiye and ECOWAS; private-label specifications; QC agent</td><td>First 20 containers ordered</td></tr>
+<tr><td>4–8</td><td>Channel set-up</td><td>Lagos warehouse; Kano and Onitsha depots; 40-person sales force; trade-credit scoring</td><td>First sales</td></tr>
+<tr><td>6–12</td><td>Factory evaluation</td><td>Ogun site selection, power study (gas/solar), equipment RFQs for uniform and home-textile plants; review of idle mills as land options</td><td>Phase 2 capex approved</td></tr>
+<tr><td>6–12</td><td>Partner due diligence</td><td>Benin GDIZ sourcing JV terms; JV screening with existing Nigerian producers</td><td>Term sheets</td></tr>
+<tr><td>10–18</td><td>Build &amp; recruitment</td><td>Plant fit-out; 600–900 operators trained; ERP and MES</td><td>Trial production</td></tr>
+<tr><td>15–24</td><td>Commercialisation</td><td>Uniform tenders and framework contracts; hotel and retail home-textile accounts; brand launch for mid-tier prints</td><td>Year-2 targets</td></tr>
+</tbody></table></div>
+<div class="sowhat"><b class="tag">So what?</b><p>Revenue can start within six months through imports, funding the learning needed for the manufacturing decisions in months 6–12. Nothing irreversible is committed before the field data come back.</p></div>
+</section>
+
+<section class="part" id="p18">
+<span class="partno">Volume V · Part 18</span>
+<h2 class="part">Field research and due diligence plan</h2>
+<p>The following cannot be established reliably from the desk and must be validated before capital is committed: true import volumes and effective duty paid; wholesale and retail prices by grade; trader credit terms; the status and condition of named mills; institutional procurement volumes and payment behaviour; and the progress of the Ogun mega-project.</p>
+<div class="tbl"><table><thead><tr><th>Module</th><th>Sample</th><th>Locations</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Manufacturer interviews &amp; factory visits</td><td>10–12 (Sunflag, UNTL, ATM, Tofa, Chellco, garment makers)</td><td>Lagos, Kaduna, Kano</td><td>Asset condition, capacity, willingness to sell or partner</td></tr>
+<tr><td>Importer interviews</td><td>15–20</td><td>Lagos Island, Kano, Onitsha</td><td>Volumes, sourcing, landed costs, credit</td></tr>
+<tr><td>Wholesale trader panel</td><td>60 (20 per market)</td><td>Balogun/Idumota, Kantin Kwari, Onitsha</td><td>Prices, turnover, brand shares, payment terms</td></tr>
+<tr><td>Dealer and retailer survey</td><td>150</td><td>Six cities</td><td>Margins, stock-turn, consumer trends</td></tr>
+<tr><td>Consumer research</td><td>1,200 (quantitative) + 12 focus groups</td><td>Lagos, Kano, Abuja, Onitsha, Ibadan, Port Harcourt</td><td>Spend, category mix, brand perception, willingness to pay</td></tr>
+<tr><td>Customs broker consultations</td><td>8</td><td>Apapa, Tin Can, Seme border</td><td>Actual duty paid, valuation practice, clearance times</td></tr>
+<tr><td>Industry associations</td><td>6</td><td>NTMA, MAN, NUTGTWN, NACOTAN, ginners, fashion council</td><td>Policy direction, enforcement, member status</td></tr>
+<tr><td>Institutional buyers</td><td>15</td><td>Police, Army, NYSC, NSCDC, oil &amp; gas, school chains, hotel groups</td><td>Volumes, specifications, payment cycles, local-content rules</td></tr>
+</tbody></table></div>
+<h3>High-value interview questions</h3>
+<div class="two">
+<div><h4>Importers and brokers</h4>
+<ol class="prose">
+<li>How many containers of each fabric category do you clear per month, and how has that changed since 2024?</li>
+<li>What duty, levies and VAT do you actually pay per container, as a percentage of invoice value?</li>
+<li>What share of your goods enters through Cotonou or land borders?</li>
+<li>What payment terms do your Chinese and Indian suppliers give, and what do you give wholesalers?</li>
+<li>What are your landed costs per metre for your three best sellers?</li>
+<li>How quickly do designs need to change to keep shelf space?</li>
+<li>Which buyers require formal invoices and SONCAP-compliant goods?</li>
+<li>What would make you buy from a Nigerian printer instead of importing?</li>
+</ol></div>
+<div><h4>Wholesalers and retailers</h4>
+<ol class="prose" start="9">
+<li>Which ten items sell the most by volume and by value?</li>
+<li>What are your buy and sell prices per 6-yard piece by grade today?</li>
+<li>How many days of credit do you take and give?</li>
+<li>How do customers judge quality (weight, colour-fastness, selvedge print)?</li>
+<li>How big are the Christmas, Sallah and wedding-season peaks?</li>
+<li>Which brands command a premium, and how much?</li>
+<li>What share of your stock is "made in Nigeria", and why?</li>
+<li>How has the Chinese-linked trading presence changed your business?</li>
+</ol></div>
+<div><h4>Manufacturers</h4>
+<ol class="prose" start="17">
+<li>What is your installed capacity by stage and actual output this year?</li>
+<li>What do you pay per kWh across grid, gas and diesel?</li>
+<li>What is the age and condition of your key machines?</li>
+<li>Where do you buy lint, yarn, greige and dyes, and at what price?</li>
+<li>What are your labour costs and productivity per operator?</li>
+<li>What legacy liabilities (pensions, debts, tax) attach to the site?</li>
+<li>Have you received BOI or CTG fund loans, and on what terms?</li>
+<li>Would you consider a JV, lease or sale?</li>
+</ol></div>
+<div><h4>Institutional buyers, associations, consumers</h4>
+<ol class="prose" start="25">
+<li>How many uniforms do you procure each year, and to what specification?</li>
+<li>How is Executive Order 003 applied in your tenders?</li>
+<li>What is your typical payment cycle after delivery?</li>
+<li>Who are your current suppliers, and where do they source fabric?</li>
+<li>How many members of your association are operating, and at what utilisation?</li>
+<li>Which policy change would most help local production?</li>
+<li>When will the CTG Development Board begin financing?</li>
+<li>What is the status of the Ogun cotton and garment project?</li>
+<li>How much do households spend on fabric, tailoring and RMG per year?</li>
+<li>When would a consumer pay more for a Nigerian-made fabric?</li>
+<li>How has inflation changed your choice between new, used and tailored clothing?</li>
+<li>What makes a hotel or hospital switch linen suppliers?</li>
+</ol></div>
+</div>
+<h3>Must-validate before capital</h3>
+<ul>
+<li>Effective landed cost of informal imports versus compliant imports (drives Models B, C and D).</li>
+<li>Institutional payment cycles and contract volumes (drives Model A working capital).</li>
+<li>Hotel and modern-trade linen demand (Model E volume).</li>
+<li>Site power cost achievable with gas or solar in Ogun (all manufacturing models).</li>
+<li>Legal title and liabilities of any idle mill considered.</li>
+</ul>
+<div class="sowhat"><b class="tag">So what?</b><p>A 10–12 week field programme costing roughly US$250–400k removes most of the uncertainty flagged in this report and is cheap relative to a US$20m+ commitment.</p></div>
+</section>
+
+<section class="part" id="p19">
+<span class="partno">Volume V · Part 19</span>
+<h2 class="part">Strategic conclusions and investment recommendations</h2>
+<div class="answers">
+<div><span class="i">1</span><div><b class="q">How big is Nigeria's real textile market?</b>≈US$6.5bn (₦8.7tn) at retail in 2026, range US$5.5–8.0bn; ≈US$3.4bn at border value. Official imports capture only about a fifth of supply.</div></div>
+<div><span class="i">2</span><div><b class="q">Which categories generate the largest sales?</b>New RMG (≈US$1.95bn), polyester woven fabrics (≈US$0.7bn), home textiles (≈US$0.65bn), Ankara prints (≈US$0.6bn) and lace (≈US$0.42bn).</div></div>
+<div><span class="i">3</span><div><b class="q">Which products depend most on imports?</b>Lace, chiffon, satin, synthetic filament fabrics, suiting, denim and knits (≈98–100%); Ankara (≈90%); RMG (≈88%).</div></div>
+<div><span class="i">4</span><div><b class="q">Largest operational domestic manufacturers?</b>Sunflag in Lagos; ATM and Tofa in Kano at low output; Chellco in Kaduna (scope to verify). UNTL is the largest asset but idle.</div></div>
+<div><span class="i">5</span><div><b class="q">Which factories have unused capacity?</b>Effectively all: UNTL Kaduna (idle since 2022), Nichemtex Ikorodu (uncertain), Kano mills (skeletal), and sector-wide utilisation of ≈53%.</div></div>
+<div><span class="i">6</span><div><b class="q">Which locations dominate?</b>Trading: Lagos Island, Kantin Kwari (Kano), Onitsha. Garment making: Aba and Lagos. Future manufacturing: the Lagos–Ogun corridor.</div></div>
+<div><span class="i">7</span><div><b class="q">Strongest demand growth?</b>Nonwovens and hygiene (≈7% real), knits and RMG (5–6%), home textiles and uniforms (≈5%).</div></div>
+<div><span class="i">8</span><div><b class="q">Can domestic manufacturing compete?</b>In cut-and-sew for institutional, bulky and quick-turn goods, yes. In printing, only with tighter enforcement. In spinning and weaving, not on today's energy and fibre costs.</div></div>
+<div><span class="i">9</span><div><b class="q">Greatest gross-profit potential?</b>Lace and premium prints in trading (cumulative importer-to-retail margin up to ≈45%), uniforms and home textiles in manufacturing (≈27% gross margin).</div></div>
+<div><span class="i">10</span><div><b class="q">Strongest risk-adjusted returns?</b>Distribution platform (IRR ≈31%), home textiles (≈27%), uniforms (≈21%).</div></div>
+<div><span class="i">11</span><div><b class="q">Most realistic route to a large business?</b>Distribution first, then conversion plants, then printing, with an ECOWAS-origin sourcing leg; integrate upstream only as volume and policy justify.</div></div>
+<div><span class="i">12</span><div><b class="q">What to avoid?</b>Greenfield cotton spinning and weaving, integrated mega-mills, large brownfield rehabilitations with inherited liabilities, and any case that depends on an import ban or a new subsidy fund.</div></div>
+</div>
+<h3>Prioritised recommendation</h3>
+<div class="tbl"><table><thead><tr><th>Horizon</th><th>Action</th><th>Capital</th><th>Trigger to proceed</th></tr></thead><tbody>
+<tr><td>Immediate (0–12 months)</td><td>Field diligence; launch import-and-wholesale platform with private-label mid-tier prints, uniform fabric and shirting; open Lagos, Kano and Onitsha depots</td><td>US$4m capex + up to US$15m working capital</td><td>Field data confirm margins ≥15% at importer level</td></tr>
+<tr><td>Medium term (12–36 months)</td><td>Build home-textile plant and uniform/workwear plant in Ogun; sign Benin GDIZ sourcing agreement</td><td>US$15m</td><td>≥US$15m of signed institutional and hospitality contracts</td></tr>
+<tr><td>Long term (36–60 months)</td><td>Print, dye and finishing house; optional minority stake in regional spinning or weaving</td><td>US$22–45m</td><td>Effective landed import price ≥₦1,600/m for mid-tier prints; captive power ≤US$0.12/kWh</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="part" id="risks">
+<span class="partno">Risks</span>
+<h2 class="part">Risks and mitigation</h2>
+<div class="tbl"><table><thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Naira depreciation spike</td><td>Medium</td><td>High</td><td>Price lists in US$-indexed bands; 60–90 day inventory cycles; local-currency debt for local costs</td></tr>
+<tr><td>Informal imports undercut prices</td><td>High</td><td>High</td><td>Focus on channels that require compliant invoices (institutions, modern retail, hotels); brand and quality consistency</td></tr>
+<tr><td>Receivables from government buyers</td><td>High</td><td>Medium</td><td>Advance-payment or letter-of-credit terms; private-sector mix ≥50%</td></tr>
+<tr><td>Sudden policy change (ban, levy)</td><td>Medium</td><td>Medium</td><td>Dual sourcing including ECOWAS origin; local conversion capacity as a hedge</td></tr>
+<tr><td>Power cost and reliability</td><td>High</td><td>Medium</td><td>Ogun site with gas; solar plus storage; energy-light stages first</td></tr>
+<tr><td>Security incidents</td><td>Medium</td><td>Medium</td><td>Southern manufacturing; insured logistics; northern hub run with local partners</td></tr>
+<tr><td>Design piracy</td><td>High</td><td>Medium</td><td>Trademark the brand and selvedge print; fast design cycles; digital short runs</td></tr>
+<tr><td>Mega-project oversupply (Ogun)</td><td>Low–medium</td><td>Medium</td><td>Position as supplier or customer; monitor build progress</td></tr>
+<tr><td>Partner governance (JV)</td><td>Medium</td><td>High</td><td>Majority control or staged equity; independent audit</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="part" id="appx">
+<span class="partno">Appendices</span>
+<h2 class="part">Assumptions and calculations</h2>
+<h3>A1. Exchange rates used</h3>
+<div class="tbl"><table class="num"><thead><tr><th>Year</th><th>₦/US$ used</th><th>Basis</th></tr></thead><tbody>
+<tr><td>2020</td><td>381</td><td>Approx. annual average official rate (estimate)</td></tr>
+<tr><td>2021</td><td>410</td><td>Approx. annual average official rate (estimate)</td></tr>
+<tr><td>2022</td><td>425</td><td>Approx. annual average official rate (estimate)</td></tr>
+<tr><td>2023</td><td>645</td><td>Blend of pre- and post-June 2023 unification (estimate)</td></tr>
+<tr><td>2024</td><td>1,480</td><td>Approx. annual average NFEM (estimate)</td></tr>
+<tr><td>2025</td><td>1,500</td><td>Approx. annual average NFEM (estimate)</td></tr>
+<tr><td>H1 2026</td><td>1,380</td><td>Approx. average (estimate)</td></tr>
+<tr><td>Spot for all 2026 analysis</td><td>1,332</td><td>NFEM close 12 Oct 2026 ≈₦1,333 <a class="src" href="#s29">[S29]</a></td></tr>
+</tbody></table></div>
+<h3>A2. Physical conversions</h3>
+<ul>
+<li>1 yard = 0.9144 m; 6 yards = 5.49 m; typical width 112–120 cm (44–46 in).</li>
+<li>Average print fabric weight 110–140 g/m² → 150 g per linear metre → 6.7 m/kg.</li>
+<li>Average garment ≈0.22 kg ≈1.3 linear metres; used-clothing bales ≈45–55 kg.</li>
+<li>Lint = 35–38% of seed cotton by weight; 1 kg yarn ≈ 1.12 kg lint input.</li>
+</ul>
+<h3>A3. Financial model conventions</h3>
+<ul>
+<li>Constant 2026 US$, 10-year horizon, 18% discount rate, 30% tax, 10-year straight-line depreciation (land excluded), exit at 4.5× Year-10 EBITDA, working capital as % of revenue released at end.</li>
+<li>Sensitivities: price −10%; utilisation −15 points every year; raw material +10% (applied to 85% of variable cost); energy +50% on the energy share of cost; working capital +30%; FX shock modelled as a 6% real price loss (20% devaluation with 70% pass-through).</li>
+<li>Model files (Python) were used to generate every figure in Part 16; numbers are reproducible from the stated inputs.</li>
+</ul>
+<h3>A4. Data conflicts noted</h3>
+<ul>
+<li>Number of operating mills: "fewer than four" (NTMA, as reported <a class="src" href="#s58b">[S61]</a>) vs "about 20" (union <a class="src" href="#s4">[S4]</a>) vs "25" (2017 review <a class="src" href="#s53">[S53]</a>). Difference reflects definitions (integrated mills vs any textile unit).</li>
+<li>Cotton output 2025: 10kt (minister), 13kt (CTGDF), 15kt (industry) <a class="src" href="#s42">[S42]</a> <a class="src" href="#s9">[S9]</a>.</li>
+<li>Import bill: NBS ≈US$0.7bn vs government and industry statements of US$4–6bn <a class="src" href="#s2">[S2]</a> <a class="src" href="#s15">[S15]</a>; reconciled in Part 2 and Part 5.</li>
+<li>Peak mill count: 127, 150, 167, 175 or 180 depending on source and date <a class="src" href="#s16">[S16]</a> <a class="src" href="#s51">[S51]</a> <a class="src" href="#s4">[S4]</a>.</li>
+</ul>
+</section>
+
+<section class="part" id="biblio">
+<span class="partno">Source bibliography</span>
+<h2 class="part">Sources</h2>
+<p class="caption" style="margin:0 0 12px">Publication dates as shown by the source; data year in brackets where different. Accessed 17 Oct 2026.</p>
+<ol class="biblio">
+<li id="s1"><span class="bid">[S1]</span> BusinessDay — From cotton fields to retail shelves: why Nigeria must recover its textile legacy (2025). <a href="https://businessday.ng/features/article/from-cotton-fields-to-retail-shelves-why-nigeria-must-recover-its-textile-legacy/">businessday.ng</a></li>
+<li id="s2"><span class="bid">[S2]</span> MSME Africa — Nigeria's textile imports surge past ₦565bn in H1 2025 (2025) [H1 2025, NBS]. <a href="https://msmeafricaonline.com/?p=55042">msmeafricaonline.com</a></li>
+<li id="s3"><span class="bid">[S3]</span> Leadership — India pushes textile revival to slash Nigeria's ₦1.06trn import bill (2026) [2025, NBS]. <a href="https://leadership.ng/india-pushes-textile-revival-to-slash-nigerias-n1-06trn-import-bill/">leadership.ng</a></li>
+<li id="s4"><span class="bid">[S4]</span> AllAfrica / ThisDay — No respite for textile industry as domestic market shrinks further (7 Apr 2025) [2020–2024, NBS]. <a href="https://allafrica.com/stories/202504070087.html">allafrica.com</a></li>
+<li id="s5"><span class="bid">[S5]</span> Dataphyte — Sustaining the steeze with the growing value of Nigeria's textile imports (22 Apr 2025). <a href="https://dataphyte.com/issue/pocket-science/2025/04/sustaining-the-steeze-with-the-growing-value-of-nigerias-textile-imports">dataphyte.com</a></li>
+<li id="s6"><span class="bid">[S6]</span> BusinessDay — Nigeria's textile imports surge 47% amid local production push (2025) [9M 2025]. <a href="https://businessday.ng/real-sector/article/nigerias-textile-imports-surge-47-amid-local-production-push/">businessday.ng</a></li>
+<li id="s7"><span class="bid">[S7]</span> Global Textile Times — Nigeria's textile industry runs at just 53% capacity in 2025 (2026) [MAN data]. <a href="https://www.globaltextiletimes.com/news/nigerias-textile-industry-runs-at-just-53-capacity-in-2025-amid-growing-import-ban-debate/">globaltextiletimes.com</a></li>
+<li id="s7b"><span class="bid">[S7b]</span> MSME Africa — India backs Nigeria's textile revival drive (2026). <a href="https://msmeafricaonline.com/india-backs-nigerias-textile-revival-drive-with-technology-transfer-investment-skills-development/">msmeafricaonline.com</a></li>
+<li id="s8"><span class="bid">[S8]</span> The Guardian (Nigeria) — Cotton forum urges Tinubu to activate textile board, pause factory seizures (2026). <a href="https://guardian.ng/?p=2930853">guardian.ng</a></li>
+<li id="s9"><span class="bid">[S9]</span> Business A.M. — Cotton collapse leaves Nigeria's ₦1trn textile market to foreign producers (12 Oct 2026). <a href="https://businessamlive.com/?p=124356">businessamlive.com</a></li>
+<li id="s10"><span class="bid">[S10]</span> Economic Confidential — Nigeria spends ₦578.5bn on textile imports in H1 (2026) [H1 2026, NBS]. <a href="https://economicconfidential.com/nigeria-textile-imports/">economicconfidential.com</a></li>
+<li id="s11"><span class="bid">[S11]</span> AlchemPro — Nigerian govt delegation tours Kaduna textile sites (7 Aug 2025). <a href="https://www.alchempro.com/news/textile-news/nigerian-govt-delegation-tours-kaduna-textile-sites-to-revive-sector-304447-newsdetails.htm">alchempro.com</a></li>
+<li id="s12"><span class="bid">[S12]</span> BusinessDay — Bank of Industry moves to boost CTG sector; UNTL tour (2025). <a href="https://businessday.ng/?p=1007362">businessday.ng</a></li>
+<li id="s13"><span class="bid">[S13]</span> Renne, E. P. — United Nigerian Textiles Limited and Chinese–Nigerian textile-manufacturing collaboration in Kaduna, <em>Africa</em> (Cambridge University Press). <a href="https://www.cambridge.org/core/product/2E9E749A7F40F7C9A361B21B85DC452D">cambridge.org</a></li>
+<li id="s14"><span class="bid">[S14]</span> TheCable — Kaduna's 'only surviving textile company' sacks 300 employees (2020). <a href="https://www.thecable.ng/?p=509920">thecable.ng</a></li>
+<li id="s15"><span class="bid">[S15]</span> News Agency of Nigeria — FG to revive textile industry (Sunflag visit) (13 Feb 2025). <a href="https://nannews.ng/2025/02/13/fg-to-revive-textile-industry-promote-made-in-nigeria-goods-minister">nannews.ng</a></li>
+<li id="s16"><span class="bid">[S16]</span> Africa.com / The Africa Report — No fewer than 120 textile companies in Nigeria have ceased to exist. <a href="https://africa.com/no-fewer-than-120-textile-companies-in-nigeria-have-ceased-to-exist">africa.com</a></li>
+<li id="s17"><span class="bid">[S17]</span> BusinessDay — CTG Fund yet to yield results as Kano markets flooded with foreign textiles. <a href="https://clone.businessday.ng/?p=518205">businessday.ng</a></li>
+<li id="s18"><span class="bid">[S18]</span> Trading Economics / UN Comtrade — Nigeria imports from China of man-made staple fibres (2024 data, updated Mar 2026). <a href="https://tradingeconomics.com/nigeria/imports/china/manmade-staple-fibers">tradingeconomics.com</a></li>
+<li id="s19"><span class="bid">[S19]</span> New Telegraph — Nigeria emerges second largest importer of synthetic fabrics from China (2025) [GACC]. <a href="https://newtelegraphng.com/nigeria-emerges-second-largest-importer-of-synthetic-fabrics-from-china/">newtelegraphng.com</a></li>
+<li id="s20"><span class="bid">[S20]</span> New Telegraph — China earns ₦348bn from yarn export to Nigeria (2026). <a href="https://newtelegraphng.com/?p=1256556">newtelegraphng.com</a></li>
+<li id="s21"><span class="bid">[S21]</span> World Bank WITS — Nigeria textiles and clothing imports by country, 2023. <a href="https://wits.worldbank.org/CountryProfile/en/Country/NGA/Year/LTST/TradeFlow/Import/Partner/by-country/Product/50-63_TextCloth">wits.worldbank.org</a></li>
+<li id="s22"><span class="bid">[S22]</span> ThisDay — Ogun, Arise Integrated brainstorm on take-off of the biggest garment factory in Africa (26 Jul 2025). <a href="https://www.thisdaylive.com/2025/07/26/ogun-arise-integrated-brainstorm-on-take-off-of-the-biggest-garment-factory-in-africa/">thisdaylive.com</a></li>
+<li id="s23"><span class="bid">[S23]</span> ThisDay — Abiodun: Tinubu to construct world's biggest cotton factory in Ogun (1 May 2025). <a href="https://www.thisdaylive.com/2025/05/01/abiodun-tinubu-to-construct-worlds-biggest-cotton-factory-in-ogun/">thisdaylive.com</a></li>
+<li id="s24"><span class="bid">[S24]</span> Nairametrics — Afreximbank to recruit 250,000 workers for proposed $5bn textile facility (2025). <a href="https://nairametrics.com/?p=518150">nairametrics.com</a></li>
+<li id="s25"><span class="bid">[S25]</span> Templars — Federal Government reviews import prohibition regime (2015). <a href="https://www.templars-law.com/federal-government-reviews-import-prohibition-regime">templars-law.com</a></li>
+<li id="s26"><span class="bid">[S26]</span> The Guardian (Nigeria) — FG slams import ban on 17 items in new fiscal policy (Apr 2026). <a href="https://guardian.ng/featured/fg-slams-import-ban-on-17-items-in-new-fiscal-policy/">guardian.ng</a></li>
+<li id="s27"><span class="bid">[S27]</span> SCP Law — Nigeria's 2026 Fiscal Policy Measures: what tariff cuts mean for businesses (16 Aug 2026). <a href="https://resource.scp-law.com/2026/08/16/nigerias-2026-fiscal-policy-measures-what-tariff-cuts-mean-for-businesses/">scp-law.com</a></li>
+<li id="s28"><span class="bid">[S28]</span> MSME Africa — FG expands import ban list to 17 items under new fiscal policy measures (2026). <a href="https://msmeafricaonline.com/?p=67343">msmeafricaonline.com</a></li>
+<li id="s29"><span class="bid">[S29]</span> Nairametrics — Naira holds near ₦1,333 as FX turnover swings (13 Oct 2026). <a href="https://nairametrics.com/2026/10/13/naira-holds-near-n1333-as-fx-turnover-swings/">nairametrics.com</a></li>
+<li id="s30"><span class="bid">[S30]</span> Business Post — Nigeria's inflation rate moderates to 14.63% in September 2026 (Oct 2026). <a href="https://businesspost.ng/?p=215477">businesspost.ng</a></li>
+<li id="s31"><span class="bid">[S31]</span> Channels TV — MAN seeks stakeholder engagement over Senate's proposal to ban textile import (Jun 2026). <a href="https://www.channelstv.com/?p=1032563">channelstv.com</a></li>
+<li id="s32"><span class="bid">[S32]</span> ThisDay — Senate moves to ban textile imports, targets revival of local industry (9 Jun 2026). <a href="https://www.thisdaylive.com/2026/06/09/senate-moves-to-ban-textile-imports-targets-revival-of-local-industry/">thisdaylive.com</a></li>
+<li id="s33"><span class="bid">[S33]</span> AFP via Inquirer — Chinese dominance worries Nigeria's textile traders (Kantin Kwari). <a href="https://business.inquirer.net/?p=192463">inquirer.net</a></li>
+<li id="s34"><span class="bid">[S34]</span> Gazette Nigeria — Shettima visits Benin Republic, seeks investment for Nigeria's textile industry (24 Jul 2026). <a href="https://gazettengr.com/shettima-visits-benin-republic-seeks-investment-for-nigerias-textile-industry/">gazettengr.com</a></li>
+<li id="s35"><span class="bid">[S35]</span> Associated Press via Local10 — Benin bets on turning its cotton crop into clothes at home (13 Sep 2026). <a href="https://www.local10.com/news/world/2026/09/13/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home/">local10.com</a></li>
+<li id="s36"><span class="bid">[S36]</span> BusinessDay — Nigeria's electricity is cheaper than everywhere and that's the problem (2026). <a href="https://businessday.ng/opinion/article/nigerias-electricity-is-cheaper-than-everywhere-and-thats-the-problem/">businessday.ng</a></li>
+<li id="s37"><span class="bid">[S37]</span> GlobalPetrolPrices — Nigeria fuel and electricity prices (5 Oct 2026). <a href="https://www.globalpetrolprices.com/Nigeria/">globalpetrolprices.com</a></li>
+<li id="s38"><span class="bid">[S38]</span> TheCable — Adelabu: electricity produced with petrol generator now costs ₦750/kWh. <a href="https://thecable.ng/adelabu-electricity-produced-with-petrol-generator-now-costs-n750-kwh">thecable.ng</a></li>
+<li id="s39"><span class="bid">[S39]</span> ThisDay — Woman behind LKA Fabrics (Vlisco distributor) (22 Oct 2016). <a href="https://thisdaylive.com/index.php/2016/10/22/woman-behind-lka-fabrics">thisdaylive.com</a></li>
+<li id="s40"><span class="bid">[S40]</span> Business of Fashion — Vlisco, the African fashion titan from Holland. <a href="https://www.businessoffashion.com/briefings/global-markets/vlisco-the-african-fashion-titan-from-holland">businessoffashion.com</a></li>
+<li id="s41"><span class="bid">[S41]</span> Monocle — Material world (Vlisco). <a href="https://monocle.com/magazine/issues/107/material-world">monocle.com</a></li>
+<li id="s42"><span class="bid">[S42]</span> Abokiforex / news report — FG revives textile industry as cotton output crashes to 10,000 tonnes (2025). <a href="https://abokiforex.app/show-news/1710998-nigerias-textile-industry-set-massive-comeback-fg-targets-15-million-jobs">abokiforex.app</a></li>
+<li id="s43"><span class="bid">[S43]</span> Central Bank of Nigeria — Commodity Development Initiative: Cotton. <a href="https://www.cbn.gov.ng/DFD/agriculture/CDI/cotton.asp">cbn.gov.ng</a></li>
+<li id="s44"><span class="bid">[S44]</span> AlchemPro — CBN invests ₦120bn to revive Nigeria's textile sector (20 Oct 2020). <a href="https://www.alchempro.com/news/textile-news/cbn-invests-n120-bn-to-revive-nigeria-s-textile-sector-270466-newsdetails.htm">alchempro.com</a></li>
+<li id="s45"><span class="bid">[S45]</span> CropGPT — Nigeria's cotton industry struggles amid textile company shutdowns (2024–25 season). <a href="https://cropgpt.ai/nigerias-cotton-industry-struggles-amid-textile-company-shutdowns">cropgpt.ai</a></li>
+<li id="s46"><span class="bid">[S46]</span> Voice of Nigeria — Nigerian cotton farmers discouraged by shrinking market [ICAC 2016 data]. <a href="https://von.gov.ng/nigerian-cotton-farmers-discouraged-by-shrinking-market/">von.gov.ng</a></li>
+<li id="s47"><span class="bid">[S47]</span> BusinessDay — Second-hand clothing trade and the ban. <a href="https://businessday.ng/?p=526659">businessday.ng</a></li>
+<li id="s48"><span class="bid">[S48]</span> Jiji.ng — Ankara fabrics listings (accessed Oct 2026). <a href="https://jiji.ng/25-fabrics/ankara">jiji.ng</a></li>
+<li id="s49"><span class="bid">[S49]</span> Made-in-China.com — 6-yard polyester wax print fabric exporter listing (older listing). <a href="https://hianadavid.en.made-in-china.com/product/LFkQeSAOEihP/China-Wholesale-High-Quality-6-Yard-Nigeria-Wax-Print-Fabric-for-Party-Dress-Ankara-African-Polyester-Wax-Print-Fabric-Real-Wax.html">made-in-china.com</a></li>
+<li id="s50"><span class="bid">[S50]</span> Osondu-Oti, A. — China's market expansion and impacts on Nigeria's textile industry, ABUAD journal. <a href="https://journals.abuad.edu.ng/jcird/article/view/88">abuad.edu.ng</a></li>
+<li id="s51"><span class="bid">[S51]</span> Channels TV — Senate calls for total ban on importation of textile materials (Jun 2026). <a href="https://www.channelstv.com/?p=1032315">channelstv.com</a></li>
+<li id="s52"><span class="bid">[S52]</span> Bank of Industry — BOI reaffirms commitment to reviving Nigeria's CTG sector (Aug 2025). <a href="https://www.boi.ng/?p=20551">boi.ng</a></li>
+<li id="s53"><span class="bid">[S53]</span> CNN Style — Nigeria hyperlocal fashion (cites Oxford Business Group 2017 count). <a href="https://edition.cnn.com/style/article/nigeria-hyperlocal-fashion-sept-wcs">cnn.com</a></li>
+<li id="s54"><span class="bid">[S54]</span> Fibre2Fashion — Nigeria plans to end $6bn annual textile imports from China, India (14 Feb 2025). <a href="https://www.fibre2fashion.com/market-intelligence/texpro-textile-and-apparel/news-and-articles/newsdetails-300762">fibre2fashion.com</a></li>
+<li id="s55"><span class="bid">[S55]</span> Central Bank of Nigeria — Circular TED/FEM/GEN/FPC/01/009: Import prohibition list (30 Nov 2006). <a href="https://cbn.gov.ng/OUT/CIRCULARS/TED/2006/TED-FPC-01-009.PDF">cbn.gov.ng</a></li>
+<li id="s57x"><span class="bid">[S57]</span> BusinessDay — Top 5 West African producers of Ankara and their market dynamics. <a href="https://businessday.ng/life-arts/article/top-5-west-african-producers-of-ankara-and-their-market-dynamics/">businessday.ng</a></li>
+<li id="s53x"><span class="bid">[S58]</span> New Cloth Market — Nigeria's textile industry and major companies (2020). <a href="https://newclothmarketonline.com/?p=9065">newclothmarketonline.com</a></li>
+<li id="s59"><span class="bid">[S59]</span> Senate of Nigeria — Order paper, 2 June 2026 (motion on textile revival). <a href="https://placng.org/i/wp-content/uploads/2026/06/Senate-order-paper-Tuesday-2nd-June-2026.pdf">placng.org</a></li>
+<li id="s60"><span class="bid">[S60]</span> Fibre2Fashion — Textile: Nigeria's dying goldmine (NTMA smuggling estimate). <a href="https://www.fibre2fashion.com/industry-article/5973/textile-nigerias-dying-goldmine">fibre2fashion.com</a></li>
+<li id="s58b"><span class="bid">[S61]</span> New Cloth Market — Chinese imports threaten Nigeria's textile industry (NTMA statement). <a href="https://www.newclothmarketonline.com/?p=28481">newclothmarketonline.com</a></li>
+</ol>
+</section>
+<footer>Prepared 17 October 2026 as a desktop study. Figures marked as estimates are model outputs with stated confidence and must be validated through the field programme in Part 18 before investment decisions.</footer>
+</main>
+</div>
+
+</body></html>
