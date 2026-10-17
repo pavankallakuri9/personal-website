@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pavan Kumar Kallakuri — business leadership, sales excellence, learning and research. Explore the Sales Mastery School and research insights.">
-  <meta name="theme-color" content="#fbfaf7">
-  <title>Pavan Kumar Kallakuri | Leadership, Sales & Learning</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Pavan Kumar Kallakuri — executive profile, Sales Mastery School encompassing leadership and CEO decision simulations, and applied research." name="description"/>
+<meta content="#fbfaf7" name="theme-color"/>
+<title>Pavan Kumar Kallakuri | About · Sales Mastery School · Research</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     /* ===== "Morning Light" theme =====
        Base: warm ivory + white. Ink: deep indigo-navy.
-       Each learning head has its own colour:
-       Sales Mastery = Indigo · Research = Teal · Leadership = Coral */
+       Sales Mastery (including Leadership and CEO Lab) = Indigo · Research = Teal */
     :root{
       --bg:#fbfaf7; --paper:#ffffff; --ink:#1c2340; --muted:#5d6680; --line:#e8e6f0;
       --indigo:#4338ca; --indigo-2:#6366f1; --indigo-soft:#eef1ff;
@@ -170,82 +169,94 @@
     /* The Leadership Atlas already has a featured card above.
        Keep other Leadership resources automatic, but hide its duplicate tile. */
     .resource-grid[data-resource-section="Leadership"] > :has(a[href*="/leadership-atlas/"]){display:none!important}
-  </style>
-  <link rel="stylesheet" href="/resource-library.css">
-  <script src="/resource-library.js" defer></script>
+  
+/* Clean three-pillar site hierarchy — Leadership and CEO Lab belong to the academy. */
+.learning-paths{display:flex;gap:9px;flex-wrap:wrap;margin:27px 0 45px}
+.learning-paths span{background:#fff;border:1px solid #dcdff6;color:#35355d;font-size:.82rem;font-weight:700;padding:9px 14px;border-radius:999px}
+.academy-subheading{margin:32px 0 16px}
+.academy-subheading h3{font:800 clamp(1.35rem,2.4vw,1.85rem)/1.25 Manrope,sans-serif;letter-spacing:-.035em;margin:7px 0}
+.academy-subheading p{margin:0;color:var(--muted);font-size:.95rem}
+.academy-subheading.compact{margin-top:36px}
+.academy-divider{height:1px;background:#dfe2f2;margin:62px 0 44px}
+.academy .leadership-atlas-card{margin:25px 0 0;max-width:none}
+.decision-lab-note{margin:48px 0 22px;padding:25px 28px;border:1px solid #dfe2f2;border-left:4px solid var(--indigo);background:#fff;border-radius:15px;display:flex;align-items:flex-start;gap:20px;box-shadow:0 9px 25px rgba(43,47,110,.04)}
+.decision-icon{display:grid;place-items:center;flex:0 0 48px;height:48px;background:var(--indigo-soft);border-radius:12px;color:var(--indigo);font-size:1.45rem;font-weight:700}
+.decision-lab-note h3{margin:5px 0 7px;font:800 1.32rem Manrope,sans-serif}
+.decision-lab-note p{margin:0;color:var(--muted);font-size:.94rem;max-width:730px}
+.academy-end-link{margin-top:34px}
+.feature:nth-child(2){border-top-color:var(--indigo)}
+.feature:nth-child(3){border-top-color:var(--teal)}
+@media(max-width:700px){.learning-paths{margin-bottom:32px}.academy-divider{margin:45px 0 36px}.decision-lab-note{padding:21px;gap:12px}.decision-icon{flex-basis:38px;height:38px}}
+</style>
+<link href="/resource-library.css" rel="stylesheet"/>
+<script defer="" src="/resource-library.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Pavan Kumar Kallakuri, home"><span class="brand-mark">PK</span><span>Pavan Kallakuri<small>Learn · Apply · Lead</small></span></a>
-      <button class="nav-toggle" id="menuButton" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a><a href="#academy">Sales Mastery School</a><a href="#research">Research</a><a href="#leadership">Leadership</a><a href="/library.html">Knowledge Library</a><a href="#contact" class="nav-contact">Get in Touch</a>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="hero" id="home"><div class="container hero-grid"><div>
-      <div class="eyebrow">Business Leadership • Sales Excellence • Research</div>
-      <h1>Experience fuels <span>insight.</span><br>Learning drives <span>impact.</span></h1>
-      <p>I'm Pavan Kumar Kallakuri. I bring together years of business leadership, practical sales experience and a passion for continuous learning—to share ideas that help people and businesses grow.</p>
-      <div class="hero-actions"><a class="button button-primary" href="#academy">Explore Sales Mastery School <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#about">Discover My Journey</a></div>
-      <div class="hero-note"><span>Sales & Strategy</span><span>Leadership</span><span>Learning & Research</span></div>
-    </div><div class="hero-art" aria-label="Pavan Kallakuri executive portrait"><div class="art-frame"><div class="art-inner"><img class="profile-photo" src="pavan-profile.png" alt="Pavan Kumar Kallakuri, executive portrait" width="900" height="1125"></div></div><div class="floating-tag">Learn. Apply. Lead.<small>A space for ideas that work.</small></div></div></div></section>
+<header class="site-header">
+<nav aria-label="Main navigation" class="nav container">
+<a aria-label="Pavan Kumar Kallakuri, home" class="brand" href="#home"><span class="brand-mark">PK</span><span>Pavan Kallakuri<small>Learn · Apply · Lead</small></span></a>
+<button aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu" class="nav-toggle" id="menuButton" type="button">☰</button>
+<div class="nav-links" id="navLinks">
+<a href="#about">About</a><a href="#academy">Sales Mastery School</a><a href="#research">Research</a><a class="nav-contact" href="#contact">Get in Touch</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="container hero-grid"><div>
+<div class="eyebrow">Business Leadership • Sales Excellence • Research</div>
+<h1>Experience fuels <span>insight.</span><br/>Learning drives <span>impact.</span></h1>
+<p>I'm Pavan Kumar Kallakuri. I bring together years of business leadership, practical sales experience and a passion for continuous learning—to share ideas that help people and businesses grow.</p>
+<div class="hero-actions"><a class="button button-primary" href="#academy">Explore Sales Mastery School <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#about">Discover My Journey</a></div>
+<div class="hero-note"><span>Sales &amp; Strategy</span><span>Leadership</span><span>Learning &amp; Research</span></div>
+</div><div aria-label="Pavan Kallakuri executive portrait" class="hero-art"><div class="art-frame"><div class="art-inner"><img alt="Pavan Kumar Kallakuri, executive portrait" class="profile-photo" height="1125" src="pavan-profile.png" width="900"/></div></div><div class="floating-tag">Learn. Apply. Lead.<small>A space for ideas that work.</small></div></div></div></section>
+<div class="features"><div class="container feature-row"><div class="feature"><strong>About</strong><span>Experience, values and professional journey.</span></div><div class="feature"><strong>Sales Mastery School</strong><span>Sales, distribution, leadership and executive simulations.</span></div><div class="feature"><strong>Research</strong><span>Applied AI, industry research and business insights.</span></div></div></div>
+<section class="section" id="about"><div class="container about-grid"><div class="about-panel"><div class="eyebrow">My philosophy</div><blockquote>Knowledge creates opportunity. Application creates results.</blockquote><p>Ideas become valuable when they help someone move forward.</p></div><div class="about-copy"><div class="eyebrow">A little about me</div><h2 class="section-title">Leading businesses.<br/>Sharing what I learn.</h2><p>My professional journey spans automotive and mobility markets, sales, business operations, strategy and team leadership. Along the way, I've become increasingly interested in the intersection of practical business experience, technology and lifelong learning.</p><p>This website is my personal space to document lessons, explore research and make useful knowledge easier to access.</p><div class="tag-list"><span class="tag">Business Strategy</span><span class="tag">Sales Leadership</span><span class="tag">Channel Development</span><span class="tag">Automotive &amp; Mobility</span><span class="tag">Applied AI</span></div></div></div></section>
+<section class="section academy" id="academy">
+<div class="container">
+<div class="eyebrow">The learning academy · Learn · Apply · Lead</div>
+<h2 class="section-title">Sales Mastery School</h2>
+<p class="section-intro">Practical learning across selling, distribution, leadership and executive decision-making. Explore published interactive courses, frameworks and simulations as new resources are added to the school.</p>
+<div aria-label="Areas within Sales Mastery School" class="learning-paths">
+<span>Sales Excellence</span><span>Channel &amp; Distribution</span><span>Leadership &amp; Management</span><span>CEO Decision Lab</span>
+</div>
+<div class="academy-subheading">
+<div><div class="eyebrow">Published courses</div><h3>Sales &amp; distribution learning</h3><p>Published courses are collected automatically from the existing resource library.</p></div>
+</div>
+<div aria-live="polite" class="resource-grid" data-resource-section="Sales Mastery"></div>
+<div class="library-link-row"><a href="/library.html?category=Sales%20Mastery">Explore all sales and distribution resources ↗</a></div>
+<div class="academy-divider"></div>
+<div class="academy-subheading">
+<div><div class="eyebrow">Part of Sales Mastery School</div><h3>Leadership &amp; management</h3><p>Leadership frameworks, practical management ideas and experiential learning resources.</p></div>
+</div>
+<article aria-labelledby="atlas-title" class="leadership-atlas-card">
+<div class="leadership-atlas-copy">
+<div class="leadership-atlas-label"><span aria-hidden="true" class="leadership-atlas-symbol">La</span><span>Featured leadership resource</span></div>
+<h3 id="atlas-title">Executive Leadership <em>Learning Atlas</em></h3>
+<p>A visual, interactive guide to leadership frameworks, expert perspectives and practical tools — inspired by my executive leadership learning journey.</p>
+<div aria-label="Leadership Atlas at a glance" class="leadership-atlas-stats">
+<span><strong>8</strong> Modules</span>
+<span><strong>24</strong> Units</span>
+<span><strong>92</strong> Frameworks &amp; models</span>
+<span><strong>21</strong> Expert voices</span>
+</div>
+<a class="button leadership-atlas-button" href="/leadership-atlas/index.html">Explore Leadership Atlas <span aria-hidden="true">↗</span></a>
+</div>
+<div aria-hidden="true" class="leadership-atlas-decoration"><span class="leadership-atlas-orbit orbit-one"></span><span class="leadership-atlas-orbit orbit-two"></span><span class="leadership-atlas-center">Learn.<br/>Apply.<br/>Lead.</span></div>
+</article><div class="academy-subheading compact"><div><h3>More leadership resources</h3><p>Additional published Leadership resources appear here automatically.</p></div></div><div aria-live="polite" class="resource-grid" data-resource-section="Leadership"></div>
+<div class="library-link-row"><a href="/library.html?category=Leadership">Explore all leadership resources ↗</a></div>
+<div class="decision-lab-note"><div aria-hidden="true" class="decision-icon">↗</div><div><div class="eyebrow">Executive simulations</div><h3>CEO Decision Lab</h3><p>Strategic manufacturing and business decision simulations are part of Sales Mastery School. Published simulations will be accessible through the school’s learning library.</p></div></div>
+<div class="academy-end-link"><a class="button button-outline" href="/library.html">Browse the complete learning library ↗</a></div>
+</div>
+</section>
+<section class="section" id="research"><div class="container research-grid"><div><div class="eyebrow">Research &amp; insights</div><h2 class="section-title">Curiosity backed by exploration.</h2><p class="section-intro">From market dynamics to mobility and industry trends, I enjoy exploring questions, connecting data and presenting insights in accessible formats.</p><div class="eyebrow" style="margin-top:31px">Published research</div>
+<div aria-live="polite" class="resource-grid" data-resource-section="Research" style="grid-template-columns:1fr"></div>
+<div class="library-link-row"><a href="/library.html?category=Research">View all research resources ↗</a></div>
+</div><div aria-hidden="true" class="research-art"><div class="chart">▥ ↗</div><h3>Research. Reflect. Share.</h3><p>Making complex questions easier to understand.</p></div></div></section>
 
-    <div class="features"><div class="container feature-row"><div class="feature"><strong>Real-World Experience</strong><span>Insights shaped by hands-on business leadership.</span></div><div class="feature"><strong>Continuous Learning</strong><span>Turning ideas and frameworks into practical lessons.</span></div><div class="feature"><strong>Research & Exploration</strong><span>Sharing data-driven perspectives and new discoveries.</span></div></div></div>
-
-    <section class="section" id="about"><div class="container about-grid"><div class="about-panel"><div class="eyebrow">My philosophy</div><blockquote>Knowledge creates opportunity. Application creates results.</blockquote><p>Ideas become valuable when they help someone move forward.</p></div><div class="about-copy"><div class="eyebrow">A little about me</div><h2 class="section-title">Leading businesses.<br>Sharing what I learn.</h2><p>My professional journey spans automotive and mobility markets, sales, business operations, strategy and team leadership. Along the way, I've become increasingly interested in the intersection of practical business experience, technology and lifelong learning.</p><p>This website is my personal space to document lessons, explore research and make useful knowledge easier to access.</p><div class="tag-list"><span class="tag">Business Strategy</span><span class="tag">Sales Leadership</span><span class="tag">Channel Development</span><span class="tag">Automotive & Mobility</span><span class="tag">Applied AI</span></div></div></div></section>
-
-    <section class="section academy" id="academy">
-      <div class="container">
-        <div class="eyebrow">Learn · Apply · Lead</div>
-        <h2 class="section-title">Sales Mastery School</h2>
-        <p class="section-intro">Explore my published interactive courses, practical sales frameworks and management learning resources. New courses are added to this collection automatically as they are published.</p>
-        <div class="eyebrow" style="margin-top:38px;margin-bottom:16px">Published learning resources</div>
-        <div class="resource-grid" data-resource-section="Sales Mastery" aria-live="polite"></div>
-        <div class="library-link-row"><a href="/library.html?category=Sales%20Mastery">View all Sales Mastery resources ↗</a></div>
-      </div>
-    </section>
-
-    <section class="section" id="research"><div class="container research-grid"><div><div class="eyebrow">Research & insights</div><h2 class="section-title">Curiosity backed by exploration.</h2><p class="section-intro">From market dynamics to mobility and industry trends, I enjoy exploring questions, connecting data and presenting insights in accessible formats.</p><div class="eyebrow" style="margin-top:31px">Published research</div>
-    <div class="resource-grid" data-resource-section="Research" aria-live="polite" style="grid-template-columns:1fr"></div>
-    <div class="library-link-row"><a href="/library.html?category=Research">View all research resources ↗</a></div>
-    </div><div class="research-art" aria-hidden="true"><div class="chart">▥ ↗</div><h3>Research. Reflect. Share.</h3><p>Making complex questions easier to understand.</p></div></div></section>
-
-    <section class="section philosophy" id="leadership">
-      <div class="container">
-        <div class="eyebrow">Leadership &amp; lifelong learning</div>
-        <h2 class="section-title">The most useful lessons don't stop at the classroom door.</h2>
-        <p class="section-intro">I believe leadership grows through experience, reflection, diverse perspectives and the willingness to keep learning. Here I'll share ideas worth discussing and practices worth trying.</p>
-
-        <article class="leadership-atlas-card" aria-labelledby="atlas-title">
-          <div class="leadership-atlas-copy">
-            <div class="leadership-atlas-label"><span class="leadership-atlas-symbol" aria-hidden="true">La</span><span>Featured leadership resource</span></div>
-            <h3 id="atlas-title">Executive Leadership <em>Learning Atlas</em></h3>
-            <p>A visual, interactive guide to leadership frameworks, expert perspectives and practical tools — inspired by my executive leadership learning journey.</p>
-            <div class="leadership-atlas-stats" aria-label="Leadership Atlas at a glance">
-              <span><strong>8</strong> Modules</span>
-              <span><strong>24</strong> Units</span>
-              <span><strong>92</strong> Frameworks &amp; models</span>
-              <span><strong>21</strong> Expert voices</span>
-            </div>
-            <a class="button leadership-atlas-button" href="/leadership-atlas/index.html">Explore Leadership Atlas <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="leadership-atlas-decoration" aria-hidden="true"><span class="leadership-atlas-orbit orbit-one"></span><span class="leadership-atlas-orbit orbit-two"></span><span class="leadership-atlas-center">Learn.<br>Apply.<br>Lead.</span></div>
-        </article>
-
-        <div class="eyebrow" style="margin-top:40px">Leadership resource library</div>
-        <div class="resource-grid" data-resource-section="Leadership" aria-live="polite"></div>
-        <div class="library-link-row" style="margin-bottom:30px"><a href="/library.html?category=Leadership">View all leadership resources ↗</a></div>
-        <a class="button button-light" href="#contact">Connect &amp; Share Ideas <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact"><div class="container"><div class="contact-card"><div><div class="eyebrow">Let's connect</div><h2 class="section-title" style="margin-bottom:8px">Good ideas grow through conversation.</h2><p>Interested in sales, leadership, research or learning? Connect with me on LinkedIn.</p></div><a class="button button-primary" href="https://www.linkedin.com/in/pavankallakuri/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a></div></div></section>
-  </main>
-  <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Pavan Kumar Kallakuri. All rights reserved.</span><span>Built for learning, growth and meaningful impact.</span></div></footer>
-  <script>
+<section class="section contact" id="contact"><div class="container"><div class="contact-card"><div><div class="eyebrow">Let's connect</div><h2 class="section-title" style="margin-bottom:8px">Good ideas grow through conversation.</h2><p>Interested in sales, leadership, research or learning? Connect with me on LinkedIn.</p></div><a class="button button-primary" href="https://www.linkedin.com/in/pavankallakuri/" rel="noopener noreferrer" target="_blank">Find me on LinkedIn ↗</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Pavan Kumar Kallakuri. All rights reserved.</span><span>Built for learning, growth and meaningful impact.</span></div></footer>
+<script>
 
     // Preserve the featured Leadership Atlas card; remove only its duplicated
     // auto-generated tile. Other Leadership resources remain visible.
