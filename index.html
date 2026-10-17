@@ -135,22 +135,6 @@
     .philosophy .eyebrow{color:var(--coral)}
     .philosophy .library-link-row a{color:var(--coral)}
 
-    /* Leadership Atlas: the one vivid feature card */
-    .leadership-atlas-card{max-width:990px;margin:42px auto 32px;padding:36px 42px;background:linear-gradient(125deg,#4338ca 0%,#5b4bd8 45%,#e0664c 120%);border-radius:22px;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:25px;align-items:center;text-align:left;box-shadow:0 26px 60px rgba(67,56,202,.28);overflow:hidden}
-    .leadership-atlas-label{display:flex;align-items:center;gap:12px;color:#ffe2cf;font-size:.71rem;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
-    .leadership-atlas-symbol{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border-radius:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);font:italic 1.3rem Georgia,serif;letter-spacing:-.09em;text-transform:none;color:#fff}
-    .leadership-atlas-card h3{font:800 clamp(1.7rem,3.2vw,2.45rem)/1.2 Manrope,sans-serif;letter-spacing:-.045em;margin:22px 0 12px;color:#fff}
-    .leadership-atlas-card h3 em{font-family:Georgia,serif;font-weight:400;color:#ffd7bf}
-    .leadership-atlas-card p{color:#e6e8ff;margin:0 0 20px;max-width:630px;font-size:.99rem}
-    .leadership-atlas-stats{display:flex;flex-wrap:wrap;gap:10px 21px;margin:20px 0 24px;color:#e6e8ff;font-size:.82rem}
-    .leadership-atlas-stats span{display:inline-flex;gap:6px;align-items:baseline}
-    .leadership-atlas-stats strong{font:800 1.23rem Manrope,sans-serif;color:#fff}
-    .leadership-atlas-button{margin-top:3px;background:#fff;color:var(--indigo);box-shadow:0 10px 24px rgba(0,0,0,.15)}
-    .leadership-atlas-decoration{position:relative;min-height:240px;display:grid;place-items:center}
-    .leadership-atlas-orbit{position:absolute;width:195px;height:195px;border:1px solid rgba(255,255,255,.35);border-radius:50%;transform:rotate(-22deg) scaleX(.76)}
-    .leadership-atlas-orbit.orbit-two{transform:rotate(53deg) scaleX(.76)}
-    .leadership-atlas-center{position:relative;z-index:1;color:#fff;text-align:center;font:italic 2rem/1.3 Georgia,serif}
-
     /* Contact */
     .contact{background:var(--bg)}
     .contact-card{background:linear-gradient(120deg,var(--indigo-soft),#fff 50%,var(--coral-soft));border:1px solid var(--line);border-radius:22px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:28px;box-shadow:var(--shadow)}
@@ -163,12 +147,10 @@
     a:focus-visible,button:focus-visible{outline:3px solid var(--indigo-2);outline-offset:4px}
 
     @media(max-width:900px){.nav-links{gap:15px}.hero-grid{gap:24px}.about-grid,.research-grid{gap:35px}.card-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:700px){.container{width:min(100% - 32px,1120px)}.section{padding:65px 0}.nav{min-height:69px}.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:15px 22px 24px;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:12px 6px}.nav-links .nav-contact{text-align:center;margin-top:7px}.hero-grid{grid-template-columns:1fr;padding:70px 0 70px}.hero-art{min-height:320px}.art-frame{width:270px}.floating-tag{left:4%;bottom:0}.features{margin-top:-24px}.feature-row,.about-grid,.research-grid,.card-grid{grid-template-columns:1fr}.about-panel{padding:30px}.contact-card{padding:30px;flex-direction:column;align-items:flex-start}.section-intro{font-size:1rem}.leadership-atlas-card{grid-template-columns:1fr;padding:27px 24px;gap:0}.leadership-atlas-decoration{display:none}.leadership-atlas-stats{gap:8px 14px}.leadership-atlas-button{width:100%}}
+    @media(max-width:700px){.container{width:min(100% - 32px,1120px)}.section{padding:65px 0}.nav{min-height:69px}.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;padding:15px 22px 24px;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:12px 6px}.nav-links .nav-contact{text-align:center;margin-top:7px}.hero-grid{grid-template-columns:1fr;padding:70px 0 70px}.hero-art{min-height:320px}.art-frame{width:270px}.floating-tag{left:4%;bottom:0}.features{margin-top:-24px}.feature-row,.about-grid,.research-grid,.card-grid{grid-template-columns:1fr}.about-panel{padding:30px}.contact-card{padding:30px;flex-direction:column;align-items:flex-start}.section-intro{font-size:1rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
-    /* The Leadership Atlas already has a featured card above.
-       Keep other Leadership resources automatic, but hide its duplicate tile. */
-    .resource-grid[data-resource-section="Leadership"] > :has(a[href*="/leadership-atlas/"]){display:none!important}
+
   
 /* Clean three-pillar site hierarchy — Leadership and CEO Lab belong to the academy. */
 .learning-paths{display:flex;gap:9px;flex-wrap:wrap;margin:27px 0 45px}
@@ -178,7 +160,7 @@
 .academy-subheading p{margin:0;color:var(--muted);font-size:.95rem}
 .academy-subheading.compact{margin-top:36px}
 .academy-divider{height:1px;background:#dfe2f2;margin:62px 0 44px}
-.academy .leadership-atlas-card{margin:25px 0 0;max-width:none}
+
 .decision-lab-note{margin:48px 0 22px;padding:25px 28px;border:1px solid #dfe2f2;border-left:4px solid var(--indigo);background:#fff;border-radius:15px;display:flex;align-items:flex-start;gap:20px;box-shadow:0 9px 25px rgba(43,47,110,.04)}
 .decision-icon{display:grid;place-items:center;flex:0 0 48px;height:48px;background:var(--indigo-soft);border-radius:12px;color:var(--indigo);font-size:1.45rem;font-weight:700}
 .decision-lab-note h3{margin:5px 0 7px;font:800 1.32rem Manrope,sans-serif}
@@ -187,6 +169,15 @@
 .feature:nth-child(2){border-top-color:var(--indigo)}
 .feature:nth-child(3){border-top-color:var(--teal)}
 @media(max-width:700px){.learning-paths{margin-bottom:32px}.academy-divider{margin:45px 0 36px}.decision-lab-note{padding:21px;gap:12px}.decision-icon{flex-basis:38px;height:38px}}
+
+/* Leadership shares exactly the same visual grid as other published courses. */
+.atlas-resource-card{display:flex;flex-direction:column;min-height:255px;background:#fff;border:1px solid #d9deed;border-radius:13px;padding:21px;box-shadow:0 5px 22px rgba(28,35,64,.035)}
+.atlas-resource-card .atlas-category{font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:#96601f;margin:0 0 12px}
+.atlas-resource-card h3{font:800 1rem/1.45 Manrope,sans-serif;letter-spacing:-.025em;margin:0 0 10px;color:var(--ink)}
+.atlas-resource-card p{font-size:.86rem;color:var(--muted);margin:0 0 14px;line-height:1.65}
+.atlas-resource-card a{margin-top:auto;color:#97601d;font-size:.85rem;font-weight:800}
+.atlas-resource-card a:hover{text-decoration:underline}
+.resource-grid[data-resource-section="Leadership"][hidden]{display:none!important}
 </style>
 <link href="/resource-library.css" rel="stylesheet"/>
 <script defer="" src="/resource-library.js"></script>
@@ -220,32 +211,16 @@
 <span>Sales Excellence</span><span>Channel &amp; Distribution</span><span>Leadership &amp; Management</span><span>CEO Decision Lab</span>
 </div>
 <div class="academy-subheading">
-<div><div class="eyebrow">Published courses</div><h3>Sales &amp; distribution learning</h3><p>Published courses are collected automatically from the existing resource library.</p></div>
+  <div class="eyebrow">Published learning resources</div>
+  <h3>Explore all courses</h3>
+  <p>Sales, distribution and leadership resources appear together in one simple course library.</p>
 </div>
-<div aria-live="polite" class="resource-grid" data-resource-section="Sales Mastery"></div>
-<div class="library-link-row"><a href="/library.html?category=Sales%20Mastery">Explore all sales and distribution resources ↗</a></div>
-<div class="academy-divider"></div>
-<div class="academy-subheading">
-<div><div class="eyebrow">Part of Sales Mastery School</div><h3>Leadership &amp; management</h3><p>Leadership frameworks, practical management ideas and experiential learning resources.</p></div>
-</div>
-<article aria-labelledby="atlas-title" class="leadership-atlas-card">
-<div class="leadership-atlas-copy">
-<div class="leadership-atlas-label"><span aria-hidden="true" class="leadership-atlas-symbol">La</span><span>Featured leadership resource</span></div>
-<h3 id="atlas-title">Executive Leadership <em>Learning Atlas</em></h3>
-<p>A visual, interactive guide to leadership frameworks, expert perspectives and practical tools — inspired by my executive leadership learning journey.</p>
-<div aria-label="Leadership Atlas at a glance" class="leadership-atlas-stats">
-<span><strong>8</strong> Modules</span>
-<span><strong>24</strong> Units</span>
-<span><strong>92</strong> Frameworks &amp; models</span>
-<span><strong>21</strong> Expert voices</span>
-</div>
-<a class="button leadership-atlas-button" href="/leadership-atlas/index.html">Explore Leadership Atlas <span aria-hidden="true">↗</span></a>
-</div>
-<div aria-hidden="true" class="leadership-atlas-decoration"><span class="leadership-atlas-orbit orbit-one"></span><span class="leadership-atlas-orbit orbit-two"></span><span class="leadership-atlas-center">Learn.<br/>Apply.<br/>Lead.</span></div>
-</article><div class="academy-subheading compact"><div><h3>More leadership resources</h3><p>Additional published Leadership resources appear here automatically.</p></div></div><div aria-live="polite" class="resource-grid" data-resource-section="Leadership"></div>
-<div class="library-link-row"><a href="/library.html?category=Leadership">Explore all leadership resources ↗</a></div>
-<div class="decision-lab-note"><div aria-hidden="true" class="decision-icon">↗</div><div><div class="eyebrow">Executive simulations</div><h3>CEO Decision Lab</h3><p>Strategic manufacturing and business decision simulations are part of Sales Mastery School. Published simulations will be accessible through the school’s learning library.</p></div></div>
-<div class="academy-end-link"><a class="button button-outline" href="/library.html">Browse the complete learning library ↗</a></div>
+<div class="resource-grid" data-resource-section="Sales Mastery" aria-live="polite"></div>
+<!-- This source grid is filled by the existing library script. Its published
+     Leadership cards are merged into the Sales Mastery course grid below. -->
+<div class="resource-grid" data-resource-section="Leadership" aria-hidden="true" hidden></div>
+<div class="library-link-row"><a href="/library.html">Explore the complete learning library ↗</a></div>
+
 </div>
 </section>
 <section class="section" id="research"><div class="container research-grid"><div><div class="eyebrow">Research &amp; insights</div><h2 class="section-title">Curiosity backed by exploration.</h2><p class="section-intro">From market dynamics to mobility and industry trends, I enjoy exploring questions, connecting data and presenting insights in accessible formats.</p><div class="eyebrow" style="margin-top:31px">Published research</div>
@@ -258,17 +233,39 @@
 <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Pavan Kumar Kallakuri. All rights reserved.</span><span>Built for learning, growth and meaningful impact.</span></div></footer>
 <script>
 
-    // Preserve the featured Leadership Atlas card; remove only its duplicated
-    // auto-generated tile. Other Leadership resources remain visible.
-    const leadershipResources = document.querySelector('[data-resource-section="Leadership"]');
-    if (leadershipResources) {
-      const hideDuplicatedAtlas = () => {
-        for (const tile of [...leadershipResources.children]) {
-          if (tile.querySelector('a[href*="/leadership-atlas/"]')) tile.remove();
+    // Retain the existing automatic resource discovery. Merge published
+    // Leadership cards into the same grid as Sales Mastery courses.
+    const salesGrid = document.querySelector('[data-resource-section="Sales Mastery"]');
+    const leadershipGrid = document.querySelector('[data-resource-section="Leadership"]');
+    const atlasHref = '/leadership-atlas/index.html';
+    const atlasCard = document.createElement('article');
+    atlasCard.className = 'atlas-resource-card';
+    atlasCard.innerHTML = '<div class="atlas-category">Leadership</div>' +
+      '<h3>Executive Leadership Learning Atlas</h3>' +
+      '<p>Interactive leadership frameworks, management lessons and practical tools.</p>' +
+      '<a href="' + atlasHref + '">Explore resource ↗</a>';
+    function mergePublishedResources() {
+      if (!salesGrid || !leadershipGrid) return;
+      for (const card of [...leadershipGrid.children]) {
+        // The Atlas already has one standard-sized card, below.
+        if (card.querySelector('a[href*="leadership-atlas/"]')) {
+          card.remove();
+        } else {
+          salesGrid.appendChild(card);
         }
-      };
-      new MutationObserver(hideDuplicatedAtlas).observe(leadershipResources, {childList:true});
-      hideDuplicatedAtlas();
+      }
+      // Recover from an async library refresh that replaces grid contents.
+      if (!salesGrid.contains(atlasCard)) salesGrid.appendChild(atlasCard);
+      // Prevent duplicate Atlas cards if the auto-library also categorizes
+      // this course as Sales Mastery.
+      for (const card of [...salesGrid.children]) {
+        if (card !== atlasCard && card.querySelector('a[href*="leadership-atlas/"]')) card.remove();
+      }
+    }
+    if (salesGrid && leadershipGrid) {
+      new MutationObserver(mergePublishedResources).observe(leadershipGrid, {childList:true});
+      new MutationObserver(mergePublishedResources).observe(salesGrid, {childList:true});
+      mergePublishedResources();
     }
     document.getElementById('year').textContent = new Date().getFullYear();
     const menuButton = document.getElementById('menuButton');
