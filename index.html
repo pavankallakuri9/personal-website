@@ -152,32 +152,17 @@
 
 
   
-/* Clean three-pillar site hierarchy — Leadership and CEO Lab belong to the academy. */
-.learning-paths{display:flex;gap:9px;flex-wrap:wrap;margin:27px 0 45px}
-.learning-paths span{background:#fff;border:1px solid #dcdff6;color:#35355d;font-size:.82rem;font-weight:700;padding:9px 14px;border-radius:999px}
-.academy-subheading{margin:32px 0 16px}
-.academy-subheading h3{font:800 clamp(1.35rem,2.4vw,1.85rem)/1.25 Manrope,sans-serif;letter-spacing:-.035em;margin:7px 0}
-.academy-subheading p{margin:0;color:var(--muted);font-size:.95rem}
-.academy-subheading.compact{margin-top:36px}
-.academy-divider{height:1px;background:#dfe2f2;margin:62px 0 44px}
-
-.decision-lab-note{margin:48px 0 22px;padding:25px 28px;border:1px solid #dfe2f2;border-left:4px solid var(--indigo);background:#fff;border-radius:15px;display:flex;align-items:flex-start;gap:20px;box-shadow:0 9px 25px rgba(43,47,110,.04)}
-.decision-icon{display:grid;place-items:center;flex:0 0 48px;height:48px;background:var(--indigo-soft);border-radius:12px;color:var(--indigo);font-size:1.45rem;font-weight:700}
-.decision-lab-note h3{margin:5px 0 7px;font:800 1.32rem Manrope,sans-serif}
-.decision-lab-note p{margin:0;color:var(--muted);font-size:.94rem;max-width:730px}
-.academy-end-link{margin-top:34px}
+/* One clean learning library. New courses are discovered via resource-catalog.json. */
+.academy-heading{margin:32px 0 22px}
+.academy-heading h3{font:800 clamp(1.35rem,2.4vw,1.85rem)/1.25 Manrope,sans-serif;letter-spacing:-.035em;margin:7px 0}
+.academy-heading p{margin:0;color:var(--muted);font-size:.95rem}
+.academy-library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;align-items:stretch}
+.academy-library .resource-card{height:100%;min-height:245px}
+.academy-library .library-empty{grid-column:1/-1;color:var(--muted)}
 .feature:nth-child(2){border-top-color:var(--indigo)}
 .feature:nth-child(3){border-top-color:var(--teal)}
-@media(max-width:700px){.learning-paths{margin-bottom:32px}.academy-divider{margin:45px 0 36px}.decision-lab-note{padding:21px;gap:12px}.decision-icon{flex-basis:38px;height:38px}}
-
-/* Leadership shares exactly the same visual grid as other published courses. */
-.atlas-resource-card{display:flex;flex-direction:column;min-height:255px;background:#fff;border:1px solid #d9deed;border-radius:13px;padding:21px;box-shadow:0 5px 22px rgba(28,35,64,.035)}
-.atlas-resource-card .atlas-category{font-size:.7rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:#96601f;margin:0 0 12px}
-.atlas-resource-card h3{font:800 1rem/1.45 Manrope,sans-serif;letter-spacing:-.025em;margin:0 0 10px;color:var(--ink)}
-.atlas-resource-card p{font-size:.86rem;color:var(--muted);margin:0 0 14px;line-height:1.65}
-.atlas-resource-card a{margin-top:auto;color:#97601d;font-size:.85rem;font-weight:800}
-.atlas-resource-card a:hover{text-decoration:underline}
-.resource-grid[data-resource-section="Leadership"][hidden]{display:none!important}
+@media(max-width:900px){.academy-library{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.academy-library{grid-template-columns:1fr}}
 </style>
 <link href="/resource-library.css" rel="stylesheet"/>
 <script defer="" src="/resource-library.js"></script>
@@ -207,18 +192,14 @@
 <div class="eyebrow">The learning academy · Learn · Apply · Lead</div>
 <h2 class="section-title">Sales Mastery School</h2>
 <p class="section-intro">Practical learning across selling, distribution, leadership and executive decision-making. Explore published interactive courses, frameworks and simulations as new resources are added to the school.</p>
-<div aria-label="Areas within Sales Mastery School" class="learning-paths">
-<span>Sales Excellence</span><span>Channel &amp; Distribution</span><span>Leadership &amp; Management</span><span>CEO Decision Lab</span>
+<div class="academy-heading">
+  <div class="eyebrow">Published courses</div>
+  <h3>Explore the learning library</h3>
+  <p>All published sales, distribution, leadership and executive decision-making courses in one place. Newly published courses appear automatically.</p>
 </div>
-<div class="academy-subheading">
-  <div class="eyebrow">Published learning resources</div>
-  <h3>Explore all courses</h3>
-  <p>Sales, distribution and leadership resources appear together in one simple course library.</p>
+<div class="academy-library" id="academyLibrary" aria-live="polite">
+  <p class="library-empty">Loading published courses…</p>
 </div>
-<div class="resource-grid" data-resource-section="Sales Mastery" aria-live="polite"></div>
-<!-- This source grid is filled by the existing library script. Its published
-     Leadership cards are merged into the Sales Mastery course grid below. -->
-<div class="resource-grid" data-resource-section="Leadership" aria-hidden="true" hidden></div>
 <div class="library-link-row"><a href="/library.html">Explore the complete learning library ↗</a></div>
 
 </div>
@@ -233,40 +214,75 @@
 <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Pavan Kumar Kallakuri. All rights reserved.</span><span>Built for learning, growth and meaningful impact.</span></div></footer>
 <script>
 
-    // Retain the existing automatic resource discovery. Merge published
-    // Leadership cards into the same grid as Sales Mastery courses.
-    const salesGrid = document.querySelector('[data-resource-section="Sales Mastery"]');
-    const leadershipGrid = document.querySelector('[data-resource-section="Leadership"]');
-    const atlasHref = '/leadership-atlas/index.html';
-    const atlasCard = document.createElement('article');
-    atlasCard.className = 'atlas-resource-card';
-    atlasCard.innerHTML = '<div class="atlas-category">Leadership</div>' +
-      '<h3>Executive Leadership Learning Atlas</h3>' +
-      '<p>Interactive leadership frameworks, management lessons and practical tools.</p>' +
-      '<a href="' + atlasHref + '">Explore resource ↗</a>';
-    function mergePublishedResources() {
-      if (!salesGrid || !leadershipGrid) return;
-      for (const card of [...leadershipGrid.children]) {
-        // The Atlas already has one standard-sized card, below.
-        if (card.querySelector('a[href*="leadership-atlas/"]')) {
-          card.remove();
-        } else {
-          salesGrid.appendChild(card);
+    // This homepage renders its own combined academy grid, with no 3-card limit.
+    // The existing /resource-library.js still manages the Research section and
+    // /library.html; this code does not change that system.
+    (async function loadAcademyCourses(){
+      const grid = document.getElementById('academyLibrary');
+      if (!grid) return;
+      try {
+        const response = await fetch('/resource-catalog.json', {cache:'no-cache'});
+        if (!response.ok) throw new Error('Could not load resource catalog');
+        const catalog = await response.json();
+        const entries = Array.isArray(catalog.resources) ? catalog.resources : [];
+        const courses = entries.filter(item =>
+          ['Sales Mastery','Leadership'].includes(item.category) && item.url
+        );
+        // Dedupe exact files and duplicate Atlas listings. Prefer the real
+        // leadership-atlas/index.html entry over alternate Atlas titles.
+        const seenFiles = new Set();
+        let atlasSeen = false;
+        const unique = [];
+        const atlasFirst = [...courses].sort((a,b) =>
+          Number(/\/leadership-atlas\/index\.html(?:$|[?#])/i.test(b.url)) -
+          Number(/\/leadership-atlas\/index\.html(?:$|[?#])/i.test(a.url))
+        );
+        for (const course of atlasFirst) {
+          const file = decodeURIComponent(new URL(course.url,location.origin).pathname).toLowerCase();
+          if (seenFiles.has(file)) continue;
+          const atlas = file.includes('/leadership-atlas/') ||
+            /(?:executive\s+)?leadership\s+(?:learning\s+)?atlas/i.test(course.title || '');
+          if (atlas && atlasSeen) continue;
+          seenFiles.add(file);
+          if (atlas) atlasSeen = true;
+          unique.push(course);
         }
+        // Keep a natural alphabetical listing instead of separating Leadership.
+        unique.sort((a,b) => (a.title || '').localeCompare(b.title || ''));
+        grid.replaceChildren();
+        if (!unique.length) {
+          const msg = document.createElement('p');
+          msg.className = 'library-empty';
+          msg.textContent = 'Published courses will appear here as they are added.';
+          grid.append(msg);
+          return;
+        }
+        for (const course of unique) {
+          const card = document.createElement('a');
+          card.className = 'resource-card';
+          card.href = course.url;
+          const category = document.createElement('span');
+          category.className = 'resource-category';
+          category.textContent = course.category === 'Leadership' ? 'Leadership' : 'Sales Mastery';
+          const title = document.createElement('strong');
+          title.textContent = course.title || 'Learning resource';
+          const description = document.createElement('span');
+          description.className = 'resource-description';
+          description.textContent = course.description || 'Explore this learning resource.';
+          const action = document.createElement('span');
+          action.className = 'resource-action';
+          action.textContent = 'Explore resource ↗';
+          card.append(category,title,description,action);
+          grid.append(card);
+        }
+      } catch (error) {
+        console.error('Academy catalog:',error);
+        const message = document.createElement('p');
+        message.className = 'library-empty';
+        message.textContent = 'Courses are temporarily unavailable. Please refresh the page.';
+        grid.replaceChildren(message);
       }
-      // Recover from an async library refresh that replaces grid contents.
-      if (!salesGrid.contains(atlasCard)) salesGrid.appendChild(atlasCard);
-      // Prevent duplicate Atlas cards if the auto-library also categorizes
-      // this course as Sales Mastery.
-      for (const card of [...salesGrid.children]) {
-        if (card !== atlasCard && card.querySelector('a[href*="leadership-atlas/"]')) card.remove();
-      }
-    }
-    if (salesGrid && leadershipGrid) {
-      new MutationObserver(mergePublishedResources).observe(leadershipGrid, {childList:true});
-      new MutationObserver(mergePublishedResources).observe(salesGrid, {childList:true});
-      mergePublishedResources();
-    }
+    })();
     document.getElementById('year').textContent = new Date().getFullYear();
     const menuButton = document.getElementById('menuButton');
     const navLinks = document.getElementById('navLinks');
